@@ -1,9 +1,9 @@
 package org.ldemetrios.typst4k.rt
 
-import org.ldemetrios.typst4k.orm.TLength
-import org.ldemetrios.typst4k.orm.TRatio
-import org.ldemetrios.typst4k.orm.TRelative
-import org.ldemetrios.typst4k.orm.TRelativeImpl
+import org.ldemetrios.typst4k.model.*
+import org.ldemetrios.typst4k.model.*
+import org.ldemetrios.typst4k.model.*
+import org.ldemetrios.typst4k.model.*
 
 val TRelative.abs: TLength?    get() = when(this) {
     is TRatio -> 0.pt

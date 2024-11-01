@@ -1,6 +1,6 @@
 package org.ldemetrios.typst4k.rt
 
-import org.ldemetrios.typst4k.orm.*
+import org.ldemetrios.typst4k.model.*
 
 fun selector(it: TLabel) = TLabelSelector(it)
 fun selector(it: TRegex) = TRegexSelector(it)

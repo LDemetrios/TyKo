@@ -1,0 +1,328 @@
+type none()
+type auto()
+
+primitive bool = Boolean
+primitive int = Long
+primitive float = Double
+//primitive str = String
+abstract type str()
+primitive array<out E> = interface List<E> // @Serializable(with = CustomListSerializer::class)
+primitive dictionary<out V> = interface Map<String, V> // @Serializable(with = CustomMapSerializer::class)
+
+sprepr type arguments<out A>(
+	req positional: array<A>,
+	req named: dictionary<A>,
+)
+
+abstract type content(
+    label: label,
+)
+
+sprepr type angle(
+    req deg: float,
+)
+
+abstract type relative() // spser ?
+
+sprepr type length(
+    pt: float,
+    em: float,
+) -> relative
+
+sprepr type ratio(
+    req value: float,
+) -> relative
+
+sprepr type relative-impl(
+	rel: ratio,
+	abs: length,
+) -> relative
+
+sprepr type fraction(
+    req value: float,
+)
+
+abstract type color()
+
+abstract type gradient()
+
+class luma(
+    req pos lightness: int|ratio,
+    pos alpha: ratio,
+) -> color
+
+class oklab(
+    req pos lightness: ratio,
+    req pos a: float|ratio,
+    req pos b: float|ratio,
+    pos alpha: ratio,
+) -> color
+
+class oklch(
+    req pos lightness: ratio,
+	req pos chroma: float|ratio,
+	req pos hue: angle,
+	pos alpha: ratio,
+) -> color
+
+class color.linear-rgb(
+	req pos red: int|ratio,
+	req pos green: int|ratio,
+	req pos blue: int|ratio,
+	pos alpha: int|ratio,
+) -> color
+
+class rgb(
+	req pos hex: str,
+) -> color
+
+class cmyk(
+	req pos cyan: ratio,
+	req pos magenta: ratio,
+	req pos yellow: ratio,
+	req pos key: ratio,
+) -> color
+
+class color.hsl(
+	req pos hue: angle,
+	req pos saturation: int|ratio,
+	req pos lightness: int|ratio,
+	pos alpha: int|ratio,
+) -> color
+
+class color.hsv(
+	req pos hue: angle,
+	req pos saturation: int|ratio,
+	req pos value: int|ratio,
+	pos alpha: int|ratio,
+) -> color
+
+class gradient.linear(
+	req pos var stops: color|array<color|ratio>,
+//	space: str,
+	relative: auto|str,
+	dir: direction,
+	angle: angle,
+) -> gradient
+
+class gradient.radial(
+	req pos var stops: color|array<color|ratio>,
+//	space: str,
+	relative: auto|str,
+	center: array<ratio>,
+	radius: ratio,
+	focal-center: auto|array<ratio>,
+	focal-radius: ratio,
+) -> gradient
+
+class gradient.conic(
+	req pos var stops: color|array<color|ratio>,
+	angle: angle,
+//	space: str,
+	relative: auto|str,
+	center: array<ratio>,
+) -> gradient
+
+sprepr type pattern(
+    size: auto|array<*>,
+    spacing: array<length>,
+    relative: auto|str,
+    pos body: content,
+)
+
+type version(
+    req pos value: array<int>
+)
+
+type label(
+	req pos name: str
+) -> selector
+
+type datetime(
+	year: int,
+	month: int,
+	day: int,
+	hour: int,
+	minute: int,
+	second: int,
+)
+
+type duration(
+	seconds: int,
+	minutes: int,
+	hours: int,
+	days: int,
+	weeks: int,
+)
+
+abstract sprepr type type(
+	req pos name: str
+)
+
+abstract sprepr type module(
+	req pos name: str
+)
+
+type plugin()
+
+sprepr type alignment(
+	horizontal : str,
+	vertical : str,
+)
+
+sprepr type direction(
+	req value: str,
+)
+
+type regex(
+	pos regex: str,
+) -> selector
+
+sprepr element math.align-point() -> content
+
+type stroke(
+	paint: auto|color|gradient|pattern,
+	thickness: auto|length,
+	cap: auto|str,
+	join: auto|str,
+	dash: none|auto|str|array<*>|dictionary<*>,
+	miter-limit: auto|float,
+)
+
+abstract type selector()
+
+sprepr class element-selector( // Not with dot -- it will be handled differently
+    req element: str,
+    where: dictionary<*>,
+) -> selector
+
+sprepr class label-selector(
+    req label: label,
+) -> selector
+
+sprepr class regex-selector(
+    req regex: regex,
+) -> selector
+
+sprepr class before-selector(
+    req selector: selector,
+    req end: selector,
+    inclusive: bool,
+) -> selector
+
+sprepr class after-selector(
+    req selector: selector,
+    req start: selector,
+    inclusive: bool,
+) -> selector
+
+sprepr class and-selector(
+    req variants: array<selector>
+) -> selector
+
+sprepr class or-selector(
+    req variants: array<selector>
+) -> selector
+
+type counter(
+    req pos value: counter-key,
+)
+
+abstract hidden type counter-key()
+
+hidden class page-counter-key() -> counter-key
+
+hidden class selector-counter-key(
+    req selector: selector
+) -> counter-key
+
+hidden class str-counter-key(
+    req str: str,
+) -> counter-key
+
+type state(
+    req pos key: str,
+    pos init: *,
+)
+
+type decimal(
+    pos value: str,
+)
+
+sprepr element styled(
+    req styles: array<style>,
+    req child: content,
+) -> content
+
+sprepr element sequence(
+	req children: array<content>,
+) -> content
+
+sprepr element space() -> content
+
+sprepr abstract type function()
+
+sprepr type closure(
+    req pos node: str,
+    req pos defaults: array<*>,
+    req pos captured: dictionary<*>,
+    req pos num-pos-params: int,
+) -> function
+
+sprepr type with(
+    req pos origin: function,
+    req pos args: arguments<*>,
+) -> function
+
+sprepr type native-func(
+    req pos name: str,
+) -> function
+
+abstract type style()
+
+// sprepr type set-rule(
+//     req pos elem: str,
+//     req pos id: str,
+//     req pos value: *,
+// ) -> style
+
+sprepr type show-rule(
+    req pos selector: selector|none,
+    req pos transform: content|function|array<style>,
+) -> style
+
+sprepr element context(
+    req func: function,
+) -> content
+
+sprepr element style-deprecated(
+    req func: function,
+) -> content
+
+element layout( // deprecated?
+    req func: function,
+) -> content
+
+element locate( // deprecated?
+    req func: function,
+) -> content
+
+sprepr spser element counter.update(
+    req key: str|label|selector|location|function,
+    req update: int|array<int>|function,
+) -> content
+
+sprepr spser element counter.step(
+    req key: str|label|selector|location|function,
+    req level: int,
+) -> content
+
+sprepr spser element counter.step(
+    req key: str|label|selector|location|function,
+    req level: int,
+) -> content
+
+sprepr element state.update(
+    req key: str,
+    req update: *,
+) -> content

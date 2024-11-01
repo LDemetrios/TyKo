@@ -1,10 +1,13 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-package org.ldemetrios.typst4k.orm
+package org.ldemetrios.typst4k.model
 
-data class TCustomContent(val function: String, val positional: List<TValue>, val named: Map<String, TValue>) :
-    TContent {
-    override fun repr(): String {
+import org.ldemetrios.typst4k.rt.repr
+import org.ldemetrios.typst4k.rt.t
+
+data class TCustomContent(val function: String, val positional: List<TValue>, val named: Map<String, TValue>, override val label: TLabel? = null) :
+    TContent() {
+    override fun format(): String {
         val sb = StringBuilder(function)
         sb.append("(")
         for (arg in positional) {
@@ -21,4 +24,6 @@ data class TCustomContent(val function: String, val positional: List<TValue>, va
         sb.append(")")
         return sb.toString()
     }
+
+    override fun func() = TElement(function)
 }

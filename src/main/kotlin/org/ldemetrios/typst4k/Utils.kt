@@ -41,3 +41,7 @@ inline fun <T, R> withTmp(func: (Path) -> T, finish: (T, List<String>) -> R): R 
         tmp.toFile().deleteRecursively()
     }
 }
+
+fun main() {
+    println("hello")
+}

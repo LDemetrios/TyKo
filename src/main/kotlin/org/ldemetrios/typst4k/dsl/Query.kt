@@ -1,7 +1,8 @@
 package org.ldemetrios.typst4k.dsl
 
-import org.ldemetrios.typst4k.orm.*
+import org.ldemetrios.typst4k.model.*
 import org.ldemetrios.typst4k.rt.deserializeTypstValue
+import org.ldemetrios.typst4k.rt.repr
 import org.ldemetrios.typst4k.withTmp
 import java.io.Reader
 import java.io.StringReader

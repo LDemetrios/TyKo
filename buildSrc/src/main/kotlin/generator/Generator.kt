@@ -96,7 +96,7 @@ fun generateGeneric(
                 classDefinitions.values.filter { it.type.isGeneric() }.map { it.type }
 
 
-    val allUnions = mutableSetOf<Set<String>>() // List of names of concrete types for each Union
+    val allUnions = mutableSetOf<Set<String>>() // List of names of concrete others for each Union
 
     fun addUnions(type: Type) {
         when (type) {
@@ -404,7 +404,7 @@ fun <T> Set<T>.isSubsetOf(other: Set<T>) = this.all { it in other }
 fun main() {
     val rootDir = "/home/ldemetrios/Workspace/libraries/Typst4k"
     kindaMain(
-        datamodelFile = "datamodel",
+        datamodelFile = "types",
         prefix = "T",
         commonInterfaceName = "TValue",
         location = "src/main/kotlin/org/ldemetrios/typst4k/orm",

@@ -69,7 +69,7 @@ data class ClassDefinition(val type: ConcreteType, val classElements: List<Class
 }
 
 fun main() {
-    val was = File("/home/ldemetrios/Workspace/Typst4k/datamodel").readText()
+    val was = File("/home/ldemetrios/Workspace/Typst4k/others").readText()
     val clean = CommentsRemover(was).also { it.parse() }.result.toString()
     val parser = ModelParser(clean)
     parser.parse()

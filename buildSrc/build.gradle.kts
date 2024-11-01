@@ -24,6 +24,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     implementation(kotlin("reflect"))
     implementation("org.json:json:20230618")
+    implementation("com.github.h0tk3y.betterParse:better-parse:0.4.4")
     implementation("org.ldemetrios:common-utils:+")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 }
@@ -49,6 +50,12 @@ tasks.test {
 
 kotlin {
     jvmToolchain(17)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        freeCompilerArgs += "-Xcontext-receivers" // Enable context receivers
+    }
 }
 
 //

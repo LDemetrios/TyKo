@@ -1,6 +1,7 @@
 package org.ldemetrios.typst4k.rt
 
-import org.ldemetrios.typst4k.orm.*
+import org.ldemetrios.typst4k.model.*
+import org.ldemetrios.typst4k.model.TDictionaryImpl
 import java.awt.Color
 
 val Float.t get() = TFloat(this.toDouble())
@@ -29,7 +30,7 @@ val TFloat.rad get() = TAngle((this.value * (180 / Math.PI)).t)
 val TInt.rad get() = TAngle(((this.value * (180 / Math.PI))).t)
 
 fun <E : TValue> TArray(vararg elements: E) = TArray(elements.toList())
-fun <E : TValue> TDictionary(vararg pairs: Pair<String, E>) = TDictionary(pairs.toMap())
+fun <E : TValue> TDictionary(vararg pairs: Pair<String, E>) = TDictionaryImpl(pairs.toMap())
 fun TSequence(vararg elements: TContent) = TSequence(TArray(elements.toList()))
 
 // Temporary, later replace with code generation

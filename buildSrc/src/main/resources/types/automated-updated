@@ -1,0 +1,801 @@
+element bibliography(
+	req pos path: str|array<str>,
+	set title: none|auto|content,
+	set full: bool,
+	set style: bibliography-style,
+) -> content
+
+element list(
+	set tight: bool,
+	set marker: content|array<content>|function,
+	set indent: length,
+	set body-indent: length,
+	set spacing: auto|length,
+	req pos var children: list.item,
+) -> content
+
+element list.item(
+	req pos body: content,
+) -> content
+
+element cite(
+	req pos key: label,
+	set supplement: none|content,
+	set form: none|cite-form,
+	set style: auto|cite-style,
+) -> content
+
+element document(
+	set title: none|content,
+	set author: str|array<str>,
+	set keywords: str|array<str>,
+	set date: none|auto|datetime,
+) -> content
+
+element emph(
+	req pos body: content,
+) -> content
+
+element figure(
+	req pos body: content,
+	set placement: none|auto|alignment,
+	set scope: figure-scope,
+	set caption: none|content,
+	set kind: auto|str|function,
+	set supplement: none|auto|content|function,
+	set numbering: none|str|function,
+	set gap: length,
+	set outlined: bool,
+) -> content
+
+element figure.caption(
+	set position: alignment,
+	set separator: auto|content,
+	req pos body: content,
+) -> content
+
+element footnote(
+	set numbering: str|function,
+	req pos body: label|content,
+) -> content
+
+element footnote.entry(
+	req pos note: content,
+	set separator: content,
+	set clearance: length,
+	set gap: length,
+	set indent: length,
+) -> content
+
+element heading(
+	set level: auto|int,
+	set depth: int,
+	set offset: int,
+	set numbering: none|str|function,
+	set supplement: none|auto|content|function,
+	set outlined: bool,
+	set bookmarked: auto|bool,
+	set hanging-indent: auto|length,
+	req pos body: content,
+) -> content
+
+element link(
+	req pos dest: str|label|location|position,
+	req pos body: content,
+) -> content
+
+synthetic position(
+    req page: int,
+    req x: length,
+    req y: length,
+)
+
+synthetic point(
+    req x: length,
+    req y: length,
+)
+
+element enum(
+	set tight: bool,
+	set numbering: str|function,
+	set start: int,
+	set full: bool,
+	set indent: length,
+	set body-indent: length,
+	set spacing: auto|length,
+	set number-align: alignment,
+	req pos var children: enum.item|array<enum.item>,
+) -> content
+
+element enum.item(
+	pos set number: none|int,
+	req pos body: content,
+) -> content
+
+element outline(
+	set title: none|auto|content,
+	set target: label|selector|location|function,
+	set depth: none|int,
+	set indent: none|auto|bool|relative|function,
+	set fill: none|content,
+) -> content
+
+element outline.entry(
+	req pos level: int,
+	req pos element: content,
+	req pos body: content,
+	req pos fill: none|content,
+	req pos page: content,
+) -> content
+
+element par(
+	set leading: length,
+	set spacing: length,
+	set justify: bool,
+	set linebreaks: auto|par-linebreaks,
+	set first-line-indent: length,
+	set hanging-indent: length,
+	req pos body: content,
+) -> content
+
+element par.line(
+	set numbering: none|str|function,
+	set number-align: auto|alignment,
+	set number-margin: alignment,
+	set number-clearance: auto|length,
+	set numbering-scope: par.line-numbering-scope,
+) -> content
+
+element parbreak(
+) -> content
+
+element quote(
+	set block: bool,
+	set quotes: auto|bool,
+	set attribution: none|label|content,
+	req pos body: content,
+) -> content
+
+element ref(
+	req pos target: label,
+	set supplement: none|auto|content|function,
+) -> content
+
+element strong(
+	set delta: int,
+	req pos body: content,
+) -> content
+
+element table(
+	set columns: auto|int|relative|fraction|array<auto|int|relative|fraction>,
+	set rows: auto|int|relative|fraction|array<*>,
+	set gutter: auto|int|relative|fraction|array<*>,
+	set column-gutter: auto|int|relative|fraction|array<*>,
+	set row-gutter: auto|int|relative|fraction|array<*>,
+	set fill: none|color|gradient|array<*>|pattern|function,
+	set align: auto|array<alignment>|alignment|function,
+	set stroke: none|length|color|gradient|array<*>|stroke|pattern|dictionary<*>|function,
+	set inset: relative|fraction|array<relative|fraction>|sides<relative|fraction>|function,
+	req pos var children: content,
+) -> content
+
+synthetic sides<out S>(
+    top: S,
+    right: S,
+    bottom: S,
+    left: S,
+    // x: The horizontal stroke.
+    // y: The vertical stroke.
+    // rest: The stroke on all sides except those for which the dictionary explicitly sets a size.
+)
+
+element table.cell(
+	req pos body: content,
+	set x: auto|int,
+	set y: auto|int,
+	set colspan: int,
+	set rowspan: int,
+	set fill: none|auto|color|gradient|pattern,
+	set align: auto|alignment,
+	set inset: auto|relative|sides<auto|relative>,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set breakable: auto|bool,
+) -> content
+
+element table.hline(
+	set y: auto|int,
+	set start: int,
+	set end: none|int,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set position: alignment,
+) -> content
+
+element table.vline(
+	set x: auto|int,
+	set start: int,
+	set end: none|int,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set position: alignment,
+) -> content
+
+element table.header(
+	set repeat: bool,
+	req pos var children: content,
+) -> content
+
+element table.footer(
+	set repeat: bool,
+	req pos var children: content,
+) -> content
+
+element terms(
+	set tight: bool,
+	set separator: content,
+	set indent: length,
+	set hanging-indent: length,
+	set spacing: auto|length,
+	req pos var children: content|array<*>,
+) -> content
+
+element terms.item(
+	req pos term: content,
+	req pos description: content,
+) -> content
+
+element highlight(
+	set fill: none|color|gradient|pattern,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set top-edge: length|highlight-top-edge,
+	set bottom-edge: length|highlight-bottom-edge,
+	set extent: length,
+	set radius: relative|dictionary<*>,
+	req pos body: content,
+) -> content
+
+element linebreak(
+	set justify: bool,
+) -> content
+
+element overline(
+	set stroke: auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set offset: auto|length,
+	set extent: length,
+	set evade: bool,
+	set background: bool,
+	req pos body: content,
+) -> content
+
+element raw(
+	req pos text: str,
+	set block: bool,
+	set lang: none|str,
+	set align: alignment,
+	set syntaxes: str|array<str>,
+	set theme: none|auto|str,
+	set tab-size: int,
+) -> content
+
+element raw.line(
+	req pos number: int,
+	req pos count: int,
+	req pos text: str,
+	req pos body: content,
+) -> content
+
+element smallcaps(
+	req pos body: content,
+) -> content
+
+element smartquote(
+	set double: bool,
+	set enabled: bool,
+	set alternative: bool,
+	set quotes: auto|str|array<*>|dictionary<*>, // worth creating a synthetic
+) -> content
+
+element strike(
+	set stroke: auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set offset: auto|length,
+	set extent: length,
+	set background: bool,
+	req pos body: content,
+) -> content
+
+element sub(
+	set typographic: bool,
+	set baseline: length,
+	set size: length,
+	req pos body: content,
+) -> content
+
+element super(
+	set typographic: bool,
+	set baseline: length,
+	set size: length,
+	req pos body: content,
+) -> content
+
+element text(
+	set font: str|array<str>,
+	set fallback: bool,
+	set style: text-style,
+	set weight: int|text-weight,
+	set stretch: ratio,
+	set size: length,
+	set fill: color|gradient|pattern,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set tracking: length,
+	set spacing: relative,
+	set cjk-latin-spacing: none|auto,
+	set baseline: length,
+	set overhang: bool,
+	set top-edge: length|text-top-edge,
+	set bottom-edge: length|text-bottom-edge,
+	set lang: str,
+	set region: none|str,
+	set script: auto|str,
+	set dir: auto|direction,
+	set hyphenate: auto|bool,
+	set costs: dictionary<*>,
+	set kerning: bool,
+	set alternates: bool,
+	set stylistic-set: none|int|array<int>,
+	set ligatures: bool,
+	set discretionary-ligatures: bool,
+	set historical-ligatures: bool,
+	set number-type: auto|text-number-type,
+	set number-width: auto|text-number-width,
+	set slashed-zero: bool,
+	set fractions: bool,
+	set features: array<str>|dictionary<int>,
+	pos body: content, // They aren't required
+	pos text: str, // They aren't required
+) -> content
+
+element underline(
+	set stroke: auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set offset: auto|length,
+	set extent: length,
+	set evade: bool,
+	set background: bool,
+	req pos body: content,
+) -> content
+
+element math.accent(
+	req pos base: content,
+	req pos accent: str|content,
+	set size: auto|relative,
+) -> content
+
+element math.binom(
+	req pos upper: content,
+	req pos var lower: content,
+) -> content
+
+element math.cancel(
+	req pos body: content,
+	set length: relative,
+	set inverted: bool,
+	set cross: bool,
+	set angle: auto|angle|function,
+	set stroke: length|color|gradient|stroke|pattern|dictionary<*>,
+) -> content
+
+element math.cases(
+	set delim: none|str|array<none|str>, // Worth adding a synthetic?
+	set reverse: bool,
+	set gap: relative,
+	req pos var children: content,
+) -> content
+
+element math.class(
+	req pos class: math.class-class,
+	req pos body: content,
+) -> content
+
+element math.equation(
+	set block: bool,
+	set numbering: none|str|function,
+	set number-align: alignment,
+	set supplement: none|auto|content|function,
+	req pos body: content,
+) -> content
+
+element math.frac(
+	req pos num: content,
+	req pos denom: content,
+) -> content
+
+element math.mat(
+	set delim: none|str|array<none|str>, // worth as well
+	set align: alignment,
+	set augment: none|int|dictionary<*>,
+	set gap: relative,
+	set row-gap: relative,
+	set column-gap: relative,
+	req pos var rows: array<content>,
+) -> content
+
+element math.primes(
+	req pos count: int,
+) -> content
+
+element math.stretch(
+	req pos body: content,
+	set size: auto|relative,
+) -> content
+
+element math.op(
+	req pos text: content,
+	set limits: bool,
+) -> content
+
+element math.vec(
+	set delim: none|str|array<none|str>,
+	set align: alignment,
+	set gap: relative,
+	req pos var children: content,
+) -> content
+
+element align(
+	pos set alignment: alignment,
+	req pos body: content,
+) -> content
+
+element block(
+	set width: auto|relative,
+	set height: auto|relative|fraction,
+	set breakable: bool,
+	set fill: none|color|gradient|pattern,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set radius: relative|dictionary<*>,
+	set inset: relative|dictionary<*>,
+	set outset: relative|dictionary<*>,
+	set spacing: relative|fraction,
+	set above: auto|relative|fraction,
+	set below: auto|relative|fraction,
+	set clip: bool,
+	set sticky: bool,
+	pos set body: none|content,
+) -> content
+
+element box(
+	set width: auto|relative|fraction,
+	set height: auto|relative,
+	set baseline: relative,
+	set fill: none|color|gradient|pattern,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set radius: relative|dictionary<*>,
+	set inset: relative|dictionary<*>,
+	set outset: relative|dictionary<*>,
+	set clip: bool,
+	pos set body: none|content,
+) -> content
+
+element colbreak(
+	set weak: bool,
+) -> content
+
+element columns(
+	pos set count: int,
+	set gutter: relative,
+	req pos body: content,
+) -> content
+
+element grid(
+	set columns: auto|int|relative|fraction|array<*>,
+	set rows: auto|int|relative|fraction|array<*>,
+	set gutter: auto|int|relative|fraction|array<*>,
+	set column-gutter: auto|int|relative|fraction|array<*>,
+	set row-gutter: auto|int|relative|fraction|array<*>,
+	set fill: none|color|gradient|array<*>|pattern|function,
+	set align: auto|array<alignment>|alignment|function,
+	set stroke: none|length|color|gradient|array<*>|stroke|pattern|dictionary<*>|function,
+	set inset: relative|array<*>|dictionary<*>|function,
+	req pos var children: content,
+) -> content
+
+element grid.cell(
+	req pos body: content,
+	set x: auto|int,
+	set y: auto|int,
+	set colspan: int,
+	set rowspan: int,
+	set fill: none|auto|color|gradient|pattern,
+	set align: auto|alignment,
+	set inset: auto|relative|dictionary<*>,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set breakable: auto|bool,
+) -> content
+
+element grid.hline(
+	set y: auto|int,
+	set start: int,
+	set end: none|int,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set position: alignment,
+) -> content
+
+element grid.vline(
+	set x: auto|int,
+	set start: int,
+	set end: none|int,
+	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set position: alignment,
+) -> content
+
+element grid.header(
+	set repeat: bool,
+	req pos var children: content,
+) -> content
+
+element grid.footer(
+	set repeat: bool,
+	req pos var children: content,
+) -> content
+
+element hide(
+	req pos body: content,
+) -> content
+
+element move(
+	set dx: relative,
+	set dy: relative,
+	req pos body: content,
+) -> content
+
+element pad(
+	set left: relative,
+	set top: relative,
+	set right: relative,
+	set bottom: relative,
+	set x: relative,
+	set y: relative,
+	set rest: relative,
+	req pos body: content,
+) -> content
+
+element page(
+	set paper: page-paper,
+	set width: auto|length,
+	set height: auto|length,
+	set flipped: bool,
+	set margin: auto|relative|dictionary<*>,
+	set binding: auto|alignment,
+	set columns: int,
+	set fill: none|auto|color|gradient|pattern,
+	set numbering: none|str|function,
+	set number-align: alignment,
+	set header: none|auto|content,
+	set header-ascent: relative,
+	set footer: none|auto|content,
+	set footer-descent: relative,
+	set background: none|content,
+	set foreground: none|content,
+	req pos body: content,
+) -> content
+
+element pagebreak(
+	set weak: bool,
+	set to: none|pagebreak-to,
+) -> content
+
+element place(
+	pos set alignment: auto|alignment,
+	set scope: place-scope,
+	set float: bool,
+	set clearance: length,
+	set dx: relative,
+	set dy: relative,
+	req pos body: content,
+) -> content
+
+element place.flush(
+) -> content
+
+element repeat(
+	req pos body: content,
+	set gap: length,
+	set justify: bool,
+) -> content
+
+element rotate(
+	pos set angle: angle,
+	set origin: alignment,
+	set reflow: bool,
+	req pos body: content,
+) -> content
+
+element scale(
+	pos set factor: auto|length|ratio,
+	set x: auto|length|ratio,
+	set y: auto|length|ratio,
+	set origin: alignment,
+	set reflow: bool,
+	req pos body: content,
+) -> content
+
+element skew(
+	set ax: angle,
+	set ay: angle,
+	set origin: alignment,
+	set reflow: bool,
+	req pos body: content,
+) -> content
+
+element h(
+	req pos amount: relative|fraction,
+	set weak: bool,
+) -> content
+
+element v(
+	req pos amount: relative|fraction,
+	set weak: bool,
+) -> content
+
+element stack(
+	set dir: direction,
+	set spacing: none|relative|fraction,
+	req pos var children: relative|fraction|content,
+) -> content
+
+element circle(
+	set radius: length,
+	set width: auto|relative,
+	set height: auto|relative|fraction,
+	set fill: none|color|gradient|pattern,
+	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set inset: relative|dictionary<*>,
+	set outset: relative|dictionary<*>,
+	pos set body: none|content,
+) -> content
+
+element ellipse(
+	set width: auto|relative,
+	set height: auto|relative|fraction,
+	set fill: none|color|gradient|pattern,
+	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set inset: relative|dictionary<*>,
+	set outset: relative|dictionary<*>,
+	pos set body: none|content,
+) -> content
+
+element image(
+	req pos path: str,
+	set format: auto|image-format,
+	set width: auto|relative,
+	set height: auto|relative|fraction,
+	set alt: none|str,
+	set fit: image-fit,
+) -> content
+
+element line(
+	set start: array<*>,
+	set end: none|array<*>,
+	set length: relative,
+	set angle: angle,
+	set stroke: length|color|gradient|stroke|pattern|dictionary<*>,
+) -> content
+
+element path(
+	set fill: none|color|gradient|pattern,
+	set fill-rule: path-fill-rule,
+	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set closed: bool,
+	req pos var vertices: array<*>,
+) -> content
+
+element polygon(
+	set fill: none|color|gradient|pattern,
+	set fill-rule: polygon-fill-rule,
+	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	req pos var vertices: array<*>,
+) -> content
+
+element rect(
+	set width: auto|relative,
+	set height: auto|relative|fraction,
+	set fill: none|color|gradient|pattern,
+	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set radius: relative|dictionary<*>,
+	set inset: relative|dictionary<*>,
+	set outset: relative|dictionary<*>,
+	pos set body: none|content,
+) -> content
+
+element square(
+	set size: auto|length,
+	set width: auto|relative,
+	set height: auto|relative|fraction,
+	set fill: none|color|gradient|pattern,
+	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set radius: relative|dictionary<*>,
+	set inset: relative|dictionary<*>,
+	set outset: relative|dictionary<*>,
+	pos set body: none|content,
+) -> content
+
+element metadata<out D>(
+	req pos value: D,
+) -> content
+
+element math.attach(
+	req pos base: content,
+	set t: none|content,
+	set b: none|content,
+	set tl: none|content,
+	set bl: none|content,
+	set tr: none|content,
+	set br: none|content,
+) -> content
+
+element math.scripts(
+	req pos body: content,
+) -> content
+
+element math.limits(
+	req pos body: content,
+	set inline: bool,
+) -> content
+
+element math.lr(
+	set size: auto|relative,
+	req pos body: content,
+) -> content
+
+element math.mid(
+	req pos body: content,
+) -> content
+
+sprepr element math.root(
+	pos set index: none|content,
+	req pos radicand: content,
+) -> content
+
+element math.underline(
+	req pos body: content,
+) -> content
+
+element math.overline(
+	req pos body: content,
+) -> content
+
+element math.underbrace(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.overbrace(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.underbracket(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.overbracket(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.underparen(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.overparen(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.undershell(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content
+
+element math.overshell(
+	req pos body: content,
+	pos set annotation: none|content,
+) -> content

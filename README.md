@@ -3,7 +3,7 @@
 
 ## Quick introduction
 
-This library allows 
+This library allows
 
 - Manipulating Typst values:
     

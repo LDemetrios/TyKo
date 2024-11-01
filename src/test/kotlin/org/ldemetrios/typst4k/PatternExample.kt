@@ -1,6 +1,6 @@
 package org.ldemetrios.typst4k
 
-import org.ldemetrios.typst4k.orm.*
+import org.ldemetrios.typst4k.model.*
 import org.ldemetrios.typst4k.rt.*
 
 fun main() {

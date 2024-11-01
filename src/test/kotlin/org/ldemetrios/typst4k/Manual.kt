@@ -1,7 +1,7 @@
 package org.ldemetrios.typst4k
 
 import org.ldemetrios.typst4k.dsl.*
-import org.ldemetrios.typst4k.orm.*
+import org.ldemetrios.typst4k.model.*
 import org.ldemetrios.typst4k.rt.*
 import java.nio.file.Path
 
@@ -46,9 +46,9 @@ fun main() {
 //        val watchConfig : WatchConfig = WatchConfig(),
 //    }
 
-    val x = typst.query<TValue>(
-        Path.of("src/test/resources/org/ldemetrios/typst4k/test.typ"),
-        "<full>",
-    ).orElseThrow().value.single()
-    println(x.repr())
+//    val x = typst.query<TValue>(
+//        Path.of("src/test/resources/org/ldemetrios/typst4k/test.typ"),
+//        "<full>",
+//    ).orElseThrow().value.single()
+//    println(x.repr())
 }
