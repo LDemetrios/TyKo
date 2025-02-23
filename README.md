@@ -1,5 +1,7 @@
 # TyKo — Kotlin bindings for Typst
 
+# !! Warning !! This Readme is being actively updated. Please be careful following instructions, they may appear corrupted.
+
 ## Quick introduction
 
 This library allows
