@@ -1,13 +1,14 @@
 type none()
 type auto()
 
-primitive bool = Boolean
-primitive int = Long
-primitive float = Double
-//primitive str = String
-abstract type str()
-primitive array<out E> = interface List<E> // @Serializable(with = CustomListSerializer::class)
-primitive dictionary<out V> = interface Map<String, V> // @Serializable(with = CustomMapSerializer::class)
+primitive bool = kotlin.Boolean
+primitive int = kotlin.Long
+primitive float = kotlin.Double
+primitive str = kotlin.String
+primitive array<out E> = interface kotlin.collections.List<E>
+primitive dictionary<out V> = interface kotlin.collections.Map<String, V>
+primitive bytes = kotlin.ByteArray
+
 
 sprepr type arguments<out A>(
 	req positional: array<A>,
@@ -23,6 +24,7 @@ sprepr type angle(
 )
 
 abstract type relative() // spser ?
+abstract type alignment() // spser ?
 
 sprepr type length(
     pt: float,
@@ -42,9 +44,9 @@ sprepr type fraction(
     req value: float,
 )
 
-abstract type color()
+abstract sealed type color()
 
-abstract type gradient()
+abstract sealed type gradient()
 
 class luma(
     req pos lightness: int|ratio,
@@ -99,7 +101,7 @@ class color.hsv(
 
 class gradient.linear(
 	req pos var stops: color|array<color|ratio>,
-//	space: str,
+	space: *,
 	relative: auto|str,
 	dir: direction,
 	angle: angle,
@@ -107,7 +109,7 @@ class gradient.linear(
 
 class gradient.radial(
 	req pos var stops: color|array<color|ratio>,
-//	space: str,
+	space: *,
 	relative: auto|str,
 	center: array<ratio>,
 	radius: ratio,
@@ -118,16 +120,16 @@ class gradient.radial(
 class gradient.conic(
 	req pos var stops: color|array<color|ratio>,
 	angle: angle,
-//	space: str,
+	space: *,
 	relative: auto|str,
 	center: array<ratio>,
 ) -> gradient
 
-sprepr type pattern(
+type tiling(
+    req pos body: content,
     size: auto|array<*>,
     spacing: array<length>,
     relative: auto|str,
-    pos body: content,
 )
 
 type version(
@@ -159,16 +161,24 @@ abstract sprepr type type(
 	req pos name: str
 )
 
-abstract sprepr type module(
+sprepr type module(
 	req pos name: str
 )
 
 type plugin()
 
-sprepr type alignment(
-	horizontal : str,
-	vertical : str,
-)
+sum sprepr type alignment-impl(
+	horizontal : h-alignment,
+	vertical : v-alignment,
+) -> alignment
+
+literal enum h-alignment(
+    left, center, right, start, end,
+) -> alignment
+
+literal enum v-alignment(
+    top, horizon, bottom,
+) -> alignment
 
 sprepr type direction(
 	req value: str,
@@ -181,7 +191,7 @@ type regex(
 sprepr element math.align-point() -> content
 
 type stroke(
-	paint: auto|color|gradient|pattern,
+	paint: auto|color|gradient|tiling,
 	thickness: auto|length,
 	cap: auto|str,
 	join: auto|str,
@@ -217,28 +227,16 @@ sprepr class after-selector(
 ) -> selector
 
 sprepr class and-selector(
-    req variants: array<selector>
+    req var variants: selector
 ) -> selector
 
 sprepr class or-selector(
-    req variants: array<selector>
+    req var variants: selector
 ) -> selector
 
 type counter(
-    req pos value: counter-key,
+    req pos value: str|selector|location,
 )
-
-abstract hidden type counter-key()
-
-hidden class page-counter-key() -> counter-key
-
-hidden class selector-counter-key(
-    req selector: selector
-) -> counter-key
-
-hidden class str-counter-key(
-    req str: str,
-) -> counter-key
 
 type state(
     req pos key: str,
@@ -250,7 +248,7 @@ type decimal(
 )
 
 sprepr element styled(
-    req styles: array<style>,
+    req var styles: style,
     req child: content,
 ) -> content
 
@@ -264,9 +262,9 @@ sprepr abstract type function()
 
 sprepr type closure(
     req pos node: str,
-    req pos defaults: array<*>,
-    req pos captured: dictionary<*>,
-    req pos num-pos-params: int,
+    pos defaults: array<*>,
+    pos captured: dictionary<*>,
+    pos num-pos-params: int,
 ) -> function
 
 sprepr type with(
@@ -296,15 +294,15 @@ sprepr element context(
 ) -> content
 
 sprepr element style-deprecated(
-    req func: function,
+    req pos func: function,
 ) -> content
 
 element layout( // deprecated?
-    req func: function,
+    req pos func: function,
 ) -> content
 
 element locate( // deprecated?
-    req func: function,
+    req pos func: function,
 ) -> content
 
 sprepr spser element counter.update(
@@ -317,12 +315,85 @@ sprepr spser element counter.step(
     req level: int,
 ) -> content
 
-sprepr spser element counter.step(
-    req key: str|label|selector|location|function,
-    req level: int,
-) -> content
-
 sprepr element state.update(
     req key: str,
     req update: *,
+) -> content
+
+type symbol(
+    req pos var variants: str|array<str>,
+)
+
+element curve(
+    req pos var components: content,
+    set fill: none|color|gradient|tiling,
+    set fill-rule: fill-rule,
+    set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
+) -> content
+
+element curve.move(
+    req pos start: array<length>,
+    set relative: bool,
+) -> content
+
+element curve.line(
+    req pos end: array<length>,
+    set relative: bool,
+) -> content
+
+element curve.quad(
+    req pos control: none|auto|array<length>,
+    req pos end: array<length>,
+    set relative: bool,
+) -> content
+
+element curve.cubic(
+    req pos control-start: none|auto|array<length>,
+    req pos control-end: none|array<length>,
+    req pos end: array<length>,
+    set relative: bool,
+) -> content
+
+element curve.close(
+    set mode: curve-close-mode,
+) -> content
+
+enum curve-close-mode(
+    smooth,
+    straight,
+)
+
+element outline.entry(
+    req pos level: int,
+    req pos element: content,
+    set fill: none|content,
+) -> content
+
+element pdf.embed(
+    req pos path: str,
+    pos data: bytes,
+    set relationship: none|str,
+    set mime-type: none|str,
+    set description: none|str,
+) -> content
+
+enum pdf-embed-relationship(
+    source,
+    data,
+    alternative,
+    supplement,
+)
+
+element html.elem(
+    req pos tag: str,
+    set attrs: dictionary<*>,
+    pos body: none|content,
+) -> content
+
+element html.frame(
+    req pos body: content,
+) -> content
+
+sprepr element symbol-elem(
+    req pos text: str,
 ) -> content

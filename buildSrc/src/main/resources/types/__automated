@@ -109,13 +109,13 @@ element outline(
 	set fill: none|content,
 ) -> content
 
-element outline.entry(
-	req pos level: int,
-	req pos element: content,
-	req pos body: content,
-	req pos fill: none|content,
-	req pos page: content,
-) -> content
+// element outline.entry(
+// 	req pos level: int,
+// 	req pos element: content,
+// 	req pos body: content,
+// 	req pos fill: none|content,
+// 	req pos page: content,
+// ) -> content
 
 element par(
 	set leading: length,
@@ -658,7 +658,7 @@ element line(
 
 element path(
 	set fill: none|color|gradient|pattern,
-	set fill-rule: path-fill-rule,
+	set fill-rule: fill-rule,
 	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary,
 	set closed: bool,
 	req pos var vertices: array,
@@ -666,7 +666,7 @@ element path(
 
 element polygon(
 	set fill: none|color|gradient|pattern,
-	set fill-rule: polygon-fill-rule,
+	set fill-rule: fill-rule,
 	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary,
 	req pos var vertices: array,
 ) -> content

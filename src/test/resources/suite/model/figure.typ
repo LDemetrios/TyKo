@@ -77,6 +77,11 @@ We can clearly see that @fig-cylinder and
 
 #lines(15)
 
+--- figure-scope-without-placement ---
+// Error: 2-27 parent-scoped placement is only available for floating figures
+// Hint: 2-27 you can enable floating placement with `figure(placement: auto, ..)`
+#figure(scope: "parent")[]
+
 --- figure-theorem ---
 // Testing show rules with figures with a simple theorem display
 #show figure.where(kind: "theorem"): it => {
@@ -175,6 +180,17 @@ We can clearly see that @fig-cylinder and
   caption: [Underlined],
 )
 
+--- figure-par ---
+// Ensure that a figure body is considered a paragraph.
+#show par: highlight
+
+#figure[Text]
+
+#figure(
+  [Text],
+  caption: [A caption]
+)
+
 --- figure-and-caption-show ---
 // Test creating custom figure and custom caption
 
@@ -239,9 +255,9 @@ We can clearly see that @fig-cylinder and
     caption: [Пятиугольник],
 )
 
---- figure-localization-gr ---
+--- figure-localization-el ---
 // Test Greek
-#set text(lang: "gr")
+#set text(lang: "el")
 #figure(
   circle(),
   caption: [Ένας κύκλος.],
@@ -262,3 +278,25 @@ HI#footnote.entry(clearance: 2.5em)[There]
 // Test that figure caption separator is synthesized correctly.
 #show figure.caption: c => test(c.separator, [#": "])
 #figure(table[], caption: [This is a test caption])
+
+--- issue-4966-figure-float-counter ---
+#let c = context counter(figure.where(kind: image)).display()
+#set align(center)
+
+#c
+
+#figure(
+  square(c),
+  placement: bottom,
+  caption: [A]
+)
+
+#c
+
+#figure(
+  circle(c),
+  placement: top,
+  caption: [B]
+)
+
+#c

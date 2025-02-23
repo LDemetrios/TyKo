@@ -4,10 +4,12 @@
 #test(decimal("\u{2212}7654.321"), decimal("-7654.321"))
 #test(decimal({ 3.141592653 }), decimal("3.141592653000000012752934707"))
 #test(decimal({ -3.141592653 }), decimal("-3.141592653000000012752934707"))
+#test(decimal(decimal(3)), decimal("3.0"))
+#test(decimal(true), decimal("1.0"))
 #test(type(decimal(10)), decimal)
 
 --- decimal-constructor-bad-type ---
-// Error: 10-17 expected integer, float, or string, found type
+// Error: 10-17 expected decimal, integer, boolean, float, or string, found type
 #decimal(decimal)
 
 --- decimal-constructor-bad-value ---
@@ -30,6 +32,13 @@
 --- decimal-constructor-float-nan ---
 // Error: 10-19 float is not a valid decimal: float.nan
 #decimal(float.nan)
+
+--- decimal-scale-is-observable ---
+// Ensure equal decimals with different scales produce different strings.
+#let f1(x) = str(x)
+#let f2(x) = f1(x)
+#test(f2(decimal("3.140")), "3.140")
+#test(f2(decimal("3.14000")), "3.14000")
 
 --- decimal-repr ---
 // Test the `repr` function with decimals.

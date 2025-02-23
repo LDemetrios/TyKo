@@ -1,11 +1,11 @@
-import generator.kindaMain
+import newborn.main
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    kotlin("plugin.serialization") version "1.9.22"
+    kotlin("jvm") version "2.1.0"
     `java-library`
     `maven-publish`
+    kotlin("plugin.serialization") version "2.1.0"
 }
 
 group = "org.ldemetrios"
@@ -23,7 +23,10 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation(kotlin("reflect"))
     implementation(kotlin("reflect"))
     implementation("org.ldemetrios:common-utils:0.1.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
@@ -31,6 +34,8 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core:5.7.0")
     testImplementation("io.kotest:kotest-property:5.7.0")
     implementation("com.jetbrains.intellij.java:java-decompiler-engine:242.22855.74")
+    implementation("net.java.dev.jna:jna:5.13.0")
+
 }
 
 tasks.test {
@@ -71,13 +76,13 @@ tasks.register("generateModel") {
     group = "build"
     description = "Generates model classes from others"
     doLast {
-//        kindaMain(
+        main(
 //            datamodelFile = "$rootDir/others",
 //            prefix = "T",
 //            commonInterfaceName = "TValue",
-//            location = "$rootDir/src/main/kotlin/org/ldemetrios/typst4k/orm",
-//            packageName = "org.ldemetrios.typst4k.orm",
-//        )
+//            location = "$rootDir/src/main/kotlin/org/ldemetrios/tyko/orm",
+//            packageName = "org.ldemetrios.tyko.orm",
+        )
     }
 }
 

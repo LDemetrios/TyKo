@@ -7,7 +7,7 @@ import com.github.h0tk3y.betterParse.lexer.literalToken
 import com.github.h0tk3y.betterParse.lexer.regexToken
 import com.github.h0tk3y.betterParse.parser.Parser
 
-fun List<ClassElem>.positionalFirst() = sortedBy { if (it.positional) 0 else 1 }
+fun List<Field>.positionalFirst() = sortedBy { if (it.positional) 0 else 1 }
 
 val modelParser = object : Grammar<List<Declaration>>() {
     val lpar by literalToken("(")
@@ -21,7 +21,7 @@ val modelParser = object : Grammar<List<Declaration>>() {
     val star by literalToken("*")
     val eq by literalToken("=")
 
-    val modifier by regexToken("(req|pos|set|var|sprepr(set)?|abstract|open|spser|hidden|)\\b(?![-.])")
+    val modifier by regexToken("(req|pos|set|var|sprepr(set)?|abstract|literal|sum|sealed|open|spser|hidden|)\\b(?![-.])")
     val declType by regexToken("(class|type|element|synthetic)\\b(?![-.])")
     val enum by regexToken("enum(?![-.])")
     val primitive by regexToken("primitive(?![-.])")
@@ -29,8 +29,11 @@ val modelParser = object : Grammar<List<Declaration>>() {
     val variance by regexToken("(out|in)\\b(?![-.])")
     val word by regexToken("[a-zA-Z\\p{L}\\-.*0-9]+(?![-.])")
 
+    @Suppress("unused")
     val blockComment by regexToken("/\\*([^*]|\\*(?=[^/]))*\\*/", ignore = true)
+    @Suppress("unused")
     val ws by regexToken("\\s+", ignore = true)
+    @Suppress("unused")
     val lineComment by regexToken("//[^\n\r]*", ignore = true)
 
     val ident by (modifier or declType or enum or primitive or interf or variance or word) use
@@ -46,7 +49,7 @@ val modelParser = object : Grammar<List<Declaration>>() {
     val modifiers by zeroOrMore(modifier use { text })
 
     val classElem by modifiers * ident * -colon * unionType use {
-        ClassElem(t1, t2, t3)
+        Field(t1, t2, t3)
     }
 
     val typeParam by optional(variance) use { this?.text?.let { "$it " } ?: "" } and ident use { TypeParam(t1, t2) }
@@ -55,8 +58,8 @@ val modelParser = object : Grammar<List<Declaration>>() {
         optional(-lbr * separatedTerms(typeParam, comma) * -optional(comma) * -rbr) use { this ?: listOf() }
 
     val enumDeclaration =
-        modifiers * -enum * ident * -lpar * separatedTerms(ident, comma) * -optional(comma) * -rpar use {
-            EnumDeclaration(t1, t2, t3)
+        modifiers * -enum * ident * -lpar * separatedTerms(ident, comma) * -optional(comma) * -rpar * optional(-arrow * type) use {
+            EnumDeclaration(t1, t2, t3, t4)
         }
 
     val primitiveDeclaration by modifiers * -primitive * ident * typeParams *

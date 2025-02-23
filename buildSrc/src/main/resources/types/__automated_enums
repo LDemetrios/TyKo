@@ -91,91 +91,6 @@ enum cite-form(
 	year,
 )
 
-enum cite-style(
-	alphanumeric,
-	american-anthropological-association,
-	american-chemical-society,
-	american-geophysical-union,
-	american-institute-of-aeronautics-and-astronautics,
-	american-institute-of-physics,
-	american-medical-association,
-	american-meteorological-society,
-	american-physics-society,
-	american-physiological-society,
-	american-political-science-association,
-	american-psychological-association,
-	american-society-for-microbiology,
-	american-society-of-civil-engineers,
-	american-society-of-mechanical-engineers,
-	american-sociological-association,
-	angewandte-chemie,
-	annual-reviews,
-	annual-reviews-author-date,
-	associacao-brasileira-de-normas-tecnicas,
-	association-for-computing-machinery,
-	biomed-central,
-	bristol-university-press,
-	british-medical-journal,
-	cell,
-	chicago-author-date,
-	chicago-fullnotes,
-	chicago-notes,
-	copernicus,
-	council-of-science-editors,
-	council-of-science-editors-author-date,
-	current-opinion,
-	deutsche-gesellschaft-für-psychologie,
-	deutsche-sprache,
-	elsevier-harvard,
-	elsevier-vancouver,
-	elsevier-with-titles,
-	frontiers,
-	future-medicine,
-	future-science,
-	gb-7714-2005-numeric,
-	gb-7714-2015-author-date,
-	gb-7714-2015-note,
-	gb-7714-2015-numeric,
-	gost-r-705-2008-numeric,
-	harvard-cite-them-right,
-	institute-of-electrical-and-electronics-engineers,
-	institute-of-physics-numeric,
-	iso-690-author-date,
-	iso-690-numeric,
-	karger,
-	mary-ann-liebert-vancouver,
-	modern-humanities-research-association,
-	modern-language-association,
-	modern-language-association-8,
-	multidisciplinary-digital-publishing-institute,
-	nature,
-	pensoft,
-	public-library-of-science,
-	royal-society-of-chemistry,
-	sage-vancouver,
-	sist02,
-	spie,
-	springer-basic,
-	springer-basic-author-date,
-	springer-fachzeitschriften-medizin-psychologie,
-	springer-humanities-author-date,
-	springer-lecture-notes-in-computer-science,
-	springer-mathphys,
-	springer-socpsych-author-date,
-	springer-vancouver,
-	taylor-and-francis-chicago-author-date,
-	taylor-and-francis-national-library-of-medicine,
-	the-institution-of-engineering-and-technology,
-	the-lancet,
-	thieme,
-	trends,
-	turabian-author-date,
-	turabian-fullnote-8,
-	vancouver,
-	vancouver-superscript,
-)
-
-
 enum figure-scope(
 	column,
 	parent,
@@ -191,21 +106,6 @@ enum par-linebreaks(
 enum par.line-numbering-scope(
 	document,
 	page,
-)
-
-
-enum highlight-top-edge(
-	ascender,
-	cap-height,
-	x-height,
-	baseline,
-	bounds,
-)
-
-enum highlight-bottom-edge(
-	baseline,
-	descender,
-	bounds,
 )
 
 
@@ -383,12 +283,6 @@ enum pagebreak-to(
 )
 
 
-enum place-scope(
-	column,
-	parent,
-)
-
-
 enum image-format(
 	png,
 	jpg,
@@ -403,14 +297,9 @@ enum image-fit(
 )
 
 
-enum path-fill-rule(
+enum fill-rule(
 	non-zero,
 	even-odd,
 )
 
-
-enum polygon-fill-rule(
-	non-zero,
-	even-odd,
-)
 

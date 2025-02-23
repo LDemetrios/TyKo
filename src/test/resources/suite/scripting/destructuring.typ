@@ -128,14 +128,19 @@
 #let () = (1, 2)
 
 --- destructuring-let-array-too-few-elements ---
-// Error: 13-14 not enough elements to destructure
-// Hint: 13-14 the provided array has a length of 2
+// Error: 6-15 not enough elements to destructure
+// Hint: 6-15 the provided array has a length of 2, but the pattern expects 3 elements
 #let (a, b, c) = (1, 2)
 
 --- destructuring-let-array-too-few-elements-with-sink ---
-// Error: 7-10 not enough elements to destructure
-// Hint: 7-10 the provided array has a length of 2
+// Error: 6-20 not enough elements to destructure
+// Hint: 6-20 the provided array has a length of 2, but the pattern expects at least 3 elements
 #let (..a, b, c, d) = (1, 2)
+
+--- destructuring-let-array-too-few-elements-with-sink-1-element ---
+// Error: 6-14 not enough elements to destructure
+// Hint: 6-14 the provided array has a length of 0, but the pattern expects at least 1 element
+#let (..a, b) = ()
 
 --- destructuring-let-array-bool-invalid ---
 // Error: 6-12 cannot destructure boolean
@@ -192,8 +197,8 @@
 
 --- destructuring-let-array-trailing-placeholders ---
 // Trailing placeholders.
-// Error: 10-11 not enough elements to destructure
-// Hint: 10-11 the provided array has a length of 1
+// Error: 6-21 not enough elements to destructure
+// Hint: 6-21 the provided array has a length of 1, but the pattern expects 5 elements
 #let (a, _, _, _, _) = (1,)
 #test(a, 1)
 
@@ -360,11 +365,31 @@
 #for (x, y) in (1, 2) {}
 
 --- issue-3275-destructuring-loop-over-2d-array-1 ---
-// Error: 10-11 not enough elements to destructure
-// Hint: 10-11 the provided array has a length of 1
+// Error: 6-12 not enough elements to destructure
+// Hint: 6-12 the provided array has a length of 1, but the pattern expects 2 elements
 #for (x, y) in ((1,), (2,)) {}
 
 --- issue-3275-destructuring-loop-over-2d-array-2 ---
 // Error: 6-12 too many elements to destructure
 // Hint: 6-12 the provided array has a length of 3, but the pattern expects 2 elements
 #for (x, y) in ((1,2,3), (4,5,6)) {}
+
+--- issue-4573-destructuring-unclosed-delimiter ---
+// Tests a case where parsing within an incorrectly predicted paren expression
+// (the "outer" assignment) would put the parser in an invalid state when
+// reloading a stored prediction (the "inner" assignment) and cause a panic when
+// generating the unclosed delimiter error. See the comment in the issue for
+// more details.
+#{
+  (
+    // Error: 5-7 expected pattern, found keyword `if`
+    // Hint: 5-7 keyword `if` is not allowed as an identifier; try `if_` instead
+    // Error: 9 expected comma
+    // Error: 13-17 unexpected keyword `else`
+    // Error: 20 expected comma
+    if x {} else {}
+    // Error: 5-6 unclosed delimiter
+    { () = "inner"
+  ) = "outer"
+}
+

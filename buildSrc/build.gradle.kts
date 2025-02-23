@@ -3,8 +3,8 @@ import org.gradle.internal.impldep.org.apache.maven.building.StringSource
 import java.lang.StringBuilder
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    kotlin("plugin.serialization") version "1.9.22"
+    kotlin("jvm") version "2.1.0"
+    kotlin("plugin.serialization") version "2.1.0"
     `java-library`
     `maven-publish`
 }
@@ -27,6 +27,7 @@ dependencies {
     implementation("com.github.h0tk3y.betterParse:better-parse:0.4.4")
     implementation("org.ldemetrios:common-utils:+")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("org.ldemetrios:kotlinpoet-dsl:0.1.0")
 }
 
 tasks.test {
@@ -46,10 +47,6 @@ tasks.withType<Javadoc> {
 
 tasks.test {
     useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(17)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {

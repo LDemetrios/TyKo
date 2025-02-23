@@ -22,7 +22,7 @@ element cite(
 	req pos key: label,
 	set supplement: none|content,
 	set form: none|cite-form,
-	set style: auto|cite-style,
+	set style: auto|bibliography-style,
 ) -> content
 
 element document(
@@ -80,11 +80,11 @@ element heading(
 ) -> content
 
 element link(
-	req pos dest: str|label|location|position,
+	req pos dest: str|label|location,
 	req pos body: content,
 ) -> content
 
-synthetic position(
+synthetic location(
     req page: int,
     req x: length,
     req y: length,
@@ -104,6 +104,7 @@ element enum(
 	set body-indent: length,
 	set spacing: auto|length,
 	set number-align: alignment,
+	set reversed: bool,
 	req pos var children: enum.item|array<enum.item>,
 ) -> content
 
@@ -120,20 +121,12 @@ element outline(
 	set fill: none|content,
 ) -> content
 
-element outline.entry(
-	req pos level: int,
-	req pos element: content,
-	req pos body: content,
-	req pos fill: none|content,
-	req pos page: content,
-) -> content
-
 element par(
 	set leading: length,
 	set spacing: length,
 	set justify: bool,
 	set linebreaks: auto|par-linebreaks,
-	set first-line-indent: length,
+	set first-line-indent: length|dictionary<length|bool>, // TODO make synthetic
 	set hanging-indent: length,
 	req pos body: content,
 ) -> content
@@ -159,7 +152,13 @@ element quote(
 element ref(
 	req pos target: label,
 	set supplement: none|auto|content|function,
+	set form: ref-form,
 ) -> content
+
+enum ref-form(
+    normal,
+    page,
+)
 
 element strong(
 	set delta: int,
@@ -172,14 +171,14 @@ element table(
 	set gutter: auto|int|relative|fraction|array<*>,
 	set column-gutter: auto|int|relative|fraction|array<*>,
 	set row-gutter: auto|int|relative|fraction|array<*>,
-	set fill: none|color|gradient|array<*>|pattern|function,
+	set fill: none|color|gradient|array<*>|tiling|function,
 	set align: auto|array<alignment>|alignment|function,
-	set stroke: none|length|color|gradient|array<*>|stroke|pattern|dictionary<*>|function,
-	set inset: relative|fraction|array<relative|fraction>|sides<relative|fraction>|function,
+	set stroke: none|length|color|gradient|array<*>|stroke|tiling|dictionary<*>|function,
+	set inset: relative|fraction|array<relative|fraction>|sides<relative|fraction|none>|function,
 	req pos var children: content,
 ) -> content
 
-synthetic sides<out S>(
+sprepr synthetic sides<out S>(
     top: S,
     right: S,
     bottom: S,
@@ -195,10 +194,10 @@ element table.cell(
 	set y: auto|int,
 	set colspan: int,
 	set rowspan: int,
-	set fill: none|auto|color|gradient|pattern,
+	set fill: none|auto|color|gradient|tiling,
 	set align: auto|alignment,
-	set inset: auto|relative|sides<auto|relative>,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set inset: auto|relative|sides<auto|relative|none>,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set breakable: auto|bool,
 ) -> content
 
@@ -206,7 +205,7 @@ element table.hline(
 	set y: auto|int,
 	set start: int,
 	set end: none|int,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set position: alignment,
 ) -> content
 
@@ -214,7 +213,7 @@ element table.vline(
 	set x: auto|int,
 	set start: int,
 	set end: none|int,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set position: alignment,
 ) -> content
 
@@ -243,10 +242,10 @@ element terms.item(
 ) -> content
 
 element highlight(
-	set fill: none|color|gradient|pattern,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
-	set top-edge: length|highlight-top-edge,
-	set bottom-edge: length|highlight-bottom-edge,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
+	set top-edge: length|text-top-edge,
+	set bottom-edge: length|text-bottom-edge,
 	set extent: length,
 	set radius: relative|dictionary<*>,
 	req pos body: content,
@@ -257,7 +256,7 @@ element linebreak(
 ) -> content
 
 element overline(
-	set stroke: auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set offset: auto|length,
 	set extent: length,
 	set evade: bool,
@@ -284,6 +283,7 @@ element raw.line(
 
 element smallcaps(
 	req pos body: content,
+	set all: bool,
 ) -> content
 
 element smartquote(
@@ -294,7 +294,7 @@ element smartquote(
 ) -> content
 
 element strike(
-	set stroke: auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set offset: auto|length,
 	set extent: length,
 	set background: bool,
@@ -322,8 +322,8 @@ element text(
 	set weight: int|text-weight,
 	set stretch: ratio,
 	set size: length,
-	set fill: color|gradient|pattern,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: color|gradient|tiling,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set tracking: length,
 	set spacing: relative,
 	set cjk-latin-spacing: none|auto,
@@ -353,7 +353,7 @@ element text(
 ) -> content
 
 element underline(
-	set stroke: auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set offset: auto|length,
 	set extent: length,
 	set evade: bool,
@@ -378,7 +378,7 @@ element math.cancel(
 	set inverted: bool,
 	set cross: bool,
 	set angle: auto|angle|function,
-	set stroke: length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: length|color|gradient|stroke|tiling|dictionary<*>,
 ) -> content
 
 element math.cases(
@@ -446,11 +446,11 @@ element block(
 	set width: auto|relative,
 	set height: auto|relative|fraction,
 	set breakable: bool,
-	set fill: none|color|gradient|pattern,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set radius: relative|dictionary<*>,
-	set inset: relative|dictionary<*>,
-	set outset: relative|dictionary<*>,
+	set inset: relative|sides<relative|none>,
+	set outset: relative|sides<relative|none>,
 	set spacing: relative|fraction,
 	set above: auto|relative|fraction,
 	set below: auto|relative|fraction,
@@ -463,8 +463,8 @@ element box(
 	set width: auto|relative|fraction,
 	set height: auto|relative,
 	set baseline: relative,
-	set fill: none|color|gradient|pattern,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set radius: relative|dictionary<*>,
 	set inset: relative|dictionary<*>,
 	set outset: relative|dictionary<*>,
@@ -488,10 +488,10 @@ element grid(
 	set gutter: auto|int|relative|fraction|array<*>,
 	set column-gutter: auto|int|relative|fraction|array<*>,
 	set row-gutter: auto|int|relative|fraction|array<*>,
-	set fill: none|color|gradient|array<*>|pattern|function,
+	set fill: none|color|gradient|array<*>|tiling|function,
 	set align: auto|array<alignment>|alignment|function,
-	set stroke: none|length|color|gradient|array<*>|stroke|pattern|dictionary<*>|function,
-	set inset: relative|array<*>|dictionary<*>|function,
+	set stroke: none|length|color|gradient|array<*>|stroke|tiling|dictionary<*>|function,
+	set inset: relative|array<relative>|sides<relative|none>|function,
 	req pos var children: content,
 ) -> content
 
@@ -501,10 +501,10 @@ element grid.cell(
 	set y: auto|int,
 	set colspan: int,
 	set rowspan: int,
-	set fill: none|auto|color|gradient|pattern,
+	set fill: none|auto|color|gradient|tiling,
 	set align: auto|alignment,
-	set inset: auto|relative|dictionary<*>,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set inset: auto|relative|sides<auto|relative|none>,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set breakable: auto|bool,
 ) -> content
 
@@ -512,7 +512,7 @@ element grid.hline(
 	set y: auto|int,
 	set start: int,
 	set end: none|int,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set position: alignment,
 ) -> content
 
@@ -520,7 +520,7 @@ element grid.vline(
 	set x: auto|int,
 	set start: int,
 	set end: none|int,
-	set stroke: none|length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: none|length|color|gradient|stroke|tiling|dictionary<*>,
 	set position: alignment,
 ) -> content
 
@@ -560,10 +560,10 @@ element page(
 	set width: auto|length,
 	set height: auto|length,
 	set flipped: bool,
-	set margin: auto|relative|dictionary<*>,
+	set margin: auto|relative|margin<auto|relative|none>,
 	set binding: auto|alignment,
 	set columns: int,
-	set fill: none|auto|color|gradient|pattern,
+	set fill: none|auto|color|gradient|tiling,
 	set numbering: none|str|function,
 	set number-align: alignment,
 	set header: none|auto|content,
@@ -572,8 +572,18 @@ element page(
 	set footer-descent: relative,
 	set background: none|content,
 	set foreground: none|content,
+	set supplement: content,
 	req pos body: content,
 ) -> content
+
+sprepr synthetic margin<out M>(
+    top: M,
+    right: M,
+    bottom: M,
+    left: M,
+    inside: M,
+    outside: M,
+)
 
 element pagebreak(
 	set weak: bool,
@@ -582,7 +592,7 @@ element pagebreak(
 
 element place(
 	pos set alignment: auto|alignment,
-	set scope: place-scope,
+	set scope: figure-scope,
 	set float: bool,
 	set clearance: length,
 	set dx: relative,
@@ -643,8 +653,8 @@ element circle(
 	set radius: length,
 	set width: auto|relative,
 	set height: auto|relative|fraction,
-	set fill: none|color|gradient|pattern,
-	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set inset: relative|dictionary<*>,
 	set outset: relative|dictionary<*>,
 	pos set body: none|content,
@@ -653,50 +663,57 @@ element circle(
 element ellipse(
 	set width: auto|relative,
 	set height: auto|relative|fraction,
-	set fill: none|color|gradient|pattern,
-	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set inset: relative|dictionary<*>,
 	set outset: relative|dictionary<*>,
 	pos set body: none|content,
 ) -> content
 
 element image(
-	req pos path: str,
-	set format: auto|image-format,
+	req pos source: str|bytes,
+	set format: auto|image-format|dictionary<int|str>, // TODO make synthetic
 	set width: auto|relative,
 	set height: auto|relative|fraction,
 	set alt: none|str,
 	set fit: image-fit,
+	set scaling : auto|image-scaling,
+	set icc : auto|str|bytes,
 ) -> content
+
+enum image-scaling(
+    smooth,
+    pixelated,
+)
 
 element line(
 	set start: array<*>,
 	set end: none|array<*>,
 	set length: relative,
 	set angle: angle,
-	set stroke: length|color|gradient|stroke|pattern|dictionary<*>,
+	set stroke: length|color|gradient|stroke|tiling|dictionary<*>,
 ) -> content
 
 element path(
-	set fill: none|color|gradient|pattern,
-	set fill-rule: path-fill-rule,
-	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set fill-rule: fill-rule,
+	set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set closed: bool,
 	req pos var vertices: array<*>,
 ) -> content
 
 element polygon(
-	set fill: none|color|gradient|pattern,
-	set fill-rule: polygon-fill-rule,
-	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set fill-rule: fill-rule,
+	set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	req pos var vertices: array<*>,
 ) -> content
 
 element rect(
 	set width: auto|relative,
 	set height: auto|relative|fraction,
-	set fill: none|color|gradient|pattern,
-	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set radius: relative|dictionary<*>,
 	set inset: relative|dictionary<*>,
 	set outset: relative|dictionary<*>,
@@ -707,8 +724,8 @@ element square(
 	set size: auto|length,
 	set width: auto|relative,
 	set height: auto|relative|fraction,
-	set fill: none|color|gradient|pattern,
-	set stroke: none|auto|length|color|gradient|stroke|pattern|dictionary<*>,
+	set fill: none|color|gradient|tiling,
+	set stroke: none|auto|length|color|gradient|stroke|tiling|dictionary<*>,
 	set radius: relative|dictionary<*>,
 	set inset: relative|dictionary<*>,
 	set outset: relative|dictionary<*>,
