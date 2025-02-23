@@ -35,7 +35,7 @@ object Representations {
     fun <E : CommonInterfaceName> reprOf(value: List<E>): String = when (value.size) {
         0 -> "()"
         1 -> "(" + value[0].repr() + ",)"
-        else -> "( " + value.joinToString(", ") { it.repr() } + ")"
+        else -> "(" + value.joinToString(", ") { it.repr() } + ")"
     }
 
     fun reprOf(value: TStr): String = reprOf(value.strValue)
@@ -43,7 +43,7 @@ object Representations {
 
     fun <V : CommonInterfaceName> reprOf(value: Map<String, V>): String = when (value.size) {
         0 -> "(:)"
-        else -> "( " + value.entries.joinToString(", ") { reprOf(it.key) + " : " + it.value.repr() } + ")"
+        else -> "(" + value.entries.joinToString(", ") { reprOf(it.key) + " : " + it.value.repr() } + ")"
     }
 
     fun <V : CommonInterfaceName> reprOf(value: TMargin<V>): String =
@@ -84,20 +84,8 @@ object Representations {
     ): String {
         when (name) {
             "none", "auto" -> return name
-//            "text" -> {
-//                val present = elements.filter { it.third != null }
-//                if (present.size == 1 && !present[0].first && present[0].second == null && (present[0].third as? TStr)?.strValue?.length == 1 ) {
-//                    val it = present[0].third!!.repr()
-////                    return "symbol($it)"
-////                    return it
-//                    return "$ $it $.body"
-//                }
-//            }
 
             "math.mat" -> {
-//                elements.find { it.name == "delim" }?.let { delim ->
-//                    delim.value = delim.value.castOrNull<TArray<*>>()?.arrayValue?.get(0) ?: delim.value
-//                }
                 elements.find { it.name == "augment" }?.let { argument ->
                     val asDict = argument.value as? TDictionary<*> ?: return@let
                     val map = asDict.dictionaryValue.toMutableMap()
@@ -130,14 +118,6 @@ object Representations {
             value.abs?.pt?.let { "${it.repr()}pt" },
             value.rel?.repr()
         ).joinToString(" + ")
-
-    fun reprOf(value: TTiling): String = structRepr(
-        "pattern",
-        ArgumentEntry(false, "size", value.sz),
-        ArgumentEntry(false, "spacing", value.spacing),
-        ArgumentEntry(false, "relative", value.relative),
-        ArgumentEntry(false, null, value.body),
-    )
 
     fun reprOf(value: TCounter): String =
         "counter(${value.value.repr()})"
