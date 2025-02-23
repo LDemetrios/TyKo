@@ -6,9 +6,6 @@ import org.ldemetrios.tyko.compiler.WorldBasedTypstCompiler
 import org.ldemetrios.tyko.compiler.evalDetached
 import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.operations.value
-import org.ldemetrios.utilities.castOrNull
-import kotlin.collections.iterator
-import kotlin.concurrent.getOrSet
 
 typealias CommonInterfaceName = TValue
 
@@ -26,9 +23,6 @@ data class ArgumentEntry(var variadic: Boolean, var name: String?, var value: TV
     val second get() = name
     val third get() = value
 }
-
-private val performingMath = ThreadLocal<Int>()
-private val doInsertSpaces = true
 
 object Representations {
     fun reprOf(value: TNone.Companion) = "none"
@@ -81,14 +75,7 @@ object Representations {
     }
 
     fun reprOf(value: TSequence): String {
-        return when {
-            value.children.arrayValue.isEmpty() -> "[]"
-            else -> {
-                val sep = if (doInsertSpaces && performingMath.getOrSet { 0 } == 0) "; " else "; [ ]; "
-//                val sep = "; "
-                ("{ " + value.children.arrayValue.joinToString(sep) { it.repr() } + "; }").replace(Regex("(\\[ ]; )+"), "[ ]; ")
-            }
-        }
+        return elementRepr("[a\\ ].func()", ArgumentEntry(false, null, value.children), ArgumentEntry(false, "label", value.label))
     }
 
     fun structRepr(
@@ -260,26 +247,15 @@ object Representations {
     }
 
     fun elementRepr(s: String, vararg entries: ArgumentEntry): String {
-        if (doInsertSpaces && s == "math.equation") {
-            val lvl = performingMath.getOrSet { 0 }
-            performingMath.set(lvl + 1)
-        }
+
         val lbl = entries.find { it.name == "label" }?.value as TLabel?
         val repr = structRepr(s, *entries.filter { it.name != "label" }.toTypedArray())
-        if (doInsertSpaces && s == "math.equation") {
-            performingMath.set(performingMath.get() - 1)
-        }
+
         return if (lbl == null) repr
         else "[#($repr)#${lbl.repr()}]"
     }
 
     fun setRepr(s: String, vararg entries: ArgumentEntry): String {
-//        if (s == "math.equation") {
-//            val variant = entries.find { it.name == "variant" }
-//            if (variant != null) {
-//                val showingVariant = "show : math.${variant.value.repr()}"
-//            }
-//        }
         return "set " + structRepr(s, *entries) // TODO
     }
 

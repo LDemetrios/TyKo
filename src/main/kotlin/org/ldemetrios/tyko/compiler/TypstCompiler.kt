@@ -14,13 +14,6 @@ interface TypstCompiler : Closeable {
     fun reset()
 }
 
-enum class OutputFormat {
-    PDF, PNG, SVG;
-
-    override fun toString(): String = this.name.lowercase()
-}
-
-
 enum class SerialFormat {
     PrettyJSON, JSON, YAML;
 }

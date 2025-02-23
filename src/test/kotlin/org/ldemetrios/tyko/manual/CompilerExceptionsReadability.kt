@@ -4,7 +4,6 @@ import org.ldemetrios.tyko.compiler.Feature
 import org.ldemetrios.tyko.compiler.FileDescriptor
 import org.ldemetrios.tyko.compiler.FileError
 import org.ldemetrios.tyko.compiler.RResult
-import org.ldemetrios.tyko.compiler.SHARED_LIBRARY_PATH
 import org.ldemetrios.tyko.compiler.StdlibProvider
 import org.ldemetrios.tyko.compiler.TypstCompilerException
 import org.ldemetrios.tyko.compiler.World
@@ -14,6 +13,7 @@ import org.ldemetrios.tyko.compiler.compileSvg
 import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.model.TDictionary
 import org.ldemetrios.tyko.model.TValue
+import org.ldemetrios.tyko.original.SHARED_LIBRARY_PATH
 import kotlin.io.path.Path
 
 fun tryCompile(source: String, lib: String? = null) {

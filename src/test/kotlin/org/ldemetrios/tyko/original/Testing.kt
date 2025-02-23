@@ -185,29 +185,8 @@ fun skip(case: Case): Boolean {
             "gradient-linear-sharp-and-repeat",
             "gradient-linear-repeat-and-mirror-3",
 
-//            // Practically the same
-            "cases-content-symbol",
-            "gradient-conic-hsl",
-            "gradient-conic-hsv",
-            "gradient-conic-oklab",
-            "gradient-conic-oklch",
-            "gradient-conic-relative-parent",
-            "gradient-conic-stroke",
-            "gradient-conic-text",
-            "gradient-linear-hsv",
-            "issue-2902-gradient-oklch-panic",
-
             // Not marked erroneous
             "import-cyclic-in-other-file",
-
-            // Wrong spacing in equations
-            "issue-2214-baseline-math",
-            "math-lr-fences",
-            "math-frac-paren-removal",
-            "math-frac-precedence",
-            "math-spacing-kept-spaces",
-            "math-spacing-basic",
-            "math-style",
 
             // Unsupported cramped style
             "math-size"
