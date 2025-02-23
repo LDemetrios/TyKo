@@ -76,7 +76,6 @@ class TestWorld(var currentMain: String) : World {
     }
 
     override fun file(file: FileDescriptor): RResult<ByteArray, FileError> {
-        println(file)
         return when (file.pack?.namespace) {
             null -> {
                 if (overriden?.first == file.path) return RResult.Ok(overriden!!.second.toByteArray())

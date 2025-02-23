@@ -85,7 +85,6 @@ fun TypstSharedLibrary.NativeWorld(world: World): NativeWorld {
     val stdlib = UniquePtr(nativeLibrary(library)) { free_library(it) }
     try {
         val mainCallback = MainCallback {
-//            println("Main callback called")
             val file = world.mainFile()
             val str = json.encodeToString(file)
             JavaResult.fromString(str)
