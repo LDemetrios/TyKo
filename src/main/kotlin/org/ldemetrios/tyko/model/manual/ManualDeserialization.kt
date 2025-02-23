@@ -160,41 +160,60 @@ private fun concreteType(desc: String, value: JSObject, path: String): TValue {
             val id = value["id"].castOrNull<JSString>()?.str ?: failWith("Missing `id` for set math.equation", path)
             val toSet = value["value"].takeIf { it !is JSUndefined } ?: failWith("Missing `value` for set math.equation", path)
             when (desc) {
-                "set-math.equation" -> {
-                    when (id) {
-                        "variant" -> {
-                            val variantStr = toSet.castOrNull<JSString>()?.str ?: failWith("math.equation variant expected to be string", path)
-                            TShowRule(TNone, TNativeFunc("math.$variantStr".t))
-                        }
-                        "italic" -> {
-                            val italic = toSet.castOrNull<JSBoolean>()?.toBoolean() ?: failWith("math.equation italic expected to be boolean", path)
-                            if (italic) {
-                                 failWith("Redundant set italic:true in math equation", path)
-                                TShowRule(TNone, TNativeFunc("math.italic".t))
-                            } else {
+                "set-math.equation" -> when (id) {
+                    "variant" -> {
+                        val variantStr = toSet.castOrNull<JSString>()?.str ?: failWith("math.equation variant expected to be string", path)
+                        TShowRule(TNone, TNativeFunc("math.$variantStr".t))
+                    }
+
+                    "italic" -> {
+                        val italic = toSet.castOrNull<JSBoolean>()?.toBoolean() ?: failWith("math.equation italic expected to be boolean", path)
+                        if (italic) {
+//                                 failWith("Redundant set italic:true in math equation", path)
+                            TShowRule(TNone, TNativeFunc("math.italic".t))
+                        } else {
 //                                 failWith("Redundant set italic:false in math equation", path)
-                                TShowRule(TNone, TNativeFunc("math.upright".t))
-                            }
+                            TShowRule(TNone, TNativeFunc("math.upright".t))
                         }
-                        "size" -> {
-                            val size = toSet.castOrNull<JSString>()?.str ?: failWith("math.equation size expected to be boolean", path)
-                            when (size) {
-                                "script-script" -> TShowRule(TNone, TNativeFunc("math.sscript".t))
-                                else -> failWith("Unknown math.equation size `$size`", path)
-                            }
+                    }
+
+                    "size" -> {
+                        val size = toSet.castOrNull<JSString>()?.str ?: failWith("math.equation size expected to be string", path)
+                        when (size) {
+                            "script-script" -> TShowRule(TNone, TNativeFunc("math.sscript".t))
+                            "display" -> TShowRule(TNone, TNativeFunc("math.display".t))
+                            "text" -> TShowRule(TNone, TNativeFunc("math.inline".t)) // TODO sure?
+                            "script" -> TShowRule(TNone, TNativeFunc("math.script".t)) // TODO sure?
+                            else -> failWith("Unknown math.equation size `$size`", path)
                         }
-                        "bold" -> {
-                            val bold = toSet.castOrNull<JSBoolean>()?.toBoolean() ?: failWith("math.equation bold expected to be boolean", path)
-                            if (bold) {
-                                TShowRule(TNone, TNativeFunc("math.bold".t))
-                            } else {
-                                 failWith("Redundant set bold:false in math equation", path)
+                    }
+
+                    "bold" -> {
+                        val bold = toSet.castOrNull<JSBoolean>()?.toBoolean() ?: failWith("math.equation bold expected to be boolean", path)
+                        if (bold) {
+                            TShowRule(TNone, TNativeFunc("math.bold".t))
+                        } else {
+                            failWith("Redundant set bold:false in math equation", path)
 //                                TShowRule(TNone, TClosure("it => it".t))
-                            }
                         }
-                        else -> {
-                            concreteTypeReflect(desc, path, mapOf(id to toSet))
+                    }
+
+                    else -> {
+                        concreteTypeReflect(desc, path, mapOf(id to toSet))
+                    }
+                }
+
+                "set-text" -> when (id) {
+                    "case" -> {
+                        val case = toSet.castOrNull<JSString>()?.str ?: failWith("text case expected to be string", path)
+                        when (case) {
+                            "lower" -> TShowRule(TText, TNativeFunc("lower".t))
+                            "upper" -> TShowRule(TText, TNativeFunc("upper".t))
+                            else -> failWith("Unknown text case `$case`", path)
                         }
+                    }
+                    else -> {
+                        concreteTypeReflect(desc, path, mapOf(id to toSet))
                     }
                 }
 

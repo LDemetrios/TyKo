@@ -21,7 +21,7 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TMathMat : TContent {
     public val rows: TArray<TArray<TContent>>
 
-    public val delim: TArrayOrNoneOrStr<TNoneOrStr>?
+    public val delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>?
 
     public val align: TAlignment?
 
@@ -40,8 +40,8 @@ public interface TMathMat : TContent {
                 listOf(ConcreteType("content")))))
 
         internal val delimType: InternalType = UnionType(ConcreteType("array",
-                listOf(UnionType(ConcreteType("none"), ConcreteType("str")))), ConcreteType("none"),
-                ConcreteType("str"))
+                listOf(UnionType(ConcreteType("none"), ConcreteType("str"), ConcreteType("symbol")))),
+                ConcreteType("none"), ConcreteType("str"), ConcreteType("symbol"))
 
         internal val alignType: InternalType = ConcreteType("alignment")
 
@@ -60,7 +60,7 @@ internal data class TMathMatImpl(
     @SerialName("rows")
     override val rows: TArray<TArray<TContent>>,
     @SerialName("delim")
-    override val delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
+    override val delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>? = null,
     @SerialName("align")
     override val align: TAlignment? = null,
     @SerialName("augment")
@@ -84,7 +84,7 @@ internal data class TMathMatImpl(
 @TypstOverloads
 public fun TMathMat(
     @TVararg rows: TArray<TArray<TContent>>,
-    delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
+    delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>? = null,
     align: TAlignment? = null,
     augment: TDictionaryOrIntOrNone<TValue>? = null,
     gap: TRelative? = null,
@@ -102,7 +102,7 @@ public interface TSetMathMat : TSetRule {
     override val elem: String
         get() = "math.mat"
 
-    public val delim: TArrayOrNoneOrStr<TNoneOrStr>?
+    public val delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>?
 
     public val align: TAlignment?
 
@@ -122,7 +122,7 @@ public interface TSetMathMat : TSetRule {
 
 internal class TSetMathMatImpl(
     @SerialName("delim")
-    override val delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
+    override val delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>? = null,
     @SerialName("align")
     override val align: TAlignment? = null,
     @SerialName("augment")
@@ -137,7 +137,7 @@ internal class TSetMathMatImpl(
 
 @TypstOverloads
 public fun TSetMathMat(
-    delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
+    delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>? = null,
     align: TAlignment? = null,
     augment: TDictionaryOrIntOrNone<TValue>? = null,
     gap: TRelative? = null,

@@ -18,7 +18,7 @@ import org.ldemetrios.utilities.castUnchecked
     ["symbol"],
     TSymbolImpl::class,
 )
-public interface TSymbol : TValue {
+public interface TSymbol : TArrayOrNoneOrStrOrSymbol<TDynamic>, TNoneOrStrOrSymbol, TValue {
     public val variants: TArray<TArrayOrStr<TStr>>
 
     override fun type(): TType = TSymbol

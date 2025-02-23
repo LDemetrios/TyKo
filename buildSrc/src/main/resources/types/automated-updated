@@ -407,7 +407,7 @@ element math.frac(
 ) -> content
 
 element math.mat(
-	set delim: none|str|array<none|str>, // worth as well
+	set delim: none|str|symbol|array<none|str|symbol>, // worth as well
 	set align: alignment,
 	set augment: none|int|dictionary<*>,
 	set gap: relative,

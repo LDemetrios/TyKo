@@ -36,7 +36,7 @@ public interface TArray<out E : TValue> : List<E>, TValue, TArrayOrStr<E>,
         TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>,
         TArrayOrFractionOrFunctionOrRelativeOrSides<E, TDynamic>, TArrayOrContent<E>,
         TArrayOrAutoOrDictionaryOrStr<E, TDynamic>, TArrayOrIntOrNone<E>,
-        TArrayOrDictionary<E, TDynamic>, TArrayOrNoneOrStr<E>,
+        TArrayOrDictionary<E, TDynamic>, TArrayOrNoneOrStr<E>, TArrayOrNoneOrStrOrSymbol<E>,
         TArrayOrFunctionOrRelativeOrSides<E, TDynamic>, TArrayOrNone<E>, TArrayOrColor<E>,
         TArrayOrAuto<E>, TArrayOrAutoOrDictionaryOrNoneOrStr<E, TDynamic>, TArrayOrFunctionOrInt<E>,
         TArrayOrAutoOrNone<E> {

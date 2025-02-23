@@ -14,7 +14,7 @@ import org.ldemetrios.utilities.castUnchecked
 
 @TUnionType(["array", "str"])
 public sealed interface TArrayOrStr<out E : TValue> : TValue,
-        TArrayOrAutoOrDictionaryOrStr<E, TDynamic>, TArrayOrNoneOrStr<E>,
+        TArrayOrAutoOrDictionaryOrStr<E, TDynamic>, TArrayOrNoneOrStr<E>, TArrayOrNoneOrStrOrSymbol<E>,
         TArrayOrAutoOrDictionaryOrNoneOrStr<E, TDynamic>
 
 @TUnionType(["auto", "content", "none"])
@@ -186,7 +186,8 @@ public sealed interface TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStro
 
 @TUnionType(["none", "str"])
 public sealed interface TNoneOrStr : TValue, TFunctionOrNoneOrStr, TAutoOrNoneOrStr,
-        TArrayOrNoneOrStr<TDynamic>, TArrayOrAutoOrDictionaryOrNoneOrStr<TDynamic, TDynamic>
+        TArrayOrNoneOrStr<TDynamic>, TArrayOrNoneOrStrOrSymbol<TDynamic>, TNoneOrStrOrSymbol,
+        TArrayOrAutoOrDictionaryOrNoneOrStr<TDynamic, TDynamic>
 
 @TUnionType(["auto", "none", "str"])
 public sealed interface TAutoOrNoneOrStr : TValue,
@@ -261,8 +262,14 @@ public sealed interface TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTi
         TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>
 
 @TUnionType(["array", "none", "str"])
-public sealed interface TArrayOrNoneOrStr<out E : TValue> : TValue,
+public sealed interface TArrayOrNoneOrStr<out E : TValue> : TValue, TArrayOrNoneOrStrOrSymbol<E>,
         TArrayOrAutoOrDictionaryOrNoneOrStr<E, TDynamic>
+
+@TUnionType(["array", "none", "str", "symbol"])
+public sealed interface TArrayOrNoneOrStrOrSymbol<out E : TValue> : TValue
+
+@TUnionType(["none", "str", "symbol"])
+public sealed interface TNoneOrStrOrSymbol : TValue, TArrayOrNoneOrStrOrSymbol<TDynamic>
 
 @TUnionType(["dictionary", "int", "none"])
 public sealed interface TDictionaryOrIntOrNone<out V : TValue> : TValue
@@ -319,8 +326,8 @@ public sealed interface TAutoOrBytesOrStr : TValue
 public sealed interface TArrayOrNone<out E : TValue> : TValue,
         TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<E>,
         TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>,
-        TArrayOrIntOrNone<E>, TArrayOrNoneOrStr<E>, TArrayOrAutoOrDictionaryOrNoneOrStr<E, TDynamic>,
-        TArrayOrAutoOrNone<E>
+        TArrayOrIntOrNone<E>, TArrayOrNoneOrStr<E>, TArrayOrNoneOrStrOrSymbol<E>,
+        TArrayOrAutoOrDictionaryOrNoneOrStr<E, TDynamic>, TArrayOrAutoOrNone<E>
 
 @TUnionType(["int", "ratio"])
 public sealed interface TIntOrRatio : TValue

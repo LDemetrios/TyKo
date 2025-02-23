@@ -1,6 +1,5 @@
 package org.ldemetrios.tyko.original
 
-import org.ldemetrios.tyko.TEST_SEPARATOR
 import org.ldemetrios.tyko.compiler.Feature
 import org.ldemetrios.tyko.compiler.FileDescriptor
 import org.ldemetrios.tyko.compiler.FileError
@@ -12,7 +11,6 @@ import org.ldemetrios.tyko.compiler.World
 import org.ldemetrios.tyko.compiler.WorldBasedTypstCompiler
 import org.ldemetrios.tyko.compiler.WorldTime
 import org.ldemetrios.tyko.ffi.TypstSharedLibrary
-import org.ldemetrios.tyko.testPackage
 import org.ldemetrios.tyko.model.TDictionary
 import org.ldemetrios.tyko.model.TEmptyDictionaryImpl
 import org.ldemetrios.tyko.model.TValue
@@ -23,6 +21,8 @@ import kotlin.io.path.isDirectory
 import kotlin.io.path.readText
 import kotlin.io.path.toPath
 import kotlin.io.path.walk
+
+val TEST_SEPARATOR = Regex("--- [a-zA-Z0-9-]+ ---")
 
 val localFiles = run {
     val root = TestWorld::class.java.classLoader

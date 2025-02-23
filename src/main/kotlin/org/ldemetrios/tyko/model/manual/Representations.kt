@@ -8,6 +8,7 @@ import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.operations.value
 import org.ldemetrios.utilities.castOrNull
 import kotlin.collections.iterator
+import kotlin.concurrent.getOrSet
 
 typealias CommonInterfaceName = TValue
 
@@ -25,6 +26,9 @@ data class ArgumentEntry(var variadic: Boolean, var name: String?, var value: TV
     val second get() = name
     val third get() = value
 }
+
+private val performingMath = ThreadLocal<Int>()
+private val doInsertSpaces = true
 
 object Representations {
     fun reprOf(value: TNone.Companion) = "none"
@@ -77,8 +81,14 @@ object Representations {
     }
 
     fun reprOf(value: TSequence): String {
-        if (value.children.arrayValue.isEmpty()) return "[]"
-        return "{ " + value.children.arrayValue.joinToString("; ") { it.repr() } + "; }"
+        return when {
+            value.children.arrayValue.isEmpty() -> "[]"
+            else -> {
+                val sep = if (doInsertSpaces && performingMath.getOrSet { 0 } == 0) "; " else "; [ ]; "
+//                val sep = "; "
+                ("{ " + value.children.arrayValue.joinToString(sep) { it.repr() } + "; }").replace(Regex("(\\[ ]; )+"), "[ ]; ")
+            }
+        }
     }
 
     fun structRepr(
@@ -98,9 +108,9 @@ object Representations {
 //            }
 
             "math.mat" -> {
-                elements.find { it.name == "delim" }?.let { delim ->
-                    delim.value = delim.value.castOrNull<TArray<*>>()?.arrayValue?.get(0) ?: delim.value
-                }
+//                elements.find { it.name == "delim" }?.let { delim ->
+//                    delim.value = delim.value.castOrNull<TArray<*>>()?.arrayValue?.get(0) ?: delim.value
+//                }
                 elements.find { it.name == "augment" }?.let { argument ->
                     val asDict = argument.value as? TDictionary<*> ?: return@let
                     val map = asDict.dictionaryValue.toMutableMap()
@@ -207,7 +217,7 @@ object Representations {
         return "{ " + value.styles.value.joinToString("; ") { it.repr() } + "; ${value.child.repr()}; }"
     }
 
-    fun reprOf(value: TFunction): String = when (value) {
+    fun reprOf(value: TFunction, contextual : Boolean = false): String = when (value) {
         is TElement -> reprOf(value)
         is TWith -> "(" + value.origin.repr() + ").with(.." + value.args.repr() + ")"
         is TNativeFunc -> value.name.value
@@ -222,7 +232,9 @@ object Representations {
                         append("; ")
                     }
                 }
-                append(reworkClosure(value.node.value))
+                if (contextual) append(value.node.value)
+                else append(reworkClosure(value.node.value))
+
                 if (!value.captured.isNullOrEmpty()) append("}")
             }.toString()
         }
@@ -248,8 +260,15 @@ object Representations {
     }
 
     fun elementRepr(s: String, vararg entries: ArgumentEntry): String {
+        if (doInsertSpaces && s == "math.equation") {
+            val lvl = performingMath.getOrSet { 0 }
+            performingMath.set(lvl + 1)
+        }
         val lbl = entries.find { it.name == "label" }?.value as TLabel?
         val repr = structRepr(s, *entries.filter { it.name != "label" }.toTypedArray())
+        if (doInsertSpaces && s == "math.equation") {
+            performingMath.set(performingMath.get() - 1)
+        }
         return if (lbl == null) repr
         else "[#($repr)#${lbl.repr()}]"
     }
@@ -287,7 +306,7 @@ object Representations {
         }
     }
 
-    fun reprOf(context: TContext) = "context " + context.func.repr()
+    fun reprOf(context: TContext) = "context " + reprOf(context.func, contextual = true)
 
     fun reprOf(context: TStyleDeprecated) = "style(" + context.func.repr() + ")"
     fun reprOf(update: TCounterUpdate): String =

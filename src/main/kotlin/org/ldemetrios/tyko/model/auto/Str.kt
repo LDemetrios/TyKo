@@ -21,7 +21,8 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TStr : TValue, TArrayOrStr<TDynamic>, TAutoOrFunctionOrStr, TFunctionOrNoneOrStr,
         TFunctionOrStr, TLabelOrLocationOrStr, TNoneOrStr, TAutoOrNoneOrStr,
         TArrayOrAutoOrDictionaryOrStr<TDynamic, TDynamic>, TAutoOrStr, TContentOrStr,
-        TArrayOrNoneOrStr<TDynamic>, TBytesOrStr, TIntOrStr, TAutoOrBytesOrStr,
+        TArrayOrNoneOrStr<TDynamic>, TArrayOrNoneOrStrOrSymbol<TDynamic>, TNoneOrStrOrSymbol,
+        TBytesOrStr, TIntOrStr, TAutoOrBytesOrStr,
         TArrayOrAutoOrDictionaryOrNoneOrStr<TDynamic, TDynamic>, TLocationOrSelectorOrStr,
         TFunctionOrLabelOrLocationOrSelectorOrStr {
     public val strValue: String

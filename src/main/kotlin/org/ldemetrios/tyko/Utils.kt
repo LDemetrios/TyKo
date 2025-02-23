@@ -41,6 +41,6 @@ inline fun <T, R> withTmp(func: (Path) -> T, finish: (T, List<String>) -> R): R 
     }
 }
 
-fun main() {
+fun main() { // Quick compilability check
     println("hello")
 }
