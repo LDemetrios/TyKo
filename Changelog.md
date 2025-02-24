@@ -1,5 +1,18 @@
 ## Change log
 
+### 0.4.0
+
+- Improve compilation times (Interactions between TyKo and Typst now happen over JNA, 
+not over OS processes)
+- **_(Breaking)_** Rename packages
+- **_(Breaking)_** Change creation of values from constructors to functions (affects Java projects)
+- **_(Breaking)_** Change Typst compiler API to world-based one.
+- Fix spacing in math
+- Support `tiling.body`.
+- Support show and set rules. 
+- Support Typst 0.13
+- Fix bugs with single-identifier closures used in context
+
 ### 0.3.0
 
 - Add automatic tests (And almost everything else is thanks to that)

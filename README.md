@@ -1,7 +1,5 @@
 # TyKo — Kotlin bindings for Typst
 
-# !! Warning !! This Readme is being actively updated. Please be careful following instructions, they may appear corrupted.
-
 ## Quick introduction
 
 This library allows
@@ -10,68 +8,76 @@ This library allows
     
     ```kt
     val tiling = TTiling(
-        size = TArray(30.pt, 30.pt),
+        sz = TArray(30.pt, 30.pt),
         body = TSequence(
             TPlace(body = TLine(start = TArray(0.pc, 0.pc), end = TArray(100.pc, 100.pc))),
             TPlace(body = TLine(start = TArray(0.pc, 100.pc), end = TArray(100.pc, 0.pc))),
         )
     )
     ```
-    (example from [official documentation on tilings](https://typst.app/docs/reference/visualize/pattern/))
+    (example from [official documentation on tilings](https://typst.app/docs/reference/visualize/tiling/))
+
+    All the parameters are named the same way as in Typst, except for `size`, 
+    which is `sz` for the sake of compatibility with Kotlin `List`s
 
 - Converting them to the Typst code:
 
     ```kt
     tiling.repr()
     ```
-    which produces 
-    ```typ
-    tiling(size: (0.0em + 30.0pt, 0.0em + 30.0pt), { place(line(start: (0.0%, 0.0%), end: (100.0%, 100.0%))); place(line(start: (0.0%, 100.0%), end: (100.0%, 0.0%))); })
-    ```
-    
-    (Some cosmetic improvements are planned, but not the first priority)
 
-- Accessing the Typst compiler:
+    (The resulting `repr` is not human-readable, however, some cosmetic improvements are planned)
+
+- Accessing the Typst Engine.
+
+    The compiler requires two things: [TypstSharedLibrary](https://github.com/LDemetrios/typst-custom-serialize),
+    compiled for your system (see [Installation](https://github.com/LDemetrios/TyKo#Installation)),
+    and a `World` (See Docs \[Not available]). There are two built-in implementations of World at the moment:
 
     ```kt
-    val typst = Typst("/home/user/.cargo/bin/typst")
-    typst.compile(Path.of("test.typ")) {
-        format = OutputFormat.SVG
-        ppi = 1440
-    }
-    ```
-    
-    Optional arguments are provided via lambda configuration function.
+    val lib = TypstSharedLibrary.instance(Path("../libtypst_shared.so"))
+  
+    val compiler = WorldBasedTypstCompiler(lib, DetachedWorld())
 
-    When no path for the typst compiler is provided, the default one is used.
-    
-    ```kt
-    val typst = Typst()
-    typst.query<TMetadata<TArray<TInt>>>(Path.of("test.typ"), selector(TLabel("lbl".t)))
-    ```
-    
-    More on queries later.
-    
-    Besides, default parameters can be configured while creating the `Typst` object:
-    
-    ```kt
-    Typst("typst", "./typst-custom-serial") {
-        root = Path.of("src/typ")
-        ppi = 1440
-        compile {
-            input("mode", "heavy")
-        }
-        query {
-            input("mode", "lite")
-        }
-        watch {
-            ppi = 144
-        }
-    }
+    val anotherTiling = compiler.evalDetached(
+        """
+            tiling(
+                size: (30pt, 30pt),
+                spacing: (10pt, 10pt),
+                relative: "parent",
+                square(
+                    size: 30pt,
+                    fill: gradient.conic(..color.map.rainbow),
+                ),
+            )
+        """.trimIndent()
+    )
+  
+    compiler.close()
     ```
   
-    `"./typst-custom-serial"` here is a separate executable for performing queries (see section on queries). Also, `watch` is not supported, plan on adding it in the next version.
+    Compilers are Closeable. Not closing the Compiler properly may cause native AND java memory leaks.
+    
+- Compiling to html, png and svg (pdf is coming):
 
+    ```kt
+    val page = TSequence {
+        +TSetPage(height = TAuto, margin = 20.pt)
+        +TRect(
+            fill = tiling,
+            width = 100.pc,
+            height = 60.pt,
+            stroke = 1.pt,
+        )
+    }
+    val fileCompiler = WorldBasedTypstCompiler(lib, SingleFileWorld("#" + page.repr()))
+
+    val compiled = fileCompiler.compilePng(ppi = 288.0f)[0] // Oth page
+    File("output.png").writeBytes(compiled)
+    ```
+    
+    ![Result](output.png
+- )
 ## Further documentation
 
 I plan on publishing it almost the first priority. Stay tuned.
@@ -102,14 +108,8 @@ save the built shared library (e.g. `target/release/libtypst_shared.so`), you wo
 ```bash
 git clone https://github.com/LDemetrios/TyKo
 cd TyKo
-```
-
-- Put the shared library that you built earlier into `main/resources`, and name it just `typst_shared` (no prefixes, no extensions).
-
-- (from the root of TyKo) Run:
-
-```bash
 gradle publish
+cd ..
 ```
 
 (Or use an appropriate `gradlew` if you haven't installed gradle)
@@ -122,18 +122,18 @@ Now you can include it into your project:
 <dependency>
     <groupId>org.ldemetrios</groupId>
     <artifactId>tyko</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
 ### Gradle 
 Kotlin DSL:
 ```kt
-implementation("org.ldemetrios:tyko:0.3.0")
+implementation("org.ldemetrios:tyko:0.4.0")
 ```
 Groovy DSL:
 ```groovy
-implementation 'org.ldemetrios:tyko:0.3.0'
+implementation 'org.ldemetrios:tyko:0.4.0'
 ```
 
 ## Changelog

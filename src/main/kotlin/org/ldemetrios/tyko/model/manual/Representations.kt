@@ -75,7 +75,21 @@ object Representations {
     }
 
     fun reprOf(value: TSequence): String {
-        return elementRepr("[a\\ ].func()", ArgumentEntry(false, null, value.children), ArgumentEntry(false, "label", value.label))
+        val styleStart = value.children.indexOfFirst { it is TStyle && it !is TDynamic }
+        if (styleStart == -1) return elementRepr(
+            "[a\\ ].func()",
+            ArgumentEntry(false, null, value.children),
+            ArgumentEntry(false, "label", value.label)
+        ) else {
+            val before = value.children.subList(0, styleStart)
+            val styles = value.children.subList(styleStart, value.children.size).takeWhile { it is TStyle && it !is TDynamic }
+            val after = value.children.subList(styleStart + styles.size, value.children.size)
+            return elementRepr(
+                "[a\\ ].func()",
+                ArgumentEntry(false, null, TArray(before + TStyled(TArray(styles as List<TStyle>), TSequence(TArray(after))))),
+                ArgumentEntry(false, "label", value.label)
+            )
+        }
     }
 
     fun structRepr(
@@ -184,7 +198,7 @@ object Representations {
         return "{ " + value.styles.value.joinToString("; ") { it.repr() } + "; ${value.child.repr()}; }"
     }
 
-    fun reprOf(value: TFunction, contextual : Boolean = false): String = when (value) {
+    fun reprOf(value: TFunction, contextual: Boolean = false): String = when (value) {
         is TElement -> reprOf(value)
         is TWith -> "(" + value.origin.repr() + ").with(.." + value.args.repr() + ")"
         is TNativeFunc -> value.name.value
