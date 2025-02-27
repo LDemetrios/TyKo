@@ -28,13 +28,14 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     implementation(kotlin("reflect"))
     implementation(kotlin("reflect"))
-    implementation("org.ldemetrios:common-utils:0.1.2")
+    implementation("org.ldemetrios:common-utils:0.1.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation("io.kotest:kotest-runner-junit5:5.7.0")
     testImplementation("io.kotest:kotest-assertions-core:5.7.0")
     testImplementation("io.kotest:kotest-property:5.7.0")
-    implementation("com.jetbrains.intellij.java:java-decompiler-engine:242.22855.74")
+//    implementation("com.jetbrains.intellij.java:java-decompiler-engine:242.22855.74")
     implementation("net.java.dev.jna:jna:5.13.0")
+    implementation("org.apache.commons:commons-compress:1.26.0")
 
 }
 

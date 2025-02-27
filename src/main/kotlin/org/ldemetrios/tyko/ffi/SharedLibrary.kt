@@ -33,7 +33,7 @@ interface TypstSharedLibrary : Library {
     ): JavaExceptPtrResult/*<JavaWorld>*/
 
     @TyKoFFIEntity
-    fun create_stdlib(features: Int): Pointer/* *mut Library */
+    fun create_stdlib(features: Int, inputs_thick: ThickBytePtr): Pointer/* *mut Library */
 
     @TyKoFFIEntity
     fun detached_eval(java_world: /* *mut JavaWorld */ Pointer, source_ptr: ThickBytePtr): JavaResult/*<Result<String, Vec<ExtendedSourceDiagnostic>>>*/
@@ -51,7 +51,7 @@ interface TypstSharedLibrary : Library {
     fun compile_png(world_ptr: /* *mut JavaWorld */ Pointer, from: Int, to: Int, ppi: Float): JavaResult // <Warned<Result<List<Base16ByteArray>, Vec<ExtendedSourceDiagnostic>>>>
 
     @TyKoFFIEntity
-    fun reset(pointer: Pointer)
+    fun reset_world(pointer: Pointer)
 
     companion object {
 //        @OptIn(TyKoFFIEntity::class)

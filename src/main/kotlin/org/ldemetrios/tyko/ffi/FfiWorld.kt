@@ -12,6 +12,7 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
 import org.ldemetrios.tyko.compiler.*
+import org.ldemetrios.tyko.model.repr
 import java.io.Closeable
 import java.time.Instant
 
@@ -67,9 +68,12 @@ object Base16ByteArraySerializer : KSerializer<Base16ByteArray> {
 internal fun TypstSharedLibrary.nativeLibrary(library: StdlibProvider): Pointer = when (library) {
     is StdlibProvider.Custom -> throw UnsupportedOperationException("Custom library is not yet supported")
     is StdlibProvider.Standard -> {
-        // TODO inputs are ignored for now
         val features = library.features.toSet().map { it.ordinal }.sumOf { 1 shl it }
-        create_stdlib(features)
+        val inputs = library.inputs.repr()
+        val thickBytePtr = ThickBytePtr.fromString(inputs)
+        val stdlib = create_stdlib(features, thickBytePtr)
+        thickBytePtr.close()
+        stdlib
     }
 }
 
@@ -188,10 +192,9 @@ class NativeWorld(val owner: TypstSharedLibrary, val delegate: World, val ptr: U
     }
 
     fun reset() {
-        ptr.map { owner.reset(it) }
+        ptr.map { owner.reset_world(it) }
     }
 }
-
 
 
 /*
