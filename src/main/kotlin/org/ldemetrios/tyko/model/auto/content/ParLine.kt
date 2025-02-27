@@ -48,17 +48,17 @@ public interface TParLine : TContent {
 }
 
 internal data class TParLineImpl(
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignmentOrAuto? = null,
-    @SerialName("number-margin")
+    @TSerialName("number-margin")
     override val numberMargin: TAlignment? = null,
-    @SerialName("number-clearance")
+    @TSerialName("number-clearance")
     override val numberClearance: TAutoOrLength? = null,
-    @SerialName("numbering-scope")
+    @TSerialName("numbering-scope")
     override val numberingScope: TParLineNumberingScope? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TParLine {
     override fun format(): String = Representations.elementRepr("par.line",ArgumentEntry(false,
@@ -105,15 +105,15 @@ public interface TSetParLine : TSetRule {
 }
 
 internal class TSetParLineImpl(
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignmentOrAuto? = null,
-    @SerialName("number-margin")
+    @TSerialName("number-margin")
     override val numberMargin: TAlignment? = null,
-    @SerialName("number-clearance")
+    @TSerialName("number-clearance")
     override val numberClearance: TAutoOrLength? = null,
-    @SerialName("numbering-scope")
+    @TSerialName("numbering-scope")
     override val numberingScope: TParLineNumberingScope? = null,
 ) : TSetParLine
 

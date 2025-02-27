@@ -25,7 +25,7 @@ public interface TTableVline : TContent {
 
     public val end: TIntOrNone?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val position: TAlignment?
 
@@ -48,18 +48,17 @@ public interface TTableVline : TContent {
 }
 
 internal data class TTableVlineImpl(
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TAutoOrInt? = null,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TInt? = null,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TIntOrNone? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("position")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("position")
     override val position: TAlignment? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTableVline {
     override fun format(): String = Representations.elementRepr("table.vline",ArgumentEntry(false,
@@ -73,7 +72,7 @@ public fun TTableVline(
     x: TAutoOrInt? = null,
     start: TInt? = null,
     end: TIntOrNone? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     position: TAlignment? = null,
     label: TLabel? = null,
 ): TTableVline = TTableVlineImpl(`x`, `start`, `end`, `stroke`, `position`, `label`)
@@ -92,7 +91,7 @@ public interface TSetTableVline : TSetRule {
 
     public val end: TIntOrNone?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val position: TAlignment?
 
@@ -102,16 +101,15 @@ public interface TSetTableVline : TSetRule {
 }
 
 internal class TSetTableVlineImpl(
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TAutoOrInt? = null,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TInt? = null,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TIntOrNone? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("position")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("position")
     override val position: TAlignment? = null,
 ) : TSetTableVline
 
@@ -120,6 +118,6 @@ public fun TSetTableVline(
     x: TAutoOrInt? = null,
     start: TInt? = null,
     end: TIntOrNone? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     position: TAlignment? = null,
 ): TSetTableVline = TSetTableVlineImpl(`x`, `start`, `end`, `stroke`, `position`)

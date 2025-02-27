@@ -3,7 +3,10 @@ package org.ldemetrios.tyko.manual
 import org.ldemetrios.tyko.compiler.*
 import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.model.*
-import org.ldemetrios.tyko.operations.*
+import org.ldemetrios.tyko.model.TArray
+import org.ldemetrios.tyko.model.TSequence
+import org.ldemetrios.tyko.model.pc
+import org.ldemetrios.tyko.model.pt
 import java.io.File
 import kotlin.io.path.Path
 

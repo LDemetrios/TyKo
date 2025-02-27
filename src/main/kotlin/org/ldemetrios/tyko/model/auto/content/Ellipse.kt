@@ -25,10 +25,9 @@ public interface TEllipse : TContent {
 
     public val height: TAutoOrFractionOrRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val inset: TDictionaryOrRelative<TValue>?
 
@@ -61,22 +60,22 @@ public interface TEllipse : TContent {
 }
 
 internal data class TEllipseImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TEllipse {
     override fun format(): String = Representations.elementRepr("ellipse",ArgumentEntry(false, null,
@@ -91,8 +90,8 @@ public fun TEllipse(
     body: TContentOrNone? = null,
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,
     label: TLabel? = null,
@@ -112,10 +111,9 @@ public interface TSetEllipse : TSetRule {
 
     public val height: TAutoOrFractionOrRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val inset: TDictionaryOrRelative<TValue>?
 
@@ -128,20 +126,20 @@ public interface TSetEllipse : TSetRule {
 }
 
 internal class TSetEllipseImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
 ) : TSetEllipse
 
@@ -150,8 +148,8 @@ public fun TSetEllipse(
     body: TContentOrNone? = null,
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,
 ): TSetEllipse = TSetEllipseImpl(`body`, `width`, `height`, `fill`, `stroke`, `inset`, `outset`)

@@ -45,17 +45,17 @@ public interface TSkew : TContent {
 }
 
 internal data class TSkewImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("ax")
+    @TSerialName("ax")
     override val ax: TAngle? = null,
-    @SerialName("ay")
+    @TSerialName("ay")
     override val ay: TAngle? = null,
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TAlignment? = null,
-    @SerialName("reflow")
+    @TSerialName("reflow")
     override val reflow: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSkew {
     override fun format(): String = Representations.elementRepr("skew",ArgumentEntry(false, null,
@@ -96,13 +96,13 @@ public interface TSetSkew : TSetRule {
 }
 
 internal class TSetSkewImpl(
-    @SerialName("ax")
+    @TSerialName("ax")
     override val ax: TAngle? = null,
-    @SerialName("ay")
+    @TSerialName("ay")
     override val ay: TAngle? = null,
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TAlignment? = null,
-    @SerialName("reflow")
+    @TSerialName("reflow")
     override val reflow: TBool? = null,
 ) : TSetSkew
 

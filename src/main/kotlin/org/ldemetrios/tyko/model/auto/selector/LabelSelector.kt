@@ -23,7 +23,7 @@ public interface TLabelSelector : TSelector {
 }
 
 internal data class TLabelSelectorImpl(
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel,
 ) : TLabelSelector {
     override fun format(): String = Representations.reprOf(this)

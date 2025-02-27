@@ -18,7 +18,7 @@ import org.ldemetrios.utilities.castUnchecked
     ["gradient.linear", "gradient"],
     TLinearGradientImpl::class,
 )
-public interface TLinearGradient : TGradientGradient {
+public interface TLinearGradient : TGradient {
     public val stops: TArray<TArrayOrColor<TColorOrRatio>>
 
     public val space: TValue?
@@ -49,15 +49,15 @@ public interface TLinearGradient : TGradientGradient {
 }
 
 internal data class TLinearGradientImpl(
-    @SerialName("stops")
+    @TSerialName("stops")
     override val stops: TArray<TArrayOrColor<TColorOrRatio>>,
-    @SerialName("space")
+    @TSerialName("space")
     override val space: TValue? = null,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TAutoOrStr? = null,
-    @SerialName("dir")
+    @TSerialName("dir")
     override val dir: TDirection? = null,
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngle? = null,
 ) : TLinearGradient {
     override fun format(): String = Representations.structRepr("gradient.linear",ArgumentEntry(true,

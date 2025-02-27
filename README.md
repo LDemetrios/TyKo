@@ -30,7 +30,7 @@ This library allows
 
 - Accessing the Typst Engine.
 
-    The compiler requires two things: [TypstSharedLibrary](https://github.com/LDemetrios/typst-custom-serialize),
+    The compiler requires two things: [TypstSharedLibrary](https://github.com/LDemetrios/typst-shared-library),
     compiled for your system (see [Installation](https://github.com/LDemetrios/TyKo#Installation)),
     and a `World` (See Docs \[Not available]). There are two built-in implementations of World at the moment:
 

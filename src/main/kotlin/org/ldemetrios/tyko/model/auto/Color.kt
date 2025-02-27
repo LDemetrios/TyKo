@@ -12,16 +12,15 @@ import org.ldemetrios.js.JSUndefined
 import org.ldemetrios.utilities.cast
 import org.ldemetrios.utilities.castUnchecked
 
-public interface TColor : TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TDynamic>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
-        TAutoOrColorOrGradientGradientOrNoneOrTiling,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TColorOrGradientGradientOrNoneOrTiling,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TColorOrGradientGradientOrTiling,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TArrayOrColor<TDynamic>, TColorOrRatio, TAutoOrColorOrGradientGradientOrTiling, TValue {
+public interface TColor : TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TDynamic>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TAutoOrColorOrGradientOrNoneOrTiling,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TColorOrGradientOrNoneOrTiling,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>, TColorOrGradientOrTiling,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TArrayOrColor<TDynamic>, TColorOrRatio, TAutoOrColorOrGradientOrTiling, TValue {
     override fun type(): TType = TColor
 
     public fun func(): TFunction

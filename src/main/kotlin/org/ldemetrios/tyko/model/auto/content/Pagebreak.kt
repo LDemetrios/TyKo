@@ -34,11 +34,11 @@ public interface TPagebreak : TContent {
 }
 
 internal data class TPagebreakImpl(
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
-    @SerialName("to")
+    @TSerialName("to")
     override val to: TNoneOrPagebreakTo? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPagebreak {
     override fun format(): String = Representations.elementRepr("pagebreak",ArgumentEntry(false,
@@ -69,9 +69,9 @@ public interface TSetPagebreak : TSetRule {
 }
 
 internal class TSetPagebreakImpl(
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
-    @SerialName("to")
+    @TSerialName("to")
     override val to: TNoneOrPagebreakTo? = null,
 ) : TSetPagebreak
 

@@ -101,14 +101,17 @@ fun TypstSharedLibrary.NativeWorld(world: World): NativeWorld {
         val now = world.now()?.toNow()
         val str = now?.let { json.encodeToString(it) } ?: "null"
         val now_jr = JavaResult.fromString(str)
-        val exceptWorld = new_world(stdlib.release()!!, mainCallback, fileCallback, now_jr)
+        val exceptWorld =
+            new_world(stdlib.release()!!, mainCallback, fileCallback, now_jr, if (world.autoManageCentral) 1 else 0)
         (now_jr.value!!.ptr!! as Memory).close()
         if (exceptWorld.ptr == null) {
             val comment = exceptWorld.comment!!.readString()
             free_thick_byte_ptr(exceptWorld.comment!!)
             TODO(comment)
         } else {
-            return NativeWorld(this, world, UniquePtr(exceptWorld.ptr!!) { free_world(it) }, mainCallback, fileCallback)
+            val c = UniquePtr(exceptWorld.ptr!!) { free_world(it) }
+            val d = NativeWorld(this, world, c, mainCallback, fileCallback)
+            return d
         }
     } finally {
         stdlib.tryClose()
@@ -116,7 +119,13 @@ fun TypstSharedLibrary.NativeWorld(world: World): NativeWorld {
 }
 
 @TyKoFFIEntity
-class NativeWorld(val owner: TypstSharedLibrary, val delegate: World, val ptr: UniquePtr, private val mainTicket: MainCallback, private val fileTicket: FileCallback) : Closeable {
+class NativeWorld(
+    val owner: TypstSharedLibrary,
+    val delegate: World,
+    val ptr: UniquePtr,
+    private val mainTicket: MainCallback,
+    private val fileTicket: FileCallback
+) : Closeable {
     override fun close() {
         ptr.close()
     }
@@ -174,7 +183,13 @@ class NativeWorld(val owner: TypstSharedLibrary, val delegate: World, val ptr: U
     }
 
     fun compileSvgRaw(fromPage: Int, toPage: Int): Warned<RResult<List<String>, List<SourceDiagnostic>>> {
-        val result = ptr.map { owner.compile_svg(it, fromPage, toPage) }.value!! // <Warned<Result<String, EcoVec<SourceDiagnostic>>>>
+        val result = ptr.map {
+            owner.compile_svg(
+                it,
+                fromPage,
+                toPage
+            )
+        }.value!! // <Warned<Result<String, EcoVec<SourceDiagnostic>>>>
         val result_str = result.readString()
         owner.free_thick_byte_ptr(result)
         return json.decodeFromString<Warned<RResult<List<String>, List<SourceDiagnostic>>>>(result_str).also {
@@ -182,8 +197,19 @@ class NativeWorld(val owner: TypstSharedLibrary, val delegate: World, val ptr: U
         }
     }
 
-    fun compilePngRaw(fromPage: Int, toPage: Int, ppi: Float): Warned<RResult<List<ByteArray>, List<SourceDiagnostic>>> {
-        val result = ptr.map { owner.compile_png(it, fromPage, toPage, ppi) }.value!! // <Warned<Result<String, EcoVec<SourceDiagnostic>>>>
+    fun compilePngRaw(
+        fromPage: Int,
+        toPage: Int,
+        ppi: Float
+    ): Warned<RResult<List<ByteArray>, List<SourceDiagnostic>>> {
+        val result = ptr.map {
+            owner.compile_png(
+                it,
+                fromPage,
+                toPage,
+                ppi
+            )
+        }.value!! // <Warned<Result<String, EcoVec<SourceDiagnostic>>>>
         val result_str = result.readString()
         owner.free_thick_byte_ptr(result)
         return json.decodeFromString<Warned<RResult<List<Base16ByteArray>, List<SourceDiagnostic>>>>(result_str).also {

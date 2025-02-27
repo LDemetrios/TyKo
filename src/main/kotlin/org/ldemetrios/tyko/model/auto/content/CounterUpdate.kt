@@ -35,11 +35,11 @@ public interface TCounterUpdate : TContent {
 }
 
 internal data class TCounterUpdateImpl(
-    @SerialName("key")
+    @TSerialName("key")
     override val key: TFunctionOrLabelOrLocationOrSelectorOrStr,
-    @SerialName("update")
+    @TSerialName("update")
     override val update: TArrayOrFunctionOrInt<TInt>,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCounterUpdate {
     override fun format(): String = Representations.reprOf(this)

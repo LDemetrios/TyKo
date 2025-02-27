@@ -33,11 +33,11 @@ public interface TGridHeader : TContent {
 }
 
 internal data class TGridHeaderImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TGridHeader {
     override fun format(): String = Representations.elementRepr("grid.header",ArgumentEntry(true,
@@ -67,7 +67,7 @@ public interface TSetGridHeader : TSetRule {
 }
 
 internal class TSetGridHeaderImpl(
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
 ) : TSetGridHeader
 

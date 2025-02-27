@@ -29,9 +29,9 @@ public interface TEmph : TContent {
 }
 
 internal data class TEmphImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TEmph {
     override fun format(): String = Representations.elementRepr("emph",ArgumentEntry(false, null,

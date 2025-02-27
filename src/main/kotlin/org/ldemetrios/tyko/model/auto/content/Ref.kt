@@ -38,13 +38,13 @@ public interface TRef : TContent {
 }
 
 internal data class TRefImpl(
-    @SerialName("target")
+    @TSerialName("target")
     override val target: TLabel,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("form")
+    @TSerialName("form")
     override val form: TRefForm? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TRef {
     override fun format(): String = Representations.elementRepr("ref",ArgumentEntry(false, null,
@@ -77,9 +77,9 @@ public interface TSetRef : TSetRule {
 }
 
 internal class TSetRefImpl(
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("form")
+    @TSerialName("form")
     override val form: TRefForm? = null,
 ) : TSetRef
 

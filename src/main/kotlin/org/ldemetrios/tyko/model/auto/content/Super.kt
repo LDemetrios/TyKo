@@ -41,15 +41,15 @@ public interface TSuper : TContent {
 }
 
 internal data class TSuperImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("typographic")
+    @TSerialName("typographic")
     override val typographic: TBool? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TLength? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSuper {
     override fun format(): String = Representations.elementRepr("super",ArgumentEntry(false, null,
@@ -86,11 +86,11 @@ public interface TSetSuper : TSetRule {
 }
 
 internal class TSetSuperImpl(
-    @SerialName("typographic")
+    @TSerialName("typographic")
     override val typographic: TBool? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TLength? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TLength? = null,
 ) : TSetSuper
 

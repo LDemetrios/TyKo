@@ -32,7 +32,7 @@ public interface TFraction : TArrayOrAutoOrFractionOrIntOrRelative<TDynamic>,
 }
 
 internal data class TFractionImpl(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: TFloat,
 ) : TFraction {
     override fun format(): String = Representations.reprOf(this)

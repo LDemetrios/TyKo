@@ -29,9 +29,9 @@ public interface TMathUnderline : TContent {
 }
 
 internal data class TMathUnderlineImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathUnderline {
     override fun format(): String = Representations.elementRepr("math.underline",ArgumentEntry(false,

@@ -29,9 +29,9 @@ public interface TMathOverline : TContent {
 }
 
 internal data class TMathOverlineImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathOverline {
     override fun format(): String = Representations.elementRepr("math.overline",ArgumentEntry(false,

@@ -37,13 +37,13 @@ public interface TOutlineEntry : TContent {
 }
 
 internal data class TOutlineEntryImpl(
-    @SerialName("level")
+    @TSerialName("level")
     override val level: TInt,
-    @SerialName("element")
+    @TSerialName("element")
     override val element: TContent,
-    @SerialName("fill")
+    @TSerialName("fill")
     override val fill: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TOutlineEntry {
     override fun format(): String = Representations.elementRepr("outline.entry",ArgumentEntry(false,
@@ -74,7 +74,7 @@ public interface TSetOutlineEntry : TSetRule {
 }
 
 internal class TSetOutlineEntryImpl(
-    @SerialName("fill")
+    @TSerialName("fill")
     override val fill: TContentOrNone? = null,
 ) : TSetOutlineEntry
 

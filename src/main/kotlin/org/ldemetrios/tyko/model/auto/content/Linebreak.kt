@@ -29,9 +29,9 @@ public interface TLinebreak : TContent {
 }
 
 internal data class TLinebreakImpl(
-    @SerialName("justify")
+    @TSerialName("justify")
     override val justify: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TLinebreak {
     override fun format(): String = Representations.elementRepr("linebreak",ArgumentEntry(false,
@@ -57,7 +57,7 @@ public interface TSetLinebreak : TSetRule {
 }
 
 internal class TSetLinebreakImpl(
-    @SerialName("justify")
+    @TSerialName("justify")
     override val justify: TBool? = null,
 ) : TSetLinebreak
 

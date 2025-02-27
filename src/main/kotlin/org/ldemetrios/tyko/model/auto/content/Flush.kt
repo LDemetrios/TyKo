@@ -25,7 +25,7 @@ public interface TFlush : TContent {
 }
 
 internal data class TFlushImpl(
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TFlush {
     override fun format(): String = Representations.elementRepr("place.flush",ArgumentEntry(false,

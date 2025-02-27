@@ -45,15 +45,15 @@ public interface TDuration : TValue {
 }
 
 internal data class TDurationImpl(
-    @SerialName("seconds")
+    @TSerialName("seconds")
     override val seconds: TInt? = null,
-    @SerialName("minutes")
+    @TSerialName("minutes")
     override val minutes: TInt? = null,
-    @SerialName("hours")
+    @TSerialName("hours")
     override val hours: TInt? = null,
-    @SerialName("days")
+    @TSerialName("days")
     override val days: TInt? = null,
-    @SerialName("weeks")
+    @TSerialName("weeks")
     override val weeks: TInt? = null,
 ) : TDuration {
     override fun format(): String = Representations.structRepr("duration",ArgumentEntry(false,

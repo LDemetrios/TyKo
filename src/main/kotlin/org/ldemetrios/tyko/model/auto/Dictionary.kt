@@ -28,12 +28,12 @@ import org.ldemetrios.utilities.castUnchecked
     TDictionaryImpl::class,
 )
 public interface TDictionary<out V : TValue> : Map<String, V>, TValue, TDictionaryOrLength<V>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>, TDictionaryOrRelative<V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<V>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>, TDictionaryOrRelative<V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<V>,
         TArrayOrAutoOrDictionaryOrStr<TDynamic, V>, TArrayOrDictionary<TDynamic, V>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<V>, TDictionaryOrIntOrNone<V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<V>, TDictionaryOrIntOrNone<V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>,
         TAutoOrDictionaryOrImageFormat<V>, TArrayOrAutoOrDictionaryOrNoneOrStr<TDynamic, V> {
     public val dictionaryValue: Map<String, V>
 

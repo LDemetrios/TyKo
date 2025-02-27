@@ -33,11 +33,11 @@ public interface TMathBinom : TContent {
 }
 
 internal data class TMathBinomImpl(
-    @SerialName("upper")
+    @TSerialName("upper")
     override val upper: TContent,
-    @SerialName("lower")
+    @TSerialName("lower")
     override val lower: TArray<TContent>,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathBinom {
     override fun format(): String = Representations.elementRepr("math.binom",ArgumentEntry(false,

@@ -5,11 +5,19 @@ plugins {
     kotlin("jvm") version "2.1.0"
     `java-library`
     `maven-publish`
+    id("com.gradleup.shadow") version "8.3.0"
     kotlin("plugin.serialization") version "2.1.0"
 }
 
+
 group = "org.ldemetrios"
 version = "0.4.0"
+//
+//tasks.jar {
+//    manifest {
+//        attributes["Class-Path"] = "/libs/a.jar"
+//    }
+//}
 
 repositories {
     mavenCentral()
@@ -27,7 +35,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     implementation(kotlin("reflect"))
-    implementation(kotlin("reflect"))
     implementation("org.ldemetrios:common-utils:0.1.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation("io.kotest:kotest-runner-junit5:5.7.0")
@@ -35,6 +42,7 @@ dependencies {
     testImplementation("io.kotest:kotest-property:5.7.0")
 //    implementation("com.jetbrains.intellij.java:java-decompiler-engine:242.22855.74")
     implementation("net.java.dev.jna:jna:5.13.0")
+    implementation("net.java.dev.jna:jna-platform:5.13.0")
     implementation("org.apache.commons:commons-compress:1.26.0")
 
 }
@@ -43,7 +51,7 @@ tasks.test {
     useJUnitPlatform()
 }
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 
 //val datamodel = File("${project.rootDir}/others").readText()

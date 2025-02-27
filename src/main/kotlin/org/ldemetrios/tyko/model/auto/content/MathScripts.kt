@@ -29,9 +29,9 @@ public interface TMathScripts : TContent {
 }
 
 internal data class TMathScriptsImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathScripts {
     override fun format(): String = Representations.elementRepr("math.scripts",ArgumentEntry(false,

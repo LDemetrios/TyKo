@@ -27,11 +27,11 @@ public interface TBeforeSelector : TSelector {
 }
 
 internal data class TBeforeSelectorImpl(
-    @SerialName("selector")
+    @TSerialName("selector")
     override val selector: TSelector,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TSelector,
-    @SerialName("inclusive")
+    @TSerialName("inclusive")
     override val inclusive: TBool? = null,
 ) : TBeforeSelector {
     override fun format(): String = Representations.reprOf(this)

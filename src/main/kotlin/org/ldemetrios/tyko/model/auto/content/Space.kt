@@ -25,7 +25,7 @@ public interface TSpace : TContent {
 }
 
 internal data class TSpaceImpl(
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSpace {
     override fun format(): String = Representations.reprOf(this)

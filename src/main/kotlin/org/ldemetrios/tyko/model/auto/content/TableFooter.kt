@@ -33,11 +33,11 @@ public interface TTableFooter : TContent {
 }
 
 internal data class TTableFooterImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTableFooter {
     override fun format(): String = Representations.elementRepr("table.footer",ArgumentEntry(true,
@@ -67,7 +67,7 @@ public interface TSetTableFooter : TSetRule {
 }
 
 internal class TSetTableFooterImpl(
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
 ) : TSetTableFooter
 

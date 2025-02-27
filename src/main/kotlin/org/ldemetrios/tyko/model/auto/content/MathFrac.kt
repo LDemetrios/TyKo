@@ -33,11 +33,11 @@ public interface TMathFrac : TContent {
 }
 
 internal data class TMathFracImpl(
-    @SerialName("num")
+    @TSerialName("num")
     override val num: TContent,
-    @SerialName("denom")
+    @TSerialName("denom")
     override val denom: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathFrac {
     override fun format(): String = Representations.elementRepr("math.frac",ArgumentEntry(false, null,

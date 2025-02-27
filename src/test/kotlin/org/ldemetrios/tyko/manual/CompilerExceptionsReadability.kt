@@ -13,7 +13,8 @@ import org.ldemetrios.tyko.compiler.compileSvg
 import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.model.TDictionary
 import org.ldemetrios.tyko.model.TValue
-import org.ldemetrios.tyko.original.SHARED_LIBRARY_PATH
+import org.ldemetrios.tyko.original.sharedLib
+
 import kotlin.io.path.Path
 
 fun tryCompile(source: String, lib: String? = null) {
@@ -39,12 +40,11 @@ fun tryCompile(source: String, lib: String? = null) {
             }
 
             override fun now(): WorldTime? = WorldTime.System
+
+            override val autoManageCentral: Boolean = false
         }
 
-        val compiler = WorldBasedTypstCompiler(
-            TypstSharedLibrary.instance(Path(SHARED_LIBRARY_PATH)),
-            world
-        )
+        val compiler = WorldBasedTypstCompiler(            sharedLib,            world        )
         compiler.compileSvg()
         compiler.close()
     } catch (e: TypstCompilerException) {

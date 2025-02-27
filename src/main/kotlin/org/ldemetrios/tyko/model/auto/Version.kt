@@ -29,7 +29,7 @@ public interface TVersion : TValue {
 }
 
 internal data class TVersionImpl(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: TArray<TInt>,
 ) : TVersion {
     override fun format(): String = Representations.structRepr("version",ArgumentEntry(false, null,

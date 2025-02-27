@@ -34,11 +34,11 @@ public interface TH : TContent {
 }
 
 internal data class THImpl(
-    @SerialName("amount")
+    @TSerialName("amount")
     override val amount: TFractionOrRelative,
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TH {
     override fun format(): String = Representations.elementRepr("h",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetH : TSetRule {
 }
 
 internal class TSetHImpl(
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
 ) : TSetH
 

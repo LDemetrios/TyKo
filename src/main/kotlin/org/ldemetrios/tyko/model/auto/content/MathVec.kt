@@ -43,15 +43,15 @@ public interface TMathVec : TContent {
 }
 
 internal data class TMathVecImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("delim")
+    @TSerialName("delim")
     override val delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
-    @SerialName("align")
+    @TSerialName("align")
     override val align: TAlignment? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathVec {
     override fun format(): String = Representations.elementRepr("math.vec",ArgumentEntry(true, null,
@@ -87,11 +87,11 @@ public interface TSetMathVec : TSetRule {
 }
 
 internal class TSetMathVecImpl(
-    @SerialName("delim")
+    @TSerialName("delim")
     override val delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
-    @SerialName("align")
+    @TSerialName("align")
     override val align: TAlignment? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TRelative? = null,
 ) : TSetMathVec
 

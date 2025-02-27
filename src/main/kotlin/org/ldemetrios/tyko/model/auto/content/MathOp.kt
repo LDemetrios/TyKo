@@ -33,11 +33,11 @@ public interface TMathOp : TContent {
 }
 
 internal data class TMathOpImpl(
-    @SerialName("text")
+    @TSerialName("text")
     override val text: TContent,
-    @SerialName("limits")
+    @TSerialName("limits")
     override val limits: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathOp {
     override fun format(): String = Representations.elementRepr("math.op",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetMathOp : TSetRule {
 }
 
 internal class TSetMathOpImpl(
-    @SerialName("limits")
+    @TSerialName("limits")
     override val limits: TBool? = null,
 ) : TSetMathOp
 

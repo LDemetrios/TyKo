@@ -16,9 +16,9 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TFunction : TValue, TArrayOrContentOrFunction<TDynamic>, TAutoOrFunctionOrStr,
         TAutoOrContentOrFunctionOrNone, TFunctionOrNoneOrStr, TFunctionOrStr,
         TFunctionOrLabelOrLocationOrSelector, TAutoOrBoolOrFunctionOrNoneOrRelative,
-        TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TDynamic>,
+        TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TDynamic>,
         TAlignmentOrArrayOrAutoOrFunction<TDynamic>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
         TArrayOrFractionOrFunctionOrRelativeOrSides<TDynamic, TDynamic>, TAngleOrAutoOrFunction,
         TArrayOrFunctionOrRelativeOrSides<TDynamic, TDynamic>,
         TFunctionOrLabelOrLocationOrSelectorOrStr, TArrayOrFunctionOrInt<TDynamic> {

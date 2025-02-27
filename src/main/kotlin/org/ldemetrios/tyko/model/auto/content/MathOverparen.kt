@@ -34,11 +34,11 @@ public interface TMathOverparen : TContent {
 }
 
 internal data class TMathOverparenImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathOverparen {
     override fun format(): String = Representations.elementRepr("math.overparen",ArgumentEntry(false,
@@ -68,7 +68,7 @@ public interface TSetMathOverparen : TSetRule {
 }
 
 internal class TSetMathOverparenImpl(
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
 ) : TSetMathOverparen
 

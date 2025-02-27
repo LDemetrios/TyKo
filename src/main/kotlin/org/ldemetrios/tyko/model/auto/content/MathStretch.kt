@@ -33,11 +33,11 @@ public interface TMathStretch : TContent {
 }
 
 internal data class TMathStretchImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathStretch {
     override fun format(): String = Representations.elementRepr("math.stretch",ArgumentEntry(false,
@@ -66,7 +66,7 @@ public interface TSetMathStretch : TSetRule {
 }
 
 internal class TSetMathStretchImpl(
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrRelative? = null,
 ) : TSetMathStretch
 

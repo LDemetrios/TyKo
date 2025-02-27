@@ -43,15 +43,15 @@ public interface TCurveCubic : TContent {
 }
 
 internal data class TCurveCubicImpl(
-    @SerialName("control-start")
+    @TSerialName("control-start")
     override val controlStart: TArrayOrAutoOrNone<TLength>,
-    @SerialName("control-end")
+    @TSerialName("control-end")
     override val controlEnd: TArrayOrNone<TLength>,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TArray<TLength>,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCurveCubic {
     override fun format(): String = Representations.elementRepr("curve.cubic",ArgumentEntry(false,
@@ -83,7 +83,7 @@ public interface TSetCurveCubic : TSetRule {
 }
 
 internal class TSetCurveCubicImpl(
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
 ) : TSetCurveCubic
 

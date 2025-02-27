@@ -33,11 +33,11 @@ public interface TMathClass : TContent {
 }
 
 internal data class TMathClassImpl(
-    @SerialName("class")
+    @TSerialName("class")
     override val `class`: TMathClassClass,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathClass {
     override fun format(): String = Representations.elementRepr("math.class",ArgumentEntry(false,

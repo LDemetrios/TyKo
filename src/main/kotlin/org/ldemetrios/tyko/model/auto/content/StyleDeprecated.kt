@@ -29,9 +29,9 @@ public interface TStyleDeprecated : TContent {
 }
 
 internal data class TStyleDeprecatedImpl(
-    @SerialName("func")
+    @TSerialName("func")
     override val func: TFunction,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TStyleDeprecated {
     override fun format(): String = Representations.reprOf(this)

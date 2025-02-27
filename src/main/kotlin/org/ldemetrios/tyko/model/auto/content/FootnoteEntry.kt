@@ -45,17 +45,17 @@ public interface TFootnoteEntry : TContent {
 }
 
 internal data class TFootnoteEntryImpl(
-    @SerialName("note")
+    @TSerialName("note")
     override val note: TContent,
-    @SerialName("separator")
+    @TSerialName("separator")
     override val separator: TContent? = null,
-    @SerialName("clearance")
+    @TSerialName("clearance")
     override val clearance: TLength? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TLength? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TFootnoteEntry {
     override fun format(): String = Representations.elementRepr("footnote.entry",ArgumentEntry(false,
@@ -96,13 +96,13 @@ public interface TSetFootnoteEntry : TSetRule {
 }
 
 internal class TSetFootnoteEntryImpl(
-    @SerialName("separator")
+    @TSerialName("separator")
     override val separator: TContent? = null,
-    @SerialName("clearance")
+    @TSerialName("clearance")
     override val clearance: TLength? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TLength? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
 ) : TSetFootnoteEntry
 

@@ -33,11 +33,11 @@ public interface TMathRoot : TContent {
 }
 
 internal data class TMathRootImpl(
-    @SerialName("index")
+    @TSerialName("index")
     override val index: TContentOrNone? = null,
-    @SerialName("radicand")
+    @TSerialName("radicand")
     override val radicand: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathRoot {
     override fun format(): String = Representations.reprOf(this)
@@ -65,7 +65,7 @@ public interface TSetMathRoot : TSetRule {
 }
 
 internal class TSetMathRootImpl(
-    @SerialName("index")
+    @TSerialName("index")
     override val index: TContentOrNone? = null,
 ) : TSetMathRoot
 

@@ -34,11 +34,11 @@ public interface TV : TContent {
 }
 
 internal data class TVImpl(
-    @SerialName("amount")
+    @TSerialName("amount")
     override val amount: TFractionOrRelative,
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TV {
     override fun format(): String = Representations.elementRepr("v",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetV : TSetRule {
 }
 
 internal class TSetVImpl(
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
 ) : TSetV
 

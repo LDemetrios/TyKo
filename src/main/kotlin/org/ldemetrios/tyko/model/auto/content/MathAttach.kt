@@ -53,21 +53,21 @@ public interface TMathAttach : TContent {
 }
 
 internal data class TMathAttachImpl(
-    @SerialName("base")
+    @TSerialName("base")
     override val base: TContent,
-    @SerialName("t")
+    @TSerialName("t")
     override val t: TContentOrNone? = null,
-    @SerialName("b")
+    @TSerialName("b")
     override val b: TContentOrNone? = null,
-    @SerialName("tl")
+    @TSerialName("tl")
     override val tl: TContentOrNone? = null,
-    @SerialName("bl")
+    @TSerialName("bl")
     override val bl: TContentOrNone? = null,
-    @SerialName("tr")
+    @TSerialName("tr")
     override val tr: TContentOrNone? = null,
-    @SerialName("br")
+    @TSerialName("br")
     override val br: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathAttach {
     override fun format(): String = Representations.elementRepr("math.attach",ArgumentEntry(false,
@@ -114,17 +114,17 @@ public interface TSetMathAttach : TSetRule {
 }
 
 internal class TSetMathAttachImpl(
-    @SerialName("t")
+    @TSerialName("t")
     override val t: TContentOrNone? = null,
-    @SerialName("b")
+    @TSerialName("b")
     override val b: TContentOrNone? = null,
-    @SerialName("tl")
+    @TSerialName("tl")
     override val tl: TContentOrNone? = null,
-    @SerialName("bl")
+    @TSerialName("bl")
     override val bl: TContentOrNone? = null,
-    @SerialName("tr")
+    @TSerialName("tr")
     override val tr: TContentOrNone? = null,
-    @SerialName("br")
+    @TSerialName("br")
     override val br: TContentOrNone? = null,
 ) : TSetMathAttach
 

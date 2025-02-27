@@ -29,7 +29,7 @@ public interface TRegex : TSelector {
 }
 
 internal data class TRegexImpl(
-    @SerialName("regex")
+    @TSerialName("regex")
     override val regex: TStr? = null,
 ) : TRegex {
     override fun format(): String = Representations.structRepr("regex",ArgumentEntry(false, null,

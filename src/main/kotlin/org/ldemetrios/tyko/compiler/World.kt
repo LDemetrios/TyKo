@@ -38,6 +38,8 @@ interface World {
 //    fun font(index: Int): Font?
 
     fun now(): WorldTime?
+
+    val autoManageCentral: Boolean
 }
 
 sealed interface WorldTime {

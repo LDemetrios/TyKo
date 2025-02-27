@@ -43,13 +43,13 @@ public interface TOklab : TColor {
 }
 
 internal data class TOklabImpl(
-    @SerialName("lightness")
+    @TSerialName("lightness")
     override val lightness: TRatio,
-    @SerialName("a")
+    @TSerialName("a")
     override val a: TFloatOrRatio,
-    @SerialName("b")
+    @TSerialName("b")
     override val b: TFloatOrRatio,
-    @SerialName("alpha")
+    @TSerialName("alpha")
     override val alpha: TRatio? = null,
 ) : TOklab {
     override fun format(): String = Representations.structRepr("oklab",ArgumentEntry(false, null,

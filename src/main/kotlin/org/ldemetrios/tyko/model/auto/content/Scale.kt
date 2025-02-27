@@ -52,19 +52,19 @@ public interface TScale : TContent {
 }
 
 internal data class TScaleImpl(
-    @SerialName("factor")
+    @TSerialName("factor")
     override val factor: TAutoOrLengthOrRatio? = null,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TAutoOrLengthOrRatio? = null,
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TAutoOrLengthOrRatio? = null,
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TAlignment? = null,
-    @SerialName("reflow")
+    @TSerialName("reflow")
     override val reflow: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TScale {
     override fun format(): String = Representations.elementRepr("scale",ArgumentEntry(false, null,
@@ -108,15 +108,15 @@ public interface TSetScale : TSetRule {
 }
 
 internal class TSetScaleImpl(
-    @SerialName("factor")
+    @TSerialName("factor")
     override val factor: TAutoOrLengthOrRatio? = null,
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TAutoOrLengthOrRatio? = null,
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TAutoOrLengthOrRatio? = null,
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TAlignment? = null,
-    @SerialName("reflow")
+    @TSerialName("reflow")
     override val reflow: TBool? = null,
 ) : TSetScale
 

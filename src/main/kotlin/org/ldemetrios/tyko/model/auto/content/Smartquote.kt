@@ -42,15 +42,15 @@ public interface TSmartquote : TContent {
 }
 
 internal data class TSmartquoteImpl(
-    @SerialName("double")
+    @TSerialName("double")
     override val double: TBool? = null,
-    @SerialName("enabled")
+    @TSerialName("enabled")
     override val enabled: TBool? = null,
-    @SerialName("alternative")
+    @TSerialName("alternative")
     override val alternative: TBool? = null,
-    @SerialName("quotes")
+    @TSerialName("quotes")
     override val quotes: TArrayOrAutoOrDictionaryOrStr<TValue, TValue>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSmartquote {
     override fun format(): String = Representations.elementRepr("smartquote",ArgumentEntry(false,
@@ -90,13 +90,13 @@ public interface TSetSmartquote : TSetRule {
 }
 
 internal class TSetSmartquoteImpl(
-    @SerialName("double")
+    @TSerialName("double")
     override val double: TBool? = null,
-    @SerialName("enabled")
+    @TSerialName("enabled")
     override val enabled: TBool? = null,
-    @SerialName("alternative")
+    @TSerialName("alternative")
     override val alternative: TBool? = null,
-    @SerialName("quotes")
+    @TSerialName("quotes")
     override val quotes: TArrayOrAutoOrDictionaryOrStr<TValue, TValue>? = null,
 ) : TSetSmartquote
 

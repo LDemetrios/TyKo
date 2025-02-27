@@ -27,10 +27,9 @@ public interface TCircle : TContent {
 
     public val height: TAutoOrFractionOrRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val inset: TDictionaryOrRelative<TValue>?
 
@@ -65,24 +64,24 @@ public interface TCircle : TContent {
 }
 
 internal data class TCircleImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("radius")
+    @TSerialName("radius")
     override val radius: TLength? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCircle {
     override fun format(): String = Representations.elementRepr("circle",ArgumentEntry(false, null,
@@ -98,8 +97,8 @@ public fun TCircle(
     radius: TLength? = null,
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,
     label: TLabel? = null,
@@ -122,10 +121,9 @@ public interface TSetCircle : TSetRule {
 
     public val height: TAutoOrFractionOrRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val inset: TDictionaryOrRelative<TValue>?
 
@@ -139,22 +137,22 @@ public interface TSetCircle : TSetRule {
 }
 
 internal class TSetCircleImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("radius")
+    @TSerialName("radius")
     override val radius: TLength? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
 ) : TSetCircle
 
@@ -164,8 +162,8 @@ public fun TSetCircle(
     radius: TLength? = null,
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,
 ): TSetCircle = TSetCircleImpl(`body`, `radius`, `width`, `height`, `fill`, `stroke`, `inset`,

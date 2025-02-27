@@ -34,11 +34,11 @@ public interface TLink : TContent {
 }
 
 internal data class TLinkImpl(
-    @SerialName("dest")
+    @TSerialName("dest")
     override val dest: TLabelOrLocationOrStr,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TLink {
     override fun format(): String = Representations.elementRepr("link",ArgumentEntry(false, null,

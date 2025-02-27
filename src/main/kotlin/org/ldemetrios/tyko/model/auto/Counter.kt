@@ -30,7 +30,7 @@ public interface TCounter : TValue {
 }
 
 internal data class TCounterImpl(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: TLocationOrSelectorOrStr,
 ) : TCounter {
     override fun format(): String = Representations.structRepr("counter",ArgumentEntry(false, null,

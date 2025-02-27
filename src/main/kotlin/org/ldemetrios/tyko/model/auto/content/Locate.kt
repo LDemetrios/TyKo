@@ -29,9 +29,9 @@ public interface TLocate : TContent {
 }
 
 internal data class TLocateImpl(
-    @SerialName("func")
+    @TSerialName("func")
     override val func: TFunction,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TLocate {
     override fun format(): String = Representations.elementRepr("locate",ArgumentEntry(false, null,

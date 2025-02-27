@@ -44,13 +44,13 @@ public interface THsl : TColor {
 }
 
 internal data class THslImpl(
-    @SerialName("hue")
+    @TSerialName("hue")
     override val hue: TAngle,
-    @SerialName("saturation")
+    @TSerialName("saturation")
     override val saturation: TIntOrRatio,
-    @SerialName("lightness")
+    @TSerialName("lightness")
     override val lightness: TIntOrRatio,
-    @SerialName("alpha")
+    @TSerialName("alpha")
     override val alpha: TIntOrRatio? = null,
 ) : THsl {
     override fun format(): String = Representations.structRepr("color.hsl",ArgumentEntry(false, null,

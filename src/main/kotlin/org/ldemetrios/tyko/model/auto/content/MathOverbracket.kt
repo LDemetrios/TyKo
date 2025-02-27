@@ -34,11 +34,11 @@ public interface TMathOverbracket : TContent {
 }
 
 internal data class TMathOverbracketImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathOverbracket {
     override fun format(): String =
@@ -68,7 +68,7 @@ public interface TSetMathOverbracket : TSetRule {
 }
 
 internal class TSetMathOverbracketImpl(
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
 ) : TSetMathOverbracket
 

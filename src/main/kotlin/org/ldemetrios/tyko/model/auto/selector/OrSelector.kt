@@ -23,7 +23,7 @@ public interface TOrSelector : TSelector {
 }
 
 internal data class TOrSelectorImpl(
-    @SerialName("variants")
+    @TSerialName("variants")
     override val variants: TArray<TSelector>,
 ) : TOrSelector {
     override fun format(): String = Representations.reprOf(this)

@@ -37,13 +37,13 @@ public interface TMove : TContent {
 }
 
 internal data class TMoveImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("dx")
+    @TSerialName("dx")
     override val dx: TRelative? = null,
-    @SerialName("dy")
+    @TSerialName("dy")
     override val dy: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMove {
     override fun format(): String = Representations.elementRepr("move",ArgumentEntry(false, null,
@@ -76,9 +76,9 @@ public interface TSetMove : TSetRule {
 }
 
 internal class TSetMoveImpl(
-    @SerialName("dx")
+    @TSerialName("dx")
     override val dx: TRelative? = null,
-    @SerialName("dy")
+    @TSerialName("dy")
     override val dy: TRelative? = null,
 ) : TSetMove
 

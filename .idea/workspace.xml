@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c967e36e-cb69-4fcb-bf98-4d403610b0b0" name="Changes" comment="Fix versions in the README">
-      <change afterPath="$PROJECT_DIR$/logger.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.typ" afterDir="false" />
+    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="* Fix memory leaks in ThickBytePtr">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/typst4k/Suite.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/typst4k/Suite.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saturn.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,26 +21,16 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="typst4k" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
       </state>
     </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Interface" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
       </list>
@@ -52,476 +39,341 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabMergeRequestsSettings">{}</component>
-  <component name="GithubPullRequestsUISettings">{}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.22/d1b45176c0aeb15a309a4f4a7cd160d4b3c8b733/kotlin-stdlib-1.9.22-sources.jar!/commonMain/generated/_Sequences.kt" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/lang/StackTraceElement.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/ldemetrios/common-utils/0.1.2/common-utils-0.1.2.jar!/org/ldemetrios/testing/GroupingKt.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/ldemetrios/tyko/0.4.0/tyko-0.4.0.jar!/org/ldemetrios/tyko/model/LinearGradientKt.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/ldemetrios/tyko/0.4.0/tyko-0.4.0.jar!/org/ldemetrios/tyko/model/TLinearGradient.class" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../LDemetriosCommons/src/main/kotlin/org/ldemetrios/testing/Grouping.kt" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/ArrayList.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/Objects.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/TreeMap.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/TreeSet.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/jdk/internal/reflect/DirectConstructorHandleAccessor.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/jdk/internal/util/Preconditions.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/BufferedImage.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/ColorModel.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/Raster.class" root0="SKIP_INSPECTION" />
+    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/SampleModel.class" root0="SKIP_INSPECTION" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2caqcy4YZNeuGw0MFMAVJRdtmG6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2t5UgSW2S4JL3BLBAaWLSq68Gz8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.tmp.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build Typst4k.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OriginalTests (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.OriginalTests.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PropertyTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PropertyTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Typst4k [:Test.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Typst4k [generateModel].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.AlignmentKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.AngleKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.CombinatorsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.CommonPoolKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.ConversionsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.DeserKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.DeserializersKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.GeneratorKt.executor&quot;: &quot;Debug&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MetadataKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.ModelParserKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.OpsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.PrimitiveRepresentationsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.ReflectionDeserializerKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.TestKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.TypstCompilerExceptionKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.TypstKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/home/ldemetrios/Workspace/Typst4k/src/main/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ldemetrios/Workspace/ITMO/llvm/llvm_course-base&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/ldemetrios/Workspace/Typst4k/src/main/kotlin/Main.kt&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;kotlin-gradle-user-dirs&quot;: [
-      &quot;/home/ldemetrios/.gradle&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build TyKo.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.Errors (1).executor": "Run",
+    "Gradle.Errors.executor": "Run",
+    "Gradle.EvalDeserReprConsistency (1).executor": "Run",
+    "Gradle.EvalDeserReprConsistency.executor": "Run",
+    "Gradle.EvalDeserReprConsistencyViaPng.executor": "Run",
+    "Gradle.Testing (1).executor": "Run",
+    "Gradle.Testing.executor": "Run",
+    "Kotlin.CompilerExceptionsReadabilityKt.executor": "Run",
+    "Kotlin.ErrorsKt.executor": "Run",
+    "Kotlin.EvalDeserReprConsistencyKt.executor": "Run",
+    "Kotlin.ExamplesKt.executor": "Run",
+    "Kotlin.FormattingKt (1).executor": "Run",
+    "Kotlin.FormattingKt.executor": "Run",
+    "Kotlin.HeavyKt.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.MemoryLeaksKt.executor": "Debug",
+    "Kotlin.PackageCentralKt.executor": "Run",
+    "Kotlin.SpecialKt.executor": "Run",
+    "Kotlin.SuiteKt.executor": "Run",
+    "Kotlin.SyntaxKt.executor": "Run",
+    "Kotlin.TestingKt.executor": "Run",
+    "Kotlin.UtilsKt.executor": "Run",
+    "Kotlin.WorldImplsKt.executor": "Run",
+    "Kotlin.WorldKt.executor": "Run",
+    "Kotlin.Z_MainKt.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/ldemetrios/Workspace/TypstNKotlinInterop/TyKo/src/test/kotlin/org/ldemetrios/tyko/manual",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/dir" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k/dsl" />
-      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/manual" />
+      <recent name="$PROJECT_DIR$/saturn-plugins/src" />
+      <recent name="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k/special" />
-      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k/selector" />
     </key>
-    <key name="CreateKotlinClassDialog.RecentsKey">
-      <recent name="org.ldemetrios.typst4k.dsl" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="exp" />
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="org.ldemetrios.tyko.model.manual" />
+      <recent name="org.ldemetrios.tyko.manual" />
+      <recent name="org.ldemetrios.tyko.ffi" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.OriginalTests (1)">
-    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
-      <setting name="displayName" value="" />
-      <setting name="bbPath" value="" />
-      <setting name="parameters" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <setting name="workingDir" value="" />
-      <setting name="focusEditor" value="false" />
+  <component name="RunManager" selected="Kotlin.FormattingKt (1)">
+    <configuration name="FormattingKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.manual.FormattingKt" />
+      <module name="tyko.test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
-      <option name="configVersion" value="1" />
-      <option name="options" />
-      <option name="profiles" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
-      <setting name="displayName" value="" />
-      <setting name="host" value="" />
-      <setting name="port" value="0" />
-      <setting name="replType" value="SOCKET" />
-      <setting name="configType" value="SPECIFY" />
-      <setting name="replPortFileType" value="STANDARD" />
-      <setting name="customPortFile" value="" />
-      <setting name="fixLineNumbers" value="false" />
-      <setting name="focusEditor" value="false" />
-      <setting name="urlFile" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="OriginalTests (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.ldemetrios.typst4k.OriginalTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="PropertyTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.ldemetrios.typst4k.PropertyTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="OpsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.typst4k.rt.OpsKt" />
-      <module name="typst4k.main" />
+    <configuration name="FormattingKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.kvasir.syntax.FormattingKt" />
+      <module name="tyko.test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypstCompilerExceptionKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.typst4k.dsl.TypstCompilerExceptionKt" />
-      <module name="typst4k.main" />
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.MainKt" />
+      <module name="tyko.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypstKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.typst4k.TypstKt" />
-      <module name="typst4k.main" />
-      <shortenClasspath name="NONE" />
-      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </extension>
+    <configuration name="MemoryLeaksKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.MemoryLeaksKt" />
+      <module name="tyko.test" />
       <method v="2">
-        <option name="Gradle.BeforeRunTask" enabled="true" tasks="generateModel" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="" />
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Local">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="debugHost" value="localhost" />
-      <option name="architecture" />
-      <option name="environmentVariables">
-        <map />
-      </option>
-      <option name="handler" />
-      <option name="image" value="false" />
-      <option name="logicalFunctionName" />
-      <option name="memorySize" value="128" />
-      <option name="pathMappings">
-        <list />
-      </option>
-      <option name="platform" />
-      <option name="runtime" />
-      <option name="templateFile" />
-      <option name="timeout" value="300" />
-      <option name="useTemplate" value="false" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
-      <sam>
-        <option name="additionalBuildArgs" />
-        <option name="additionalLocalArgs" />
-        <option name="buildInContainer" value="false" />
-        <option name="dockerNetwork" />
-        <option name="skipImagePull" value="false" />
-      </sam>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Remote">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="functionName" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
-      <method v="2" />
+    <configuration name="SyntaxKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.kvasir.syntax.SyntaxKt" />
+      <module name="tyko.test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.OriginalTests (1)" />
-      <item itemvalue="Gradle.PropertyTest (1)" />
-      <item itemvalue="Kotlin.OpsKt" />
-      <item itemvalue="Kotlin.TypstCompilerExceptionKt" />
-      <item itemvalue="Kotlin.TypstKt" />
+      <item itemvalue="Kotlin.FormattingKt" />
+      <item itemvalue="Kotlin.FormattingKt (1)" />
+      <item itemvalue="Kotlin.MainKt" />
+      <item itemvalue="Kotlin.SyntaxKt" />
+      <item itemvalue="Kotlin.MemoryLeaksKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.OriginalTests (1)" />
-        <item itemvalue="Gradle.PropertyTest (1)" />
-        <item itemvalue="Kotlin.TypstKt" />
-        <item itemvalue="Kotlin.TypstCompilerExceptionKt" />
-        <item itemvalue="Kotlin.OpsKt" />
+        <item itemvalue="Kotlin.FormattingKt (1)" />
+        <item itemvalue="Kotlin.FormattingKt" />
+        <item itemvalue="Kotlin.SyntaxKt" />
+        <item itemvalue="Kotlin.MemoryLeaksKt" />
+        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c967e36e-cb69-4fcb-bf98-4d403610b0b0" name="Changes" comment="" />
-      <created>1708360122712</created>
+      <changelist id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="" />
+      <created>1739641541394</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1708360122712</updated>
+      <updated>1739641541394</updated>
     </task>
-    <task id="LOCAL-00001" summary="Redesign object model">
+    <task id="LOCAL-00001" summary="+ Introduce FFI and original tests">
       <option name="closed" value="true" />
-      <created>1709937129850</created>
+      <created>1740321889045</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1709937129850</updated>
+      <updated>1740321889045</updated>
     </task>
-    <task id="LOCAL-00002" summary="+ Gradient&#10;+ toTypstRepr">
+    <task id="LOCAL-00002" summary="* Fix contextual closures repr&#10;* Fix math.mat delimiters&#10;* Support various math.equation and text implicit settables&#10;* Restructure tests">
       <option name="closed" value="true" />
-      <created>1710447013205</created>
+      <created>1740341675611</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1710447013205</updated>
+      <updated>1740341675611</updated>
     </task>
-    <task id="LOCAL-00003" summary="+ awt.Color to TColor">
+    <task id="LOCAL-00003" summary="+ Add warning">
       <option name="closed" value="true" />
-      <created>1710449835689</created>
+      <created>1740341737796</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1710449835689</updated>
+      <updated>1740341737796</updated>
     </task>
-    <task id="LOCAL-00004" summary="+ Bibliography, Cite">
+    <task id="LOCAL-00004" summary="- Cleanup">
       <option name="closed" value="true" />
-      <created>1710532954283</created>
+      <created>1740342266044</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1710532954283</updated>
+      <updated>1740342266044</updated>
     </task>
-    <task id="LOCAL-00005" summary="capture old orm">
+    <task id="LOCAL-00005" summary="* Fix math spacing">
       <option name="closed" value="true" />
-      <created>1710798967862</created>
+      <created>1740346087348</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1710798967862</updated>
+      <updated>1740346087348</updated>
     </task>
-    <task id="LOCAL-00006" summary="Renew orm">
+    <task id="LOCAL-00006" summary="* Fix reprs">
       <option name="closed" value="true" />
-      <created>1710872866948</created>
+      <created>1740346664940</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1710872866948</updated>
+      <updated>1740346664940</updated>
     </task>
-    <task id="LOCAL-00007" summary="Crutch generic support">
+    <task id="LOCAL-00007" summary="* Update README, Changelog&#10;* Fix bug with `repr` of styles in Sequence">
       <option name="closed" value="true" />
-      <created>1710919939363</created>
+      <created>1740407882632</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1710919939363</updated>
+      <updated>1740407882632</updated>
     </task>
-    <task id="LOCAL-00008" summary="Make generic support work">
+    <task id="LOCAL-00008" summary="- Remove old binaries">
       <option name="closed" value="true" />
-      <created>1711231974581</created>
+      <created>1740407906902</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1711231974581</updated>
+      <updated>1740407906902</updated>
     </task>
-    <task id="LOCAL-00009" summary="Make generic support work">
+    <task id="LOCAL-00009" summary="+ Support inputs &#10;+ Draft package downloading">
       <option name="closed" value="true" />
-      <created>1711231985905</created>
+      <created>1740690015545</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1711231985905</updated>
+      <updated>1740690015545</updated>
     </task>
-    <task id="LOCAL-00010" summary="Cosmetic improvements to repr">
+    <task id="LOCAL-00010" summary="* Draft documentation">
       <option name="closed" value="true" />
-      <created>1711235088397</created>
+      <created>1740690225178</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1711235088397</updated>
+      <updated>1740690225178</updated>
     </task>
-    <task id="LOCAL-00011" summary="Publish Typst4K">
+    <task id="LOCAL-00011" summary="* Rename Gradient properly">
       <option name="closed" value="true" />
-      <created>1711239887230</created>
+      <created>1740848464398</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1711239887230</updated>
+      <updated>1740848464398</updated>
     </task>
-    <task id="LOCAL-00012" summary="* Typos">
+    <task id="LOCAL-00012" summary="Merge changes from Kvasir development">
       <option name="closed" value="true" />
-      <created>1711240357285</created>
+      <created>1741630073076</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1711240357285</updated>
+      <updated>1741630073076</updated>
     </task>
-    <task id="LOCAL-00013" summary="* Even more typos">
+    <task id="LOCAL-00013" summary="Update testing">
       <option name="closed" value="true" />
-      <created>1711240643373</created>
+      <created>1741632803145</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1711240643373</updated>
+      <updated>1741632803145</updated>
     </task>
-    <task id="LOCAL-00014" summary="+ Color.t">
+    <task id="LOCAL-00014" summary="Update testing">
       <option name="closed" value="true" />
-      <created>1711241615891</created>
+      <created>1741632845145</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1711241615891</updated>
+      <updated>1741632845145</updated>
     </task>
-    <task id="LOCAL-00015" summary="Remove delegation from Array and Dictionary due to technical issues">
+    <task id="LOCAL-00015" summary="* Fix memory leaks in ThickBytePtr">
       <option name="closed" value="true" />
-      <created>1711453625552</created>
+      <created>1742060421849</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1711453625552</updated>
+      <updated>1742060421849</updated>
     </task>
-    <task id="LOCAL-00016" summary="Add automated tests, support 0.12">
-      <option name="closed" value="true" />
-      <created>1728085575234</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1728085575234</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Add generated files">
-      <option name="closed" value="true" />
-      <created>1728085619587</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1728085619587</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Update version">
-      <option name="closed" value="true" />
-      <created>1728085753016</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1728085753016</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Fix versions in the README">
-      <option name="closed" value="true" />
-      <created>1728086406503</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1728086406503</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Redesign object model" />
-    <MESSAGE value="+ Gradient&#10;+ toTypstRepr" />
-    <MESSAGE value="+ awt.Color to TColor" />
-    <MESSAGE value="+ Bibliography, Cite" />
-    <MESSAGE value="capture old orm" />
-    <MESSAGE value="Renew orm" />
-    <MESSAGE value="Add generated orm" />
-    <MESSAGE value="Crutch generic support" />
-    <MESSAGE value="Make generic support work" />
-    <MESSAGE value="Cosmetic improvements to repr" />
-    <MESSAGE value="Publish Typst4K" />
-    <MESSAGE value="* Typos" />
-    <MESSAGE value="* Even more typos" />
-    <MESSAGE value="+ Color.t" />
-    <MESSAGE value="Remove delegation from Array and Dictionary due to technical issues" />
-    <MESSAGE value="Add automated tests, support 0.12" />
-    <MESSAGE value="Add generated files" />
-    <MESSAGE value="Update version" />
-    <MESSAGE value="Fix versions in the README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix versions in the README" />
+    <MESSAGE value="+ Introduce FFI and original tests" />
+    <MESSAGE value="* Fix contextual closures repr&#10;* Fix math.mat delimiters&#10;* Support various math.equation and text implicit settables&#10;* Restructure tests" />
+    <MESSAGE value="+ Add warning" />
+    <MESSAGE value="- Cleanup" />
+    <MESSAGE value="* Fix math spacing" />
+    <MESSAGE value="* Fix reprs" />
+    <MESSAGE value="* Update README, Changelog&#10;* Fix bug with `repr` of styles in Sequence" />
+    <MESSAGE value="- Remove old binaries" />
+    <MESSAGE value="+ Support inputs" />
+    <MESSAGE value="+ Support inputs &#10;+ Draft package downloading" />
+    <MESSAGE value="* Draft documentation" />
+    <MESSAGE value="* Rename Gradient properly" />
+    <MESSAGE value="Merge changes from Kvasir development" />
+    <MESSAGE value="Update testing" />
+    <MESSAGE value="* Fix memory leaks in ThickBytePtr" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Fix memory leaks in ThickBytePtr" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k/dsl/Stacktrace.kt</url>
-          <line>70</line>
+          <condition expression="f == &quot;page&quot;" language="kotlin" />
+          <url>file://$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/S_SemiAuto.kt</url>
+          <line>160</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k/rt/Deserializers.kt</url>
-          <line>128</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Representations.kt</url>
+          <line>226</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/typst4k/Suite.kt</url>
-          <line>200</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/Syntax.kt</url>
+          <line>465</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/typst4k/dsl/Query.kt</url>
-          <line>43</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/FfiWorld.kt</url>
+          <line>86</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/FfiWorld.kt</url>
+          <line>134</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/FfiWorld.kt</url>
+          <line>102</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="14" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="value.toString(4)" language="kotlin" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

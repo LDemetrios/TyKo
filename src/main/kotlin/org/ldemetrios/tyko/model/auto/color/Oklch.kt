@@ -43,13 +43,13 @@ public interface TOklch : TColor {
 }
 
 internal data class TOklchImpl(
-    @SerialName("lightness")
+    @TSerialName("lightness")
     override val lightness: TRatio,
-    @SerialName("chroma")
+    @TSerialName("chroma")
     override val chroma: TFloatOrRatio,
-    @SerialName("hue")
+    @TSerialName("hue")
     override val hue: TAngle,
-    @SerialName("alpha")
+    @TSerialName("alpha")
     override val alpha: TRatio? = null,
 ) : TOklch {
     override fun format(): String = Representations.structRepr("oklch",ArgumentEntry(false, null,

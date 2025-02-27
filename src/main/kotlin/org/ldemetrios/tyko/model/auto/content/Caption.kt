@@ -38,13 +38,13 @@ public interface TCaption : TContent {
 }
 
 internal data class TCaptionImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("position")
+    @TSerialName("position")
     override val position: TAlignment? = null,
-    @SerialName("separator")
+    @TSerialName("separator")
     override val separator: TAutoOrContent? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCaption {
     override fun format(): String = Representations.elementRepr("figure.caption",ArgumentEntry(false,
@@ -77,9 +77,9 @@ public interface TSetCaption : TSetRule {
 }
 
 internal class TSetCaptionImpl(
-    @SerialName("position")
+    @TSerialName("position")
     override val position: TAlignment? = null,
-    @SerialName("separator")
+    @TSerialName("separator")
     override val separator: TAutoOrContent? = null,
 ) : TSetCaption
 

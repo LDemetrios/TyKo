@@ -54,21 +54,21 @@ public interface TPlace : TContent {
 }
 
 internal data class TPlaceImpl(
-    @SerialName("alignment")
+    @TSerialName("alignment")
     override val alignment: TAlignmentOrAuto? = null,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("scope")
+    @TSerialName("scope")
     override val scope: TFigureScope? = null,
-    @SerialName("float")
+    @TSerialName("float")
     override val float: TBool? = null,
-    @SerialName("clearance")
+    @TSerialName("clearance")
     override val clearance: TLength? = null,
-    @SerialName("dx")
+    @TSerialName("dx")
     override val dx: TRelative? = null,
-    @SerialName("dy")
+    @TSerialName("dy")
     override val dy: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPlace {
     override fun format(): String = Representations.elementRepr("place",ArgumentEntry(false, null,
@@ -117,17 +117,17 @@ public interface TSetPlace : TSetRule {
 }
 
 internal class TSetPlaceImpl(
-    @SerialName("alignment")
+    @TSerialName("alignment")
     override val alignment: TAlignmentOrAuto? = null,
-    @SerialName("scope")
+    @TSerialName("scope")
     override val scope: TFigureScope? = null,
-    @SerialName("float")
+    @TSerialName("float")
     override val float: TBool? = null,
-    @SerialName("clearance")
+    @TSerialName("clearance")
     override val clearance: TLength? = null,
-    @SerialName("dx")
+    @TSerialName("dx")
     override val dx: TRelative? = null,
-    @SerialName("dy")
+    @TSerialName("dy")
     override val dy: TRelative? = null,
 ) : TSetPlace
 

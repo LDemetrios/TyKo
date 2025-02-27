@@ -58,15 +58,15 @@ internal annotation class TInterfaceType(val name: String, val chain: Array<Stri
 
 @Target(AnnotationTarget.VALUE_PARAMETER)
 @Retention(AnnotationRetention.RUNTIME)
-internal annotation class SerialName(val name: String)
+internal annotation class TSerialName(val name: String)
+
+@Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.LOCAL_VARIABLE, AnnotationTarget.TYPE)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class TVararg
 
 @Target(AnnotationTarget.VALUE_PARAMETER)
 @Retention(AnnotationRetention.RUNTIME)
-internal annotation class TVararg()
-
-@Target(AnnotationTarget.VALUE_PARAMETER)
-@Retention(AnnotationRetention.RUNTIME)
-internal annotation class TContentBody()
+annotation class TContentBody()
 
 @Target(AnnotationTarget.CONSTRUCTOR, AnnotationTarget.FUNCTION, AnnotationTarget.FIELD, AnnotationTarget.PROPERTY)
 @Retention(AnnotationRetention.SOURCE)

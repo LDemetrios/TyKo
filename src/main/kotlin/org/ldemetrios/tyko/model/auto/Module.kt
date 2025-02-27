@@ -29,7 +29,7 @@ public interface TModule : TValue {
 }
 
 internal data class TModuleImpl(
-    @SerialName("name")
+    @TSerialName("name")
     override val name: TStr,
 ) : TModule {
     override fun format(): String = Representations.reprOf(this)

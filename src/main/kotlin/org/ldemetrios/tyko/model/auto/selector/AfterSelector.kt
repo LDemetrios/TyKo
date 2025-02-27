@@ -27,11 +27,11 @@ public interface TAfterSelector : TSelector {
 }
 
 internal data class TAfterSelectorImpl(
-    @SerialName("selector")
+    @TSerialName("selector")
     override val selector: TSelector,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TSelector,
-    @SerialName("inclusive")
+    @TSerialName("inclusive")
     override val inclusive: TBool? = null,
 ) : TAfterSelector {
     override fun format(): String = Representations.reprOf(this)

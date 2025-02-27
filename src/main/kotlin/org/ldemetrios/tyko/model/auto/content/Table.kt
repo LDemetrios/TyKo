@@ -31,12 +31,12 @@ public interface TTable : TContent {
 
     public val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>?
 
-    public val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>?
+    public val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>?
 
     public val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>?
 
     public val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
 
     public val inset:
             TArrayOrFractionOrFunctionOrRelativeOrSides<TFractionOrRelative, TFractionOrNoneOrRelative>?
@@ -89,32 +89,32 @@ public interface TTable : TContent {
 }
 
 internal data class TTableImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("columns")
+    @TSerialName("columns")
     override val columns: TArrayOrAutoOrFractionOrIntOrRelative<TAutoOrFractionOrIntOrRelative>? =
             null,
-    @SerialName("rows")
+    @TSerialName("rows")
     override val rows: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("gutter")
+    @TSerialName("gutter")
     override val gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("column-gutter")
+    @TSerialName("column-gutter")
     override val columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("row-gutter")
+    @TSerialName("row-gutter")
     override val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("fill")
-    override val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
-    @SerialName("align")
+    @TSerialName("fill")
+    override val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
+    @TSerialName("align")
     override val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    @SerialName("stroke")
+    @TSerialName("stroke")
     override val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
-            = null,
-    @SerialName("inset")
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset:
             TArrayOrFractionOrFunctionOrRelativeOrSides<TFractionOrRelative, TFractionOrNoneOrRelative>? =
             null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTable {
     override fun format(): String = Representations.elementRepr("table",ArgumentEntry(true, null,
@@ -133,9 +133,9 @@ public fun TTable(
     gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
+    fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
     align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
             = null,
     inset: TArrayOrFractionOrFunctionOrRelativeOrSides<TFractionOrRelative, TFractionOrNoneOrRelative>?
             = null,
@@ -161,12 +161,12 @@ public interface TSetTable : TSetRule {
 
     public val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>?
 
-    public val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>?
+    public val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>?
 
     public val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>?
 
     public val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
 
     public val inset:
             TArrayOrFractionOrFunctionOrRelativeOrSides<TFractionOrRelative, TFractionOrNoneOrRelative>?
@@ -179,26 +179,26 @@ public interface TSetTable : TSetRule {
 }
 
 internal class TSetTableImpl(
-    @SerialName("columns")
+    @TSerialName("columns")
     override val columns: TArrayOrAutoOrFractionOrIntOrRelative<TAutoOrFractionOrIntOrRelative>? =
             null,
-    @SerialName("rows")
+    @TSerialName("rows")
     override val rows: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("gutter")
+    @TSerialName("gutter")
     override val gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("column-gutter")
+    @TSerialName("column-gutter")
     override val columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("row-gutter")
+    @TSerialName("row-gutter")
     override val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("fill")
-    override val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
-    @SerialName("align")
+    @TSerialName("fill")
+    override val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
+    @TSerialName("align")
     override val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    @SerialName("stroke")
+    @TSerialName("stroke")
     override val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
-            = null,
-    @SerialName("inset")
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset:
             TArrayOrFractionOrFunctionOrRelativeOrSides<TFractionOrRelative, TFractionOrNoneOrRelative>? =
             null,
@@ -211,9 +211,9 @@ public fun TSetTable(
     gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
+    fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
     align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
             = null,
     inset: TArrayOrFractionOrFunctionOrRelativeOrSides<TFractionOrRelative, TFractionOrNoneOrRelative>?
             = null,

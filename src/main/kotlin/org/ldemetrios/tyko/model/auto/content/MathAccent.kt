@@ -37,13 +37,13 @@ public interface TMathAccent : TContent {
 }
 
 internal data class TMathAccentImpl(
-    @SerialName("base")
+    @TSerialName("base")
     override val base: TContent,
-    @SerialName("accent")
+    @TSerialName("accent")
     override val accent: TContentOrStr,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathAccent {
     override fun format(): String = Representations.elementRepr("math.accent",ArgumentEntry(false,
@@ -74,7 +74,7 @@ public interface TSetMathAccent : TSetRule {
 }
 
 internal class TSetMathAccentImpl(
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrRelative? = null,
 ) : TSetMathAccent
 

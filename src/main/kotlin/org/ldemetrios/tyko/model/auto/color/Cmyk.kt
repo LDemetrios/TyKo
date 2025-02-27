@@ -43,13 +43,13 @@ public interface TCmyk : TColor {
 }
 
 internal data class TCmykImpl(
-    @SerialName("cyan")
+    @TSerialName("cyan")
     override val cyan: TRatio,
-    @SerialName("magenta")
+    @TSerialName("magenta")
     override val magenta: TRatio,
-    @SerialName("yellow")
+    @TSerialName("yellow")
     override val yellow: TRatio,
-    @SerialName("key")
+    @TSerialName("key")
     override val key: TRatio,
 ) : TCmyk {
     override fun format(): String = Representations.structRepr("cmyk",ArgumentEntry(false, null,

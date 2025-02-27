@@ -41,13 +41,13 @@ public interface TClosure : TFunction {
 }
 
 internal data class TClosureImpl(
-    @SerialName("node")
+    @TSerialName("node")
     override val node: TStr,
-    @SerialName("defaults")
+    @TSerialName("defaults")
     override val defaults: TArray<TValue>? = null,
-    @SerialName("captured")
+    @TSerialName("captured")
     override val captured: TDictionary<TValue>? = null,
-    @SerialName("num-pos-params")
+    @TSerialName("num-pos-params")
     override val numPosParams: TInt? = null,
 ) : TClosure {
     override fun format(): String = Representations.reprOf(this)

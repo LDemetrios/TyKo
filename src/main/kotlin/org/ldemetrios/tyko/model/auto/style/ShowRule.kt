@@ -35,9 +35,9 @@ public interface TShowRule : TStyle {
 }
 
 internal data class TShowRuleImpl(
-    @SerialName("selector")
+    @TSerialName("selector")
     override val selector: TNoneOrSelector,
-    @SerialName("transform")
+    @TSerialName("transform")
     override val transform: TArrayOrContentOrFunction<TStyle>,
 ) : TShowRule {
     override fun format(): String = Representations.reprOf(this)

@@ -29,7 +29,7 @@ public interface TDecimal : TValue {
 }
 
 internal data class TDecimalImpl(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: TStr? = null,
 ) : TDecimal {
     override fun format(): String = Representations.structRepr("decimal",ArgumentEntry(false, null,

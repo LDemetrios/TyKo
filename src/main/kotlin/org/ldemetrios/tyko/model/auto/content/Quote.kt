@@ -42,15 +42,15 @@ public interface TQuote : TContent {
 }
 
 internal data class TQuoteImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("block")
+    @TSerialName("block")
     override val block: TBool? = null,
-    @SerialName("quotes")
+    @TSerialName("quotes")
     override val quotes: TAutoOrBool? = null,
-    @SerialName("attribution")
+    @TSerialName("attribution")
     override val attribution: TContentOrLabelOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TQuote {
     override fun format(): String = Representations.elementRepr("quote",ArgumentEntry(false, null,
@@ -88,11 +88,11 @@ public interface TSetQuote : TSetRule {
 }
 
 internal class TSetQuoteImpl(
-    @SerialName("block")
+    @TSerialName("block")
     override val block: TBool? = null,
-    @SerialName("quotes")
+    @TSerialName("quotes")
     override val quotes: TAutoOrBool? = null,
-    @SerialName("attribution")
+    @TSerialName("attribution")
     override val attribution: TContentOrLabelOrNone? = null,
 ) : TSetQuote
 

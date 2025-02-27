@@ -65,25 +65,25 @@ public interface THeading : TContent {
 }
 
 internal data class THeadingImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("level")
+    @TSerialName("level")
     override val level: TAutoOrInt? = null,
-    @SerialName("depth")
+    @TSerialName("depth")
     override val depth: TInt? = null,
-    @SerialName("offset")
+    @TSerialName("offset")
     override val offset: TInt? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("outlined")
+    @TSerialName("outlined")
     override val outlined: TBool? = null,
-    @SerialName("bookmarked")
+    @TSerialName("bookmarked")
     override val bookmarked: TAutoOrBool? = null,
-    @SerialName("hanging-indent")
+    @TSerialName("hanging-indent")
     override val hangingIndent: TAutoOrLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : THeading {
     override fun format(): String = Representations.elementRepr("heading",ArgumentEntry(false, null,
@@ -141,21 +141,21 @@ public interface TSetHeading : TSetRule {
 }
 
 internal class TSetHeadingImpl(
-    @SerialName("level")
+    @TSerialName("level")
     override val level: TAutoOrInt? = null,
-    @SerialName("depth")
+    @TSerialName("depth")
     override val depth: TInt? = null,
-    @SerialName("offset")
+    @TSerialName("offset")
     override val offset: TInt? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("outlined")
+    @TSerialName("outlined")
     override val outlined: TBool? = null,
-    @SerialName("bookmarked")
+    @TSerialName("bookmarked")
     override val bookmarked: TAutoOrBool? = null,
-    @SerialName("hanging-indent")
+    @TSerialName("hanging-indent")
     override val hangingIndent: TAutoOrLength? = null,
 ) : TSetHeading
 

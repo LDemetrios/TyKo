@@ -33,11 +33,11 @@ public interface TCurveLine : TContent {
 }
 
 internal data class TCurveLineImpl(
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TArray<TLength>,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCurveLine {
     override fun format(): String = Representations.elementRepr("curve.line",ArgumentEntry(false,
@@ -67,7 +67,7 @@ public interface TSetCurveLine : TSetRule {
 }
 
 internal class TSetCurveLineImpl(
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
 ) : TSetCurveLine
 

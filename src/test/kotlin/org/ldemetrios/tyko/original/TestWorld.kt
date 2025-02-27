@@ -59,7 +59,11 @@ val localFiles = run {
 fun testPackage(spec: PackageSpec, path: String): RResult<ByteArray, FileError> {
     if (spec.namespace != "test") return RResult.Err(FileError.Package(PackageError.NotFound(spec)))
     val fileName = "packages/${spec.name}-${spec.version}$path"
-    val resource = TestWorld::class.java.classLoader.getResource(fileName) ?: return RResult.Err(FileError.Package(PackageError.NotFound(spec)))
+    val resource = TestWorld::class.java.classLoader.getResource(fileName) ?: return RResult.Err(
+        FileError.Package(
+            PackageError.NotFound(spec)
+        )
+    )
     return RResult.Ok(resource.readBytes())
 }
 
@@ -101,8 +105,13 @@ class TestWorld(var currentMain: String) : World {
     }
 
     override fun now(): WorldTime? = WorldTime.Fixed(Instant.EPOCH)
+
+    override val autoManageCentral: Boolean = false
 }
 
-public const val SHARED_LIBRARY_PATH = "/home/ldemetrios/Workspace/TypstNKotlinInterop/typst-custom-serialize/target/debug/libtypst_shared.so"
+public const val SHARED_LIBRARY_PATH = "/home/ldemetrios/Workspace/TypstNKotlinInterop/libtypst_shared.so"
 
-fun TestCompiler(world: TestWorld) = WorldBasedTypstCompiler(TypstSharedLibrary.instance(Path(SHARED_LIBRARY_PATH)), world)
+val sharedLib = TypstSharedLibrary.instance(Path(SHARED_LIBRARY_PATH))
+
+fun TestCompiler(world: TestWorld) =
+    WorldBasedTypstCompiler(sharedLib, world)

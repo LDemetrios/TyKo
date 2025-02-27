@@ -25,7 +25,7 @@ public interface TMathAlignPoint : TContent {
 }
 
 internal data class TMathAlignPointImpl(
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathAlignPoint {
     override fun format(): String = Representations.reprOf(this)

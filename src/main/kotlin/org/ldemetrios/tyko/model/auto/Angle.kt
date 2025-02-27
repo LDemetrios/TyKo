@@ -29,7 +29,7 @@ public interface TAngle : TAngleOrAutoOrFunction, TValue {
 }
 
 internal data class TAngleImpl(
-    @SerialName("deg")
+    @TSerialName("deg")
     override val deg: TFloat,
 ) : TAngle {
     override fun format(): String = Representations.reprOf(this)

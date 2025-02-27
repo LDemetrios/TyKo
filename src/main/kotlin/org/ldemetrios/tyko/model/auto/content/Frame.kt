@@ -29,9 +29,9 @@ public interface TFrame : TContent {
 }
 
 internal data class TFrameImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TFrame {
     override fun format(): String = Representations.elementRepr("html.frame",ArgumentEntry(false,

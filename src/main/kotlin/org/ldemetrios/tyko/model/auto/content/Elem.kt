@@ -37,13 +37,13 @@ public interface TElem : TContent {
 }
 
 internal data class TElemImpl(
-    @SerialName("tag")
+    @TSerialName("tag")
     override val tag: TStr,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("attrs")
+    @TSerialName("attrs")
     override val attrs: TDictionary<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TElem {
     override fun format(): String = Representations.elementRepr("html.elem",ArgumentEntry(false, null,
@@ -74,7 +74,7 @@ public interface TSetElem : TSetRule {
 }
 
 internal class TSetElemImpl(
-    @SerialName("attrs")
+    @TSerialName("attrs")
     override val attrs: TDictionary<TValue>? = null,
 ) : TSetElem
 

@@ -33,9 +33,9 @@ public interface TWith : TFunction {
 }
 
 internal data class TWithImpl(
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TFunction,
-    @SerialName("args")
+    @TSerialName("args")
     override val args: TArguments<TValue>,
 ) : TWith {
     override fun format(): String = Representations.reprOf(this)

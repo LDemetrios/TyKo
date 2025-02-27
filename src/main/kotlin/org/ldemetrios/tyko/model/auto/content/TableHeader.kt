@@ -33,11 +33,11 @@ public interface TTableHeader : TContent {
 }
 
 internal data class TTableHeaderImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTableHeader {
     override fun format(): String = Representations.elementRepr("table.header",ArgumentEntry(true,
@@ -67,7 +67,7 @@ public interface TSetTableHeader : TSetRule {
 }
 
 internal class TSetTableHeaderImpl(
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
 ) : TSetTableHeader
 

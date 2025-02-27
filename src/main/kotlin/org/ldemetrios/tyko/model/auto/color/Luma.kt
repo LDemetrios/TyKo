@@ -35,9 +35,9 @@ public interface TLuma : TColor {
 }
 
 internal data class TLumaImpl(
-    @SerialName("lightness")
+    @TSerialName("lightness")
     override val lightness: TIntOrRatio,
-    @SerialName("alpha")
+    @TSerialName("alpha")
     override val alpha: TRatio? = null,
 ) : TLuma {
     override fun format(): String = Representations.structRepr("luma",ArgumentEntry(false, null,

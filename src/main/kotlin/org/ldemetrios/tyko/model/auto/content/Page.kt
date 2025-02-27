@@ -35,7 +35,7 @@ public interface TPage : TContent {
 
     public val columns: TInt?
 
-    public val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TAutoOrColorOrGradientOrNoneOrTiling?
 
     public val numbering: TFunctionOrNoneOrStr?
 
@@ -106,43 +106,43 @@ public interface TPage : TContent {
 }
 
 internal data class TPageImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("paper")
+    @TSerialName("paper")
     override val paper: TPagePaper? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrLength? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrLength? = null,
-    @SerialName("flipped")
+    @TSerialName("flipped")
     override val flipped: TBool? = null,
-    @SerialName("margin")
+    @TSerialName("margin")
     override val margin: TAutoOrMarginOrRelative<TAutoOrNoneOrRelative>? = null,
-    @SerialName("binding")
+    @TSerialName("binding")
     override val binding: TAlignmentOrAuto? = null,
-    @SerialName("columns")
+    @TSerialName("columns")
     override val columns: TInt? = null,
-    @SerialName("fill")
-    override val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("numbering")
+    @TSerialName("fill")
+    override val fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignment? = null,
-    @SerialName("header")
+    @TSerialName("header")
     override val `header`: TAutoOrContentOrNone? = null,
-    @SerialName("header-ascent")
+    @TSerialName("header-ascent")
     override val headerAscent: TRelative? = null,
-    @SerialName("footer")
+    @TSerialName("footer")
     override val footer: TAutoOrContentOrNone? = null,
-    @SerialName("footer-descent")
+    @TSerialName("footer-descent")
     override val footerDescent: TRelative? = null,
-    @SerialName("background")
+    @TSerialName("background")
     override val background: TContentOrNone? = null,
-    @SerialName("foreground")
+    @TSerialName("foreground")
     override val foreground: TContentOrNone? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TContent? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPage {
     override fun format(): String = Representations.elementRepr("page",ArgumentEntry(false, null,
@@ -168,7 +168,7 @@ public fun TPage(
     margin: TAutoOrMarginOrRelative<TAutoOrNoneOrRelative>? = null,
     binding: TAlignmentOrAuto? = null,
     columns: TInt? = null,
-    fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
     numbering: TFunctionOrNoneOrStr? = null,
     numberAlign: TAlignment? = null,
     `header`: TAutoOrContentOrNone? = null,
@@ -205,7 +205,7 @@ public interface TSetPage : TSetRule {
 
     public val columns: TInt?
 
-    public val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TAutoOrColorOrGradientOrNoneOrTiling?
 
     public val numbering: TFunctionOrNoneOrStr?
 
@@ -238,39 +238,39 @@ public interface TSetPage : TSetRule {
 }
 
 internal class TSetPageImpl(
-    @SerialName("paper")
+    @TSerialName("paper")
     override val paper: TPagePaper? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrLength? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrLength? = null,
-    @SerialName("flipped")
+    @TSerialName("flipped")
     override val flipped: TBool? = null,
-    @SerialName("margin")
+    @TSerialName("margin")
     override val margin: TAutoOrMarginOrRelative<TAutoOrNoneOrRelative>? = null,
-    @SerialName("binding")
+    @TSerialName("binding")
     override val binding: TAlignmentOrAuto? = null,
-    @SerialName("columns")
+    @TSerialName("columns")
     override val columns: TInt? = null,
-    @SerialName("fill")
-    override val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("numbering")
+    @TSerialName("fill")
+    override val fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignment? = null,
-    @SerialName("header")
+    @TSerialName("header")
     override val `header`: TAutoOrContentOrNone? = null,
-    @SerialName("header-ascent")
+    @TSerialName("header-ascent")
     override val headerAscent: TRelative? = null,
-    @SerialName("footer")
+    @TSerialName("footer")
     override val footer: TAutoOrContentOrNone? = null,
-    @SerialName("footer-descent")
+    @TSerialName("footer-descent")
     override val footerDescent: TRelative? = null,
-    @SerialName("background")
+    @TSerialName("background")
     override val background: TContentOrNone? = null,
-    @SerialName("foreground")
+    @TSerialName("foreground")
     override val foreground: TContentOrNone? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TContent? = null,
 ) : TSetPage
 
@@ -283,7 +283,7 @@ public fun TSetPage(
     margin: TAutoOrMarginOrRelative<TAutoOrNoneOrRelative>? = null,
     binding: TAlignmentOrAuto? = null,
     columns: TInt? = null,
-    fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
     numbering: TFunctionOrNoneOrStr? = null,
     numberAlign: TAlignment? = null,
     `header`: TAutoOrContentOrNone? = null,

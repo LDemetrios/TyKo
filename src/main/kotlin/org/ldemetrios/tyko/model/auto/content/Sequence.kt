@@ -29,9 +29,9 @@ public interface TSequence : TContent {
 }
 
 internal data class TSequenceImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSequence {
     override fun format(): String = Representations.reprOf(this)

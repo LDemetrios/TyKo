@@ -48,17 +48,17 @@ public interface TOutline : TContent {
 }
 
 internal data class TOutlineImpl(
-    @SerialName("title")
+    @TSerialName("title")
     override val title: TAutoOrContentOrNone? = null,
-    @SerialName("target")
+    @TSerialName("target")
     override val target: TFunctionOrLabelOrLocationOrSelector? = null,
-    @SerialName("depth")
+    @TSerialName("depth")
     override val depth: TIntOrNone? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TAutoOrBoolOrFunctionOrNoneOrRelative? = null,
-    @SerialName("fill")
+    @TSerialName("fill")
     override val fill: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TOutline {
     override fun format(): String = Representations.elementRepr("outline",ArgumentEntry(false,
@@ -101,15 +101,15 @@ public interface TSetOutline : TSetRule {
 }
 
 internal class TSetOutlineImpl(
-    @SerialName("title")
+    @TSerialName("title")
     override val title: TAutoOrContentOrNone? = null,
-    @SerialName("target")
+    @TSerialName("target")
     override val target: TFunctionOrLabelOrLocationOrSelector? = null,
-    @SerialName("depth")
+    @TSerialName("depth")
     override val depth: TIntOrNone? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TAutoOrBoolOrFunctionOrNoneOrRelative? = null,
-    @SerialName("fill")
+    @TSerialName("fill")
     override val fill: TContentOrNone? = null,
 ) : TSetOutline
 

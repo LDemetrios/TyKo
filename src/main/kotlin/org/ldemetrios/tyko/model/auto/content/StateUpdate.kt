@@ -33,11 +33,11 @@ public interface TStateUpdate : TContent {
 }
 
 internal data class TStateUpdateImpl(
-    @SerialName("key")
+    @TSerialName("key")
     override val key: TStr,
-    @SerialName("update")
+    @TSerialName("update")
     override val update: TValue,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TStateUpdate {
     override fun format(): String = Representations.reprOf(this)

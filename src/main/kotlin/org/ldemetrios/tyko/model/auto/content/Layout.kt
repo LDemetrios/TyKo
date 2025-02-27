@@ -29,9 +29,9 @@ public interface TLayout : TContent {
 }
 
 internal data class TLayoutImpl(
-    @SerialName("func")
+    @TSerialName("func")
     override val func: TFunction,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TLayout {
     override fun format(): String = Representations.elementRepr("layout",ArgumentEntry(false, null,

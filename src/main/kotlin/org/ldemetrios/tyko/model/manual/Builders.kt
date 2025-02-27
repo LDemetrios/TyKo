@@ -1,6 +1,7 @@
 package org.ldemetrios.tyko.model
 
-import org.ldemetrios.tyko.operations.*
+import org.ldemetrios.tyko.model.t
+import org.ldemetrios.tyko.model.text
 
 open class SequenceBuilder {
     protected val list: MutableList<TContent> = mutableListOf()

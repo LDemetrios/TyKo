@@ -23,7 +23,7 @@ public interface TAndSelector : TSelector {
 }
 
 internal data class TAndSelectorImpl(
-    @SerialName("variants")
+    @TSerialName("variants")
     override val variants: TArray<TSelector>,
 ) : TAndSelector {
     override fun format(): String = Representations.reprOf(this)

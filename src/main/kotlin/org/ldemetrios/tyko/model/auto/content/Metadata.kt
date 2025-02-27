@@ -29,9 +29,9 @@ public interface TMetadata<out D : TValue> : TContent {
 }
 
 internal data class TMetadataImpl<out D : TValue>(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: D,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMetadata<D> {
     override fun format(): String = Representations.elementRepr("metadata",ArgumentEntry(false, null,

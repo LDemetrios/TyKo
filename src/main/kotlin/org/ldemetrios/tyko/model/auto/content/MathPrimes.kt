@@ -29,9 +29,9 @@ public interface TMathPrimes : TContent {
 }
 
 internal data class TMathPrimesImpl(
-    @SerialName("count")
+    @TSerialName("count")
     override val count: TInt,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathPrimes {
     override fun format(): String = Representations.elementRepr("math.primes",ArgumentEntry(false,

@@ -21,7 +21,7 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TStrike : TContent {
     public val body: TContent
 
-    public val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     public val offset: TAutoOrLength?
 
@@ -47,18 +47,17 @@ public interface TStrike : TContent {
 }
 
 internal data class TStrikeImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("stroke")
-    override val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("offset")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("offset")
     override val offset: TAutoOrLength? = null,
-    @SerialName("extent")
+    @TSerialName("extent")
     override val extent: TLength? = null,
-    @SerialName("background")
+    @TSerialName("background")
     override val background: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TStrike {
     override fun format(): String = Representations.elementRepr("strike",ArgumentEntry(false, null,
@@ -70,7 +69,7 @@ internal data class TStrikeImpl(
 @TypstOverloads
 public fun TStrike(
     @TContentBody body: TContent,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
     offset: TAutoOrLength? = null,
     extent: TLength? = null,
     background: TBool? = null,
@@ -85,7 +84,7 @@ public interface TSetStrike : TSetRule {
     override val elem: String
         get() = "strike"
 
-    public val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     public val offset: TAutoOrLength?
 
@@ -99,20 +98,19 @@ public interface TSetStrike : TSetRule {
 }
 
 internal class TSetStrikeImpl(
-    @SerialName("stroke")
-    override val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("offset")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("offset")
     override val offset: TAutoOrLength? = null,
-    @SerialName("extent")
+    @TSerialName("extent")
     override val extent: TLength? = null,
-    @SerialName("background")
+    @TSerialName("background")
     override val background: TBool? = null,
 ) : TSetStrike
 
 @TypstOverloads
 public fun TSetStrike(
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
     offset: TAutoOrLength? = null,
     extent: TLength? = null,
     background: TBool? = null,

@@ -33,11 +33,11 @@ public interface TAlign : TContent {
 }
 
 internal data class TAlignImpl(
-    @SerialName("alignment")
+    @TSerialName("alignment")
     override val alignment: TAlignment? = null,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TAlign {
     override fun format(): String = Representations.elementRepr("align",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetAlign : TSetRule {
 }
 
 internal class TSetAlignImpl(
-    @SerialName("alignment")
+    @TSerialName("alignment")
     override val alignment: TAlignment? = null,
 ) : TSetAlign
 

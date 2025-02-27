@@ -29,9 +29,9 @@ public interface TListItem : TContent {
 }
 
 internal data class TListItemImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TListItem {
     override fun format(): String = Representations.elementRepr("list.item",ArgumentEntry(false, null,

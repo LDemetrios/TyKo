@@ -23,7 +23,7 @@ public interface TRegexSelector : TSelector {
 }
 
 internal data class TRegexSelectorImpl(
-    @SerialName("regex")
+    @TSerialName("regex")
     override val regex: TRegex,
 ) : TRegexSelector {
     override fun format(): String = Representations.reprOf(this)

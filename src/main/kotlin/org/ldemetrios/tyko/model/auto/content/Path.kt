@@ -21,12 +21,11 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TPath : TContent {
     public val vertices: TArray<TArray<TValue>>
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
     public val fillRule: TFillRule?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val closed: TBool?
 
@@ -51,18 +50,18 @@ public interface TPath : TContent {
 }
 
 internal data class TPathImpl(
-    @SerialName("vertices")
+    @TSerialName("vertices")
     override val vertices: TArray<TArray<TValue>>,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("fill-rule")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("fill-rule")
     override val fillRule: TFillRule? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("closed")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("closed")
     override val closed: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPath {
     override fun format(): String = Representations.elementRepr("path",ArgumentEntry(true, null,
@@ -74,9 +73,9 @@ internal data class TPathImpl(
 @TypstOverloads
 public fun TPath(
     @TVararg vertices: TArray<TArray<TValue>>,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
     fillRule: TFillRule? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     closed: TBool? = null,
     label: TLabel? = null,
 ): TPath = TPathImpl(`vertices`, `fill`, `fillRule`, `stroke`, `closed`, `label`)
@@ -89,12 +88,11 @@ public interface TSetPath : TSetRule {
     override val elem: String
         get() = "path"
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
     public val fillRule: TFillRule?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val closed: TBool?
 
@@ -104,21 +102,21 @@ public interface TSetPath : TSetRule {
 }
 
 internal class TSetPathImpl(
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("fill-rule")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("fill-rule")
     override val fillRule: TFillRule? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("closed")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("closed")
     override val closed: TBool? = null,
 ) : TSetPath
 
 @TypstOverloads
 public fun TSetPath(
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
     fillRule: TFillRule? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     closed: TBool? = null,
 ): TSetPath = TSetPathImpl(`fill`, `fillRule`, `stroke`, `closed`)

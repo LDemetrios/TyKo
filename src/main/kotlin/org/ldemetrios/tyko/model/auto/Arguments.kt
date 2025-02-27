@@ -33,9 +33,9 @@ public interface TArguments<out A : TValue> : TValue {
 }
 
 internal data class TArgumentsImpl<out A : TValue>(
-    @SerialName("positional")
+    @TSerialName("positional")
     override val positional: TArray<A>,
-    @SerialName("named")
+    @TSerialName("named")
     override val named: TDictionary<A>,
 ) : TArguments<A> {
     override fun format(): String = Representations.reprOf(this)

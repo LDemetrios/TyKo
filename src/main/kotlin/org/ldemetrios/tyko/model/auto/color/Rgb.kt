@@ -31,7 +31,7 @@ public interface TRgb : TColor {
 }
 
 internal data class TRgbImpl(
-    @SerialName("hex")
+    @TSerialName("hex")
     override val hex: TStr,
 ) : TRgb {
     override fun format(): String = Representations.structRepr("rgb",ArgumentEntry(false, null,

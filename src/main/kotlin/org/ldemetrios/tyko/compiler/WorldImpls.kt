@@ -7,8 +7,8 @@ import org.ldemetrios.tyko.model.*
 
 @OptIn(TyKoFFIEntity::class)
 class WorldBasedTypstCompiler(val owner: TypstSharedLibrary, world: World) : TypstCompiler {
-
     private val nativeDelegate = lazy { owner.NativeWorld(world) }
+
     private val native by nativeDelegate
 
     override fun evalDetachedRaw(source: String): RResult<String, List<SourceDiagnostic>> {
@@ -27,7 +27,11 @@ class WorldBasedTypstCompiler(val owner: TypstSharedLibrary, world: World) : Typ
         return native.compileSvgRaw(fromPage, toPage)
     }
 
-    override fun compilePngRaw(fromPage: Int, toPage: Int, ppi: Float): Warned<RResult<List<ByteArray>, List<SourceDiagnostic>>> {
+    override fun compilePngRaw(
+        fromPage: Int,
+        toPage: Int,
+        ppi: Float
+    ): Warned<RResult<List<ByteArray>, List<SourceDiagnostic>>> {
         return native.compilePngRaw(fromPage, toPage, ppi)
     }
 
@@ -55,6 +59,8 @@ class SingleFileWorld(
     }
 
     override fun now(): WorldTime? = time
+
+    override val autoManageCentral: Boolean get() = true
 }
 
 fun DetachedWorld(features: List<Feature> = listOf()) = SingleFileWorld("", features, time = null)

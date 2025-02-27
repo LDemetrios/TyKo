@@ -47,17 +47,17 @@ public interface TMathEquation : TContent {
 }
 
 internal data class TMathEquationImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("block")
+    @TSerialName("block")
     override val block: TBool? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignment? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathEquation {
     override fun format(): String = Representations.elementRepr("math.equation",ArgumentEntry(false,
@@ -99,13 +99,13 @@ public interface TSetMathEquation : TSetRule {
 }
 
 internal class TSetMathEquationImpl(
-    @SerialName("block")
+    @TSerialName("block")
     override val block: TBool? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignment? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
 ) : TSetMathEquation
 

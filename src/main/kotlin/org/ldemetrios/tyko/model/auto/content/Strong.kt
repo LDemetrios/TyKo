@@ -33,11 +33,11 @@ public interface TStrong : TContent {
 }
 
 internal data class TStrongImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("delta")
+    @TSerialName("delta")
     override val delta: TInt? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TStrong {
     override fun format(): String = Representations.elementRepr("strong",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetStrong : TSetRule {
 }
 
 internal class TSetStrongImpl(
-    @SerialName("delta")
+    @TSerialName("delta")
     override val delta: TInt? = null,
 ) : TSetStrong
 

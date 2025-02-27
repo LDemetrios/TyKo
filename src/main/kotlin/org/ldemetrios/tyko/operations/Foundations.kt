@@ -1,7 +1,7 @@
-package org.ldemetrios.tyko.operations.std
+package org.ldemetrios.tyko.operations
 
 import org.ldemetrios.tyko.model.*
-import org.ldemetrios.tyko.operations.*
+import org.ldemetrios.tyko.model.t
 
 fun <A: TValue> TArguments<A>.at(i:Int) = positional[i]
 fun <A: TValue> TArguments<A>.at(i: TInt) = positional[i.intValue.toInt()]

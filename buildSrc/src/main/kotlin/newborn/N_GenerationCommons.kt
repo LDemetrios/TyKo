@@ -53,7 +53,7 @@ val TFUNCTION = ClassName(PACK, "TFunction")
 val TNATIVEFUNCTION = ClassName(PACK, "TNativeFunction")
 
 val TINTERFACETYPE = ClassName(PACK, "TInterfaceType")
-val SERIALNAME = ClassName(PACK, "SerialName")
+val SERIALNAME = ClassName(PACK, "TSerialName")
 val TSETRULETYPE = ClassName(PACK, "TSetRuleType")
 val TENUMTYPE = ClassName(PACK, "TEnumType")
 val TSYNTHETICTYPE = ClassName(PACK, "TSyntheticType")
@@ -283,9 +283,10 @@ fun kebabToTitleCamel(string: String): String {
         "grid", "table", "state",
         "math", "counter", "footnote",
         "outline", "par", "raw",
-                 "curve"
-             -> string.replace(            ".",            "-"        )
-        "gradient" -> string.removePrefix("gradient.") + "-gradient"
+        "curve"
+            -> string.replace(".", "-")
+
+        "gradient" -> if (string == "gradient") string else string.removePrefix("gradient.") + "-gradient"
         else -> string
     }
     val words = qualifier.split(".").last().split("-")

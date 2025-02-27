@@ -34,11 +34,11 @@ public interface TMathUndershell : TContent {
 }
 
 internal data class TMathUndershellImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathUndershell {
     override fun format(): String = Representations.elementRepr("math.undershell",ArgumentEntry(false,
@@ -68,7 +68,7 @@ public interface TSetMathUndershell : TSetRule {
 }
 
 internal class TSetMathUndershellImpl(
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
 ) : TSetMathUndershell
 

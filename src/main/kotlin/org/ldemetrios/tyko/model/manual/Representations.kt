@@ -5,7 +5,7 @@ import org.ldemetrios.tyko.compiler.TypstCompilerException
 import org.ldemetrios.tyko.compiler.WorldBasedTypstCompiler
 import org.ldemetrios.tyko.compiler.evalDetached
 import org.ldemetrios.tyko.ffi.TypstSharedLibrary
-import org.ldemetrios.tyko.operations.value
+import org.ldemetrios.tyko.model.value
 
 typealias CommonInterfaceName = TValue
 

@@ -31,9 +31,8 @@ import org.ldemetrios.utilities.castUnchecked
 )
 public interface TArray<out E : TValue> : List<E>, TValue, TArrayOrStr<E>,
         TArrayOrContentOrFunction<E>, TArrayOrEnumItem<E>, TArrayOrAutoOrFractionOrIntOrRelative<E>,
-        TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<E>,
-        TAlignmentOrArrayOrAutoOrFunction<E>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>,
+        TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<E>, TAlignmentOrArrayOrAutoOrFunction<E>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>,
         TArrayOrFractionOrFunctionOrRelativeOrSides<E, TDynamic>, TArrayOrContent<E>,
         TArrayOrAutoOrDictionaryOrStr<E, TDynamic>, TArrayOrIntOrNone<E>,
         TArrayOrDictionary<E, TDynamic>, TArrayOrNoneOrStr<E>, TArrayOrNoneOrStrOrSymbol<E>,
@@ -71,8 +70,6 @@ public interface TArray<out E : TValue> : List<E>, TValue, TArrayOrStr<E>,
     override fun listIterator(): ListIterator<E> = arrayValue.listIterator()
 
     override fun listIterator(index: Int): ListIterator<E> = arrayValue.listIterator(index)
-
-    override fun reversed(): List<E> = arrayValue.reversed()
 
     override fun subList(fromIndex: Int, toIndex: Int): List<E> = arrayValue.subList(fromIndex,
             toIndex)

@@ -19,12 +19,12 @@ import org.ldemetrios.utilities.castUnchecked
     TStrokeImpl::class,
 )
 public interface TStroke :
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>, TValue {
-    public val paint: TAutoOrColorOrGradientGradientOrTiling?
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>, TValue {
+    public val paint: TAutoOrColorOrGradientOrTiling?
 
     public val thickness: TAutoOrLength?
 
@@ -59,17 +59,17 @@ public interface TStroke :
 }
 
 internal data class TStrokeImpl(
-    @SerialName("paint")
-    override val paint: TAutoOrColorOrGradientGradientOrTiling? = null,
-    @SerialName("thickness")
+    @TSerialName("paint")
+    override val paint: TAutoOrColorOrGradientOrTiling? = null,
+    @TSerialName("thickness")
     override val thickness: TAutoOrLength? = null,
-    @SerialName("cap")
+    @TSerialName("cap")
     override val cap: TAutoOrStr? = null,
-    @SerialName("join")
+    @TSerialName("join")
     override val join: TAutoOrStr? = null,
-    @SerialName("dash")
+    @TSerialName("dash")
     override val dash: TArrayOrAutoOrDictionaryOrNoneOrStr<TValue, TValue>? = null,
-    @SerialName("miter-limit")
+    @TSerialName("miter-limit")
     override val miterLimit: TAutoOrFloat? = null,
 ) : TStroke {
     override fun format(): String = Representations.structRepr("stroke",ArgumentEntry(false, "paint",
@@ -80,7 +80,7 @@ internal data class TStrokeImpl(
 
 @TypstOverloads
 public fun TStroke(
-    paint: TAutoOrColorOrGradientGradientOrTiling? = null,
+    paint: TAutoOrColorOrGradientOrTiling? = null,
     thickness: TAutoOrLength? = null,
     cap: TAutoOrStr? = null,
     join: TAutoOrStr? = null,

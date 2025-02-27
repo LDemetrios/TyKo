@@ -29,9 +29,9 @@ public interface TColbreak : TContent {
 }
 
 internal data class TColbreakImpl(
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TColbreak {
     override fun format(): String = Representations.elementRepr("colbreak",ArgumentEntry(false,
@@ -57,7 +57,7 @@ public interface TSetColbreak : TSetRule {
 }
 
 internal class TSetColbreakImpl(
-    @SerialName("weak")
+    @TSerialName("weak")
     override val weak: TBool? = null,
 ) : TSetColbreak
 

@@ -21,12 +21,11 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TPolygon : TContent {
     public val vertices: TArray<TArray<TValue>>
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
     public val fillRule: TFillRule?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     override fun func(): TElement = TPolygon
 
@@ -47,16 +46,16 @@ public interface TPolygon : TContent {
 }
 
 internal data class TPolygonImpl(
-    @SerialName("vertices")
+    @TSerialName("vertices")
     override val vertices: TArray<TArray<TValue>>,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("fill-rule")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("fill-rule")
     override val fillRule: TFillRule? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPolygon {
     override fun format(): String = Representations.elementRepr("polygon",ArgumentEntry(true, null,
@@ -67,9 +66,9 @@ internal data class TPolygonImpl(
 @TypstOverloads
 public fun TPolygon(
     @TVararg vertices: TArray<TArray<TValue>>,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
     fillRule: TFillRule? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     label: TLabel? = null,
 ): TPolygon = TPolygonImpl(`vertices`, `fill`, `fillRule`, `stroke`, `label`)
 
@@ -81,12 +80,11 @@ public interface TSetPolygon : TSetRule {
     override val elem: String
         get() = "polygon"
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
     public val fillRule: TFillRule?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     override fun format(): String = Representations.setRepr("polygon",ArgumentEntry(false, "fill",
             `fill`),ArgumentEntry(false, "fill-rule", `fillRule`),ArgumentEntry(false, "stroke",
@@ -94,18 +92,18 @@ public interface TSetPolygon : TSetRule {
 }
 
 internal class TSetPolygonImpl(
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("fill-rule")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("fill-rule")
     override val fillRule: TFillRule? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
 ) : TSetPolygon
 
 @TypstOverloads
 public fun TSetPolygon(
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
     fillRule: TFillRule? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
 ): TSetPolygon = TSetPolygonImpl(`fill`, `fillRule`, `stroke`)

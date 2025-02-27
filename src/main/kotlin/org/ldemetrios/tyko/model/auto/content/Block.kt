@@ -27,9 +27,9 @@ public interface TBlock : TContent {
 
     public val breakable: TBool?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val radius: TDictionaryOrRelative<TValue>?
 
@@ -92,36 +92,35 @@ public interface TBlock : TContent {
 }
 
 internal data class TBlockImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("breakable")
+    @TSerialName("breakable")
     override val breakable: TBool? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("radius")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TRelativeOrSides<TNoneOrRelative>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TRelativeOrSides<TNoneOrRelative>? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TFractionOrRelative? = null,
-    @SerialName("above")
+    @TSerialName("above")
     override val above: TAutoOrFractionOrRelative? = null,
-    @SerialName("below")
+    @TSerialName("below")
     override val below: TAutoOrFractionOrRelative? = null,
-    @SerialName("clip")
+    @TSerialName("clip")
     override val clip: TBool? = null,
-    @SerialName("sticky")
+    @TSerialName("sticky")
     override val sticky: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TBlock {
     override fun format(): String = Representations.elementRepr("block",ArgumentEntry(false, null,
@@ -140,8 +139,8 @@ public fun TBlock(
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
     breakable: TBool? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     radius: TDictionaryOrRelative<TValue>? = null,
     inset: TRelativeOrSides<TNoneOrRelative>? = null,
     outset: TRelativeOrSides<TNoneOrRelative>? = null,
@@ -170,9 +169,9 @@ public interface TSetBlock : TSetRule {
 
     public val breakable: TBool?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val radius: TDictionaryOrRelative<TValue>?
 
@@ -201,34 +200,33 @@ public interface TSetBlock : TSetRule {
 }
 
 internal class TSetBlockImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("breakable")
+    @TSerialName("breakable")
     override val breakable: TBool? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("radius")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TRelativeOrSides<TNoneOrRelative>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TRelativeOrSides<TNoneOrRelative>? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TFractionOrRelative? = null,
-    @SerialName("above")
+    @TSerialName("above")
     override val above: TAutoOrFractionOrRelative? = null,
-    @SerialName("below")
+    @TSerialName("below")
     override val below: TAutoOrFractionOrRelative? = null,
-    @SerialName("clip")
+    @TSerialName("clip")
     override val clip: TBool? = null,
-    @SerialName("sticky")
+    @TSerialName("sticky")
     override val sticky: TBool? = null,
 ) : TSetBlock
 
@@ -238,8 +236,8 @@ public fun TSetBlock(
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
     breakable: TBool? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     radius: TDictionaryOrRelative<TValue>? = null,
     inset: TRelativeOrSides<TNoneOrRelative>? = null,
     outset: TRelativeOrSides<TNoneOrRelative>? = null,

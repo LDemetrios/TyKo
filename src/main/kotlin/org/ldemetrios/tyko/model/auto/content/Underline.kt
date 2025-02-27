@@ -21,7 +21,7 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TUnderline : TContent {
     public val body: TContent
 
-    public val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     public val offset: TAutoOrLength?
 
@@ -51,20 +51,19 @@ public interface TUnderline : TContent {
 }
 
 internal data class TUnderlineImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("stroke")
-    override val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("offset")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("offset")
     override val offset: TAutoOrLength? = null,
-    @SerialName("extent")
+    @TSerialName("extent")
     override val extent: TLength? = null,
-    @SerialName("evade")
+    @TSerialName("evade")
     override val evade: TBool? = null,
-    @SerialName("background")
+    @TSerialName("background")
     override val background: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TUnderline {
     override fun format(): String = Representations.elementRepr("underline",ArgumentEntry(false, null,
@@ -77,7 +76,7 @@ internal data class TUnderlineImpl(
 @TypstOverloads
 public fun TUnderline(
     @TContentBody body: TContent,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
     offset: TAutoOrLength? = null,
     extent: TLength? = null,
     evade: TBool? = null,
@@ -93,7 +92,7 @@ public interface TSetUnderline : TSetRule {
     override val elem: String
         get() = "underline"
 
-    public val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     public val offset: TAutoOrLength?
 
@@ -110,22 +109,21 @@ public interface TSetUnderline : TSetRule {
 }
 
 internal class TSetUnderlineImpl(
-    @SerialName("stroke")
-    override val stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("offset")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("offset")
     override val offset: TAutoOrLength? = null,
-    @SerialName("extent")
+    @TSerialName("extent")
     override val extent: TLength? = null,
-    @SerialName("evade")
+    @TSerialName("evade")
     override val evade: TBool? = null,
-    @SerialName("background")
+    @TSerialName("background")
     override val background: TBool? = null,
 ) : TSetUnderline
 
 @TypstOverloads
 public fun TSetUnderline(
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
     offset: TAutoOrLength? = null,
     extent: TLength? = null,
     evade: TBool? = null,

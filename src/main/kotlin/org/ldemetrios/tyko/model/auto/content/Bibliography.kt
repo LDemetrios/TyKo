@@ -43,15 +43,15 @@ public interface TBibliography : TContent {
 }
 
 internal data class TBibliographyImpl(
-    @SerialName("path")
+    @TSerialName("path")
     override val path: TArrayOrStr<TStr>,
-    @SerialName("title")
+    @TSerialName("title")
     override val title: TAutoOrContentOrNone? = null,
-    @SerialName("full")
+    @TSerialName("full")
     override val full: TBool? = null,
-    @SerialName("style")
+    @TSerialName("style")
     override val style: TBibliographyStyle? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TBibliography {
     override fun format(): String = Representations.elementRepr("bibliography",ArgumentEntry(false,
@@ -88,11 +88,11 @@ public interface TSetBibliography : TSetRule {
 }
 
 internal class TSetBibliographyImpl(
-    @SerialName("title")
+    @TSerialName("title")
     override val title: TAutoOrContentOrNone? = null,
-    @SerialName("full")
+    @TSerialName("full")
     override val full: TBool? = null,
-    @SerialName("style")
+    @TSerialName("style")
     override val style: TBibliographyStyle? = null,
 ) : TSetBibliography
 

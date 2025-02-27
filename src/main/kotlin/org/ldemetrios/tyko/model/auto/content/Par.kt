@@ -55,21 +55,21 @@ public interface TPar : TContent {
 }
 
 internal data class TParImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("leading")
+    @TSerialName("leading")
     override val leading: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TLength? = null,
-    @SerialName("justify")
+    @TSerialName("justify")
     override val justify: TBool? = null,
-    @SerialName("linebreaks")
+    @TSerialName("linebreaks")
     override val linebreaks: TAutoOrParLinebreaks? = null,
-    @SerialName("first-line-indent")
+    @TSerialName("first-line-indent")
     override val firstLineIndent: TDictionaryOrLength<TBoolOrLength>? = null,
-    @SerialName("hanging-indent")
+    @TSerialName("hanging-indent")
     override val hangingIndent: TLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPar {
     override fun format(): String = Representations.elementRepr("par",ArgumentEntry(false, null,
@@ -121,17 +121,17 @@ public interface TSetPar : TSetRule {
 }
 
 internal class TSetParImpl(
-    @SerialName("leading")
+    @TSerialName("leading")
     override val leading: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TLength? = null,
-    @SerialName("justify")
+    @TSerialName("justify")
     override val justify: TBool? = null,
-    @SerialName("linebreaks")
+    @TSerialName("linebreaks")
     override val linebreaks: TAutoOrParLinebreaks? = null,
-    @SerialName("first-line-indent")
+    @TSerialName("first-line-indent")
     override val firstLineIndent: TDictionaryOrLength<TBoolOrLength>? = null,
-    @SerialName("hanging-indent")
+    @TSerialName("hanging-indent")
     override val hangingIndent: TLength? = null,
 ) : TSetPar
 

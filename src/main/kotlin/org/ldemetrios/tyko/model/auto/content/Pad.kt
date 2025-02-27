@@ -57,23 +57,23 @@ public interface TPad : TContent {
 }
 
 internal data class TPadImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("left")
+    @TSerialName("left")
     override val left: TRelative? = null,
-    @SerialName("top")
+    @TSerialName("top")
     override val top: TRelative? = null,
-    @SerialName("right")
+    @TSerialName("right")
     override val right: TRelative? = null,
-    @SerialName("bottom")
+    @TSerialName("bottom")
     override val bottom: TRelative? = null,
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TRelative? = null,
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TRelative? = null,
-    @SerialName("rest")
+    @TSerialName("rest")
     override val rest: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TPad {
     override fun format(): String = Representations.elementRepr("pad",ArgumentEntry(false, null,
@@ -125,19 +125,19 @@ public interface TSetPad : TSetRule {
 }
 
 internal class TSetPadImpl(
-    @SerialName("left")
+    @TSerialName("left")
     override val left: TRelative? = null,
-    @SerialName("top")
+    @TSerialName("top")
     override val top: TRelative? = null,
-    @SerialName("right")
+    @TSerialName("right")
     override val right: TRelative? = null,
-    @SerialName("bottom")
+    @TSerialName("bottom")
     override val bottom: TRelative? = null,
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TRelative? = null,
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TRelative? = null,
-    @SerialName("rest")
+    @TSerialName("rest")
     override val rest: TRelative? = null,
 ) : TSetPad
 

@@ -51,19 +51,19 @@ public interface TList : TContent {
 }
 
 internal data class TListImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TListItem>,
-    @SerialName("tight")
+    @TSerialName("tight")
     override val tight: TBool? = null,
-    @SerialName("marker")
+    @TSerialName("marker")
     override val marker: TArrayOrContentOrFunction<TContent>? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("body-indent")
+    @TSerialName("body-indent")
     override val bodyIndent: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TAutoOrLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TList {
     override fun format(): String = Representations.elementRepr("list",ArgumentEntry(true, null,
@@ -109,15 +109,15 @@ public interface TSetList : TSetRule {
 }
 
 internal class TSetListImpl(
-    @SerialName("tight")
+    @TSerialName("tight")
     override val tight: TBool? = null,
-    @SerialName("marker")
+    @TSerialName("marker")
     override val marker: TArrayOrContentOrFunction<TContent>? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("body-indent")
+    @TSerialName("body-indent")
     override val bodyIndent: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TAutoOrLength? = null,
 ) : TSetList
 

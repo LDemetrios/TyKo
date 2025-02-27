@@ -29,9 +29,9 @@ public interface TCurveClose : TContent {
 }
 
 internal data class TCurveCloseImpl(
-    @SerialName("mode")
+    @TSerialName("mode")
     override val mode: TCurveCloseMode? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCurveClose {
     override fun format(): String = Representations.elementRepr("curve.close",ArgumentEntry(false,
@@ -57,7 +57,7 @@ public interface TSetCurveClose : TSetRule {
 }
 
 internal class TSetCurveCloseImpl(
-    @SerialName("mode")
+    @TSerialName("mode")
     override val mode: TCurveCloseMode? = null,
 ) : TSetCurveClose
 

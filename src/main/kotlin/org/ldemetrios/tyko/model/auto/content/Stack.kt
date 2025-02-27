@@ -40,13 +40,13 @@ public interface TStack : TContent {
 }
 
 internal data class TStackImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContentOrFractionOrRelative>,
-    @SerialName("dir")
+    @TSerialName("dir")
     override val dir: TDirection? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TFractionOrNoneOrRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TStack {
     override fun format(): String = Representations.elementRepr("stack",ArgumentEntry(true, null,
@@ -79,9 +79,9 @@ public interface TSetStack : TSetRule {
 }
 
 internal class TSetStackImpl(
-    @SerialName("dir")
+    @TSerialName("dir")
     override val dir: TDirection? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TFractionOrNoneOrRelative? = null,
 ) : TSetStack
 

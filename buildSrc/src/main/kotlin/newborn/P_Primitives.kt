@@ -222,10 +222,10 @@ fun TypeSpecBuilder.updatePrimitive(name: String): Unit = when (name) {
             listIteratorByIndex {
                 appendLine("return arrayValue.listIterator(index)")
             }
-
-            reversed {
-                appendLine("return arrayValue.reversed()")
-            }
+//
+//            reversed {
+//                appendLine("return arrayValue.reversed()")
+//            }
 
             subList {
                 appendLine("return arrayValue.subList(fromIndex, toIndex)")

@@ -1,9 +1,9 @@
 package org.ldemetrios.tyko.model
 
 import org.ldemetrios.tyko.model.Representations.reprOf
-import org.ldemetrios.tyko.operations.pc
-import org.ldemetrios.tyko.operations.pt
-import org.ldemetrios.tyko.operations.t
+import org.ldemetrios.tyko.model.pc
+import org.ldemetrios.tyko.model.pt
+import org.ldemetrios.tyko.model.t
 
 val TRelative.abs: TLength?
     get() = when (this) {

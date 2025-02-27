@@ -25,9 +25,9 @@ public interface TElementSelector : TSelector {
 }
 
 internal data class TElementSelectorImpl(
-    @SerialName("element")
+    @TSerialName("element")
     override val element: TStr,
-    @SerialName("where")
+    @TSerialName("where")
     override val `where`: TDictionary<TValue>? = null,
 ) : TElementSelector {
     override fun format(): String = Representations.reprOf(this)

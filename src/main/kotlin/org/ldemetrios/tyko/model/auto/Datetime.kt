@@ -49,17 +49,17 @@ public interface TDatetime : TAutoOrDatetimeOrNone, TValue {
 }
 
 internal data class TDatetimeImpl(
-    @SerialName("year")
+    @TSerialName("year")
     override val year: TInt? = null,
-    @SerialName("month")
+    @TSerialName("month")
     override val month: TInt? = null,
-    @SerialName("day")
+    @TSerialName("day")
     override val day: TInt? = null,
-    @SerialName("hour")
+    @TSerialName("hour")
     override val hour: TInt? = null,
-    @SerialName("minute")
+    @TSerialName("minute")
     override val minute: TInt? = null,
-    @SerialName("second")
+    @TSerialName("second")
     override val second: TInt? = null,
 ) : TDatetime {
     override fun format(): String = Representations.structRepr("datetime",ArgumentEntry(false, "year",

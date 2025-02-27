@@ -47,17 +47,17 @@ public interface TEmbed : TContent {
 }
 
 internal data class TEmbedImpl(
-    @SerialName("path")
+    @TSerialName("path")
     override val path: TStr,
-    @SerialName("data")
+    @TSerialName("data")
     override val `data`: TBytes? = null,
-    @SerialName("relationship")
+    @TSerialName("relationship")
     override val relationship: TNoneOrStr? = null,
-    @SerialName("mime-type")
+    @TSerialName("mime-type")
     override val mimeType: TNoneOrStr? = null,
-    @SerialName("description")
+    @TSerialName("description")
     override val description: TNoneOrStr? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TEmbed {
     override fun format(): String = Representations.elementRepr("pdf.embed",ArgumentEntry(false, null,
@@ -96,11 +96,11 @@ public interface TSetEmbed : TSetRule {
 }
 
 internal class TSetEmbedImpl(
-    @SerialName("relationship")
+    @TSerialName("relationship")
     override val relationship: TNoneOrStr? = null,
-    @SerialName("mime-type")
+    @TSerialName("mime-type")
     override val mimeType: TNoneOrStr? = null,
-    @SerialName("description")
+    @TSerialName("description")
     override val description: TNoneOrStr? = null,
 ) : TSetEmbed
 

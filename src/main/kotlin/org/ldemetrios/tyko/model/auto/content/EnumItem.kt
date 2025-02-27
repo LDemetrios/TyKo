@@ -33,11 +33,11 @@ public interface TEnumItem : TArrayOrEnumItem<TDynamic>, TContent {
 }
 
 internal data class TEnumItemImpl(
-    @SerialName("number")
+    @TSerialName("number")
     override val number: TIntOrNone? = null,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TEnumItem {
     override fun format(): String = Representations.elementRepr("enum.item",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetEnumItem : TSetRule {
 }
 
 internal class TSetEnumItemImpl(
-    @SerialName("number")
+    @TSerialName("number")
     override val number: TIntOrNone? = null,
 ) : TSetEnumItem
 

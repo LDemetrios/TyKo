@@ -33,11 +33,11 @@ public interface TStyled : TContent {
 }
 
 internal data class TStyledImpl(
-    @SerialName("styles")
+    @TSerialName("styles")
     override val styles: TArray<TStyle>,
-    @SerialName("child")
+    @TSerialName("child")
     override val child: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TStyled {
     override fun format(): String = Representations.reprOf(this)

@@ -1,4 +1,4 @@
-package org.ldemetrios.tyko.operations
+package org.ldemetrios.tyko.model
 
 import org.ldemetrios.tyko.model.*
 import java.awt.Color
@@ -11,6 +11,7 @@ val Int.t get() = TInt(this.toLong())
 val Long.t get() = TInt(this)
 val String.t get() = TStr(this)
 val Boolean.t get() = TBool(this)
+val ByteArray.t get() = TBytes(this)
 
 val TFloat.pt get() = TLength(this, 0f.t)
 val TFloat.em get() = TLength(0f.t, this)
@@ -81,8 +82,15 @@ val Color.t get() = TRgb("#%02x%02x%02x%02x".format(red, green, blue, alpha).t)
 val String.text get() = TText(text = this.t)
 val TStr.text get() = TText(text = this)
 
+val TBool.value get() = this.boolValue
 val TInt.value get() = intValue
 val TFloat.value get() = floatValue
 val TStr.value get() = strValue
 val <T : TValue> TArray<T>.value get() = arrayValue
 val <T : TValue> TDictionary<T>.value get() = dictionaryValue
+val TBytes.value get() = this.bytesValue
+
+operator fun THAlignment.plus(other: TVAlignment): TAlignment = TAlignmentImpl(this, other)
+operator fun TVAlignment.plus(other: THAlignment): TAlignment = TAlignmentImpl(other, this)
+operator fun TLength.plus(other: TRatio): TRelative = TRelativeImpl(other, this)
+operator fun TRatio.plus(other: TLength): TRelative = TRelativeImpl(this, other)

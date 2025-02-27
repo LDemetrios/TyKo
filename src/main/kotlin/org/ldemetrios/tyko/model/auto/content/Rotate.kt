@@ -41,15 +41,15 @@ public interface TRotate : TContent {
 }
 
 internal data class TRotateImpl(
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngle? = null,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TAlignment? = null,
-    @SerialName("reflow")
+    @TSerialName("reflow")
     override val reflow: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TRotate {
     override fun format(): String = Representations.elementRepr("rotate",ArgumentEntry(false, null,
@@ -85,11 +85,11 @@ public interface TSetRotate : TSetRule {
 }
 
 internal class TSetRotateImpl(
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngle? = null,
-    @SerialName("origin")
+    @TSerialName("origin")
     override val origin: TAlignment? = null,
-    @SerialName("reflow")
+    @TSerialName("reflow")
     override val reflow: TBool? = null,
 ) : TSetRotate
 

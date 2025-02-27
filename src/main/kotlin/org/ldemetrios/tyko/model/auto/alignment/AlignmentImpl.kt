@@ -33,9 +33,9 @@ public interface TAlignmentImpl : TAlignment {
 }
 
 internal data class TAlignmentImplImpl(
-    @SerialName("horizontal")
+    @TSerialName("horizontal")
     override val horizontal: THAlignment? = null,
-    @SerialName("vertical")
+    @TSerialName("vertical")
     override val vertical: TVAlignment? = null,
 ) : TAlignmentImpl {
     override fun format(): String = Representations.reprOf(this)

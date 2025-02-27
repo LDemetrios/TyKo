@@ -31,12 +31,12 @@ public interface TGrid : TContent {
 
     public val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>?
 
-    public val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>?
+    public val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>?
 
     public val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>?
 
     public val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
 
     public val inset: TArrayOrFunctionOrRelativeOrSides<TRelative, TNoneOrRelative>?
 
@@ -85,29 +85,29 @@ public interface TGrid : TContent {
 }
 
 internal data class TGridImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("columns")
+    @TSerialName("columns")
     override val columns: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("rows")
+    @TSerialName("rows")
     override val rows: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("gutter")
+    @TSerialName("gutter")
     override val gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("column-gutter")
+    @TSerialName("column-gutter")
     override val columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("row-gutter")
+    @TSerialName("row-gutter")
     override val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("fill")
-    override val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
-    @SerialName("align")
+    @TSerialName("fill")
+    override val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
+    @TSerialName("align")
     override val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    @SerialName("stroke")
+    @TSerialName("stroke")
     override val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
-            = null,
-    @SerialName("inset")
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset: TArrayOrFunctionOrRelativeOrSides<TRelative, TNoneOrRelative>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TGrid {
     override fun format(): String = Representations.elementRepr("grid",ArgumentEntry(true, null,
@@ -126,9 +126,9 @@ public fun TGrid(
     gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
+    fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
     align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
             = null,
     inset: TArrayOrFunctionOrRelativeOrSides<TRelative, TNoneOrRelative>? = null,
     label: TLabel? = null,
@@ -153,12 +153,12 @@ public interface TSetGrid : TSetRule {
 
     public val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>?
 
-    public val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>?
+    public val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>?
 
     public val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>?
 
     public val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
 
     public val inset: TArrayOrFunctionOrRelativeOrSides<TRelative, TNoneOrRelative>?
 
@@ -170,25 +170,25 @@ public interface TSetGrid : TSetRule {
 }
 
 internal class TSetGridImpl(
-    @SerialName("columns")
+    @TSerialName("columns")
     override val columns: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("rows")
+    @TSerialName("rows")
     override val rows: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("gutter")
+    @TSerialName("gutter")
     override val gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("column-gutter")
+    @TSerialName("column-gutter")
     override val columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("row-gutter")
+    @TSerialName("row-gutter")
     override val rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    @SerialName("fill")
-    override val fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
-    @SerialName("align")
+    @TSerialName("fill")
+    override val fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
+    @TSerialName("align")
     override val align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    @SerialName("stroke")
+    @TSerialName("stroke")
     override val stroke:
-            TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
-            = null,
-    @SerialName("inset")
+            TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>? =
+            null,
+    @TSerialName("inset")
     override val inset: TArrayOrFunctionOrRelativeOrSides<TRelative, TNoneOrRelative>? = null,
 ) : TSetGrid
 
@@ -199,9 +199,9 @@ public fun TSetGrid(
     gutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     columnGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
     rowGutter: TArrayOrAutoOrFractionOrIntOrRelative<TValue>? = null,
-    fill: TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TValue>? = null,
+    fill: TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TValue>? = null,
     align: TAlignmentOrArrayOrAutoOrFunction<TAlignment>? = null,
-    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
+    stroke: TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue, TValue>?
             = null,
     inset: TArrayOrFunctionOrRelativeOrSides<TRelative, TNoneOrRelative>? = null,
 ): TSetGrid = TSetGridImpl(`columns`, `rows`, `gutter`, `columnGutter`, `rowGutter`, `fill`,

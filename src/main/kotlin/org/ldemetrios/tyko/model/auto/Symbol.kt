@@ -30,7 +30,7 @@ public interface TSymbol : TArrayOrNoneOrStrOrSymbol<TDynamic>, TNoneOrStrOrSymb
 }
 
 internal data class TSymbolImpl(
-    @SerialName("variants")
+    @TSerialName("variants")
     override val variants: TArray<TArrayOrStr<TStr>>,
 ) : TSymbol {
     override fun format(): String = Representations.structRepr("symbol",ArgumentEntry(true, null,

@@ -18,7 +18,7 @@ import org.ldemetrios.utilities.castUnchecked
     ["gradient.radial", "gradient"],
     TRadialGradientImpl::class,
 )
-public interface TRadialGradient : TGradientGradient {
+public interface TRadialGradient : TGradient {
     public val stops: TArray<TArrayOrColor<TColorOrRatio>>
 
     public val space: TValue?
@@ -58,19 +58,19 @@ public interface TRadialGradient : TGradientGradient {
 }
 
 internal data class TRadialGradientImpl(
-    @SerialName("stops")
+    @TSerialName("stops")
     override val stops: TArray<TArrayOrColor<TColorOrRatio>>,
-    @SerialName("space")
+    @TSerialName("space")
     override val space: TValue? = null,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TAutoOrStr? = null,
-    @SerialName("center")
+    @TSerialName("center")
     override val center: TArray<TRatio>? = null,
-    @SerialName("radius")
+    @TSerialName("radius")
     override val radius: TRatio? = null,
-    @SerialName("focal-center")
+    @TSerialName("focal-center")
     override val focalCenter: TArrayOrAuto<TRatio>? = null,
-    @SerialName("focal-radius")
+    @TSerialName("focal-radius")
     override val focalRadius: TRatio? = null,
 ) : TRadialGradient {
     override fun format(): String = Representations.structRepr("gradient.radial",ArgumentEntry(true,

@@ -37,13 +37,13 @@ public interface TRepeat : TContent {
 }
 
 internal data class TRepeatImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TLength? = null,
-    @SerialName("justify")
+    @TSerialName("justify")
     override val justify: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TRepeat {
     override fun format(): String = Representations.elementRepr("repeat",ArgumentEntry(false, null,
@@ -76,9 +76,9 @@ public interface TSetRepeat : TSetRule {
 }
 
 internal class TSetRepeatImpl(
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TLength? = null,
-    @SerialName("justify")
+    @TSerialName("justify")
     override val justify: TBool? = null,
 ) : TSetRepeat
 

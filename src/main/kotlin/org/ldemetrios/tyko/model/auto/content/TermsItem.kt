@@ -33,11 +33,11 @@ public interface TTermsItem : TContent {
 }
 
 internal data class TTermsItemImpl(
-    @SerialName("term")
+    @TSerialName("term")
     override val term: TContent,
-    @SerialName("description")
+    @TSerialName("description")
     override val description: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTermsItem {
     override fun format(): String = Representations.elementRepr("terms.item",ArgumentEntry(false,

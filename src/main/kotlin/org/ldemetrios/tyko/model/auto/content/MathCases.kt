@@ -43,15 +43,15 @@ public interface TMathCases : TContent {
 }
 
 internal data class TMathCasesImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("delim")
+    @TSerialName("delim")
     override val delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
-    @SerialName("reverse")
+    @TSerialName("reverse")
     override val reverse: TBool? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathCases {
     override fun format(): String = Representations.elementRepr("math.cases",ArgumentEntry(true, null,
@@ -87,11 +87,11 @@ public interface TSetMathCases : TSetRule {
 }
 
 internal class TSetMathCasesImpl(
-    @SerialName("delim")
+    @TSerialName("delim")
     override val delim: TArrayOrNoneOrStr<TNoneOrStr>? = null,
-    @SerialName("reverse")
+    @TSerialName("reverse")
     override val reverse: TBool? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TRelative? = null,
 ) : TSetMathCases
 

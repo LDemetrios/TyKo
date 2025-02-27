@@ -55,21 +55,21 @@ public interface TRaw : TContent {
 }
 
 internal data class TRawImpl(
-    @SerialName("text")
+    @TSerialName("text")
     override val text: TStr,
-    @SerialName("block")
+    @TSerialName("block")
     override val block: TBool? = null,
-    @SerialName("lang")
+    @TSerialName("lang")
     override val lang: TNoneOrStr? = null,
-    @SerialName("align")
+    @TSerialName("align")
     override val align: TAlignment? = null,
-    @SerialName("syntaxes")
+    @TSerialName("syntaxes")
     override val syntaxes: TArrayOrStr<TStr>? = null,
-    @SerialName("theme")
+    @TSerialName("theme")
     override val theme: TAutoOrNoneOrStr? = null,
-    @SerialName("tab-size")
+    @TSerialName("tab-size")
     override val tabSize: TInt? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TRaw {
     override fun format(): String = Representations.elementRepr("raw",ArgumentEntry(false, null,
@@ -118,17 +118,17 @@ public interface TSetRaw : TSetRule {
 }
 
 internal class TSetRawImpl(
-    @SerialName("block")
+    @TSerialName("block")
     override val block: TBool? = null,
-    @SerialName("lang")
+    @TSerialName("lang")
     override val lang: TNoneOrStr? = null,
-    @SerialName("align")
+    @TSerialName("align")
     override val align: TAlignment? = null,
-    @SerialName("syntaxes")
+    @TSerialName("syntaxes")
     override val syntaxes: TArrayOrStr<TStr>? = null,
-    @SerialName("theme")
+    @TSerialName("theme")
     override val theme: TAutoOrNoneOrStr? = null,
-    @SerialName("tab-size")
+    @TSerialName("tab-size")
     override val tabSize: TInt? = null,
 ) : TSetRaw
 

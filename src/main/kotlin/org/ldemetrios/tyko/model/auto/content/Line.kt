@@ -27,7 +27,7 @@ public interface TLine : TContent {
 
     public val angle: TAngle?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     override fun func(): TElement = TLine
 
@@ -48,17 +48,17 @@ public interface TLine : TContent {
 }
 
 internal data class TLineImpl(
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TArray<TValue>? = null,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TArrayOrNone<TValue>? = null,
-    @SerialName("length")
+    @TSerialName("length")
     override val length: TRelative? = null,
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngle? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TLine {
     override fun format(): String = Representations.elementRepr("line",ArgumentEntry(false, "start",
@@ -73,7 +73,7 @@ public fun TLine(
     end: TArrayOrNone<TValue>? = null,
     length: TRelative? = null,
     angle: TAngle? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
     label: TLabel? = null,
 ): TLine = TLineImpl(`start`, `end`, `length`, `angle`, `stroke`, `label`)
 
@@ -93,7 +93,7 @@ public interface TSetLine : TSetRule {
 
     public val angle: TAngle?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     override fun format(): String = Representations.setRepr("line",ArgumentEntry(false, "start",
             `start`),ArgumentEntry(false, "end", `end`),ArgumentEntry(false, "length",
@@ -101,16 +101,16 @@ public interface TSetLine : TSetRule {
 }
 
 internal class TSetLineImpl(
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TArray<TValue>? = null,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TArrayOrNone<TValue>? = null,
-    @SerialName("length")
+    @TSerialName("length")
     override val length: TRelative? = null,
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngle? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
 ) : TSetLine
 
 @TypstOverloads
@@ -119,5 +119,5 @@ public fun TSetLine(
     end: TArrayOrNone<TValue>? = null,
     length: TRelative? = null,
     angle: TAngle? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
 ): TSetLine = TSetLineImpl(`start`, `end`, `length`, `angle`, `stroke`)

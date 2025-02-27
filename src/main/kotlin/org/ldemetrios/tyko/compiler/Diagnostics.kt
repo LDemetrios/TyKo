@@ -31,10 +31,14 @@ data class Span(
 )
 
 @Serializable
-data class FileDescriptor(val pack: PackageSpec?, val path: String)
+data class FileDescriptor(val pack: PackageSpec?, val path: String) {
+    override fun toString(): String = if (pack == null) path else "$pack$path"
+}
 
 @Serializable
-data class PackageSpec(val namespace: String, val name: String, val version: PackageVersion)
+data class PackageSpec(val namespace: String, val name: String, val version: PackageVersion) {
+    override fun toString(): String =  "@$namespace/$name:$version"
+}
 
 @Serializable
 data class PackageVersion(val major: UInt, val minor: UInt, val patch: UInt) {
@@ -80,7 +84,8 @@ sealed class PackageError {
 
     @Serializable
     @SerialName("VersionNotFound")
-    data class VersionNotFound(@SerialName("package") val spec: PackageSpec, val version: PackageVersion) : PackageError()
+    data class VersionNotFound(@SerialName("package") val spec: PackageSpec, val version: PackageVersion) :
+        PackageError()
 
     @Serializable
     @SerialName("NetworkFailed")
@@ -109,9 +114,11 @@ sealed class Tracepoint {
     @Serializable
     @SerialName("Call")
     data class Call(val function: EcoString?) : Tracepoint()
+
     @Serializable
     @SerialName("Show")
     data class Show(val string: EcoString?) : Tracepoint()
+
     @Serializable
     @SerialName("Import")
     data object Import : Tracepoint()

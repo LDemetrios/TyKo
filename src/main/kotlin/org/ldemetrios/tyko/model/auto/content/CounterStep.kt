@@ -34,11 +34,11 @@ public interface TCounterStep : TContent {
 }
 
 internal data class TCounterStepImpl(
-    @SerialName("key")
+    @TSerialName("key")
     override val key: TFunctionOrLabelOrLocationOrSelectorOrStr,
-    @SerialName("level")
+    @TSerialName("level")
     override val level: TInt,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCounterStep {
     override fun format(): String = Representations.reprOf(this)

@@ -66,25 +66,25 @@ public interface TFigure : TContent {
 }
 
 internal data class TFigureImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("placement")
+    @TSerialName("placement")
     override val placement: TAlignmentOrAutoOrNone? = null,
-    @SerialName("scope")
+    @TSerialName("scope")
     override val scope: TFigureScope? = null,
-    @SerialName("caption")
+    @TSerialName("caption")
     override val caption: TContentOrNone? = null,
-    @SerialName("kind")
+    @TSerialName("kind")
     override val kind: TAutoOrFunctionOrStr? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TLength? = null,
-    @SerialName("outlined")
+    @TSerialName("outlined")
     override val outlined: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TFigure {
     override fun format(): String = Representations.elementRepr("figure",ArgumentEntry(false, null,
@@ -142,21 +142,21 @@ public interface TSetFigure : TSetRule {
 }
 
 internal class TSetFigureImpl(
-    @SerialName("placement")
+    @TSerialName("placement")
     override val placement: TAlignmentOrAutoOrNone? = null,
-    @SerialName("scope")
+    @TSerialName("scope")
     override val scope: TFigureScope? = null,
-    @SerialName("caption")
+    @TSerialName("caption")
     override val caption: TContentOrNone? = null,
-    @SerialName("kind")
+    @TSerialName("kind")
     override val kind: TAutoOrFunctionOrStr? = null,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TAutoOrContentOrFunctionOrNone? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrNoneOrStr? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TLength? = null,
-    @SerialName("outlined")
+    @TSerialName("outlined")
     override val outlined: TBool? = null,
 ) : TSetFigure
 

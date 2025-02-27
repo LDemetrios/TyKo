@@ -20,6 +20,7 @@ import javax.imageio.ImageIO
 import kotlin.math.max
 import kotlin.math.sqrt
 
+const val heavyLogTest = false
 const val runForDocumentation = false
 
 data class Case(val group: String, val name: String, val source: String, val action: () -> Unit)
@@ -66,7 +67,10 @@ val tests = mutableListOf<Case>().apply {
                         if (result.error.any { it.message.contains("cannot access file system from here") }) {
                             throw TestAbortedException("Eval can't access file system")
                         }
-                        throw AssertionError("Regular file compiled, but its source failed to eval", TypstCompilerException(result.error))
+                        throw AssertionError(
+                            "Regular file compiled, but its source failed to eval",
+                            TypstCompilerException(result.error)
+                        )
                     }
                 }
                 val json = result.value
@@ -87,7 +91,10 @@ val tests = mutableListOf<Case>().apply {
 
                     if (pngReference.size != pngRecompiled.size) {
                         for (i in pngRecompiled.indices) {
-                            write("test-output/$path/d-${i.toString().padStart(4, '0')}_recompiled.png", pngRecompiled[i])
+                            write(
+                                "test-output/$path/d-${i.toString().padStart(4, '0')}_recompiled.png",
+                                pngRecompiled[i]
+                            )
                         }
                         throw AssertionError("Reference: ${pngReference.size} pages, Recompiled: ${pngRecompiled.size} pages")
                     }
@@ -109,8 +116,14 @@ val tests = mutableListOf<Case>().apply {
                             println("Reference: ${reference.width} x ${reference.height}; New: ${newImage.width} x ${newImage.height}")
                         }
                         write("test-output/$path/d-${page.toString().padStart(4, '0')}_diff.png", diff)
-                        write("test-output/$path/d-${page.toString().padStart(4, '0')}_reference.png", pngReference[page])
-                        write("test-output/$path/d-${page.toString().padStart(4, '0')}_recompiled.png", pngRecompiled[page])
+                        write(
+                            "test-output/$path/d-${page.toString().padStart(4, '0')}_reference.png",
+                            pngReference[page]
+                        )
+                        write(
+                            "test-output/$path/d-${page.toString().padStart(4, '0')}_recompiled.png",
+                            pngRecompiled[page]
+                        )
                         println("Max distance on page $page: $maxDist")
                     }
 
@@ -235,11 +248,13 @@ fun runCases(spec: FreeSpec?, cases: List<Case>, invert: Boolean, skipper: (Case
         ) {
             val lines = it.source.lines()
             val padLen = lines.size.toString().length
-            println(
-                lines.withIndex().joinToString("\n") { (idx, it) ->
-                    (idx + 1).toString().padStart(padLen, ' ') + ": " + it
-                }
-            )
+            if (heavyLogTest) {
+                println(
+                    lines.withIndex().joinToString("\n") { (idx, it) ->
+                        (idx + 1).toString().padStart(padLen, ' ') + ": " + it
+                    }
+                )
+            }
             if (invert xor skipper(it)) throw TestAbortedException()
             it.action()
         }

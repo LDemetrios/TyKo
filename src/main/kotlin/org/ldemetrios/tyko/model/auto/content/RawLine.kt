@@ -41,15 +41,15 @@ public interface TRawLine : TContent {
 }
 
 internal data class TRawLineImpl(
-    @SerialName("number")
+    @TSerialName("number")
     override val number: TInt,
-    @SerialName("count")
+    @TSerialName("count")
     override val count: TInt,
-    @SerialName("text")
+    @TSerialName("text")
     override val text: TStr,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TRawLine {
     override fun format(): String = Representations.elementRepr("raw.line",ArgumentEntry(false, null,

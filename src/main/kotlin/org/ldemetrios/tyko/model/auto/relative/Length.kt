@@ -19,13 +19,12 @@ import org.ldemetrios.utilities.castUnchecked
     TLengthImpl::class,
 )
 public interface TLength : TAutoOrLength, TDictionaryOrLength<TDynamic>, TBoolOrLength,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TLengthOrTextTopEdge, TLengthOrTextBottomEdge,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>, TAutoOrLengthOrRatio,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TIntOrLength, TRelative {
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>, TLengthOrTextTopEdge,
+        TLengthOrTextBottomEdge, TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>, TAutoOrLengthOrRatio,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>, TIntOrLength,
+        TRelative {
     public val pt: TFloat?
 
     public val em: TFloat?
@@ -40,9 +39,9 @@ public interface TLength : TAutoOrLength, TDictionaryOrLength<TDynamic>, TBoolOr
 }
 
 internal data class TLengthImpl(
-    @SerialName("pt")
+    @TSerialName("pt")
     override val pt: TFloat? = null,
-    @SerialName("em")
+    @TSerialName("em")
     override val em: TFloat? = null,
 ) : TLength {
     override fun format(): String = Representations.reprOf(this)

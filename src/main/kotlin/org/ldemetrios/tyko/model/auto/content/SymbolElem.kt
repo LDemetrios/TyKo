@@ -29,9 +29,9 @@ public interface TSymbolElem : TContent {
 }
 
 internal data class TSymbolElemImpl(
-    @SerialName("text")
+    @TSerialName("text")
     override val text: TStr,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSymbolElem {
     override fun format(): String = Representations.reprOf(this)

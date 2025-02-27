@@ -29,7 +29,7 @@ public interface TDirection : TAutoOrDirection, TValue {
 }
 
 internal data class TDirectionImpl(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: TStr,
 ) : TDirection {
     override fun format(): String = Representations.reprOf(this)

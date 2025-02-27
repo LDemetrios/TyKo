@@ -25,9 +25,8 @@ public sealed interface TArrayOrContentOrFunction<out E : TValue> : TValue
 
 @TUnionType(["auto", "length"])
 public sealed interface TAutoOrLength : TValue,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TAutoOrLengthOrRatio,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>, TAutoOrLengthOrRatio,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
 
 @TUnionType(["content", "none"])
 public sealed interface TContentOrNone : TValue, TAutoOrContentOrNone,
@@ -94,11 +93,11 @@ public sealed interface TAutoOrParLinebreaks : TValue
 
 @TUnionType(["dictionary", "length"])
 public sealed interface TDictionaryOrLength<out V : TValue> : TValue,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<V>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<V>,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>
 
 @TUnionType(["bool", "length"])
 public sealed interface TBoolOrLength : TValue
@@ -118,9 +117,8 @@ public sealed interface TAutoOrFractionOrIntOrRelative : TValue,
         TArrayOrAutoOrFractionOrIntOrRelative<TDynamic>
 
 @TUnionType(["array", "color", "function", "gradient", "none", "tiling"])
-public sealed interface TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<out E : TValue> :
-        TValue,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>
+public sealed interface TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<out E : TValue> : TValue,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>
 
 @TUnionType(["alignment", "array", "auto", "function"])
 public sealed interface TAlignmentOrArrayOrAutoOrFunction<out E : TValue> : TValue
@@ -128,8 +126,8 @@ public sealed interface TAlignmentOrArrayOrAutoOrFunction<out E : TValue> : TVal
 @TUnionType(["array", "color", "dictionary", "function", "gradient", "length", "none", "stroke",
         "tiling"])
 public sealed interface
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<out E :
-        TValue, out V : TValue> : TValue
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<out E : TValue, out
+        V : TValue> : TValue
 
 @TUnionType(["array", "fraction", "function", "relative", "sides"])
 public sealed interface TArrayOrFractionOrFunctionOrRelativeOrSides<out E : TValue, out S : TValue>
@@ -145,8 +143,8 @@ public sealed interface TFractionOrRelative : TValue,
         TAutoOrFractionOrRelative, TContentOrFractionOrRelative
 
 @TUnionType(["auto", "color", "gradient", "none", "tiling"])
-public sealed interface TAutoOrColorOrGradientGradientOrNoneOrTiling : TValue,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
+public sealed interface TAutoOrColorOrGradientOrNoneOrTiling : TValue,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
 
 @TUnionType(["auto", "relative", "sides"])
 public sealed interface TAutoOrRelativeOrSides<out S : TValue> : TValue
@@ -155,21 +153,21 @@ public sealed interface TAutoOrRelativeOrSides<out S : TValue> : TValue
 public sealed interface TAutoOrNoneOrRelative : TValue, TAutoOrBoolOrFunctionOrNoneOrRelative
 
 @TUnionType(["color", "dictionary", "gradient", "length", "none", "stroke", "tiling"])
-public sealed interface TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<out V :
-        TValue> : TValue,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>
+public sealed interface TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<out V : TValue> :
+        TValue,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>
 
 @TUnionType(["array", "content"])
 public sealed interface TArrayOrContent<out E : TValue> : TValue, TArrayOrContentOrFunction<E>
 
 @TUnionType(["color", "gradient", "none", "tiling"])
-public sealed interface TColorOrGradientGradientOrNoneOrTiling : TValue,
-        TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TDynamic>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
-        TAutoOrColorOrGradientGradientOrNoneOrTiling,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
+public sealed interface TColorOrGradientOrNoneOrTiling : TValue,
+        TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TDynamic>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TAutoOrColorOrGradientOrNoneOrTiling,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
 
 @TUnionType(["length", "text-top-edge"])
 public sealed interface TLengthOrTextTopEdge : TValue
@@ -181,8 +179,8 @@ public sealed interface TLengthOrTextBottomEdge : TValue
 public sealed interface TDictionaryOrRelative<out V : TValue> : TValue
 
 @TUnionType(["auto", "color", "dictionary", "gradient", "length", "stroke", "tiling"])
-public sealed interface TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<out V :
-        TValue> : TValue, TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>
+public sealed interface TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<out V : TValue> :
+        TValue, TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>
 
 @TUnionType(["none", "str"])
 public sealed interface TNoneOrStr : TValue, TFunctionOrNoneOrStr, TAutoOrNoneOrStr,
@@ -201,22 +199,22 @@ public sealed interface TArrayOrAutoOrDictionaryOrStr<out E : TValue, out V : TV
 public sealed interface TIntOrTextWeight : TValue
 
 @TUnionType(["color", "gradient", "tiling"])
-public sealed interface TColorOrGradientGradientOrTiling : TValue,
-        TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TDynamic>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
-        TAutoOrColorOrGradientGradientOrNoneOrTiling,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TColorOrGradientGradientOrNoneOrTiling,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrGradientGradientOrTiling
+public sealed interface TColorOrGradientOrTiling : TValue,
+        TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TDynamic>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TAutoOrColorOrGradientOrNoneOrTiling,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TColorOrGradientOrNoneOrTiling,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrGradientOrTiling
 
 @TUnionType(["auto", "none"])
 public sealed interface TAutoOrNone : TValue, TAutoOrContentOrNone, TAutoOrDatetimeOrNone,
         TAlignmentOrAutoOrNone, TAutoOrContentOrFunctionOrNone, TAutoOrBoolOrFunctionOrNoneOrRelative,
-        TAutoOrColorOrGradientGradientOrNoneOrTiling, TAutoOrNoneOrRelative, TAutoOrNoneOrStr,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrGradientOrNoneOrTiling, TAutoOrNoneOrRelative, TAutoOrNoneOrStr,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
         TArrayOrAutoOrDictionaryOrNoneOrStr<TDynamic, TDynamic>, TArrayOrAutoOrNone<TDynamic>
 
 @TUnionType(["auto", "str"])
@@ -238,7 +236,7 @@ public sealed interface TAutoOrTextNumberWidth : TValue
 
 @TUnionType(["array", "dictionary"])
 public sealed interface TArrayOrDictionary<out E : TValue, out V : TValue> : TValue,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, V>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<E, V>,
         TArrayOrAutoOrDictionaryOrStr<E, V>, TArrayOrAutoOrDictionaryOrNoneOrStr<E, V>
 
 @TUnionType(["content", "str"])
@@ -254,12 +252,12 @@ public sealed interface TAutoOrRelative : TValue, TAutoOrBoolOrFunctionOrNoneOrR
 public sealed interface TAngleOrAutoOrFunction : TValue
 
 @TUnionType(["color", "dictionary", "gradient", "length", "stroke", "tiling"])
-public sealed interface TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<out V : TValue>
-        : TValue,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<V>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<V>
+public sealed interface TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<out V : TValue> :
+        TValue,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, V>,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<V>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<V>
 
 @TUnionType(["array", "none", "str"])
 public sealed interface TArrayOrNoneOrStr<out E : TValue> : TValue, TArrayOrNoneOrStrOrSymbol<E>,
@@ -304,8 +302,8 @@ public sealed interface TAutoOrLengthOrRatio : TValue
 public sealed interface TContentOrFractionOrRelative : TValue
 
 @TUnionType(["auto", "color", "dictionary", "gradient", "length", "none", "stroke", "tiling"])
-public sealed interface TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<out
-        V : TValue> : TValue
+public sealed interface TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<out V :
+        TValue> : TValue
 
 @TUnionType(["bytes", "str"])
 public sealed interface TBytesOrStr : TValue, TAutoOrBytesOrStr
@@ -324,8 +322,8 @@ public sealed interface TAutoOrBytesOrStr : TValue
 
 @TUnionType(["array", "none"])
 public sealed interface TArrayOrNone<out E : TValue> : TValue,
-        TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<E>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>,
+        TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<E>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>,
         TArrayOrIntOrNone<E>, TArrayOrNoneOrStr<E>, TArrayOrNoneOrStrOrSymbol<E>,
         TArrayOrAutoOrDictionaryOrNoneOrStr<E, TDynamic>, TArrayOrAutoOrNone<E>
 
@@ -337,8 +335,8 @@ public sealed interface TFloatOrRatio : TValue
 
 @TUnionType(["array", "color"])
 public sealed interface TArrayOrColor<out E : TValue> : TValue,
-        TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<E>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>
+        TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<E>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<E, TDynamic>
 
 @TUnionType(["color", "ratio"])
 public sealed interface TColorOrRatio : TValue
@@ -350,10 +348,10 @@ public sealed interface TArrayOrAuto<out E : TValue> : TValue,
         TArrayOrAutoOrNone<E>
 
 @TUnionType(["auto", "color", "gradient", "tiling"])
-public sealed interface TAutoOrColorOrGradientGradientOrTiling : TValue,
-        TAutoOrColorOrGradientGradientOrNoneOrTiling,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
+public sealed interface TAutoOrColorOrGradientOrTiling : TValue,
+        TAutoOrColorOrGradientOrNoneOrTiling,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>
 
 @TUnionType(["array", "auto", "dictionary", "none", "str"])
 public sealed interface TArrayOrAutoOrDictionaryOrNoneOrStr<out E : TValue, out V : TValue> : TValue

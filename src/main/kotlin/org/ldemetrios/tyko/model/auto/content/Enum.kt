@@ -68,27 +68,27 @@ public interface TEnum : TContent {
 }
 
 internal data class TEnumImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TArrayOrEnumItem<TEnumItem>>,
-    @SerialName("tight")
+    @TSerialName("tight")
     override val tight: TBool? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrStr? = null,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TInt? = null,
-    @SerialName("full")
+    @TSerialName("full")
     override val full: TBool? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("body-indent")
+    @TSerialName("body-indent")
     override val bodyIndent: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TAutoOrLength? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignment? = null,
-    @SerialName("reversed")
+    @TSerialName("reversed")
     override val reversed: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TEnum {
     override fun format(): String = Representations.elementRepr("enum",ArgumentEntry(true, null,
@@ -151,23 +151,23 @@ public interface TSetEnum : TSetRule {
 }
 
 internal class TSetEnumImpl(
-    @SerialName("tight")
+    @TSerialName("tight")
     override val tight: TBool? = null,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrStr? = null,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TInt? = null,
-    @SerialName("full")
+    @TSerialName("full")
     override val full: TBool? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("body-indent")
+    @TSerialName("body-indent")
     override val bodyIndent: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TAutoOrLength? = null,
-    @SerialName("number-align")
+    @TSerialName("number-align")
     override val numberAlign: TAlignment? = null,
-    @SerialName("reversed")
+    @TSerialName("reversed")
     override val reversed: TBool? = null,
 ) : TSetEnum
 

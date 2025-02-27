@@ -35,9 +35,9 @@ public interface TText : TContent {
 
     public val sz: TLength?
 
-    public val fill: TColorOrGradientGradientOrTiling?
+    public val fill: TColorOrGradientOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val tracking: TLength?
 
@@ -174,76 +174,75 @@ public interface TText : TContent {
 }
 
 internal data class TTextImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent? = null,
-    @SerialName("text")
+    @TSerialName("text")
     override val text: TStr? = null,
-    @SerialName("font")
+    @TSerialName("font")
     override val font: TArrayOrStr<TStr>? = null,
-    @SerialName("fallback")
+    @TSerialName("fallback")
     override val fallback: TBool? = null,
-    @SerialName("style")
+    @TSerialName("style")
     override val style: TTextStyle? = null,
-    @SerialName("weight")
+    @TSerialName("weight")
     override val weight: TIntOrTextWeight? = null,
-    @SerialName("stretch")
+    @TSerialName("stretch")
     override val stretch: TRatio? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TLength? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("tracking")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("tracking")
     override val tracking: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TRelative? = null,
-    @SerialName("cjk-latin-spacing")
+    @TSerialName("cjk-latin-spacing")
     override val cjkLatinSpacing: TAutoOrNone? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TLength? = null,
-    @SerialName("overhang")
+    @TSerialName("overhang")
     override val overhang: TBool? = null,
-    @SerialName("top-edge")
+    @TSerialName("top-edge")
     override val topEdge: TLengthOrTextTopEdge? = null,
-    @SerialName("bottom-edge")
+    @TSerialName("bottom-edge")
     override val bottomEdge: TLengthOrTextBottomEdge? = null,
-    @SerialName("lang")
+    @TSerialName("lang")
     override val lang: TStr? = null,
-    @SerialName("region")
+    @TSerialName("region")
     override val region: TNoneOrStr? = null,
-    @SerialName("script")
+    @TSerialName("script")
     override val script: TAutoOrStr? = null,
-    @SerialName("dir")
+    @TSerialName("dir")
     override val dir: TAutoOrDirection? = null,
-    @SerialName("hyphenate")
+    @TSerialName("hyphenate")
     override val hyphenate: TAutoOrBool? = null,
-    @SerialName("costs")
+    @TSerialName("costs")
     override val costs: TDictionary<TValue>? = null,
-    @SerialName("kerning")
+    @TSerialName("kerning")
     override val kerning: TBool? = null,
-    @SerialName("alternates")
+    @TSerialName("alternates")
     override val alternates: TBool? = null,
-    @SerialName("stylistic-set")
+    @TSerialName("stylistic-set")
     override val stylisticSet: TArrayOrIntOrNone<TInt>? = null,
-    @SerialName("ligatures")
+    @TSerialName("ligatures")
     override val ligatures: TBool? = null,
-    @SerialName("discretionary-ligatures")
+    @TSerialName("discretionary-ligatures")
     override val discretionaryLigatures: TBool? = null,
-    @SerialName("historical-ligatures")
+    @TSerialName("historical-ligatures")
     override val historicalLigatures: TBool? = null,
-    @SerialName("number-type")
+    @TSerialName("number-type")
     override val numberType: TAutoOrTextNumberType? = null,
-    @SerialName("number-width")
+    @TSerialName("number-width")
     override val numberWidth: TAutoOrTextNumberWidth? = null,
-    @SerialName("slashed-zero")
+    @TSerialName("slashed-zero")
     override val slashedZero: TBool? = null,
-    @SerialName("fractions")
+    @TSerialName("fractions")
     override val fractions: TBool? = null,
-    @SerialName("features")
+    @TSerialName("features")
     override val features: TArrayOrDictionary<TStr, TInt>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TText {
     override fun format(): String = Representations.elementRepr("text",ArgumentEntry(false, null,
@@ -279,8 +278,8 @@ public fun TText(
     weight: TIntOrTextWeight? = null,
     stretch: TRatio? = null,
     sz: TLength? = null,
-    fill: TColorOrGradientGradientOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     tracking: TLength? = null,
     spacing: TRelative? = null,
     cjkLatinSpacing: TAutoOrNone? = null,
@@ -332,9 +331,9 @@ public interface TSetText : TSetRule {
 
     public val sz: TLength?
 
-    public val fill: TColorOrGradientGradientOrTiling?
+    public val fill: TColorOrGradientOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val tracking: TLength?
 
@@ -407,70 +406,69 @@ public interface TSetText : TSetRule {
 }
 
 internal class TSetTextImpl(
-    @SerialName("font")
+    @TSerialName("font")
     override val font: TArrayOrStr<TStr>? = null,
-    @SerialName("fallback")
+    @TSerialName("fallback")
     override val fallback: TBool? = null,
-    @SerialName("style")
+    @TSerialName("style")
     override val style: TTextStyle? = null,
-    @SerialName("weight")
+    @TSerialName("weight")
     override val weight: TIntOrTextWeight? = null,
-    @SerialName("stretch")
+    @TSerialName("stretch")
     override val stretch: TRatio? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TLength? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("tracking")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("tracking")
     override val tracking: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TRelative? = null,
-    @SerialName("cjk-latin-spacing")
+    @TSerialName("cjk-latin-spacing")
     override val cjkLatinSpacing: TAutoOrNone? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TLength? = null,
-    @SerialName("overhang")
+    @TSerialName("overhang")
     override val overhang: TBool? = null,
-    @SerialName("top-edge")
+    @TSerialName("top-edge")
     override val topEdge: TLengthOrTextTopEdge? = null,
-    @SerialName("bottom-edge")
+    @TSerialName("bottom-edge")
     override val bottomEdge: TLengthOrTextBottomEdge? = null,
-    @SerialName("lang")
+    @TSerialName("lang")
     override val lang: TStr? = null,
-    @SerialName("region")
+    @TSerialName("region")
     override val region: TNoneOrStr? = null,
-    @SerialName("script")
+    @TSerialName("script")
     override val script: TAutoOrStr? = null,
-    @SerialName("dir")
+    @TSerialName("dir")
     override val dir: TAutoOrDirection? = null,
-    @SerialName("hyphenate")
+    @TSerialName("hyphenate")
     override val hyphenate: TAutoOrBool? = null,
-    @SerialName("costs")
+    @TSerialName("costs")
     override val costs: TDictionary<TValue>? = null,
-    @SerialName("kerning")
+    @TSerialName("kerning")
     override val kerning: TBool? = null,
-    @SerialName("alternates")
+    @TSerialName("alternates")
     override val alternates: TBool? = null,
-    @SerialName("stylistic-set")
+    @TSerialName("stylistic-set")
     override val stylisticSet: TArrayOrIntOrNone<TInt>? = null,
-    @SerialName("ligatures")
+    @TSerialName("ligatures")
     override val ligatures: TBool? = null,
-    @SerialName("discretionary-ligatures")
+    @TSerialName("discretionary-ligatures")
     override val discretionaryLigatures: TBool? = null,
-    @SerialName("historical-ligatures")
+    @TSerialName("historical-ligatures")
     override val historicalLigatures: TBool? = null,
-    @SerialName("number-type")
+    @TSerialName("number-type")
     override val numberType: TAutoOrTextNumberType? = null,
-    @SerialName("number-width")
+    @TSerialName("number-width")
     override val numberWidth: TAutoOrTextNumberWidth? = null,
-    @SerialName("slashed-zero")
+    @TSerialName("slashed-zero")
     override val slashedZero: TBool? = null,
-    @SerialName("fractions")
+    @TSerialName("fractions")
     override val fractions: TBool? = null,
-    @SerialName("features")
+    @TSerialName("features")
     override val features: TArrayOrDictionary<TStr, TInt>? = null,
 ) : TSetText
 
@@ -482,8 +480,8 @@ public fun TSetText(
     weight: TIntOrTextWeight? = null,
     stretch: TRatio? = null,
     sz: TLength? = null,
-    fill: TColorOrGradientGradientOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     tracking: TLength? = null,
     spacing: TRelative? = null,
     cjkLatinSpacing: TAutoOrNone? = null,

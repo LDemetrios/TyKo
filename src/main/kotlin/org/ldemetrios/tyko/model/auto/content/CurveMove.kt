@@ -33,11 +33,11 @@ public interface TCurveMove : TContent {
 }
 
 internal data class TCurveMoveImpl(
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TArray<TLength>,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCurveMove {
     override fun format(): String = Representations.elementRepr("curve.move",ArgumentEntry(false,
@@ -67,7 +67,7 @@ public interface TSetCurveMove : TSetRule {
 }
 
 internal class TSetCurveMoveImpl(
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
 ) : TSetCurveMove
 

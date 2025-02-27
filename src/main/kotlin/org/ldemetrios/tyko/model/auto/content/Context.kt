@@ -29,9 +29,9 @@ public interface TContext : TContent {
 }
 
 internal data class TContextImpl(
-    @SerialName("func")
+    @TSerialName("func")
     override val func: TFunction,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TContext {
     override fun format(): String = Representations.reprOf(this)

@@ -33,9 +33,9 @@ public interface TState : TValue {
 }
 
 internal data class TStateImpl(
-    @SerialName("key")
+    @TSerialName("key")
     override val key: TStr,
-    @SerialName("init")
+    @TSerialName("init")
     override val `init`: TValue? = null,
 ) : TState {
     override fun format(): String = Representations.structRepr("state",ArgumentEntry(false, null,

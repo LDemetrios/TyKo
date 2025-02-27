@@ -43,13 +43,13 @@ public interface TLinearRgb : TColor {
 }
 
 internal data class TLinearRgbImpl(
-    @SerialName("red")
+    @TSerialName("red")
     override val red: TIntOrRatio,
-    @SerialName("green")
+    @TSerialName("green")
     override val green: TIntOrRatio,
-    @SerialName("blue")
+    @TSerialName("blue")
     override val blue: TIntOrRatio,
-    @SerialName("alpha")
+    @TSerialName("alpha")
     override val alpha: TIntOrRatio? = null,
 ) : TLinearRgb {
     override fun format(): String = Representations.structRepr("color.linear-rgb",ArgumentEntry(false,

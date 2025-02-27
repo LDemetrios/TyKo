@@ -21,9 +21,9 @@ import org.ldemetrios.utilities.castUnchecked
 public interface THighlight : TContent {
     public val body: TContent
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val topEdge: TLengthOrTextTopEdge?
 
@@ -60,22 +60,21 @@ public interface THighlight : TContent {
 }
 
 internal data class THighlightImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("top-edge")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("top-edge")
     override val topEdge: TLengthOrTextTopEdge? = null,
-    @SerialName("bottom-edge")
+    @TSerialName("bottom-edge")
     override val bottomEdge: TLengthOrTextBottomEdge? = null,
-    @SerialName("extent")
+    @TSerialName("extent")
     override val extent: TLength? = null,
-    @SerialName("radius")
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : THighlight {
     override fun format(): String = Representations.elementRepr("highlight",ArgumentEntry(false, null,
@@ -88,8 +87,8 @@ internal data class THighlightImpl(
 @TypstOverloads
 public fun THighlight(
     @TContentBody body: TContent,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     topEdge: TLengthOrTextTopEdge? = null,
     bottomEdge: TLengthOrTextBottomEdge? = null,
     extent: TLength? = null,
@@ -106,9 +105,9 @@ public interface TSetHighlight : TSetRule {
     override val elem: String
         get() = "highlight"
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val topEdge: TLengthOrTextTopEdge?
 
@@ -125,25 +124,24 @@ public interface TSetHighlight : TSetRule {
 }
 
 internal class TSetHighlightImpl(
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("top-edge")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("top-edge")
     override val topEdge: TLengthOrTextTopEdge? = null,
-    @SerialName("bottom-edge")
+    @TSerialName("bottom-edge")
     override val bottomEdge: TLengthOrTextBottomEdge? = null,
-    @SerialName("extent")
+    @TSerialName("extent")
     override val extent: TLength? = null,
-    @SerialName("radius")
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
 ) : TSetHighlight
 
 @TypstOverloads
 public fun TSetHighlight(
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     topEdge: TLengthOrTextTopEdge? = null,
     bottomEdge: TLengthOrTextBottomEdge? = null,
     extent: TLength? = null,

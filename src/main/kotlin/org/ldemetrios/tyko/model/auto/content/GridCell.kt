@@ -29,13 +29,13 @@ public interface TGridCell : TContent {
 
     public val rowspan: TInt?
 
-    public val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TAutoOrColorOrGradientOrNoneOrTiling?
 
     public val align: TAlignmentOrAuto?
 
     public val inset: TAutoOrRelativeOrSides<TAutoOrNoneOrRelative>?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val breakable: TAutoOrBool?
 
@@ -72,28 +72,27 @@ public interface TGridCell : TContent {
 }
 
 internal data class TGridCellImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TAutoOrInt? = null,
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TAutoOrInt? = null,
-    @SerialName("colspan")
+    @TSerialName("colspan")
     override val colspan: TInt? = null,
-    @SerialName("rowspan")
+    @TSerialName("rowspan")
     override val rowspan: TInt? = null,
-    @SerialName("fill")
-    override val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("align")
+    @TSerialName("fill")
+    override val fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("align")
     override val align: TAlignmentOrAuto? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TAutoOrRelativeOrSides<TAutoOrNoneOrRelative>? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("breakable")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("breakable")
     override val breakable: TAutoOrBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TGridCell {
     override fun format(): String = Representations.elementRepr("grid.cell",ArgumentEntry(false, null,
@@ -111,10 +110,10 @@ public fun TGridCell(
     y: TAutoOrInt? = null,
     colspan: TInt? = null,
     rowspan: TInt? = null,
-    fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
     align: TAlignmentOrAuto? = null,
     inset: TAutoOrRelativeOrSides<TAutoOrNoneOrRelative>? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     breakable: TAutoOrBool? = null,
     label: TLabel? = null,
 ): TGridCell = TGridCellImpl(`body`, `x`, `y`, `colspan`, `rowspan`, `fill`, `align`, `inset`,
@@ -136,13 +135,13 @@ public interface TSetGridCell : TSetRule {
 
     public val rowspan: TInt?
 
-    public val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TAutoOrColorOrGradientOrNoneOrTiling?
 
     public val align: TAlignmentOrAuto?
 
     public val inset: TAutoOrRelativeOrSides<TAutoOrNoneOrRelative>?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val breakable: TAutoOrBool?
 
@@ -155,24 +154,23 @@ public interface TSetGridCell : TSetRule {
 }
 
 internal class TSetGridCellImpl(
-    @SerialName("x")
+    @TSerialName("x")
     override val x: TAutoOrInt? = null,
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TAutoOrInt? = null,
-    @SerialName("colspan")
+    @TSerialName("colspan")
     override val colspan: TInt? = null,
-    @SerialName("rowspan")
+    @TSerialName("rowspan")
     override val rowspan: TInt? = null,
-    @SerialName("fill")
-    override val fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("align")
+    @TSerialName("fill")
+    override val fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("align")
     override val align: TAlignmentOrAuto? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TAutoOrRelativeOrSides<TAutoOrNoneOrRelative>? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("breakable")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("breakable")
     override val breakable: TAutoOrBool? = null,
 ) : TSetGridCell
 
@@ -182,10 +180,10 @@ public fun TSetGridCell(
     y: TAutoOrInt? = null,
     colspan: TInt? = null,
     rowspan: TInt? = null,
-    fill: TAutoOrColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TAutoOrColorOrGradientOrNoneOrTiling? = null,
     align: TAlignmentOrAuto? = null,
     inset: TAutoOrRelativeOrSides<TAutoOrNoneOrRelative>? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     breakable: TAutoOrBool? = null,
 ): TSetGridCell = TSetGridCellImpl(`x`, `y`, `colspan`, `rowspan`, `fill`, `align`, `inset`,
         `stroke`, `breakable`)

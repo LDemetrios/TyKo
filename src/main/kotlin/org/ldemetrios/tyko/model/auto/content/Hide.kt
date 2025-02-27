@@ -29,9 +29,9 @@ public interface THide : TContent {
 }
 
 internal data class THideImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : THide {
     override fun format(): String = Representations.elementRepr("hide",ArgumentEntry(false, null,

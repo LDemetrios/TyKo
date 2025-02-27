@@ -31,7 +31,7 @@ public interface TLabel : TContentOrLabel, TLabelOrLocationOrStr,
 }
 
 internal data class TLabelImpl(
-    @SerialName("name")
+    @TSerialName("name")
     override val name: TStr,
 ) : TLabel {
     override fun format(): String = Representations.structRepr("label",ArgumentEntry(false, null,

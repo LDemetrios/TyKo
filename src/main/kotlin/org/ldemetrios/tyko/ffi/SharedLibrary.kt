@@ -29,7 +29,8 @@ interface TypstSharedLibrary : Library {
         library: Pointer/* *mut Library*/,
         main_callback: MainCallback,
         file_callback: FileCallback,
-        now: JavaResult/*<Option<Now>>*/
+        now: JavaResult/*<Option<Now>>*/,
+        auto_load_central: Int, // 1 -- true, 0 -- false
     ): JavaExceptPtrResult/*<JavaWorld>*/
 
     @TyKoFFIEntity
@@ -53,6 +54,9 @@ interface TypstSharedLibrary : Library {
     @TyKoFFIEntity
     fun reset_world(pointer: Pointer)
 
+    @TyKoFFIEntity
+    fun format_source(content: ThickBytePtr, column: Int, tab_width: Int) : ThickBytePtr
+
     companion object {
 //        @OptIn(TyKoFFIEntity::class)
 //        val INSTANCE = loadLibrary<TypstSharedLibrary>(SHARED_LIBRARY_PATH).also {
@@ -64,7 +68,7 @@ interface TypstSharedLibrary : Library {
 //            }
 //        }
 
-        private val CACHE = ConcurrentHashMap<Path, TypstSharedLibrary> ()
+        private val CACHE = ConcurrentHashMap<Path, TypstSharedLibrary>()
 
         @OptIn(TyKoFFIEntity::class)
         fun instance(path: Path) = CACHE.getOrPut(path) {
@@ -78,6 +82,12 @@ interface TypstSharedLibrary : Library {
 
         fun anyInstance(): TypstSharedLibrary = CACHE.iterator().next().value
     }
+
+    @TyKoFFIEntity
+    fun parse_syntax(string: ThickBytePtr, mode: Int): CFlattenedSyntaxTree
+
+    @TyKoFFIEntity
+    fun release_flattened_tree(tree: CFlattenedSyntaxTree)
 }
 
 @OptIn(TyKoFFIEntity::class)

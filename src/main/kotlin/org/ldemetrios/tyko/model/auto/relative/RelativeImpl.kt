@@ -33,9 +33,9 @@ public interface TRelativeImpl : TRelative {
 }
 
 internal data class TRelativeImplImpl(
-    @SerialName("rel")
+    @TSerialName("rel")
     override val rel: TRatio? = null,
-    @SerialName("abs")
+    @TSerialName("abs")
     override val abs: TLength? = null,
 ) : TRelativeImpl {
     override fun format(): String = Representations.reprOf(this)

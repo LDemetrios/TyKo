@@ -27,10 +27,9 @@ public interface TSquare : TContent {
 
     public val height: TAutoOrFractionOrRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val radius: TDictionaryOrRelative<TValue>?
 
@@ -70,26 +69,26 @@ public interface TSquare : TContent {
 }
 
 internal data class TSquareImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrLength? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("radius")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSquare {
     override fun format(): String = Representations.elementRepr("square",ArgumentEntry(false, null,
@@ -106,8 +105,8 @@ public fun TSquare(
     sz: TAutoOrLength? = null,
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     radius: TDictionaryOrRelative<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,
@@ -131,10 +130,9 @@ public interface TSetSquare : TSetRule {
 
     public val height: TAutoOrFractionOrRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val radius: TDictionaryOrRelative<TValue>?
 
@@ -150,24 +148,24 @@ public interface TSetSquare : TSetRule {
 }
 
 internal class TSetSquareImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrLength? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("radius")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
 ) : TSetSquare
 
@@ -177,8 +175,8 @@ public fun TSetSquare(
     sz: TAutoOrLength? = null,
     width: TAutoOrRelative? = null,
     height: TAutoOrFractionOrRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     radius: TDictionaryOrRelative<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,

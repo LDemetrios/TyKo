@@ -34,11 +34,11 @@ public interface TMathOverbrace : TContent {
 }
 
 internal data class TMathOverbraceImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathOverbrace {
     override fun format(): String = Representations.elementRepr("math.overbrace",ArgumentEntry(false,
@@ -68,7 +68,7 @@ public interface TSetMathOverbrace : TSetRule {
 }
 
 internal class TSetMathOverbraceImpl(
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
 ) : TSetMathOverbrace
 

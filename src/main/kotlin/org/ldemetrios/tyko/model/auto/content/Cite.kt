@@ -43,15 +43,15 @@ public interface TCite : TContent {
 }
 
 internal data class TCiteImpl(
-    @SerialName("key")
+    @TSerialName("key")
     override val key: TLabel,
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TContentOrNone? = null,
-    @SerialName("form")
+    @TSerialName("form")
     override val form: TCiteFormOrNone? = null,
-    @SerialName("style")
+    @TSerialName("style")
     override val style: TAutoOrBibliographyStyle? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCite {
     override fun format(): String = Representations.elementRepr("cite",ArgumentEntry(false, null,
@@ -87,11 +87,11 @@ public interface TSetCite : TSetRule {
 }
 
 internal class TSetCiteImpl(
-    @SerialName("supplement")
+    @TSerialName("supplement")
     override val supplement: TContentOrNone? = null,
-    @SerialName("form")
+    @TSerialName("form")
     override val form: TCiteFormOrNone? = null,
-    @SerialName("style")
+    @TSerialName("style")
     override val style: TAutoOrBibliographyStyle? = null,
 ) : TSetCite
 

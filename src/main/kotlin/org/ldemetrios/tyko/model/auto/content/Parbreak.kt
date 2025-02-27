@@ -25,7 +25,7 @@ public interface TParbreak : TContent {
 }
 
 internal data class TParbreakImpl(
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TParbreak {
     override fun format(): String = Representations.elementRepr("parbreak",ArgumentEntry(false,

@@ -21,12 +21,11 @@ import org.ldemetrios.utilities.castUnchecked
 public interface TCurve : TContent {
     public val components: TArray<TContent>
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
     public val fillRule: TFillRule?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     override fun func(): TElement = TCurve
 
@@ -47,16 +46,16 @@ public interface TCurve : TContent {
 }
 
 internal data class TCurveImpl(
-    @SerialName("components")
+    @TSerialName("components")
     override val components: TArray<TContent>,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("fill-rule")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("fill-rule")
     override val fillRule: TFillRule? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCurve {
     override fun format(): String = Representations.elementRepr("curve",ArgumentEntry(true, null,
@@ -67,9 +66,9 @@ internal data class TCurveImpl(
 @TypstOverloads
 public fun TCurve(
     @TVararg components: TArray<TContent>,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
     fillRule: TFillRule? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     label: TLabel? = null,
 ): TCurve = TCurveImpl(`components`, `fill`, `fillRule`, `stroke`, `label`)
 
@@ -81,12 +80,11 @@ public interface TSetCurve : TSetRule {
     override val elem: String
         get() = "curve"
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
     public val fillRule: TFillRule?
 
-    public val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     override fun format(): String = Representations.setRepr("curve",ArgumentEntry(false, "fill",
             `fill`),ArgumentEntry(false, "fill-rule", `fillRule`),ArgumentEntry(false, "stroke",
@@ -94,18 +92,18 @@ public interface TSetCurve : TSetRule {
 }
 
 internal class TSetCurveImpl(
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("fill-rule")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("fill-rule")
     override val fillRule: TFillRule? = null,
-    @SerialName("stroke")
-    override val stroke:
-            TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("stroke")
+    override val stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
+            null,
 ) : TSetCurve
 
 @TypstOverloads
 public fun TSetCurve(
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
     fillRule: TFillRule? = null,
-    stroke: TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
 ): TSetCurve = TSetCurveImpl(`fill`, `fillRule`, `stroke`)

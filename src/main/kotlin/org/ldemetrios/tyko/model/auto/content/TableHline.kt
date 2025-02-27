@@ -25,7 +25,7 @@ public interface TTableHline : TContent {
 
     public val end: TIntOrNone?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val position: TAlignment?
 
@@ -48,18 +48,17 @@ public interface TTableHline : TContent {
 }
 
 internal data class TTableHlineImpl(
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TAutoOrInt? = null,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TInt? = null,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TIntOrNone? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("position")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("position")
     override val position: TAlignment? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTableHline {
     override fun format(): String = Representations.elementRepr("table.hline",ArgumentEntry(false,
@@ -73,7 +72,7 @@ public fun TTableHline(
     y: TAutoOrInt? = null,
     start: TInt? = null,
     end: TIntOrNone? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     position: TAlignment? = null,
     label: TLabel? = null,
 ): TTableHline = TTableHlineImpl(`y`, `start`, `end`, `stroke`, `position`, `label`)
@@ -92,7 +91,7 @@ public interface TSetTableHline : TSetRule {
 
     public val end: TIntOrNone?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val position: TAlignment?
 
@@ -102,16 +101,15 @@ public interface TSetTableHline : TSetRule {
 }
 
 internal class TSetTableHlineImpl(
-    @SerialName("y")
+    @TSerialName("y")
     override val y: TAutoOrInt? = null,
-    @SerialName("start")
+    @TSerialName("start")
     override val start: TInt? = null,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TIntOrNone? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("position")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("position")
     override val position: TAlignment? = null,
 ) : TSetTableHline
 
@@ -120,6 +118,6 @@ public fun TSetTableHline(
     y: TAutoOrInt? = null,
     start: TInt? = null,
     end: TIntOrNone? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     position: TAlignment? = null,
 ): TSetTableHline = TSetTableHlineImpl(`y`, `start`, `end`, `stroke`, `position`)

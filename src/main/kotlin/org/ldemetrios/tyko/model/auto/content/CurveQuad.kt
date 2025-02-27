@@ -38,13 +38,13 @@ public interface TCurveQuad : TContent {
 }
 
 internal data class TCurveQuadImpl(
-    @SerialName("control")
+    @TSerialName("control")
     override val control: TArrayOrAutoOrNone<TLength>,
-    @SerialName("end")
+    @TSerialName("end")
     override val end: TArray<TLength>,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TCurveQuad {
     override fun format(): String = Representations.elementRepr("curve.quad",ArgumentEntry(false,
@@ -75,7 +75,7 @@ public interface TSetCurveQuad : TSetRule {
 }
 
 internal class TSetCurveQuadImpl(
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TBool? = null,
 ) : TSetCurveQuad
 

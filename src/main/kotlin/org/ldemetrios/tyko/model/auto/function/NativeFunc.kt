@@ -29,7 +29,7 @@ public interface TNativeFunc : TFunction {
 }
 
 internal data class TNativeFuncImpl(
-    @SerialName("name")
+    @TSerialName("name")
     override val name: TStr,
 ) : TNativeFunc {
     override fun format(): String = Representations.reprOf(this)

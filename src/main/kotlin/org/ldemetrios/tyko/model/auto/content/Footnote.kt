@@ -34,11 +34,11 @@ public interface TFootnote : TContent {
 }
 
 internal data class TFootnoteImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrLabel,
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrStr? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TFootnote {
     override fun format(): String = Representations.elementRepr("footnote",ArgumentEntry(false, null,
@@ -68,7 +68,7 @@ public interface TSetFootnote : TSetRule {
 }
 
 internal class TSetFootnoteImpl(
-    @SerialName("numbering")
+    @TSerialName("numbering")
     override val numbering: TFunctionOrStr? = null,
 ) : TSetFootnote
 

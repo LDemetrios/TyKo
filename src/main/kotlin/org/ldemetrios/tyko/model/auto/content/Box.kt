@@ -27,9 +27,9 @@ public interface TBox : TContent {
 
     public val baseline: TRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val radius: TDictionaryOrRelative<TValue>?
 
@@ -74,28 +74,27 @@ public interface TBox : TContent {
 }
 
 internal data class TBoxImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrFractionOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrRelative? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("radius")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("clip")
+    @TSerialName("clip")
     override val clip: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TBox {
     override fun format(): String = Representations.elementRepr("box",ArgumentEntry(false, null,
@@ -112,8 +111,8 @@ public fun TBox(
     width: TAutoOrFractionOrRelative? = null,
     height: TAutoOrRelative? = null,
     baseline: TRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     radius: TDictionaryOrRelative<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,
@@ -138,9 +137,9 @@ public interface TSetBox : TSetRule {
 
     public val baseline: TRelative?
 
-    public val fill: TColorOrGradientGradientOrNoneOrTiling?
+    public val fill: TColorOrGradientOrNoneOrTiling?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>?
 
     public val radius: TDictionaryOrRelative<TValue>?
 
@@ -159,26 +158,25 @@ public interface TSetBox : TSetRule {
 }
 
 internal class TSetBoxImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContentOrNone? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrFractionOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrRelative? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TRelative? = null,
-    @SerialName("fill")
-    override val fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? =
-            null,
-    @SerialName("radius")
+    @TSerialName("fill")
+    override val fill: TColorOrGradientOrNoneOrTiling? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("radius")
     override val radius: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("inset")
+    @TSerialName("inset")
     override val inset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("outset")
+    @TSerialName("outset")
     override val outset: TDictionaryOrRelative<TValue>? = null,
-    @SerialName("clip")
+    @TSerialName("clip")
     override val clip: TBool? = null,
 ) : TSetBox
 
@@ -188,8 +186,8 @@ public fun TSetBox(
     width: TAutoOrFractionOrRelative? = null,
     height: TAutoOrRelative? = null,
     baseline: TRelative? = null,
-    fill: TColorOrGradientGradientOrNoneOrTiling? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
+    fill: TColorOrGradientOrNoneOrTiling? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TValue>? = null,
     radius: TDictionaryOrRelative<TValue>? = null,
     inset: TDictionaryOrRelative<TValue>? = null,
     outset: TDictionaryOrRelative<TValue>? = null,

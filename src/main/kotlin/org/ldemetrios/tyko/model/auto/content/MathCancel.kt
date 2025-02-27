@@ -29,7 +29,7 @@ public interface TMathCancel : TContent {
 
     public val angle: TAngleOrAutoOrFunction?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     override fun func(): TElement = TMathCancel
 
@@ -52,19 +52,19 @@ public interface TMathCancel : TContent {
 }
 
 internal data class TMathCancelImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("length")
+    @TSerialName("length")
     override val length: TRelative? = null,
-    @SerialName("inverted")
+    @TSerialName("inverted")
     override val inverted: TBool? = null,
-    @SerialName("cross")
+    @TSerialName("cross")
     override val cross: TBool? = null,
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngleOrAutoOrFunction? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
-    @SerialName("label")
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathCancel {
     override fun format(): String = Representations.elementRepr("math.cancel",ArgumentEntry(false,
@@ -80,7 +80,7 @@ public fun TMathCancel(
     inverted: TBool? = null,
     cross: TBool? = null,
     angle: TAngleOrAutoOrFunction? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
     label: TLabel? = null,
 ): TMathCancel = TMathCancelImpl(`body`, `length`, `inverted`, `cross`, `angle`, `stroke`, `label`)
 
@@ -100,7 +100,7 @@ public interface TSetMathCancel : TSetRule {
 
     public val angle: TAngleOrAutoOrFunction?
 
-    public val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>?
+    public val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>?
 
     override fun format(): String = Representations.setRepr("math.cancel",ArgumentEntry(false,
             "length", `length`),ArgumentEntry(false, "inverted", `inverted`),ArgumentEntry(false, "cross",
@@ -108,16 +108,16 @@ public interface TSetMathCancel : TSetRule {
 }
 
 internal class TSetMathCancelImpl(
-    @SerialName("length")
+    @TSerialName("length")
     override val length: TRelative? = null,
-    @SerialName("inverted")
+    @TSerialName("inverted")
     override val inverted: TBool? = null,
-    @SerialName("cross")
+    @TSerialName("cross")
     override val cross: TBool? = null,
-    @SerialName("angle")
+    @TSerialName("angle")
     override val angle: TAngleOrAutoOrFunction? = null,
-    @SerialName("stroke")
-    override val stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    @TSerialName("stroke")
+    override val stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
 ) : TSetMathCancel
 
 @TypstOverloads
@@ -126,5 +126,5 @@ public fun TSetMathCancel(
     inverted: TBool? = null,
     cross: TBool? = null,
     angle: TAngleOrAutoOrFunction? = null,
-    stroke: TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TValue>? = null,
+    stroke: TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TValue>? = null,
 ): TSetMathCancel = TSetMathCancelImpl(`length`, `inverted`, `cross`, `angle`, `stroke`)

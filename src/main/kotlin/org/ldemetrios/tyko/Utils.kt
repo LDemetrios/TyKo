@@ -44,3 +44,34 @@ inline fun <T, R> withTmp(func: (Path) -> T, finish: (T, List<String>) -> R): R 
 fun main() { // Quick compilability check
     println("hello")
 }
+
+private val utf8CharSizeMap = IntArray(65536) { it.toChar().toString().toByteArray(Charsets.UTF_8).size }
+
+fun mapByteIndicesToCharIndices(text: String, byteIndices: IntArray): IntArray {
+    val result = IntArray(byteIndices.size)
+
+    var currentByteOffset = 0
+    var charIndex = 0
+    var byteIndexPos = 0
+
+    for (char in text) {
+
+        val charByteSize = utf8CharSizeMap[char.code]
+        while (byteIndexPos < byteIndices.size && byteIndices[byteIndexPos] < currentByteOffset + charByteSize) {
+            result[byteIndexPos] = charIndex
+            byteIndexPos++
+        }
+
+        if (byteIndexPos >= byteIndices.size) return result // Early exit if all indices are mapped
+
+        currentByteOffset += charByteSize
+        charIndex++
+    }
+
+    for (i in byteIndexPos until byteIndices.size) {
+        result[i] = text.length
+    }
+
+    return result
+}
+

@@ -34,11 +34,11 @@ public interface TMathOvershell : TContent {
 }
 
 internal data class TMathOvershellImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathOvershell {
     override fun format(): String = Representations.elementRepr("math.overshell",ArgumentEntry(false,
@@ -68,7 +68,7 @@ public interface TSetMathOvershell : TSetRule {
 }
 
 internal class TSetMathOvershellImpl(
-    @SerialName("annotation")
+    @TSerialName("annotation")
     override val `annotation`: TContentOrNone? = null,
 ) : TSetMathOvershell
 

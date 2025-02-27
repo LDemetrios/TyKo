@@ -44,15 +44,15 @@ public interface TDocument : TContent {
 }
 
 internal data class TDocumentImpl(
-    @SerialName("title")
+    @TSerialName("title")
     override val title: TContentOrNone? = null,
-    @SerialName("author")
+    @TSerialName("author")
     override val author: TArrayOrStr<TStr>? = null,
-    @SerialName("keywords")
+    @TSerialName("keywords")
     override val keywords: TArrayOrStr<TStr>? = null,
-    @SerialName("date")
+    @TSerialName("date")
     override val date: TAutoOrDatetimeOrNone? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TDocument {
     override fun format(): String = Representations.elementRepr("document",ArgumentEntry(false,
@@ -91,13 +91,13 @@ public interface TSetDocument : TSetRule {
 }
 
 internal class TSetDocumentImpl(
-    @SerialName("title")
+    @TSerialName("title")
     override val title: TContentOrNone? = null,
-    @SerialName("author")
+    @TSerialName("author")
     override val author: TArrayOrStr<TStr>? = null,
-    @SerialName("keywords")
+    @TSerialName("keywords")
     override val keywords: TArrayOrStr<TStr>? = null,
-    @SerialName("date")
+    @TSerialName("date")
     override val date: TAutoOrDatetimeOrNone? = null,
 ) : TSetDocument
 

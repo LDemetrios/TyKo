@@ -1,8 +1,8 @@
-package org.ldemetrios.tyko.operations.std
+package org.ldemetrios.tyko.operations
 
 import org.ldemetrios.tyko.model.*
-import org.ldemetrios.tyko.operations.TArray
-import org.ldemetrios.tyko.operations.t
+import org.ldemetrios.tyko.model.TArray
+import org.ldemetrios.tyko.model.t
 
 fun TSelector.before(selector: TSelector, inclusive: Boolean) = TBeforeSelector(this, selector, inclusive.t)
 fun TSelector.after(selector: TSelector, inclusive: Boolean) = TAfterSelector(this, selector, inclusive.t)

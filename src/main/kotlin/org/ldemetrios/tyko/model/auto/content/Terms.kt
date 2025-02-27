@@ -50,19 +50,19 @@ public interface TTerms : TContent {
 }
 
 internal data class TTermsImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TArrayOrContent<TValue>>,
-    @SerialName("tight")
+    @TSerialName("tight")
     override val tight: TBool? = null,
-    @SerialName("separator")
+    @TSerialName("separator")
     override val separator: TContent? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("hanging-indent")
+    @TSerialName("hanging-indent")
     override val hangingIndent: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TAutoOrLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TTerms {
     override fun format(): String = Representations.elementRepr("terms",ArgumentEntry(true, null,
@@ -109,15 +109,15 @@ public interface TSetTerms : TSetRule {
 }
 
 internal class TSetTermsImpl(
-    @SerialName("tight")
+    @TSerialName("tight")
     override val tight: TBool? = null,
-    @SerialName("separator")
+    @TSerialName("separator")
     override val separator: TContent? = null,
-    @SerialName("indent")
+    @TSerialName("indent")
     override val indent: TLength? = null,
-    @SerialName("hanging-indent")
+    @TSerialName("hanging-indent")
     override val hangingIndent: TLength? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TAutoOrLength? = null,
 ) : TSetTerms
 

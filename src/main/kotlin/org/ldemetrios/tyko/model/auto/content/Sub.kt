@@ -41,15 +41,15 @@ public interface TSub : TContent {
 }
 
 internal data class TSubImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("typographic")
+    @TSerialName("typographic")
     override val typographic: TBool? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TLength? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TLength? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSub {
     override fun format(): String = Representations.elementRepr("sub",ArgumentEntry(false, null,
@@ -86,11 +86,11 @@ public interface TSetSub : TSetRule {
 }
 
 internal class TSetSubImpl(
-    @SerialName("typographic")
+    @TSerialName("typographic")
     override val typographic: TBool? = null,
-    @SerialName("baseline")
+    @TSerialName("baseline")
     override val baseline: TLength? = null,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TLength? = null,
 ) : TSetSub
 

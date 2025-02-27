@@ -18,16 +18,15 @@ import org.ldemetrios.utilities.castUnchecked
     ["tiling"],
     TTilingImpl::class,
 )
-public interface TTiling : TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTiling<TDynamic>,
-        TArrayOrColorOrDictionaryOrFunctionOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
-        TAutoOrColorOrGradientGradientOrNoneOrTiling,
-        TColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TColorOrGradientGradientOrNoneOrTiling,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TColorOrGradientGradientOrTiling,
-        TColorOrDictionaryOrGradientGradientOrLengthOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrDictionaryOrGradientGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
-        TAutoOrColorOrGradientGradientOrTiling, TValue {
+public interface TTiling : TArrayOrColorOrFunctionOrGradientOrNoneOrTiling<TDynamic>,
+        TArrayOrColorOrDictionaryOrFunctionOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic, TDynamic>,
+        TAutoOrColorOrGradientOrNoneOrTiling,
+        TColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TColorOrGradientOrNoneOrTiling,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>, TColorOrGradientOrTiling,
+        TColorOrDictionaryOrGradientOrLengthOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrDictionaryOrGradientOrLengthOrNoneOrStrokeOrTiling<TDynamic>,
+        TAutoOrColorOrGradientOrTiling, TValue {
     public val body: TContent
 
     public val sz: TArrayOrAuto<TValue>?
@@ -51,13 +50,13 @@ public interface TTiling : TArrayOrColorOrFunctionOrGradientGradientOrNoneOrTili
 }
 
 internal data class TTilingImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TArrayOrAuto<TValue>? = null,
-    @SerialName("spacing")
+    @TSerialName("spacing")
     override val spacing: TArray<TLength>? = null,
-    @SerialName("relative")
+    @TSerialName("relative")
     override val relative: TAutoOrStr? = null,
 ) : TTiling {
     override fun format(): String = Representations.structRepr("tiling",ArgumentEntry(false, null,

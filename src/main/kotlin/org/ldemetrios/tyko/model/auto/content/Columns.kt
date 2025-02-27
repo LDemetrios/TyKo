@@ -37,13 +37,13 @@ public interface TColumns : TContent {
 }
 
 internal data class TColumnsImpl(
-    @SerialName("count")
+    @TSerialName("count")
     override val count: TInt? = null,
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("gutter")
+    @TSerialName("gutter")
     override val gutter: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TColumns {
     override fun format(): String = Representations.elementRepr("columns",ArgumentEntry(false, null,
@@ -76,9 +76,9 @@ public interface TSetColumns : TSetRule {
 }
 
 internal class TSetColumnsImpl(
-    @SerialName("count")
+    @TSerialName("count")
     override val count: TInt? = null,
-    @SerialName("gutter")
+    @TSerialName("gutter")
     override val gutter: TRelative? = null,
 ) : TSetColumns
 

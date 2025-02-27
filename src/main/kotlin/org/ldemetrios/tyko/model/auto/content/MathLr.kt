@@ -33,11 +33,11 @@ public interface TMathLr : TContent {
 }
 
 internal data class TMathLrImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathLr {
     override fun format(): String = Representations.elementRepr("math.lr",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetMathLr : TSetRule {
 }
 
 internal class TSetMathLrImpl(
-    @SerialName("size")
+    @TSerialName("size")
     override val sz: TAutoOrRelative? = null,
 ) : TSetMathLr
 

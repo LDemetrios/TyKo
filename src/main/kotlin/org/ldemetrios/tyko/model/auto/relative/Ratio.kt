@@ -30,7 +30,7 @@ public interface TRatio : TAutoOrLengthOrRatio, TIntOrRatio, TFloatOrRatio, TCol
 }
 
 internal data class TRatioImpl(
-    @SerialName("value")
+    @TSerialName("value")
     override val `value`: TFloat,
 ) : TRatio {
     override fun format(): String = Representations.reprOf(this)

@@ -33,11 +33,11 @@ public interface TMathLimits : TContent {
 }
 
 internal data class TMathLimitsImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("inline")
+    @TSerialName("inline")
     override val `inline`: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathLimits {
     override fun format(): String = Representations.elementRepr("math.limits",ArgumentEntry(false,
@@ -67,7 +67,7 @@ public interface TSetMathLimits : TSetRule {
 }
 
 internal class TSetMathLimitsImpl(
-    @SerialName("inline")
+    @TSerialName("inline")
     override val `inline`: TBool? = null,
 ) : TSetMathLimits
 

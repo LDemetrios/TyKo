@@ -33,11 +33,11 @@ public interface TGridFooter : TContent {
 }
 
 internal data class TGridFooterImpl(
-    @SerialName("children")
+    @TSerialName("children")
     override val children: TArray<TContent>,
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TGridFooter {
     override fun format(): String = Representations.elementRepr("grid.footer",ArgumentEntry(true,
@@ -67,7 +67,7 @@ public interface TSetGridFooter : TSetRule {
 }
 
 internal class TSetGridFooterImpl(
-    @SerialName("repeat")
+    @TSerialName("repeat")
     override val repeat: TBool? = null,
 ) : TSetGridFooter
 

@@ -29,9 +29,9 @@ public interface TMathMid : TContent {
 }
 
 internal data class TMathMidImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathMid {
     override fun format(): String = Representations.elementRepr("math.mid",ArgumentEntry(false, null,

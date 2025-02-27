@@ -57,21 +57,21 @@ public interface TMathMat : TContent {
 }
 
 internal data class TMathMatImpl(
-    @SerialName("rows")
+    @TSerialName("rows")
     override val rows: TArray<TArray<TContent>>,
-    @SerialName("delim")
+    @TSerialName("delim")
     override val delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>? = null,
-    @SerialName("align")
+    @TSerialName("align")
     override val align: TAlignment? = null,
-    @SerialName("augment")
+    @TSerialName("augment")
     override val augment: TDictionaryOrIntOrNone<TValue>? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TRelative? = null,
-    @SerialName("row-gap")
+    @TSerialName("row-gap")
     override val rowGap: TRelative? = null,
-    @SerialName("column-gap")
+    @TSerialName("column-gap")
     override val columnGap: TRelative? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TMathMat {
     override fun format(): String = Representations.elementRepr("math.mat",ArgumentEntry(true, null,
@@ -121,17 +121,17 @@ public interface TSetMathMat : TSetRule {
 }
 
 internal class TSetMathMatImpl(
-    @SerialName("delim")
+    @TSerialName("delim")
     override val delim: TArrayOrNoneOrStrOrSymbol<TNoneOrStrOrSymbol>? = null,
-    @SerialName("align")
+    @TSerialName("align")
     override val align: TAlignment? = null,
-    @SerialName("augment")
+    @TSerialName("augment")
     override val augment: TDictionaryOrIntOrNone<TValue>? = null,
-    @SerialName("gap")
+    @TSerialName("gap")
     override val gap: TRelative? = null,
-    @SerialName("row-gap")
+    @TSerialName("row-gap")
     override val rowGap: TRelative? = null,
-    @SerialName("column-gap")
+    @TSerialName("column-gap")
     override val columnGap: TRelative? = null,
 ) : TSetMathMat
 

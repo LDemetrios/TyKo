@@ -33,11 +33,11 @@ public interface TSmallcaps : TContent {
 }
 
 internal data class TSmallcapsImpl(
-    @SerialName("body")
+    @TSerialName("body")
     override val body: TContent,
-    @SerialName("all")
+    @TSerialName("all")
     override val all: TBool? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TSmallcaps {
     override fun format(): String = Representations.elementRepr("smallcaps",ArgumentEntry(false, null,
@@ -66,7 +66,7 @@ public interface TSetSmallcaps : TSetRule {
 }
 
 internal class TSetSmallcapsImpl(
-    @SerialName("all")
+    @TSerialName("all")
     override val all: TBool? = null,
 ) : TSetSmallcaps
 

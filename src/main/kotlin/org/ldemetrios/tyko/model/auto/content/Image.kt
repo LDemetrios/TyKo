@@ -62,23 +62,23 @@ public interface TImage : TContent {
 }
 
 internal data class TImageImpl(
-    @SerialName("source")
+    @TSerialName("source")
     override val source: TBytesOrStr,
-    @SerialName("format")
+    @TSerialName("format")
     override val format: TAutoOrDictionaryOrImageFormat<TIntOrStr>? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("alt")
+    @TSerialName("alt")
     override val alt: TNoneOrStr? = null,
-    @SerialName("fit")
+    @TSerialName("fit")
     override val fit: TImageFit? = null,
-    @SerialName("scaling")
+    @TSerialName("scaling")
     override val scaling: TAutoOrImageScaling? = null,
-    @SerialName("icc")
+    @TSerialName("icc")
     override val icc: TAutoOrBytesOrStr? = null,
-    @SerialName("label")
+    @TSerialName("label")
     override val label: TLabel? = null,
 ) : TImage {
     override fun format(): String = Representations.elementRepr("image",ArgumentEntry(false, null,
@@ -131,19 +131,19 @@ public interface TSetImage : TSetRule {
 }
 
 internal class TSetImageImpl(
-    @SerialName("format")
+    @TSerialName("format")
     override val format: TAutoOrDictionaryOrImageFormat<TIntOrStr>? = null,
-    @SerialName("width")
+    @TSerialName("width")
     override val width: TAutoOrRelative? = null,
-    @SerialName("height")
+    @TSerialName("height")
     override val height: TAutoOrFractionOrRelative? = null,
-    @SerialName("alt")
+    @TSerialName("alt")
     override val alt: TNoneOrStr? = null,
-    @SerialName("fit")
+    @TSerialName("fit")
     override val fit: TImageFit? = null,
-    @SerialName("scaling")
+    @TSerialName("scaling")
     override val scaling: TAutoOrImageScaling? = null,
-    @SerialName("icc")
+    @TSerialName("icc")
     override val icc: TAutoOrBytesOrStr? = null,
 ) : TSetImage
 
