@@ -40,17 +40,22 @@
             if ("CE" in data) {
                 data.CE.join[\ ]
             } else {
-                let (error, output, value) = data
+                let (error, output) = data
+                let value = data.at("value", default:none)
                 text(fill: rgb("#009900"), text(size: .9em, output))
                 text(fill: red, text(size: .9em, error))
                 [#value]
+                if ("throwable" in data) {
+                    let t =  data.throwable.split("\n")
+                    text(fill: red, text(size: .9em, t.slice(0, t.len() - 20).join("\n")))
+                }
             }
         },
     )
 }
 
 
-#show raw.where(lang: "render"): it => {
+#show raw.where(lang: "render"): it => context {
     text(
         size: 1.25em,
         listing(raw(it.text, lang: "kt", block: it.block)),
@@ -64,9 +69,9 @@
                 data.CE.join[\ ]
             } else {
                 let (error, output, value) = data
-                eval(output)
+
                 text(fill: red, text(size: .9em, error))
-                [#value]
+                [#box(inset: 1em, stroke: (left: (paint: text.fill, dash: "dashed")), value)]
             }
         },
     )
@@ -108,7 +113,7 @@
         smallcaps(it)
     }
 
-    #set outline(depth: 5, indent: 2em)
+    #set outline(depth: 8, indent: 2em)
 
     #set par(justify: true)
     #show raw.where(block: true): set par(justify: false)
@@ -268,7 +273,7 @@ Typst has dynamic typing, therefore reflecting it in statically typed JVM is qui
 
 Most of its inheritants are generated automatically, based on the information from the official documentation. There are, however, some types with specific behaviour.
 
-====== `TBool`, `TInt`, `TFloat`, `TStr`, `TArray`, `TDictionary`, `TBytes`
+==== `TBool`, `TInt`, `TFloat`, `TStr`, `TArray`, `TDictionary`, `TBytes`
 
 These are the types, analogs of which exist in Kotlin. They can be instantiated with `<value>.t`, where `<value>` is respectively:
 
@@ -306,7 +311,7 @@ println(x.repr())
 println(y.repr())
 ```
 
-====== `TAlignment`
+==== `TAlignment`
 
 This is a representation of `alignment`. There are, also, specific types for horizontal and vertical alignment (`THAlignment` and `TVAlignment`), which are inheritants of the `TAlignment`. Addition is defined:
 
@@ -315,7 +320,7 @@ val align = THAlignment.Center + TVAlignment.Horizon
 println(align.repr())
 ```
 
-====== Numeric types (`TRatio`, `TFraction`, `TLength`, `TRelative`, `TAngle`)
+==== Numeric types (`TRatio`, `TFraction`, `TLength`, `TRelative`, `TAngle`)
 
 They can be created with the same postfixes, as in Typst, but simulated via extension values.
 All of them contain ```typc float``` inside, therefore, can be created from any Kotlin or Typst
@@ -346,7 +351,7 @@ println((1.em + 1.pt + 1.pc).repr())
 More operations will be added later.
 
 
-====== Colors
+==== Colors
 
 #context {
     set align(center)
@@ -374,7 +379,7 @@ import java.awt.Color
 println(Color.WHITE.t.repr())
 ```
 
-====== Functions
+==== Functions
 
 For specific tools developers' convinience, hierarchy of functions follows Typst's internals:
 
@@ -390,7 +395,7 @@ For specific tools developers' convinience, hierarchy of functions follows Typst
         [User-defined function with Typst code, possibly with captured values],
         [```typc it => it * 2```\ ```typc let f(x) = x + 1; f```],
 
-        `TWith`, [Another function, with some of its #link(<arguments>)[arguments] preset], `box.with(inset: 1em)`,
+        `TWith`, [Another function, with some of its arguments preset], `box.with(inset: 1em)`,
         `TElement`,
         [Specific kind of native function, representing an element function. It also is a #link(<selector>)[`selector`]],
         `box`,
@@ -411,7 +416,7 @@ or with operators:
 ```kt
 operator fun TFunction.get(vararg named: Pair<String, TValue>) : TWith
 
-operator fun TFunction.invoke(vararg args: TValue): TValue
+operator fun TFunction.invoke(vararg args: TValue): TDynamic
 ```
 
 The idea here is just type checking. As we can't declare parameter type `vararg Pair<...>|TValue`,
@@ -424,10 +429,10 @@ println(lorem(15.t).repr())
 ```
 
 As you can see, no actual computation happened. `operator ()` returns an instance of
-#link(<force>)[`TDelayedExecution`], execution of which can be `force`d with appropriate compiler.
+#link(<dynamic>)[`TDelayedExecution`], execution of which can be #link(<force>)[`force`]d with appropriate compiler.
 The reason is, there can be different libraries, and execution of functions can require context.
 
-====== Content
+==== Content
 
 In addition, it has function ```kt fun TContent.element() : TElement```.
 
@@ -509,7 +514,7 @@ TSequence {
 }
 ```
 
-====== Styles (`set` and `show`)
+==== Styles (`set` and `show`)
 
 For each `element` class, if it has any settable parameters,
 there exists corresponding `set element` class. The all extend `TSetRule`,
@@ -520,13 +525,13 @@ println(TSetText(fill = java.awt.Color.RED.t).repr())
 ```
 
 As well as `set`, there are `show` rules. As any `show` rule in Typst,
-it can either contain `selector` or not, and transform can be either content,
+it can either contain `selector` or not, and its `transform` can be either content,
 function, or an array of styles:
 
 ```render
 TStyled(
     TArray(
-        TShowRule(TElement("emph".t), TSetText(fill = java.awt.Color.RED.t))
+        TShowRule(TEmph.Elem, TSetText(fill = java.awt.Color.RED.t))
     ),
     TSequence {
         +"Just"
@@ -538,13 +543,13 @@ TStyled(
 )
 ```
 
-Besides, in TyKo every `style` is just a content, and may be inserted in sequence.
+Besides, in TyKo every `style` is just a content, and may be inserted into the sequence.
 It then spans until the end of `TSequence`:
 
 ```render
 TSequence {
     +TSequence {
-        +TShowRule(TElement("emph".t), TSetText(fill = java.awt.Color.RED.t))
+        +TShowRule(TEmph.Elem, TSetText(fill = java.awt.Color.RED.t))
         +"Just"
         +TSpace()
         +TEmph("formatted".text)
@@ -556,13 +561,51 @@ TSequence {
 }
 ```
 
-====== Delayed execution, forcing <force>
+==== `TDynamic`, delayed execution <dynamic>
 
+`TDynamic` is the type that represents a value of yet unknown type.  It is the subtype of _*all*_ the TyKo types, except for `TPoint` and `TLocation` (those are excluded due to generic variance problems). Therefore, typechecking can be postponed (usually, until the value is `repr`ed and sent to the Typst compiler).
 
+As was mentioned before, no actual execution happens when you call `invoke` operator on functions. Instead, the instance of `TDelayedExecution` is returned. It is a subtype of `TDynamic`. You can access fields and functions on it, that will result in more `TDelayedExecution`s, but any attempt to convert to Kotlin will fail with an exception:
 
-====== Arguments <arguments>
-====== Selector <selector>
+```kteval
+val lorem = TNativeFunc("lorem".t)
+println(lorem(15.t).type().repr())
+println(lorem(15.t).strValue)
+```
 
+You can #link(<force>)[force] execution of a dynamic value, or, as other values can contain dynamic ones as their fields, you can force execution of any value, when you have #link(<compiler>)[Typst Compiler] instance.
+
+==== TSelector <selector>
+
+These are regular Typst `selector`s. They can be used for #link(<query>)[querying] Typst documents. For your convinience, `TRegex`, `TLabel` and `TElement` are subtypes of `TSelector`. And there are few functions, reflecting operations on selectors in Typst:
+
+```kt
+fun TSelector.before(selector: TSelector, inclusive: Boolean) : TSelector
+fun TSelector.after(selector: TSelector, inclusive: Boolean) : TSelector
+
+infix fun TSelector.before(selector: TSelector) : TSelector
+infix fun TSelector.after(selector: TSelector) : TSelector
+
+fun TSelector.and(vararg others: TSelector) : TSelector
+fun TSelector.or(vararg others: TSelector) : TSelector
+```
+
+More on selectors can be found in the chapter about queries.
+
+#pagebreak()
+
+=== Compiler
+
+To avoid confusion, from now on:
+ - just "compiler" means an instance of `TypstCompiler` from `org.ldemetrios.tyko.compiler` package, and
+ - "native compiler" means original Typst compiler, written in Rust.
+
+The only implementation of compiler TyKo now has --- is `WorldBasedTypstCompiler`, which relies on entity similar, to native compiler's `trait World`. Besides that, it needs an instance of `TypstSharedLibrary`, which gives way to call native compiler.
+
+TODO...
+
+==== Force<force>
+==== Query<query>
 /*
 
 ```kteval
@@ -576,5 +619,7 @@ val tiling = TTiling(
 println(tiling.repr())
 ```
 */
-
 #context [#metadata(cnt.get())<saturn-import-num>]
+<compiler>
+
+

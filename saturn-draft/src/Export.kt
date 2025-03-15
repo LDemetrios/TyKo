@@ -25,12 +25,15 @@ annotation class SaturnExport
 fun eval_kt(code: TStr): TDictionary<*> {
     val out = System.out
     val err = System.err
+    val imports = code.strValue.lines().takeWhile { it.startsWith("import") }
+
     val script = """
         import java.io.*
         import org.ldemetrios.tyko.compiler.*
         import org.ldemetrios.tyko.ffi.TypstSharedLibrary
         import org.ldemetrios.tyko.model.*
         import org.ldemetrios.tyko.operations.*
+        ${imports.joinToString("\n")}
 
         val __OUT_INTERCEPTER = ByteArrayOutputStream()
         val __ERR_INTERCEPTER = ByteArrayOutputStream()
@@ -40,7 +43,7 @@ fun eval_kt(code: TStr): TDictionary<*> {
         try {
             val result = run {
 
-                ${code.strValue}
+                ${code.strValue.lines().drop(imports.size).joinToString("\n")}
 
             }
             1 to Triple(result, __OUT_INTERCEPTER.toByteArray(), __ERR_INTERCEPTER.toByteArray())
@@ -75,7 +78,9 @@ fun eval_kt(code: TStr): TDictionary<*> {
                 })
 
                 1 -> TDictionary(
-                    "error" to String(res.third).t, "output" to String(res.second).t, "value" to when (val v = res.first) {
+                    "error" to String(res.third).t,
+                    "output" to String(res.second).t,
+                    "value" to when (val v = res.first) {
                         null, Unit -> TNone
                         is TValue -> v
                         else -> throw IllegalStateException("Incorrect return type ${v.javaClass}")
@@ -127,6 +132,7 @@ val colorMap = mapOf(
                 angle = (-7).deg,
             )
         }
+
 @SaturnExport
 fun highlightTypdoc(content: TRaw): TContent {
     val text = content.text.strValue.lines()

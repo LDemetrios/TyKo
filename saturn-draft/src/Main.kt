@@ -112,6 +112,7 @@ fun main(vararg args: String) {
             e.printStackTrace(System.out)
         }
         Thread.sleep(delay)
+        break
     }
     @Suppress("UNREACHABLE_CODE")
     compiler.close()
@@ -135,9 +136,7 @@ class ResettableFSWorld(val root: Path, var main: String) : World {
             } catch (e: IOException) {
                 RResult.Err(FileError.NotFound(file.path))
             }
-        } else {
-            return packageFromCentral(file)
-        }
+        } else TODO()
     }
 
     override fun mainFile(): FileDescriptor {
@@ -145,4 +144,6 @@ class ResettableFSWorld(val root: Path, var main: String) : World {
     }
 
     override fun now(): WorldTime = WorldTime.System
+
+    override val autoManageCentral: Boolean = true
 }

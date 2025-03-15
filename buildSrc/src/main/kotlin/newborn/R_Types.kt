@@ -353,7 +353,7 @@ private fun String.takeIfOrEmpty(cond: Boolean): String = if (cond) this else ""
 context(DeclarationsMetadata)
 fun TypeDeclaration.parentDecl(): Declaration? {
     if (parent == null) return null
-    return declarations.find { it.name == parent.ident }!!
+    return declarations.find { it.name == parent.ident }
 }
 
 //val syntheticSupertypes = mapOf(

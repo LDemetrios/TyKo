@@ -4,189 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="* Remove Saturn.jar">
+    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Document `model` package">
+      <change afterPath="$PROJECT_DIR$/saturn-output/10.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/11.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/12.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/13.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/4.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/5.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/6.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/7.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/8.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/saturn-output/9.typ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/N_GenerationCommons.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/N_GenerationCommons.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/R_Types.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/R_Types.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/S_SemiAuto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/S_SemiAuto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/resources/types/others" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/resources/types/others" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.typ" beforeDir="false" afterPath="$PROJECT_DIR$/main.typ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Alignment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Alignment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Angle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Angle.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Arguments.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Arguments.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Array.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Array.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Bool.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Bool.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Bytes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Bytes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Color.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Counter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Counter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Datetime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Datetime.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Decimal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Decimal.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Dictionary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Dictionary.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Direction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Direction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Duration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Duration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Float.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Float.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Fraction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Fraction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Gradient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Gradient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Int.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Int.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Module.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Module.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Relative.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Relative.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Selector.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Selector.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/State.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/State.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Str.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Str.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Stroke.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Stroke.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Style.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Style.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Symbol.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Symbol.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Tiling.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Tiling.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Version.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Version.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/alignment/AlignmentImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/alignment/AlignmentImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Cmyk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Cmyk.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Hsl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Hsl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Hsv.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Hsv.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/LinearRgb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/LinearRgb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Luma.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Luma.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Oklab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Oklab.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Oklch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Oklch.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Rgb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/color/Rgb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Align.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Align.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Bibliography.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Bibliography.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Block.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Block.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Box.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Box.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Caption.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Caption.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Circle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Circle.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Cite.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Cite.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Colbreak.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Colbreak.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Columns.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Columns.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Context.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Context.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CounterStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CounterStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CounterUpdate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CounterUpdate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Curve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Curve.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveClose.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveClose.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveCubic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveCubic.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveLine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveLine.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveMove.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveMove.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveQuad.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/CurveQuad.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Document.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Document.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Elem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Elem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Ellipse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Ellipse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Embed.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Embed.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Emph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Emph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Enum.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Enum.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/EnumItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/EnumItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Figure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Figure.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Flush.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Flush.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Footnote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Footnote.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/FootnoteEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/FootnoteEntry.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Frame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Frame.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Grid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Grid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridCell.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridCell.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridFooter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridFooter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridHeader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridHeader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridHline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridHline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridVline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/GridVline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/H.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/H.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Heading.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Heading.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Hide.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Hide.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Highlight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Highlight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Image.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Image.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Layout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Layout.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Line.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Line.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Linebreak.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Linebreak.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Link.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Link.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/List.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/List.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/ListItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/ListItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Locate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Locate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathAccent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathAccent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathAlignPoint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathAlignPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathAttach.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathAttach.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathBinom.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathBinom.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathCancel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathCancel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathCases.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathCases.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathClass.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathEquation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathEquation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathFrac.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathFrac.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathLimits.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathLimits.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathLr.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathLr.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathMat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathMat.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathMid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathMid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverbrace.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverbrace.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverbracket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverbracket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverparen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOverparen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOvershell.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathOvershell.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathPrimes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathPrimes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathRoot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathRoot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathScripts.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathScripts.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathStretch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathStretch.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderbrace.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderbrace.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderbracket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderbracket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderparen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUnderparen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUndershell.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathUndershell.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathVec.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/MathVec.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Metadata.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Metadata.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Move.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Move.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Outline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Outline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/OutlineEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/OutlineEntry.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Overline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Overline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Pad.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Pad.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Page.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Page.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Pagebreak.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Pagebreak.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Par.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Par.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/ParLine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/ParLine.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Parbreak.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Parbreak.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Path.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Path.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Polygon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Polygon.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Quote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Quote.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Raw.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Raw.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/RawLine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/RawLine.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Rect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Rect.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Ref.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Ref.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Repeat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Repeat.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Rotate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Rotate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Scale.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Scale.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Sequence.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Sequence.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Skew.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Skew.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Smallcaps.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Smallcaps.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Smartquote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Smartquote.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Space.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Space.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Square.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Square.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Stack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Stack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/StateUpdate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/StateUpdate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Strike.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Strike.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Strong.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Strong.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/StyleDeprecated.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/StyleDeprecated.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Styled.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Styled.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Sub.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Sub.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Super.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Super.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/SymbolElem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/SymbolElem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Table.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Table.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableCell.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableCell.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableFooter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableFooter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableHeader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableHeader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableHline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableHline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableVline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TableVline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Terms.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Terms.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TermsItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/TermsItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Text.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Underline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/Underline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/V.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/content/V.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/function/Closure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/function/Closure.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/function/NativeFunc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/function/NativeFunc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/function/With.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/function/With.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/gradient/ConicGradient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/gradient/ConicGradient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/gradient/LinearGradient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/gradient/LinearGradient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/gradient/RadialGradient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/gradient/RadialGradient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/relative/Length.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/relative/Length.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/relative/Ratio.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/relative/Ratio.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/relative/RelativeImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/relative/RelativeImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/selector/Label.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/selector/Label.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/selector/Regex.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/selector/Regex.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saturn-draft/src/Export.kt" beforeDir="false" afterPath="$PROJECT_DIR$/saturn-draft/src/Export.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saturn-draft/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/saturn-draft/src/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/SharedLibrary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/SharedLibrary.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Style.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/style/ShowRule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/style/ShowRule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/ManualDeserialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/ManualDeserialization.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Content.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Content.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Function.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Function.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Conversions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Conversions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/DelayedExecution.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/DelayedExecution.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Misc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Misc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Dynamic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Dynamic.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/SemiautoDeserialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/SemiautoDeserialization.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Foundations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Foundations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Invocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Invocation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Text.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/original/Testing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/original/Testing.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,43 +105,43 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build TyKo.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Errors (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Errors.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.EvalDeserReprConsistency (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.EvalDeserReprConsistency.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.EvalDeserReprConsistencyViaPng.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Testing (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Testing.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.CompilerExceptionsReadabilityKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.ErrorsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.EvalDeserReprConsistencyKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.ExamplesKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.FormattingKt (1).executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.FormattingKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HeavyKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MemoryLeaksKt.executor&quot;: &quot;Debug&quot;,
-    &quot;Kotlin.PackageCentralKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.SpecialKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.SuiteKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.SyntaxKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.TestingKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.UtilsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.WorldImplsKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.WorldKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.Z_MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ldemetrios/Workspace/TypstNKotlinInterop/TyKo/src/test/kotlin/org/ldemetrios/tyko/manual&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build TyKo.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.Errors (1).executor": "Run",
+    "Gradle.Errors.executor": "Run",
+    "Gradle.EvalDeserReprConsistency (1).executor": "Run",
+    "Gradle.EvalDeserReprConsistency.executor": "Run",
+    "Gradle.EvalDeserReprConsistencyViaPng.executor": "Run",
+    "Gradle.Testing (1).executor": "Run",
+    "Gradle.Testing.executor": "Run",
+    "Kotlin.CompilerExceptionsReadabilityKt.executor": "Run",
+    "Kotlin.ErrorsKt.executor": "Run",
+    "Kotlin.EvalDeserReprConsistencyKt.executor": "Run",
+    "Kotlin.ExamplesKt.executor": "Run",
+    "Kotlin.FormattingKt (1).executor": "Run",
+    "Kotlin.FormattingKt.executor": "Run",
+    "Kotlin.HeavyKt.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.MemoryLeaksKt.executor": "Debug",
+    "Kotlin.PackageCentralKt.executor": "Run",
+    "Kotlin.SpecialKt.executor": "Run",
+    "Kotlin.SuiteKt.executor": "Run",
+    "Kotlin.SyntaxKt.executor": "Run",
+    "Kotlin.TestingKt.executor": "Run",
+    "Kotlin.UtilsKt.executor": "Run",
+    "Kotlin.WorldImplsKt.executor": "Run",
+    "Kotlin.WorldKt.executor": "Run",
+    "Kotlin.Z_MainKt.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/ldemetrios/Workspace/TypstNKotlinInterop/TyKo/src/test/kotlin/org/ldemetrios/tyko/manual",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Issue.Navigation"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/manual" />
@@ -311,7 +158,7 @@
       <recent name="org.ldemetrios.tyko.ffi" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Testing">
+  <component name="RunManager" selected="Kotlin.UtilsKt">
     <configuration name="Testing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -343,9 +190,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FormattingKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.kvasir.syntax.FormattingKt" />
-      <module name="tyko.test" />
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.saturnDraft.MainKt" />
+      <module name="tyko.saturn-draft.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -366,18 +213,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Testing" />
+      <item itemvalue="Kotlin.FormattingKt (1)" />
+      <item itemvalue="Kotlin.MainKt" />
       <item itemvalue="Kotlin.UtilsKt" />
       <item itemvalue="Kotlin.Z_MainKt" />
-      <item itemvalue="Kotlin.FormattingKt" />
-      <item itemvalue="Kotlin.FormattingKt (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Testing" />
         <item itemvalue="Kotlin.UtilsKt" />
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.Z_MainKt" />
+        <item itemvalue="Gradle.Testing" />
         <item itemvalue="Kotlin.FormattingKt (1)" />
-        <item itemvalue="Kotlin.FormattingKt" />
       </list>
     </recent_temporary>
   </component>
@@ -518,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742060974530</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- Companion issues">
+      <option name="closed" value="true" />
+      <created>1742062577146</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742062577146</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -550,7 +405,9 @@
     <MESSAGE value="* Fix memory leaks in ThickBytePtr" />
     <MESSAGE value="* Remove Saturn.jar" />
     <MESSAGE value="* Fix memory leaks in ThickBytePtr&#10;* Update testing&#10;&lt; Merge changes from Kvasir development&#10;* Rename Gradient properly&#10;* Draft documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Fix memory leaks in ThickBytePtr&#10;* Update testing&#10;&lt; Merge changes from Kvasir development&#10;* Rename Gradient properly&#10;* Draft documentation" />
+    <MESSAGE value="- Companion issues" />
+    <MESSAGE value="+ Document `model` package" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Document `model` package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -558,7 +415,7 @@
         <line-breakpoint enabled="true" type="kotlin-line">
           <condition expression="f == &quot;page&quot;" language="kotlin" />
           <url>file://$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/S_SemiAuto.kt</url>
-          <line>160</line>
+          <line>161</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>

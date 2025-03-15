@@ -276,8 +276,6 @@ sprepr type native-func(
     req pos name: str,
 ) -> function
 
-abstract type style()
-
 // sprepr type set-rule(
 //     req pos elem: str,
 //     req pos id: str,

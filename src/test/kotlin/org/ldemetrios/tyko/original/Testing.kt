@@ -9,8 +9,10 @@ import org.ldemetrios.tyko.compiler.RResult.Ok
 import org.ldemetrios.tyko.compiler.TypstCompilerException
 import org.ldemetrios.tyko.compiler.compilePng
 import org.ldemetrios.tyko.compiler.compileSvg
+import org.ldemetrios.tyko.model.TNativeFunc
 import org.ldemetrios.tyko.model.deserialize
-import org.ldemetrios.tyko.model.repr
+import org.ldemetrios.tyko.model.*
+import org.ldemetrios.tyko.model.t
 import org.opentest4j.TestAbortedException
 import java.awt.Color
 import java.awt.image.BufferedImage
@@ -159,7 +161,6 @@ fun write(dest: String, text: ByteArray) {
 
 fun skip(case: Case): Boolean {
     if (runForDocumentation) return false
-
     val skipGroup = when (case.group) {
         "compiles" -> listOf(
             // Strange behaviour of equality on plugins and modules

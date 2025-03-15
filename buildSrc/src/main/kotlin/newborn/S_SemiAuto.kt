@@ -113,6 +113,7 @@ fun writeSemiauto(root: String) {
         types.addInterface("TDynamic") {
             addSuperinterface(TVALUE)
             addSuperinterface(ClassName(PACK, "DynamicEnum"))
+            addSuperinterface(ClassName(PACK, "TEmptyDictionary"))
 
             for (decl in declarations) when (decl) {
                 is EnumDeclaration -> Unit

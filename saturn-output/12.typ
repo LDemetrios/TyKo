@@ -1,0 +1,1 @@
+("error" : "", "output" : "", "value" : [a\ ].func()(([a\ ].func()(({ show emph: set text(fill: rgb("#ff0000ff")); [a\ ].func()((text("Just"), [ ], emph(text("formatted")), [ ], text("text."))); },)), linebreak(), emph(text("This is outside the scope.")))))
