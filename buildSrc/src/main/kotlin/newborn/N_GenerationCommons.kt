@@ -50,7 +50,7 @@ val TCONTENT = ClassName(PACK, "TContent")
 val TSETRULE = ClassName(PACK, "TSetRule")
 val TDICTIONARY = ClassName(PACK, "TDictionary")
 val TFUNCTION = ClassName(PACK, "TFunction")
-val TNATIVEFUNCTION = ClassName(PACK, "TNativeFunction")
+val TNATIVEFUNCTION = ClassName(PACK, "TNativeFunc")
 
 val TINTERFACETYPE = ClassName(PACK, "TInterfaceType")
 val SERIALNAME = ClassName(PACK, "TSerialName")

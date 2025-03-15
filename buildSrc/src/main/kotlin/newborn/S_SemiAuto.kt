@@ -235,7 +235,7 @@ fun writeSemiauto(root: String) {
 }
 
 fun FunSpecHandlerScope.getTypeFunction(name: String) {
-    val actual = "T" + name.upCam
+    val actual = "Type" // "T" + name.upCam
     getTypeFunction0(actual)
 }
 
@@ -250,8 +250,13 @@ private fun FunSpecHandlerScope.getTypeFunction0(name: String) {
 fun TypeSpecBuilder.typeCompanion(name: String) {
     types.add(
         buildCompanionObjectTypeSpec {
-            superclass = TTYPEIMPL
-            addSuperclassConstructorParameter("%S", name)
+//            superclass = TTYPEIMPL
+//            addSuperclassConstructorParameter("%S", name)
+            properties{
+                "Type"(TTYPE) {
+                    setInitializer("TTypeImpl(%S)", name)
+                }
+            }
         }
     )
 }

@@ -58,7 +58,11 @@ fun FileSpecBuilder.writeType(decl: TypeDeclaration) {
 
         if (decl.kind == "type") {
             typeFunction {
-                appendLine("return ${decl.name.toClassname().simpleName}" + "Type".takeIfOrEmpty(decl.requiresSeparateType))
+                if (decl.requiresSeparateType) {
+                    appendLine("return %TType", decl.name.toClassname())
+                } else {
+                    appendLine("return Type")
+                }
             }
         }
 
@@ -68,17 +72,16 @@ fun FileSpecBuilder.writeType(decl: TypeDeclaration) {
 
         if (decl.kind == "element") {
             elementFunction {
-                appendLine("return ${decl.name.toClassname().simpleName}")
+                appendLine("return Elem")
             }
         }
 
         if ((decl.parentDecl() as? TypeDeclaration)?.sealed == true) {
             funcFunction {
                 addModifiers(OVERRIDE)
-                appendLine("return %T", decl.name.toClassname())
+                appendLine("return Func")
             }
         }
-
 
         val companionSuper = when {
             decl.sealed || decl.abstract -> TTYPEIMPL
@@ -94,16 +97,32 @@ fun FileSpecBuilder.writeType(decl: TypeDeclaration) {
 
         if (companionSuper != null) types.addCompanionObject {
             when (companionSuper) {
-                TTYPEIMPL, TELEMENTIMPL -> {
-                    superclass = companionSuper
-                    addSuperclassConstructorParameter("%S", decl.name)
+                TTYPEIMPL -> {
+                    properties {
+                        "Type"(TTYPE) { setInitializer("TTypeImpl(%S)", decl.name) }
+                    }
+//                    superclass = companionSuper
+//                    addSuperclassConstructorParameter("%S", decl.name)
                 }
-                TFUNCTION -> {
-                    addSuperinterface(companionSuper)
-                    functions {
-                        exactlyFormatFunction(decl.name)
+
+                TELEMENTIMPL -> {
+//                    superclass = companionSuper
+//                    addSuperclassConstructorParameter("%S", decl.name)
+                    properties {
+                        "Elem"(TELEMENT) { setInitializer("TElementImpl(%S)", decl.name) }
                     }
                 }
+
+                TFUNCTION -> {
+//                    addSuperinterface(companionSuper)
+//                    functions {
+//                        exactlyFormatFunction(decl.name)
+//                    }
+                    properties {
+                        "Func"(TNATIVEFUNCTION) { setInitializer("TNativeFunc(%S.t)", decl.name) }
+                    }
+                }
+
                 else -> {
                     addSuperinterface(companionSuper)
                     functions {
@@ -166,9 +185,11 @@ fun FileSpecBuilder.writeType(decl: TypeDeclaration) {
                     decl.sprepr -> {
                         specialFormatFunction()
                     }
+
                     decl.kind == "element" -> {
                         structFormatFunction(decl, function = "elementRepr")
                     }
+
                     decl.kind == "type" || decl.kind == "class" -> {
                         structFormatFunction(decl, function = "structRepr")
                     }
