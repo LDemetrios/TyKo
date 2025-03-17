@@ -5,35 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Document `model` package">
-      <change afterPath="$PROJECT_DIR$/saturn-output/10.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/11.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/12.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/13.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/4.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/5.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/6.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/7.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/8.typ" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/saturn-output/9.typ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/R_Types.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/R_Types.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/S_SemiAuto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/newborn/S_SemiAuto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/resources/types/others" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/resources/types/others" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.typ" beforeDir="false" afterPath="$PROJECT_DIR$/main.typ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-draft/src/Export.kt" beforeDir="false" afterPath="$PROJECT_DIR$/saturn-draft/src/Export.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-draft/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/saturn-draft/src/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/SharedLibrary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/SharedLibrary.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/Style.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/style/ShowRule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/auto/style/ShowRule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Conversions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Conversions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/DelayedExecution.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/DelayedExecution.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Misc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Misc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Dynamic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/Dynamic.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/SemiautoDeserialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/semiauto/SemiautoDeserialization.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Foundations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Foundations.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Invocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Invocation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Text.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/original/Testing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/original/Testing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/Memory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/Memory.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,43 +80,43 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build TyKo.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.Errors (1).executor": "Run",
-    "Gradle.Errors.executor": "Run",
-    "Gradle.EvalDeserReprConsistency (1).executor": "Run",
-    "Gradle.EvalDeserReprConsistency.executor": "Run",
-    "Gradle.EvalDeserReprConsistencyViaPng.executor": "Run",
-    "Gradle.Testing (1).executor": "Run",
-    "Gradle.Testing.executor": "Run",
-    "Kotlin.CompilerExceptionsReadabilityKt.executor": "Run",
-    "Kotlin.ErrorsKt.executor": "Run",
-    "Kotlin.EvalDeserReprConsistencyKt.executor": "Run",
-    "Kotlin.ExamplesKt.executor": "Run",
-    "Kotlin.FormattingKt (1).executor": "Run",
-    "Kotlin.FormattingKt.executor": "Run",
-    "Kotlin.HeavyKt.executor": "Run",
-    "Kotlin.MainKt.executor": "Run",
-    "Kotlin.MemoryLeaksKt.executor": "Debug",
-    "Kotlin.PackageCentralKt.executor": "Run",
-    "Kotlin.SpecialKt.executor": "Run",
-    "Kotlin.SuiteKt.executor": "Run",
-    "Kotlin.SyntaxKt.executor": "Run",
-    "Kotlin.TestingKt.executor": "Run",
-    "Kotlin.UtilsKt.executor": "Run",
-    "Kotlin.WorldImplsKt.executor": "Run",
-    "Kotlin.WorldKt.executor": "Run",
-    "Kotlin.Z_MainKt.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/ldemetrios/Workspace/TypstNKotlinInterop/TyKo/src/test/kotlin/org/ldemetrios/tyko/manual",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Issue.Navigation"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build TyKo.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Errors (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Errors.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.EvalDeserReprConsistency (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.EvalDeserReprConsistency.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.EvalDeserReprConsistencyViaPng.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Testing (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Testing.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.CompilerExceptionsReadabilityKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.ErrorsKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.EvalDeserReprConsistencyKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.ExamplesKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.FormattingKt (1).executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.FormattingKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.HeavyKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MemoryLeaksKt.executor&quot;: &quot;Debug&quot;,
+    &quot;Kotlin.PackageCentralKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.SpecialKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.SuiteKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.SyntaxKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.TestingKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.UtilsKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.WorldImplsKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.WorldKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.Z_MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ldemetrios/Workspace/TypstNKotlinInterop/TyKo&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Typst&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/manual" />
@@ -220,11 +195,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Z_MainKt" />
         <item itemvalue="Kotlin.UtilsKt" />
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Kotlin.Z_MainKt" />
-        <item itemvalue="Gradle.Testing" />
         <item itemvalue="Kotlin.FormattingKt (1)" />
+        <item itemvalue="Gradle.Testing" />
       </list>
     </recent_temporary>
   </component>
@@ -373,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742062577146</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="+ Document `model` package">
+      <option name="closed" value="true" />
+      <created>1742069289104</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1742069289104</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
