@@ -4,6 +4,17 @@
 
 #let ignore-results = sys.inputs.at("saturn-run", default: false)
 
+#let external-icon = "/external-link-svgrepo-com.svg"
+
+#let external = {
+    box(image(external-icon, height: .65em), baseline: -.2em, inset: (top: -2em))
+}
+
+#show link: it => {
+    set text(fill: blue)
+    underline(it, evade: true, offset: 1.5pt)
+}
+
 #let cnt = state("saturn", 0)
 
 #let invoke(func, ..args, handler) = context {
@@ -49,7 +60,7 @@
 #show raw.where(lang: "kt"): it => context {
     let shebang = it.text.split("\n").at(0)
 
-    if shebang.len() > 10 and shebang.slice(0, 10) == "//!saturn:" {
+    let cont = if shebang.len() > 10 and shebang.slice(0, 10) == "//!saturn:" {
         let lines = it.text.split("\n")
         let code = lines.slice(1, lines.len()).join("\n").trim()
         text(
@@ -88,9 +99,9 @@
         // Do nothing?
         it
     }
+
+    box(inset: (left: 1em), cont)
 }
-
-
 
 #let infty = math.oo
 #let Var = "Var"
@@ -117,8 +128,6 @@
 }
 
 #let styling = body => [
-    #set text(lang: "ru")
-
     #let sizes = (0, 2, 1.7, 1.8, 1.4, 1.4)
     #show heading: it => {
         set align(if (it.level < 5) { center } else { left })
@@ -144,6 +153,8 @@
     show regex("\d\.\d(\.\d)?"): jt => raw(jt.text)
     it
 }
+
+#let code-header(it) = text(it.text, fill: rgb("#75F5E0").darken(50%))
 
 = TyKo
 
@@ -257,14 +268,11 @@ Typst has dynamic typing, therefore reflecting it in statically typed JVM is qui
 
 #pagebreak()
 
-#let external = [#"   " _(external)_]
-#let inherited(what) = [#"    " _(inherited from #what)_]
-
-==== `TValue`
+==== #code-header(`TValue`)
 
 `TValue` is the common interface for all Typst values. It has only two methods:
 
-- ```ktsafe fun TValue.repr() : String``` #external
+- ```ktsafe fun TValue.repr() : String```
 
 Creates a code representation of the value. The resulting string is a valid code in Typst. It is also atomic from the point of the Typst compiler, so only prepending it by `#` is enough to make it valid Typst markup.
 
@@ -276,7 +284,7 @@ Returns the `type` of the value.
 
 Most of its inheritants are generated automatically, based on the information from the official documentation. There are, however, some types with specific behaviour.
 
-===== `TBool`, `TInt`, `TFloat`, `TStr`, `TArray`, `TDictionary`, `TBytes`
+===== #code-header(`TBool`), #code-header(`TInt`), #code-header(`TFloat`), #code-header(`TStr`), #code-header(`TArray`), #code-header(`TDictionary`), #code-header(`TBytes`)
 
 These are the types, analogs of which exist in Kotlin. They can be instantiated with `<value>.t`, where `<value>` is respectively:
 
@@ -316,7 +324,7 @@ println(x.repr())
 println(y.repr())
 ```
 
-===== `TAlignment`
+===== #code-header(`TAlignment`)
 
 This is a representation of `alignment`. There are, also, specific types for horizontal and vertical alignment (`THAlignment` and `TVAlignment`), which are inheritants of the `TAlignment`. Addition is defined:
 
@@ -325,7 +333,7 @@ val align = THAlignment.Center + TVAlignment.Horizon
 println(align.repr())
 ```
 
-===== Numeric types (`TRatio`, `TFraction`, `TLength`, `TRelative`, `TAngle`)
+===== Numeric types (#code-header(`TRatio`), #code-header(`TFraction`), #code-header(`TLength`), #code-header(`TRelative`), #code-header(`TAngle`))
 
 They can be created with the same postfixes, as in Typst, but simulated via extension values.
 All of them contain ```typc float``` inside, therefore, can be created from any Kotlin or Typst
@@ -379,7 +387,7 @@ More operations will be added later.
 
 All of them extend `TColor`. Also, `TRgb` can be created with `.t` from `java.awt.Color`:
 
-```kt
+```ktsafe
 //!saturn:eval
 import java.awt.Color
 
@@ -527,7 +535,7 @@ TSequence {
 }
 ```
 
-===== Styles (`set` and `show`)
+===== Styles (#code-header(`set`) and #code-header(`show`))
 
 For each `element` class, if it has any settable parameters,
 there exists corresponding `set element` class. The all extend `TSetRule`,
@@ -580,7 +588,7 @@ TSequence {
 }
 ```
 
-===== `TDynamic`, delayed execution <dynamic>
+===== #code-header(`TDynamic`), delayed execution <dynamic>
 
 `TDynamic` is the type that represents a value of yet unknown type. It is the subtype of _*all*_ the TyKo types, except for `TPoint` and `TLocation` (those are excluded due to generic variance problems). Therefore, typechecking can be postponed (usually, until the value is `repr`ed and sent to the Typst compiler).
 
@@ -621,11 +629,11 @@ More on selectors can be found in the chapter about queries.
 
 #let iconed(name, body) = {
     table(
-        columns: 2,
+        columns: 3,
         stroke: none,
         inset: 1em,
-        align: horizon,
-        box(iso-7010(name, width: 4.5em)), body,
+        align: top,
+        box(iso-7010(name, width: 4.5em)), [], body,
     )
 }
 
@@ -649,7 +657,7 @@ Such filesystem can be:
 - backed up with actual filesystem, as in Typst CLI
 - consist of only one file (`SingleFileWorld`)
 - contain no files at all (`DetachedWorld`)
-- refer to virtual fs (`ProjectCompilerService` in #link("https://github.com/LDemetrios/Kvasir/")[Kvasir])
+- refer to virtual fs (`ProjectCompilerService` in #link("https://github.com/LDemetrios/Kvasir/")[Kvasir #external])
 etc.
 
 `TypstSharedLibrary` uses JNA to call functions in native compiler.
@@ -680,7 +688,7 @@ interface World {
 }
 ```
 
-===== `library`
+===== #code-header(`library`)
 
 #iconed("W065")[
     #text(size: 1.3em)[_This API is subject to change._]\
@@ -706,7 +714,7 @@ Kvasir passes background and foreground colors of current theme.
 The result of this method will be obtained only one time,
 when first compilation is performed.
 
-===== `mainFile`
+===== #code-header(`mainFile`)
 
 #iconed("W075")[
     #text(size: 1.3em)[_This is not thread-safe._]\
@@ -718,14 +726,14 @@ per compilation, except for `evalDetached` calls (in which case --- 0 times).
 
 The result of this function better not change during the compilation.
 
-===== `file`
+===== #code-header(`file`)
 
 This function provides access to filesystem. The structure of file descriptors and errors is quite self-explanatory,
 and closely follows that of native compiler. `RResult` is a analog of Rust `Result`, with two options `Ok` and `Err`.
 
 Results of these functions are cached, you need to explicitly call #link(<reset>)[`.reset()`] on compiler.
 
-===== `now`
+===== #code-header(`now`)
 
 This functions establishes "current" time for document. The result of this function is obtained once,
 before the first compilation. It can be one of three:
@@ -734,10 +742,10 @@ before the first compilation. It can be one of three:
 - `WorldTime.Fixed(Instant)` . Sets time, provided by given Instant, as time for each document.
 - `null` . Calls for time from document will result in error.
 
-===== `autoManageCentral`
+===== #code-header(`autoManageCentral`)
 
 This value determines how native compiler should handle packages
-from #link("https://typst.app/universe/")[Typst Universe]
+from #link("https://typst.app/universe/")[Typst Universe #external]
 
 - When set to `true`, the native compiler will download packages with `preview` namespace and
     cache in user's folder as it does in CLI.
@@ -748,7 +756,7 @@ attempts to access those will be redirected to the `World` regardless.
 
 #pagebreak()
 
-==== `TypstSharedLibrary` <shared>
+==== #code-header(`TypstSharedLibrary`) <shared>
 
 This is an interface that provides access to the native compiler.
 In theory you could provide your own implementation, but it's extremely unsafe.
@@ -761,14 +769,14 @@ it was not tested.
 
 Most of the functions require World to function, but there are several you can use without one.
 
-===== `format`
+===== #code-header(`format`)
 ```ktsafe
 fun TypstSharedLibrary.format(string: String, column: Int, tab: Int): String
 ```
 
-Formats the given source using #link("https://github.com/Enter-tainer/typstyle")[Typstyle].
+Formats the given source using #link("https://github.com/Enter-tainer/typstyle")[Typstyle #external].
 
-===== `parseSource`
+===== #code-header(`parseSource`)
 
 ```ktsafe
 fun TypstSharedLibrary.parseSource(string: String, mode: SyntaxMode): FlattenedSyntaxTree
@@ -780,11 +788,11 @@ and returns flattened syntax tree. Flattened syntax tree is a list of indexed ma
 - Start of erroneous syntax node with given error message.
 - End of syntax node.
 
-===== `anyInstance`
+===== #code-header(`anyInstance`)
 
 Returns any of the created instances (expectedly the first created), or throws NoSuchElementException, if there are none.
 
-===== `evict_cache`
+===== #code-header(`evict_cache`)
 
 As native compiler uses memoization, there could appear memory "leaks". For example, evaluating
 
@@ -799,7 +807,7 @@ fun main() {
 
 causes 4.2Gb of cache to be allocated. That means, that when writing heavy applications with compilation
 of differrent documents, you should call `evict_cache` from time to time. This function redirects call straight to
-#link("https://docs.rs/comemo/latest/comemo/fn.evict.html")[`comemo::evict`].
+#link("https://docs.rs/comemo/latest/comemo/fn.evict.html")[`comemo::evict` #external].
 
 #pagebreak()
 
@@ -863,6 +871,7 @@ val compiler = WorldBasedTypstCompiler(
 
 compiler.compileSvg()
 ```
+\ 
 
 ```kt
 //!saturn:render
