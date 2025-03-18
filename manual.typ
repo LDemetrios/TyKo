@@ -480,9 +480,9 @@ Also, several type that don't have explicit constructor in Typst, have in TyKo:
         columns: 3,
         stroke: text.fill,
         [*TyKo type*], [*What is it*], [*Example*],
-        `TMathAlignPoint`, [Align point in equations], `$ 1 & 2 \ 3 & 4 $`,
-        `TContext`, [Contextual expression], `#context text.fill`,
-        `TSequence`, [Markup block, more or less], `Just _formatted_ text`,
+        `TMathAlignPoint`, [Align point in equations], ```typ $ 1 & 2 \ 3 & 4 $```,
+        `TContext`, [Contextual expression], ```typ #context text.fill```,
+        `TSequence`, [Markup block, more or less], ```typ Just _formatted_ text```,
         [`TStyled` (deprecated)],
         [Represents `set` and `show` rules application],
         ```typ
@@ -568,7 +568,7 @@ TStyled(
 )
 ```
 
-Besides, in TyKo every `style` is just a content, and may be inserted into the sequence.
+Besides, in TyKo every `style` is just a content, and can be inserted into the sequence.
 It then spans until the end of `TSequence`:
 
 ```kt
