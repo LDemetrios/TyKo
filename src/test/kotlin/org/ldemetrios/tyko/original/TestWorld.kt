@@ -85,10 +85,7 @@ class TestWorld(var currentMain: String) : World {
                 if (overriden?.first == file.path) return RResult.Ok(overriden!!.second.toByteArray())
                 val local = localFiles[file.path]
                 when {
-                    local != null -> RResult.Ok(
-                        (
-                                local).toByteArray()
-                    )
+                    local != null -> RResult.Ok(local.toByteArray())
 
                     else -> {
                         val bytes = TestWorld::class.java.classLoader.getResource(file.path.drop(1))?.readBytes()
@@ -99,7 +96,7 @@ class TestWorld(var currentMain: String) : World {
                 }
             }
 
-            "test" -> testPackage(file.pack, file.path)
+            "test" -> testPackage(file.pack!!, file.path)
             else -> TODO()
         }
     }

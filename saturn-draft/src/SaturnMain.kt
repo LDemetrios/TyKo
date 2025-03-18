@@ -1,7 +1,6 @@
 package org.ldemetrios.saturnDraft
 
 import org.ldemetrios.tyko.compiler.*
-import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.model.*
 import org.ldemetrios.tyko.model.t
 import java.io.File
@@ -21,7 +20,7 @@ val clazz = Class.forName("org.ldemetrios.saturnDraft.ExportKt")
 fun main(vararg args: String) {
     val delay = args.getOrNull(0)?.toLong() ?: 2000L
     val world = ResettableFSWorld(Path("."), "/main.typ")
-    val compiler = WorldBasedTypstCompiler(TypstSharedLibrary.instance(Path("../libtypst_shared.so")), world)
+    val compiler = WorldBasedTypstCompiler(sharedLib, world)
 
     var loaded = clazz
         .declaredMethods
@@ -99,7 +98,7 @@ fun main(vararg args: String) {
                     continue
                 }
 
-                File("saturn-output/$idx.typ").run {
+                File("saturn-output/$idx.typc").run {
                     parentFile.mkdirs()
                     writeText(result)
                 }

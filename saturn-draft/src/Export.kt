@@ -1,11 +1,13 @@
 package org.ldemetrios.saturnDraft
 
+import org.ldemetrios.tyko.ffi.TypstSharedLibrary
 import org.ldemetrios.tyko.model.*
 import org.ldemetrios.tyko.model.TDictionary
 import org.ldemetrios.tyko.model.deg
 import org.ldemetrios.tyko.model.t
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
+import kotlin.io.path.Path
 import kotlin.script.experimental.api.ResultValue
 import kotlin.script.experimental.api.ScriptCompilationConfiguration
 import kotlin.script.experimental.api.ScriptEvaluationConfiguration
@@ -21,11 +23,16 @@ import kotlin.script.experimental.jvmhost.BasicJvmScriptingHost
 @Target(AnnotationTarget.FUNCTION)
 annotation class SaturnExport
 
+val SHARED_LIBRARY_PATH = "/home/ldemetrios/Workspace/TypstNKotlinInterop/libtypst_shared.so"
+
+val sharedLib = TypstSharedLibrary.instance(Path(SHARED_LIBRARY_PATH))
+
 @SaturnExport
-fun eval_kt(code: TStr): TDictionary<*> {
+fun eval_kt(mode: TStr, code: TStr): TDictionary<*> {
     val out = System.out
     val err = System.err
-    val imports = code.strValue.lines().takeWhile { it.startsWith("import") }
+    val stripped = code.strValue.lines().dropWhile { it.startsWith("//!") }
+    val imports = stripped.takeWhile { it.startsWith("import") }
 
     val script = """
         import java.io.*
@@ -33,17 +40,22 @@ fun eval_kt(code: TStr): TDictionary<*> {
         import org.ldemetrios.tyko.ffi.TypstSharedLibrary
         import org.ldemetrios.tyko.model.*
         import org.ldemetrios.tyko.operations.*
+        import kotlin.io.path.Path
+        import org.ldemetrios.saturnDraft.sharedLib
+        import org.ldemetrios.saturnDraft.*
         ${imports.joinToString("\n")}
 
         val __OUT_INTERCEPTER = ByteArrayOutputStream()
         val __ERR_INTERCEPTER = ByteArrayOutputStream()
         System.setOut(PrintStream(__OUT_INTERCEPTER))
         System.setErr(PrintStream(__ERR_INTERCEPTER))
-
+        
+        
+        
         try {
             val result = run {
 
-                ${code.strValue.lines().drop(imports.size).joinToString("\n")}
+                ${stripped.drop(imports.size).joinToString("\n")}
 
             }
             1 to Triple(result, __OUT_INTERCEPTER.toByteArray(), __ERR_INTERCEPTER.toByteArray())
