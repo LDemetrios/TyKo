@@ -32,7 +32,7 @@ fun main(vararg args: String) {
             if (!public) println("${it.toString().eliminateFullNames()}, marked as @SaturnExport, is not public and therefore can't be accessed")
             val anyDynamic = it.parameterTypes.any { TDynamic::class.java.isAssignableFrom(it) }
             if (anyDynamic) println("${it.toString().eliminateFullNames()}, marked as @SaturnExport, contains dynamic argument types and therefore can't be invoked")
-            static && public
+            static && public && !anyDynamic
         }
         .groupBy { it.name }
         .filter { (k, v) ->

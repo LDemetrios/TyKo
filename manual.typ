@@ -58,16 +58,16 @@
 }
 
 #show raw.where(lang: "kt"): it => context {
-    let shebang = it.text.split("\n").at(0)
+    let bang = it.text.split("\n").at(0)
 
-    let cont = if shebang.len() > 10 and shebang.slice(0, 10) == "//!saturn:" {
+    let cont = if bang.len() > 10 and bang.slice(0, 10) == "//!saturn:" {
         let lines = it.text.split("\n")
         let code = lines.slice(1, lines.len()).join("\n").trim()
         text(
             size: 1.25em,
-            box(listing(raw(code, lang: "kt"))),
+            listing(raw(code, lang: "kt")),
         )
-        let mode = shebang.slice(10, shebang.len())
+        let mode = bang.slice(10, bang.len())
         invoke(
             "eval_kt",
             mode,
@@ -99,8 +99,7 @@
         // Do nothing?
         it
     }
-
-    box(inset: (left: 1em), cont)
+    box(cont)
 }
 
 #let infty = math.oo
@@ -141,6 +140,7 @@
     #show raw.where(block: true): set par(justify: false)
 
     #show raw.where(block: false): box
+    #show raw.where(block: true): box.with(inset: 1em)
 
     #body
 ]
@@ -811,7 +811,7 @@ of differrent documents, you should call `evict_cache` from time to time. This f
 
 #pagebreak()
 
-==== Typst Compiler
+==== Typst Compiler <compiler>
 
 There are several functions available.
 
@@ -871,7 +871,7 @@ val compiler = WorldBasedTypstCompiler(
 
 compiler.compileSvg()
 ```
-\ 
+\
 
 ```kt
 //!saturn:render
@@ -1012,9 +1012,6 @@ println(compiler.force(lorem(15.t)).repr())
 It, however, *_does not_* expand (apply) `set` and `show` rules. That's what _realization_ is for,
 and it is not supported here yet.
 
-#context [#metadata(cnt.get())<saturn-import-num>]
-<compiler>
-
 
 #pagebreak()
 
@@ -1022,4 +1019,49 @@ and it is not supported here yet.
 
 === Did you mean "recursion"?
 
-This entire documentation is created with the help of TyKo. TODO...
+This entire documentation is created with the help of TyKo.
+
+This documents contains metadata inserts:
+
+#listing(
+```typ
+#let ignore-results = sys.inputs.at("saturn-run", default: false)
+
+#let cnt = state("saturn", 0)
+
+#let invoke(func, ..args, handler) = context {
+    [#metadata((func, args))#label("saturn-import-" + str(cnt.get()))]
+    if (ignore-results) [] else {
+        handler(read("saturn-output/" + str(cnt.get()) + ".typc"))
+    }
+    cnt.update(it => it + 1)
+}
+
+...
+
+#context [#metadata(cnt.get())<saturn-import-num>]
+```
+)
+
+Runner then queries that metadata by labels, evaluates function calls, and writes results into files nearby. For example, let's take a look...
+
+#show raw.where(lang: "typ"): it => box({
+    set text(size: 1.25em)
+    listing(it)
+    eval(it.text, mode: "markup")
+})
+
+```typ
+#context query(<saturn-import-0>)
+```
+
+This just ensures that runner is working correctly:
+
+```typ
+#read("saturn-output/0.typc")
+```
+
+And a simple `show` rule transforms `kt` raw inserts into compiler calls...
+
+#pagebreak()
+
