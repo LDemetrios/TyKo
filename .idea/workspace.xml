@@ -4,43 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Document `model` package">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/TyKoMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/ops/Misc.kt" afterDir="false" />
+    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="* Update doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.typ" beforeDir="false" afterPath="$PROJECT_DIR$/main.typ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-draft/src/Export.kt" beforeDir="false" afterPath="$PROJECT_DIR$/saturn-draft/src/Export.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-draft/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/saturn-draft/src/SaturnMain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/0.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/1.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/10.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/11.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/12.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/13.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/2.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/3.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/4.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/5.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/6.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/7.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/8.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saturn-output/9.typ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/Diagnostics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/Diagnostics.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/World.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/World.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/WorldImpls.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/compiler/WorldImpls.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/FfiWorld.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/FfiWorld.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/SharedLibrary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/SharedLibrary.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/TyKoFFIEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/ffi/TyKoFFIEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Builders.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Conversions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/DelayedExecution.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Invocation.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Misc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/manual/Misc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Selectors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations/Selectors.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/original/TestWorld.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko/original/TestWorld.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compile-saturn.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manual.typ" beforeDir="false" afterPath="$PROJECT_DIR$/manual.typ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.typ" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742069289104</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="* Update doc">
+      <option name="closed" value="true" />
+      <created>1742336360881</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1742336360881</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,7 +386,8 @@
     <MESSAGE value="* Fix memory leaks in ThickBytePtr&#10;* Update testing&#10;&lt; Merge changes from Kvasir development&#10;* Rename Gradient properly&#10;* Draft documentation" />
     <MESSAGE value="- Companion issues" />
     <MESSAGE value="+ Document `model` package" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Document `model` package" />
+    <MESSAGE value="* Update doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Update doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

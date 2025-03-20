@@ -129,7 +129,7 @@
 #let styling = body => [
     #let sizes = (0, 2, 1.7, 1.8, 1.4, 1.4)
     #show heading: it => {
-        set align(if (it.level < 5) { center } else { left })
+        set align(if (it.level < 4) { center } else { left })
         set text(sizes.at(it.level, default: 1) * 1.2em)
         smallcaps(it)
     }
@@ -156,7 +156,14 @@
 
 #let code-header(it) = text(it.text, fill: rgb("#75F5E0").darken(50%))
 
-= TyKo
+#{
+    set text(3.5em)
+    set align(center)
+    show: smallcaps
+    [*TyKo*]
+}
+
+= Introduction
 
 TyKo /taɪko/ is project aiming to achieve interoperability between Typst and JVM languages (primary Kotlin, but theoretically all of them). There are several parts, at different stages of development:
 
@@ -193,13 +200,13 @@ TyKo /taɪko/ is project aiming to achieve interoperability between Typst and JV
 
 #pagebreak()
 
-== Contents
+= Contents
 
 #outline(title: none)
 
 #pagebreak()
 
-== Library structure
+= Library structure
 
 
 Library consists of three packages: \ \
@@ -216,7 +223,7 @@ This is, obviously, for accessing Typst compiler, and all the related things (Wo
 
 #pagebreak()
 
-=== Model
+== Model
 
 Typst has dynamic typing, therefore reflecting it in statically typed JVM is quite tricky. Because of that, there are few simplifications. The library defines several types alongside ones defined in Typst docs:
 
@@ -268,7 +275,7 @@ Typst has dynamic typing, therefore reflecting it in statically typed JVM is qui
 
 #pagebreak()
 
-==== #code-header(`TValue`)
+=== #code-header(`TValue`)
 
 `TValue` is the common interface for all Typst values. It has only two methods:
 
@@ -284,7 +291,7 @@ Returns the `type` of the value.
 
 Most of its inheritants are generated automatically, based on the information from the official documentation. There are, however, some types with specific behaviour.
 
-===== #code-header(`TBool`), #code-header(`TInt`), #code-header(`TFloat`), #code-header(`TStr`), #code-header(`TArray`), #code-header(`TDictionary`), #code-header(`TBytes`)
+==== #code-header(`TBool`), #code-header(`TInt`), #code-header(`TFloat`), #code-header(`TStr`), #code-header(`TArray`), #code-header(`TDictionary`), #code-header(`TBytes`)
 
 These are the types, analogs of which exist in Kotlin. They can be instantiated with `<value>.t`, where `<value>` is respectively:
 
@@ -324,7 +331,7 @@ println(x.repr())
 println(y.repr())
 ```
 
-===== #code-header(`TAlignment`)
+==== #code-header(`TAlignment`)
 
 This is a representation of `alignment`. There are, also, specific types for horizontal and vertical alignment (`THAlignment` and `TVAlignment`), which are inheritants of the `TAlignment`. Addition is defined:
 
@@ -333,7 +340,7 @@ val align = THAlignment.Center + TVAlignment.Horizon
 println(align.repr())
 ```
 
-===== Numeric types (#code-header(`TRatio`), #code-header(`TFraction`), #code-header(`TLength`), #code-header(`TRelative`), #code-header(`TAngle`))
+==== Numeric types (#code-header(`TRatio`), #code-header(`TFraction`), #code-header(`TLength`), #code-header(`TRelative`), #code-header(`TAngle`))
 
 They can be created with the same postfixes, as in Typst, but simulated via extension values.
 All of them contain ```typc float``` inside, therefore, can be created from any Kotlin or Typst
@@ -365,7 +372,7 @@ println((1.em + 1.pt + 1.pc).repr())
 More operations will be added later.
 
 
-===== Colors
+==== Colors
 
 #context {
     set align(center)
@@ -394,7 +401,7 @@ import java.awt.Color
 println(Color.WHITE.t.repr())
 ```
 
-===== Functions
+==== Functions
 
 For specific tools developers' convinience, hierarchy of functions follows Typst's internals:
 
@@ -449,7 +456,7 @@ As you can see, no actual computation happened. `operator ()` returns an instanc
 #link(<dynamic>)[`TDelayedExecution`], execution of which can be #link(<force>)[`force`]d with appropriate compiler.
 The reason is, there can be different libraries, and execution of functions can require context.
 
-===== Content
+==== Content
 
 In addition, it has function ```ktsafe fun TContent.element() : TElement```.
 
@@ -535,7 +542,7 @@ TSequence {
 }
 ```
 
-===== Styles (#code-header(`set`) and #code-header(`show`))
+==== Styles (#code-header(`set`) and #code-header(`show`))
 
 For each `element` class, if it has any settable parameters,
 there exists corresponding `set element` class. The all extend `TSetRule`,
@@ -588,7 +595,7 @@ TSequence {
 }
 ```
 
-===== #code-header(`TDynamic`), delayed execution <dynamic>
+==== #code-header(`TDynamic`), delayed execution <dynamic>
 
 `TDynamic` is the type that represents a value of yet unknown type. It is the subtype of _*all*_ the TyKo types, except for `TPoint` and `TLocation` (those are excluded due to generic variance problems). Therefore, typechecking can be postponed (usually, until the value is `repr`ed and sent to the Typst compiler).
 
@@ -604,7 +611,7 @@ println(lorem(15.t).strValue)
 
 You can #link(<force>)[force] execution of a dynamic value, or, as other values can contain dynamic ones as their fields, you can force execution of any value, when you have #link(<compiler>)[Typst Compiler] instance.
 
-===== TSelector <selector>
+==== TSelector <selector>
 
 These are regular Typst `selector`s. They can be used for #link(<query>)[querying] Typst documents. For your convinience, `TRegex`, `TLabel` and `TElement` are subtypes of `TSelector`. And there are few functions, reflecting operations on selectors in Typst:
 
@@ -623,7 +630,7 @@ More on selectors can be found in the chapter about queries.
 
 #pagebreak()
 
-=== Compiler
+== Compiler
 
 #import "@preview/typsium-iso-7010:0.1.0": iso-7010
 
@@ -669,7 +676,7 @@ compilation and querying.
 
 #pagebreak()
 
-==== World
+=== World
 
 #iconed("W043")[
     #text(size: 1.3em)[_This API is subject to change._]\
@@ -688,7 +695,7 @@ interface World {
 }
 ```
 
-===== #code-header(`library`)
+==== #code-header(`library`)
 
 #iconed("W065")[
     #text(size: 1.3em)[_This API is subject to change._]\
@@ -714,7 +721,7 @@ Kvasir passes background and foreground colors of current theme.
 The result of this method will be obtained only one time,
 when first compilation is performed.
 
-===== #code-header(`mainFile`)
+==== #code-header(`mainFile`)
 
 #iconed("W075")[
     #text(size: 1.3em)[_This is not thread-safe._]\
@@ -726,14 +733,14 @@ per compilation, except for `evalDetached` calls (in which case --- 0 times).
 
 The result of this function better not change during the compilation.
 
-===== #code-header(`file`)
+==== #code-header(`file`)
 
 This function provides access to filesystem. The structure of file descriptors and errors is quite self-explanatory,
 and closely follows that of native compiler. `RResult` is a analog of Rust `Result`, with two options `Ok` and `Err`.
 
 Results of these functions are cached, you need to explicitly call #link(<reset>)[`.reset()`] on compiler.
 
-===== #code-header(`now`)
+==== #code-header(`now`)
 
 This functions establishes "current" time for document. The result of this function is obtained once,
 before the first compilation. It can be one of three:
@@ -742,7 +749,7 @@ before the first compilation. It can be one of three:
 - `WorldTime.Fixed(Instant)` . Sets time, provided by given Instant, as time for each document.
 - `null` . Calls for time from document will result in error.
 
-===== #code-header(`autoManageCentral`)
+==== #code-header(`autoManageCentral`)
 
 This value determines how native compiler should handle packages
 from #link("https://typst.app/universe/")[Typst Universe #external]
@@ -756,7 +763,7 @@ attempts to access those will be redirected to the `World` regardless.
 
 #pagebreak()
 
-==== #code-header(`TypstSharedLibrary`) <shared>
+=== #code-header(`TypstSharedLibrary`) <shared>
 
 This is an interface that provides access to the native compiler.
 In theory you could provide your own implementation, but it's extremely unsafe.
@@ -769,14 +776,14 @@ it was not tested.
 
 Most of the functions require World to function, but there are several you can use without one.
 
-===== #code-header(`format`)
+==== #code-header(`format`)
 ```ktsafe
 fun TypstSharedLibrary.format(string: String, column: Int, tab: Int): String
 ```
 
 Formats the given source using #link("https://github.com/Enter-tainer/typstyle")[Typstyle #external].
 
-===== #code-header(`parseSource`)
+==== #code-header(`parseSource`)
 
 ```ktsafe
 fun TypstSharedLibrary.parseSource(string: String, mode: SyntaxMode): FlattenedSyntaxTree
@@ -788,11 +795,11 @@ and returns flattened syntax tree. Flattened syntax tree is a list of indexed ma
 - Start of erroneous syntax node with given error message.
 - End of syntax node.
 
-===== #code-header(`anyInstance`)
+==== #code-header(`anyInstance`)
 
 Returns any of the created instances (expectedly the first created), or throws NoSuchElementException, if there are none.
 
-===== #code-header(`evict_cache`)
+==== #code-header(`evict_cache`)
 
 As native compiler uses memoization, there could appear memory "leaks". For example, evaluating
 
@@ -811,11 +818,11 @@ of differrent documents, you should call `evict_cache` from time to time. This f
 
 #pagebreak()
 
-==== Typst Compiler <compiler>
+=== Typst Compiler <compiler>
 
 There are several functions available.
 
-===== Complile "raw"
+==== Complile "raw"
 
 #iconed("W039")[
     #text(size: 1.3em)[_This API is subject to change._]\
@@ -839,7 +846,7 @@ Indices are byte indices, not character indices! Those are the same only when yo
 
 PDF compilation is not yet available.
 
-===== Compile
+==== Compile
 
 ```ktsafe
 fun TypstCompiler.compileHtml(): String
@@ -901,7 +908,7 @@ val compiler = WorldBasedTypstCompiler(
 TRaw(compiler.compileHtml().t, lang = "html".t)
 ```
 
-===== Query <query>
+==== Query <query>
 
 ```ktsafe
 fun TypstCompiler.queryRaw(selector: String, format: SerialFormat):
@@ -956,7 +963,7 @@ TSequence(TArray(
 ))
 ````
 
-===== Eval detached
+==== Eval detached
 
 #iconed("W002")[
     #text(size: 1.3em)[_This API is subject to change._]\
@@ -973,7 +980,7 @@ fun TypstCompiler.evalDetached(source: String): TValue
 `evalDetached` just evaluates an expression. Note that it treats an expression as in code mode,
 not markup mode. Warnings are not issued here.
 
-===== Reset <reset>
+==== Reset <reset>
 
 
 #iconed("W035")[
@@ -988,7 +995,7 @@ fun TypstCompiler.reset()
 This function clears the file cache inside the compiler.
 
 
-===== Force <force>
+==== Force <force>
 
 ```kt
 fun TypstCompiler.force(value: TValue): TValue {
@@ -1015,16 +1022,15 @@ and it is not supported here yet.
 
 #pagebreak()
 
-== Examples & applications
+= Examples & applications
 
-=== Did you mean "recursion"?
+== Did you mean "recursion"?
 
 This entire documentation is created with the help of TyKo.
 
 This documents contains metadata inserts:
 
-#listing(
-```typ
+#listing(```typ
 #let ignore-results = sys.inputs.at("saturn-run", default: false)
 
 #let cnt = state("saturn", 0)
@@ -1040,11 +1046,11 @@ This documents contains metadata inserts:
 ...
 
 #context [#metadata(cnt.get())<saturn-import-num>]
-```
-)
+```)
 
 Runner then queries that metadata by labels, evaluates function calls, and writes results into files nearby. For example, let's take a look...
 
+#[
 #show raw.where(lang: "typ"): it => box({
     set text(size: 1.25em)
     listing(it)
@@ -1063,5 +1069,129 @@ This just ensures that runner is working correctly:
 
 And a simple `show` rule transforms `kt` raw inserts into compiler calls...
 
+I could insert the code of the runner here, and make it evaluate itself,
+but I'm just to lazy to think through layers of recursion.
+]
+
 #pagebreak()
 
+== Website
+
+Typst can compile to HMTL now, right? Let's use it!
+
+Here's a simple server using Ktor. First, we'll need a `World`
+
+```kt
+const val PARAMS_PATH = "${File.separator}__query-parameters.typc"
+
+class RealWorld(val root: Path) : World {
+    lateinit var main: Path
+    lateinit var params: Map<String, List<String>>
+
+    override fun file(file: FileDescriptor): RResult<ByteArray, FileError> =
+        when (file.pack?.namespace) {
+            null -> {
+                val f = root.resolve(Path(file.path.drop(1)))
+
+                when {
+                    file.path == PARAMS_PATH -> RResult.Ok(
+                        TDictionary(
+                            params.mapValues { TArray(it.value.map(String::t)) }
+                        ).repr().toByteArray()
+                    )
+
+                    !f.exists() -> RResult.Err(FileError.NotFound(file.path))
+
+                    f.isDirectory() -> RResult.Err(FileError.IsDirectory)
+
+                    else -> try {
+                        RResult.Ok(f.toFile().readBytes())
+                    } catch (e: IOException) {
+                        RResult.Err(FileError.Other(e.message))
+                    }
+                }
+            }
+
+            else -> RResult.Err(FileError.Package(PackageError.Other(
+                "Custom namespace package are not allowed here"
+            )))
+        }
+
+    override fun library(): StdlibProvider = object : StdlibProvider.Standard {
+        override val inputs: TDictionary<TValue> = TDictionary("ktor" to true.t)
+
+        override val features: List<Feature> = listOf(Feature.Html)
+    }
+
+    override fun mainFile(): FileDescriptor =
+        FileDescriptor(null, main.toString())
+
+    override fun now(): WorldTime? = WorldTime.System
+
+    override val autoManageCentral: Boolean = true
+}
+```
+
+Several things are going on here. First of all, for now `inputs` should be
+established upon `World` creation. That's why we will pass parameters through a fictional file.
+Second, `main` file is not pinned here, but should remain the same during compilation.
+For later use, I will simplify that, but in real cases a `ThreadLocal` should be created there.
+Hopefully, it will be fixed in little time.
+
+Now, we start a server:
+
+```kt
+fun main() {
+    val sharedLib = TypstSharedLibrary.instance(Path(SHARED_LIBRARY_PATH))
+    val world = RealWorld(Path("/home/ldemetrios/Workspace/KtorPlay"))
+    val compiler = WorldBasedTypstCompiler(sharedLib, world)
+
+    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+        routing {
+            get("/{path...}") {
+                try {
+                    val path = call.parameters.getAll("path")
+                        ?.joinToString(File.separator) ?: ""
+
+                    compiler.reset()
+                    world.main = Path(path)
+                    world.params = call.request.queryParameters.toMap()
+                    val result = compiler.compileHtml()
+                    call.respond(
+                        TextContent(
+                            result,
+                            ContentType.Text.Html.withCharset(Charsets.UTF_8),
+                            HttpStatusCode.OK
+                        )
+                    )
+                } catch (e: Throwable) {
+                    call.respondText(e.stackTraceToString())
+                }
+            }
+        }
+    }.start(wait = true)
+}
+```
+
+Nothing special. Just simple Ktor server.
+
+Now only Typst files remain to write.
+
+```typ
+#let params = if sys.inputs.at("ktor", default: false) {
+    eval(read("/__query-parameters.typc"))
+} else { (:) }
+
+Hello, #params.at("name", default:("World",)).at(0)!
+```
+
+Here, we see if it's an application running us (`ktor` is set to `true`), or just a preview in editor.
+If it's the former, we read query parameters. Each parameter is an `array` of `str`, usually of size `1`.
+
+Now we query our newly created "website":
+
+#block[
+    127.0.0.1:8080/main.typ
+
+
+]
