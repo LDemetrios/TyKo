@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="* Update doc">
+    <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compile-saturn.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/manual.typ" beforeDir="false" afterPath="$PROJECT_DIR$/manual.typ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.typ" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +113,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ldemetrios/Workspace/TypstNKotlinInterop/Kvasir/build/distributions/Kvasir-0.3.0-signed.zip&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ldemetrios/Workspace/chm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Typst&quot;
   }
 }</component>
@@ -138,7 +134,31 @@
       <recent name="org.ldemetrios.tyko.ffi" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.SaturnMainKt">
+  <component name="RunManager" selected="Kotlin.UtilsKt">
+    <configuration name="Testing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.ldemetrios.tyko.original.Testing&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="FormattingKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.manual.FormattingKt" />
       <module name="tyko.test" />
@@ -175,9 +195,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Kotlin.TyKoMainKt" />
+      <item itemvalue="Gradle.Testing" />
       <item itemvalue="Kotlin.FormattingKt (1)" />
       <item itemvalue="Kotlin.SaturnMainKt" />
+      <item itemvalue="Kotlin.TyKoMainKt" />
       <item itemvalue="Kotlin.UtilsKt" />
       <item itemvalue="Kotlin.Z_MainKt" />
     </list>
@@ -344,15 +365,7 @@
       <option name="project" value="LOCAL" />
       <updated>1742069289104</updated>
     </task>
-    <task id="LOCAL-00019" summary="* Update doc">
-      <option name="closed" value="true" />
-      <created>1742336360881</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1742336360881</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,8 +399,7 @@
     <MESSAGE value="* Fix memory leaks in ThickBytePtr&#10;* Update testing&#10;&lt; Merge changes from Kvasir development&#10;* Rename Gradient properly&#10;* Draft documentation" />
     <MESSAGE value="- Companion issues" />
     <MESSAGE value="+ Document `model` package" />
-    <MESSAGE value="* Update doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Update doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Document `model` package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

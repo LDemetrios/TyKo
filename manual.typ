@@ -1051,26 +1051,26 @@ This documents contains metadata inserts:
 Runner then queries that metadata by labels, evaluates function calls, and writes results into files nearby. For example, let's take a look...
 
 #[
-#show raw.where(lang: "typ"): it => box({
-    set text(size: 1.25em)
-    listing(it)
-    eval(it.text, mode: "markup")
-})
+    #show raw.where(lang: "typ"): it => box({
+        set text(size: 1.25em)
+        listing(it)
+        eval(it.text, mode: "markup")
+    })
 
-```typ
-#context query(<saturn-import-0>)
-```
+    ```typ
+    #context query(<saturn-import-0>)
+    ```
 
-This just ensures that runner is working correctly:
+    This just ensures that runner is working correctly:
 
-```typ
-#read("saturn-output/0.typc")
-```
+    ```typ
+    #read("saturn-output/0.typc")
+    ```
 
-And a simple `show` rule transforms `kt` raw inserts into compiler calls...
+    And a simple `show` rule transforms `kt` raw inserts into compiler calls...
 
-I could insert the code of the runner here, and make it evaluate itself,
-but I'm just to lazy to think through layers of recursion.
+    I could insert the code of the runner here, and make it evaluate itself,
+    but I'm just to lazy to think through layers of recursion.
 ]
 
 #pagebreak()
@@ -1082,16 +1082,18 @@ Typst can compile to HMTL now, right? Let's use it!
 Here's a simple server using Ktor. First, we'll need a `World`
 
 ```kt
-const val PARAMS_PATH = "${File.separator}__query-parameters.typc"
+val PARAMS_PATH = "${File.separator}__query-parameters.typc"
 
-class RealWorld(val root: Path) : World {
+class RealWorld() : World {
     lateinit var main: Path
     lateinit var params: Map<String, List<String>>
 
     override fun file(file: FileDescriptor): RResult<ByteArray, FileError> =
         when (file.pack?.namespace) {
             null -> {
-                val f = root.resolve(Path(file.path.drop(1)))
+                val f = RealWorld::class.java.classLoader.getResource(
+                    file.path.drop(1).replace(File.separator, "/")
+                )
 
                 when {
                     file.path == PARAMS_PATH -> RResult.Ok(
@@ -1100,22 +1102,20 @@ class RealWorld(val root: Path) : World {
                         ).repr().toByteArray()
                     )
 
-                    !f.exists() -> RResult.Err(FileError.NotFound(file.path))
-
-                    f.isDirectory() -> RResult.Err(FileError.IsDirectory)
+                    f == null -> RResult.Err(FileError.NotFound(file.path))
 
                     else -> try {
-                        RResult.Ok(f.toFile().readBytes())
+                        RResult.Ok(f.readBytes())
                     } catch (e: IOException) {
                         RResult.Err(FileError.Other(e.message))
                     }
                 }
             }
 
-            else -> RResult.Err(FileError.Package(PackageError.Other(
-                "Custom namespace package are not allowed here"
-            )))
-        }
+        else -> RResult.Err(FileError.Package(PackageError.Other(
+            "Custom namespace package are not allowed here"
+        )))
+    }
 
     override fun library(): StdlibProvider = object : StdlibProvider.Standard {
         override val inputs: TDictionary<TValue> = TDictionary("ktor" to true.t)
@@ -1175,7 +1175,7 @@ fun main() {
 
 Nothing special. Just simple Ktor server.
 
-Now only Typst files remain to write.
+Now only Typst files remain.
 
 ```typ
 #let params = if sys.inputs.at("ktor", default: false) {
@@ -1188,10 +1188,36 @@ Hello, #params.at("name", default:("World",)).at(0)!
 Here, we see if it's an application running us (`ktor` is set to `true`), or just a preview in editor.
 If it's the former, we read query parameters. Each parameter is an `array` of `str`, usually of size `1`.
 
-Now we query our newly created "website":
+#block(breakable: false)[
+    Now we query our newly created "website":
 
-#block[
-    127.0.0.1:8080/main.typ
+    http://127.0.0.1:8080/main.typ
+    ```html
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        </head>
+        <body>
+            <p>Hello, World!</p>
+        </body>
+    </html>
+    ```
+]
 
-
+#block(breakable: false)[
+    http://127.0.0.1:8080/main.typ?name=Dmitry
+    ```html
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        </head>
+        <body>
+            <p>Hello, Dmitry!</p>
+        </body>
+    </html>
+    ```
 ]
