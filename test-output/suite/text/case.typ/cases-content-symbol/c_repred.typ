@@ -5,12 +5,17 @@
     set page(height: auto)
     set page(margin: 10.0pt)
     set text(size: 10.0pt)
-    set page(margin: ("bottom": 20.0pt))
-    set page(numbering: "1")
     [a\ ].func()((
+      [ ],
       {
-        set text(fill: rgb("#ff4136"))
-        text("Red")
+        show text: lower
+        [a\ ].func()((
+          symbol("H"),
+          [ ],
+          symbol("I"),
+          [ ],
+          symbol("!"),
+        ))
       },
       parbreak(),
     ))

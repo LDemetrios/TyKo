@@ -1,1 +1,19 @@
-#[a\ ].func()(([ ], { set page(width: 0.0em + 120.0pt); set page(height: auto); set page(margin: 0.0em + 10.0pt + 0.0%); set text(size: 0.0em + 10.0pt); [a\ ].func()(({ set text(fill: rgb("#ff4136")); set page(margin: ("bottom" : 0.0em + 20.0pt + 0.0%)); set page(numbering: "1"); set text(style: "italic"); text("Hello"); }, parbreak())); }))
+#[a\ ].func()((
+  [ ],
+  {
+    set page(width: 120.0pt)
+    set page(height: auto)
+    set page(margin: 10.0pt)
+    set text(size: 10.0pt)
+    [a\ ].func()((
+      {
+        set text(fill: rgb("#ff4136"))
+        set page(margin: ("bottom": 20.0pt))
+        set page(numbering: "1")
+        set text(style: "italic")
+        text("Hello")
+      },
+      parbreak(),
+    ))
+  },
+))

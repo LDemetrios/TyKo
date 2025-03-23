@@ -1,0 +1,164 @@
+{
+    "type" : "sequence",
+    "children" : [
+        { "type" : "space" },
+        {
+            "type" : "styled",
+            "child" : {
+                "type" : "sequence",
+                "children" : [
+                    {
+                        "type" : "text",
+                        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri."
+                    },
+                    { "type" : "parbreak" }
+                ]
+            },
+            "styles" : [
+                {
+                    "type" : "set-rule",
+                    "elem" : "page",
+                    "id" : "width",
+                    "id-int" : 0,
+                    "value" : {
+                        "type" : "length",
+                        "pt" : 120.0,
+                        "em" : 0.0
+                    }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "page",
+                    "id" : "height",
+                    "id-int" : 1,
+                    "value" : { "type" : "auto" }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "page",
+                    "id" : "margin",
+                    "id-int" : 3,
+                    "value" : {
+                        "type" : "relative",
+                        "rel" : {
+                            "type" : "ratio",
+                            "value" : 0.0
+                        },
+                        "abs" : {
+                            "type" : "length",
+                            "pt" : 10.0,
+                            "em" : 0.0
+                        }
+                    }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "text",
+                    "id" : "size",
+                    "id-int" : 5,
+                    "value" : {
+                        "type" : "length",
+                        "pt" : 10.0,
+                        "em" : 0.0
+                    }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "page",
+                    "id" : "width",
+                    "id-int" : 0,
+                    "value" : {
+                        "type" : "length",
+                        "pt" : 200.0,
+                        "em" : 0.0
+                    }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "page",
+                    "id" : "height",
+                    "id-int" : 1,
+                    "value" : { "type" : "auto" }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "page",
+                    "id" : "margin",
+                    "id-int" : 3,
+                    "value" : {
+                        "type" : "relative",
+                        "rel" : {
+                            "type" : "ratio",
+                            "value" : 0.0
+                        },
+                        "abs" : {
+                            "type" : "length",
+                            "pt" : 10.0,
+                            "em" : 0.0
+                        }
+                    }
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "par",
+                    "id" : "justify",
+                    "id-int" : 2,
+                    "value" : true
+                },
+                {
+                    "type" : "set-rule",
+                    "elem" : "text",
+                    "id" : "fill",
+                    "id-int" : 6,
+                    "value" : {
+                        "type" : "gradient",
+                        "func" : "conic",
+                        "angle" : {
+                            "type" : "angle",
+                            "deg" : 45.0
+                        },
+                        "center" : [
+                            {
+                                "type" : "ratio",
+                                "value" : 0.5
+                            },
+                            {
+                                "type" : "ratio",
+                                "value" : 0.5
+                            }
+                        ],
+                        "space" : {
+                            "type" : "native-func",
+                            "name" : "oklab"
+                        },
+                        "relative" : { "type" : "auto" },
+                        "stops" : [
+                            [
+                                {
+                                    "type" : "color",
+                                    "func" : "rgb",
+                                    "hex" : "#ff4136"
+                                },
+                                {
+                                    "type" : "ratio",
+                                    "value" : 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "type" : "color",
+                                    "func" : "rgb",
+                                    "hex" : "#0074d9"
+                                },
+                                {
+                                    "type" : "ratio",
+                                    "value" : 1.0
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
