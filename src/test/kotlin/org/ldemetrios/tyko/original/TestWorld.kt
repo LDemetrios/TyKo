@@ -106,7 +106,7 @@ class TestWorld(var currentMain: String) : World {
     override val autoManageCentral: Boolean = false
 }
 
-public const val SHARED_LIBRARY_PATH = "/home/ldemetrios/Workspace/TypstNKotlinInterop/libtypst_shared.so"
+public const val SHARED_LIBRARY_PATH = "/home/ldemetrios/Workspace/Tools/libtypst_shared.so"
 
 val sharedLib = TypstSharedLibrary.instance(Path(SHARED_LIBRARY_PATH))
 

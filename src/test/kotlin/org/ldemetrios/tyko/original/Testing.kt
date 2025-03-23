@@ -9,6 +9,7 @@ import org.ldemetrios.tyko.compiler.RResult.Ok
 import org.ldemetrios.tyko.compiler.TypstCompilerException
 import org.ldemetrios.tyko.compiler.compilePng
 import org.ldemetrios.tyko.compiler.compileSvg
+import org.ldemetrios.tyko.compiler.format
 import org.ldemetrios.tyko.model.TNativeFunc
 import org.ldemetrios.tyko.model.deserialize
 import org.ldemetrios.tyko.model.*
@@ -24,6 +25,16 @@ import kotlin.math.sqrt
 
 const val heavyLogTest = false
 const val runForDocumentation = false
+const val DIST_CLEARANCE = 2.0
+
+class Testing : FreeSpec({
+    runCases(this, tests, false, ::skip)
+})
+
+fun main() { // Kotest framework doesn't work well with segfaults and panics
+    runCases(null, tests, true, ::skip)
+}
+
 
 data class Case(val group: String, val name: String, val source: String, val action: () -> Unit)
 
@@ -101,18 +112,21 @@ val tests = mutableListOf<Case>().apply {
                         throw AssertionError("Reference: ${pngReference.size} pages, Recompiled: ${pngRecompiled.size} pages")
                     }
 
+                    if (pngReference.indices.all { pngReference[it].contentEquals(pngRecompiled[it]) }) return@Case
+
                     val unequal = mutableListOf<Int>()
 
                     for (page in pngReference.indices) {
-                        if (pngReference[page].contentEquals(pngRecompiled[page])) continue
+//                        if (pngReference[page].contentEquals(pngRecompiled[page])) continue
 
                         val reference = pngReference[page].toImage()
                         val newImage = pngRecompiled[page].toImage()
 
                         val (diff, maxDist) = diff(reference, newImage)
 
-                        if (maxDist <= 2.0 && !runForDocumentation) continue // Quite arbitrary, cuts off
-                        unequal.add(page)
+                        if (maxDist > DIST_CLEARANCE || runForDocumentation) {
+                            unequal.add(page)
+                        }
 
                         if (reference.width != newImage.width || reference.height != newImage.width) {
                             println("Reference: ${reference.width} x ${reference.height}; New: ${newImage.width} x ${newImage.height}")
@@ -133,7 +147,7 @@ val tests = mutableListOf<Case>().apply {
                 } catch (e: Throwable) {
                     write("test-output/$path/a_source.typ", source)
                     write("test-output/$path/b_queried.json", JSParser.parseValue(json).toString(4) + "\n")
-                    write("test-output/$path/c_repred.typ", "#$repr\n")
+                    write("test-output/$path/c_repred.typ", sharedLib.format("#$repr\n", 50, 2))
                     throw e
                 }
             }
@@ -212,13 +226,6 @@ fun skip(case: Case): Boolean {
     return skipGroup.any { case.name.endsWith(it) }
 }
 
-class Testing : FreeSpec({
-    runCases(this, tests, false, ::skip)
-})
-
-fun main() { // Kotest framework doesn't work well with segfaults and panics
-    runCases(null, tests, true, ::skip)
-}
 
 fun runCases(spec: FreeSpec?, cases: List<Case>, invert: Boolean, skipper: (Case) -> Boolean) {
     if (spec == null) {

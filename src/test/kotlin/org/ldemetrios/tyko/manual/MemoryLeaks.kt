@@ -12,5 +12,6 @@ fun main() {
         val lim = 20000000
     for (i in 0 until lim) {
         world.evalDetached("\"1 + 2\"")
+        sharedLib.evict_cache(1)
     }
 }

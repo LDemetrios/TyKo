@@ -15,7 +15,6 @@ import org.ldemetrios.tyko.model.TDictionary
 import org.ldemetrios.tyko.model.TValue
 import org.ldemetrios.tyko.original.sharedLib
 
-import kotlin.io.path.Path
 
 fun tryCompile(source: String, lib: String? = null) {
     try {
