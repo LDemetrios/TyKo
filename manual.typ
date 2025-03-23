@@ -1,6 +1,9 @@
-// #set text(fill: sys.inputs.at("kvasir-preview-foreground", default: black))
-// #set page(fill: sys.inputs.at("kvasir-preview-background", default: white))
+//#set text(fill: sys.inputs.at("kvasir-preview-foreground", default: black))
+//#set page(fill: sys.inputs.at("kvasir-preview-background", default: white))
+
 #set page(numbering: "1")
+#set page(margin: 70.87pt * 2 / 3)
+
 
 #let ignore-results = sys.inputs.at("saturn-run", default: false)
 
@@ -126,26 +129,20 @@
     it
 }
 
-#let styling = body => [
-    #let sizes = (0, 2, 1.7, 1.8, 1.4, 1.4)
-    #show heading: it => {
-        set align(if (it.level < 4) { center } else { left })
-        set text(sizes.at(it.level, default: 1) * 1.2em)
-        smallcaps(it)
-    }
+#let sizes = (0, 2, 1.7, 1.8, 1.4, 1.4)
+#show heading: it => {
+    set align(if (it.level < 4) { center } else { left })
+    set text(sizes.at(it.level, default: 1) * 1.2em)
+    smallcaps(it)
+}
 
-    #set outline(depth: 8, indent: 2em)
+#set outline(depth: 8, indent: 2em)
 
-    #set par(justify: true)
-    #show raw.where(block: true): set par(justify: false)
+#set par(justify: true)
+#show raw.where(block: true): set par(justify: false)
 
-    #show raw.where(block: false): box
-    #show raw.where(block: true): box.with(inset: 1em)
-
-    #body
-]
-
-#show: styling
+#show raw.where(block: false): box
+#show raw.where(block: true): box.with(inset: 1em)
 
 #show: checklist
 
@@ -154,7 +151,21 @@
     it
 }
 
-#let code-header(it) = text(it.text, fill: rgb("#75F5E0").darken(50%))
+#let code-header(it) = context text(
+    it.text,
+    fill: color.mix((rgb("#75F5E0"), 70%), (text.fill, 20%), space: color.cmyk),
+)
+
+#let def-style = state("def-style")
+#context def-style.update(text.font)
+
+#show selector(heading).or(outline): it => {
+    show raw: code => context {
+        set text(font: def-style.get(), size: 1.25em)
+        code-header(code)
+    }
+    it
+}
 
 #{
     set text(3.5em)
@@ -275,7 +286,7 @@ Typst has dynamic typing, therefore reflecting it in statically typed JVM is qui
 
 #pagebreak()
 
-=== #code-header(`TValue`)
+=== `TValue`
 
 `TValue` is the common interface for all Typst values. It has only two methods:
 
@@ -291,7 +302,7 @@ Returns the `type` of the value.
 
 Most of its inheritants are generated automatically, based on the information from the official documentation. There are, however, some types with specific behaviour.
 
-==== #code-header(`TBool`), #code-header(`TInt`), #code-header(`TFloat`), #code-header(`TStr`), #code-header(`TArray`), #code-header(`TDictionary`), #code-header(`TBytes`)
+==== `TBool`, `TInt`, `TFloat`, `TStr`, `TArray`, `TDictionary`, `TBytes`
 
 These are the types, analogs of which exist in Kotlin. They can be instantiated with `<value>.t`, where `<value>` is respectively:
 
@@ -331,7 +342,7 @@ println(x.repr())
 println(y.repr())
 ```
 
-==== #code-header(`TAlignment`)
+==== `TAlignment`
 
 This is a representation of `alignment`. There are, also, specific types for horizontal and vertical alignment (`THAlignment` and `TVAlignment`), which are inheritants of the `TAlignment`. Addition is defined:
 
@@ -340,7 +351,7 @@ val align = THAlignment.Center + TVAlignment.Horizon
 println(align.repr())
 ```
 
-==== Numeric types (#code-header(`TRatio`), #code-header(`TFraction`), #code-header(`TLength`), #code-header(`TRelative`), #code-header(`TAngle`))
+==== Numeric types (`TRatio`, `TFraction`, `TLength`, `TRelative`, `TAngle`)
 
 They can be created with the same postfixes, as in Typst, but simulated via extension values.
 All of them contain ```typc float``` inside, therefore, can be created from any Kotlin or Typst
@@ -542,7 +553,7 @@ TSequence {
 }
 ```
 
-==== Styles (#code-header(`set`) and #code-header(`show`))
+==== Styles (`set` and `show`)
 
 For each `element` class, if it has any settable parameters,
 there exists corresponding `set element` class. The all extend `TSetRule`,
@@ -595,7 +606,7 @@ TSequence {
 }
 ```
 
-==== #code-header(`TDynamic`), delayed execution <dynamic>
+==== `TDynamic`, delayed execution <dynamic>
 
 `TDynamic` is the type that represents a value of yet unknown type. It is the subtype of _*all*_ the TyKo types, except for `TPoint` and `TLocation` (those are excluded due to generic variance problems). Therefore, typechecking can be postponed (usually, until the value is `repr`ed and sent to the Typst compiler).
 
@@ -695,7 +706,7 @@ interface World {
 }
 ```
 
-==== #code-header(`library`)
+==== `library`
 
 #iconed("W065")[
     #text(size: 1.3em)[_This API is subject to change._]\
@@ -721,7 +732,7 @@ Kvasir passes background and foreground colors of current theme.
 The result of this method will be obtained only one time,
 when first compilation is performed.
 
-==== #code-header(`mainFile`)
+==== `mainFile`
 
 #iconed("W075")[
     #text(size: 1.3em)[_This is not thread-safe._]\
@@ -733,14 +744,14 @@ per compilation, except for `evalDetached` calls (in which case --- 0 times).
 
 The result of this function better not change during the compilation.
 
-==== #code-header(`file`)
+==== `file`
 
 This function provides access to filesystem. The structure of file descriptors and errors is quite self-explanatory,
 and closely follows that of native compiler. `RResult` is a analog of Rust `Result`, with two options `Ok` and `Err`.
 
 Results of these functions are cached, you need to explicitly call #link(<reset>)[`.reset()`] on compiler.
 
-==== #code-header(`now`)
+==== `now`
 
 This functions establishes "current" time for document. The result of this function is obtained once,
 before the first compilation. It can be one of three:
@@ -749,7 +760,7 @@ before the first compilation. It can be one of three:
 - `WorldTime.Fixed(Instant)` . Sets time, provided by given Instant, as time for each document.
 - `null` . Calls for time from document will result in error.
 
-==== #code-header(`autoManageCentral`)
+==== `autoManageCentral`
 
 This value determines how native compiler should handle packages
 from #link("https://typst.app/universe/")[Typst Universe #external]
@@ -763,7 +774,7 @@ attempts to access those will be redirected to the `World` regardless.
 
 #pagebreak()
 
-=== #code-header(`TypstSharedLibrary`) <shared>
+=== `TypstSharedLibrary` <shared>
 
 This is an interface that provides access to the native compiler.
 In theory you could provide your own implementation, but it's extremely unsafe.
@@ -776,14 +787,14 @@ it was not tested.
 
 Most of the functions require World to function, but there are several you can use without one.
 
-==== #code-header(`format`)
+==== `format`
 ```ktsafe
 fun TypstSharedLibrary.format(string: String, column: Int, tab: Int): String
 ```
 
 Formats the given source using #link("https://github.com/Enter-tainer/typstyle")[Typstyle #external].
 
-==== #code-header(`parseSource`)
+==== `parseSource`
 
 ```ktsafe
 fun TypstSharedLibrary.parseSource(string: String, mode: SyntaxMode): FlattenedSyntaxTree
@@ -795,7 +806,7 @@ and returns flattened syntax tree. Flattened syntax tree is a list of indexed ma
 - Start of erroneous syntax node with given error message.
 - End of syntax node.
 
-==== #code-header(`anyInstance`)
+==== `anyInstance`
 
 Returns any of the created instances (expectedly the first created), or throws NoSuchElementException, if there are none.
 
@@ -1221,3 +1232,98 @@ If it's the former, we read query parameters. Each parameter is an `array` of `s
     </html>
     ```
 ]
+
+#pagebreak()
+
+= Known bugs
+
+#set enum(start: 1, numbering: "1.a")
+
+#let code-diff(file, sz: 1em) = {
+    context table(
+        columns: (1fr, 1fr),
+        stroke: none,
+        [
+            *Source:*
+            #set text(size: sz)
+            #listing(raw(lang: "typ", read("test-output/suite/" + file + "/a_source.typ")))
+        ],
+        [
+            *Evaluated*:
+            #set text(size: sz)
+            #listing(raw(lang: "typ", read("test-output/suite/" + file + "/c_repred.typ"))),
+        ],
+    )
+}
+
+#let img-diff(file, p: ("0000",), sz: 1em) = {
+    set par(justify: false)
+    context table(
+        columns: (1fr, 1fr, 1fr),
+        stroke: none,
+        [ *Source, compiled to png:* ],
+        [ *Pixel-by-pixel difference* ],
+        [ *Evaluated, compiled to png:* ],
+        ..p
+            .map(it => (
+                box(stroke: text.fill + 1pt, image("test-output/suite/" + file + "/d-" + it + "_reference.png")),
+                box(stroke: text.fill + 1pt, image("test-output/suite/" + file + "/d-" + it + "_diff.png")),
+                box(stroke: text.fill + 1pt, image("test-output/suite/" + file + "/d-" + it + "_recompiled.png")),
+            ))
+            .flatten(),
+    )
+}
+
++ Passing invalid `selector` to `query` or `inputs` to `sys.inputs` leads to a panic.
+    What is invalid?
+    + Contains erroneous `TDelayedExecution` instances.
+    + Selector uses non-selectable `element`.
++ Querying doesn't retrieve `cramped` parameter of `math.display`, `math.inline`, `math.script` and `math.sscript`:
+
+    #text(size: .8em, listing(raw(lang: "typ", read("test-output/suite/math/size.typ/math-size/a_source.typ"))))
+
+    #img-diff(
+        "math/size.typ/math-size",
+        sz: .75em,
+    )
+
++ When evaluating full documents, some of the styles begin transcending to page numberings:
+
+#let both(name, sz, p) = {
+    code-diff(name, sz: sz)
+    img-diff(name, p:p)
+}
+
+//#both("layout/page.typ/page-marginal-style-shared-initial-interaction", .75em, ("0000", "0001"),)
+//
+//#both("layout/page.typ/page-marginal-style-text-call", .75em, ("0000",),)
+
+#both("layout/page.typ/page-marginal-style-text-call-around-set-page", .75em, ("0000",))
+//#both("layout/page.typ/page-marginal-style-text-call-code", .75em, ("0000",))
+
+/*
+
+#text(size: .9em, listing(raw(lang: "typ", read("test-output/suite/text/case.typ/cases-content-symbol/a_source.typ"))))
+
+#img-diff(
+    "test-output/suite/text/case.typ/cases-content-symbol",
+    sz: .75em,
+)
+
+*/
+
+
+/*
+
+
+
+#code-diff(
+    "/test-output/suite/layout/page.typ/page-marginal-style-shared-initial-interaction",
+    sz: .75em,
+)
+
+#img-diff("/test-output/suite/layout/page.typ/page-marginal-style-shared-initial-interaction")
+
+*/
+
+
