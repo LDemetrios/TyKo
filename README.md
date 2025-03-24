@@ -76,8 +76,8 @@ This library allows
     File("output.png").writeBytes(compiled)
     ```
     
-    ![Result](output.png
-- )
+    ![Result](output.png)
+
 ## Further documentation
 
 Read the [manual](manual.pdf)
