@@ -80,7 +80,7 @@ This library allows
 - )
 ## Further documentation
 
-I plan on publishing it almost the first priority. Stay tuned.
+Read the [manual](manual.pdf)
 
 ## Installation 
 
