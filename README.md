@@ -32,7 +32,7 @@ This library allows
 
     The compiler requires two things: [TypstSharedLibrary](https://github.com/LDemetrios/typst-shared-library),
     compiled for your system (see [Installation](https://github.com/LDemetrios/TyKo#Installation)),
-    and a `World` (See Docs \[Not available]). There are two built-in implementations of World at the moment:
+    and a `World` (See [manual.pdf](manual.pdf)). There are two built-in implementations of World at the moment:
 
     ```kt
     val lib = TypstSharedLibrary.instance(Path("../libtypst_shared.so"))
