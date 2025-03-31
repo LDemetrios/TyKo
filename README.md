@@ -1,3 +1,8 @@
+
+<div align="right"><p style='align: right;'>
+Languages: <a href="README-RU.md"><img src="/flags/RU.png" alt="Russian" width="6%"  align="right"></a> <a href="README.md"><img src="/flags/UK.png" alt="English" width="6%" align="right"></a> 
+</p></div>
+
 # TyKo — Kotlin bindings for Typst
 
 ## Quick introduction
@@ -32,7 +37,7 @@ This library allows
 
     The compiler requires two things: [TypstSharedLibrary](https://github.com/LDemetrios/typst-shared-library),
     compiled for your system (see [Installation](https://github.com/LDemetrios/TyKo#Installation)),
-    and a `World` (See [manual.pdf](manual.pdf)). There are two built-in implementations of World at the moment:
+    and a `World` (See [Docs](manual.pdf)). There are two built-in implementations of World at the moment:
 
     ```kt
     val lib = TypstSharedLibrary.instance(Path("../libtypst_shared.so"))
@@ -142,7 +147,6 @@ See [file](Changelog.md)
 
 ## Plans
 
-- [x] Split arguments for calls into separate chunks (avoiding multiple overloads)
 - [x] Add tests
 - [X] Support `set` and `show` rules
 - [ ] Improve type checking during deserialization
@@ -150,7 +154,6 @@ See [file](Changelog.md)
 - [ ] Beautify `repr` (make more human-readable)
 - [ ] Add support for typed queries (query(heading) can only return THeading)
 - [X] Add support for labeled content
-- [ ] Improve function ser/deser according to new Typst structure (functions belong to modules)
 - [ ] Make World implementations more flexible (custom inputs, fonts)
 - [ ] Allow passing fully custom Java (Kotlin) functions into the compiler
 

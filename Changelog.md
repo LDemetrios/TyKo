@@ -1,4 +1,9 @@
-## Change log
+
+<div align="right"><p style='align: right;'>
+Languages: <a href="Changelog-RU.md"><img src="/flags/RU.png" alt="Russian" width="6%"  align="right"></a> <a href="Changelog.md"><img src="/flags/UK.png" alt="English" width="6%" align="right"></a> 
+</p></div>
+
+## Changelog
 
 ### 0.4.0
 
@@ -50,11 +55,6 @@ not over OS processes)
 - Sync serialization with PR version
 - Add a few more types
 
-### 0.1.1
-
-- TArray and TDictionary no longer implement List and Map respectively.
-
-- Appropriate extension functions, duplicating functionality of stdlib ones, will be added. 
 
 ### 0.1.0 
 
