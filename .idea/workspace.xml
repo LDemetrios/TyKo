@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
-      <change afterPath="$PROJECT_DIR$/typst-assets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/typst-dev-assets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README-RU.md" beforeDir="false" afterPath="$PROJECT_DIR$/README-RU.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

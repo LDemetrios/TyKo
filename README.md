@@ -5,6 +5,8 @@ Languages: <a href="README-RU.md"><img src="/flags/RU.png" alt="Russian" width="
 
 # TyKo — Kotlin bindings for Typst
 
+**_Warning: This library has just undergone a complete rework. Therefore, the README and the manual are outdated. I will update them as soon as I can_**
+
 ## Quick introduction
 
 This library allows
