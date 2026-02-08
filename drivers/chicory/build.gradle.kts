@@ -16,9 +16,9 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     api(project(":drivers:api"))
-    implementation("com.dylibso.chicory:runtime:+")
-    implementation("com.dylibso.chicory:compiler:+")
-    api("com.dylibso.chicory:wasi:+")
+    implementation("com.dylibso.chicory:runtime:1.6.1")
+    implementation("com.dylibso.chicory:compiler:1.6.1")
+    api("com.dylibso.chicory:wasi:1.6.1")
 }
 
 tasks.test {

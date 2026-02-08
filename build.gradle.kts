@@ -35,7 +35,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     implementation(kotlin("reflect"))
-    implementation("org.ldemetrios:common-utils:+")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation("io.kotest:kotest-runner-junit5:5.7.0")
     testImplementation("io.kotest:kotest-assertions-core:5.7.0")

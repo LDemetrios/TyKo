@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
+      <change afterPath="$PROJECT_DIR$/typst-assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typst-dev-assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs-generator/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/HtmlToKdoc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/HtmlToKdoc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCite.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCite.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterUpdate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterUpdate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/THtmlElem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/THtmlElem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathAttach.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathAttach.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathClass.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathLr.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathLr.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathOverline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathOverline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathUnderline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathUnderline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutline.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutlineEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutlineEntry.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TStateUpdate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TStateUpdate.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
