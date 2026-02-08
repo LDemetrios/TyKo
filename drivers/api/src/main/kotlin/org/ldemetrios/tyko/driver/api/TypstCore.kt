@@ -49,6 +49,7 @@ class TypstCore(
         val inputsRaw = writeRawString(inputs)
         return Pointer(
             driver.library(features, inputsRaw.len, inputsRaw.ptr),
+            driver,
             driver::free_lazy_hash_library
         )
     }
@@ -356,10 +357,13 @@ class TypstCore(
     fun filesCache(reader: (String) -> String): Pointer {
         val readerTicket = newTicket.getAndIncrement()
         functions[readerTicket] = reader
-        return Pointer(driver.files_cache(readerTicket), {
+        return Pointer(
+            driver.files_cache(readerTicket),
+            driver
+        ) {
             driver.free_files_cache(it)
             functions.remove(readerTicket)
-        })
+        }
     }
 
     fun resetFile(cache: Pointer, id: String) {
@@ -375,6 +379,7 @@ class TypstCore(
                 if (includeEmbedded) 1 else 0,
                 raw.len, raw.ptr
             ),
+            driver,
             driver::free_font_collection
         )
     }
@@ -411,6 +416,7 @@ class TypstCore(
                 if (closePrevious) library.take() else library.ptr,
                 if (closePrevious) 1 else 0
             ),
+            driver,
             driver::free_lazy_hash_library
         )
     }
@@ -474,5 +480,10 @@ class TypstCore(
             mem.readInts(errorsPtr, errorsStartsLen)
         }
         return FlattenedSyntaxTree(marks, errors, errorStarts)
+    }
+
+    fun close() {
+        remainingPointers().filter { it.owner == this.driver }.forEach { it.close() }
+        driver.dispose()
     }
 }

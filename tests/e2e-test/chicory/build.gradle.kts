@@ -17,3 +17,7 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.named<Test>("test") {
+    maxHeapSize = "8G"
+}

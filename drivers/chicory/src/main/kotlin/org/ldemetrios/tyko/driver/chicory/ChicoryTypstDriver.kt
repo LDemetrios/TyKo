@@ -20,24 +20,33 @@ import org.ldemetrios.tyko.driver.api.TypstDriver
 import org.ldemetrios.tyko.driver.chicory.Demangler.demangle
 import kotlin.collections.map
 
-fun sanitizeStackTrace(stackTrace: Array<StackTraceElement>, instance: Instance): Array<StackTraceElement> {
-    return stackTrace.map {
-        val idx = it.methodName.split("_").last().toIntOrNull()
-        if (idx != null && it.className.startsWith(PREFIX)) {
-            StackTraceElement(
-                "Chicory",
-                it.moduleName,
-                it.moduleVersion,
-                it.className.drop(PREFIX.length),
-                instance.functionName(idx)?.let(::demangle) ?: idx.toString(),
-                it.fileName,
-                it.lineNumber,
-            )
-        } else it
-    }
-        .drop(1)
-        .toTypedArray()
+fun <T, A: T, B : T> B.tryTransforming(func: (B) -> A) = try {
+    func(this)
+} catch (e: VirtualMachineError) {
+    throw e
+} catch (e: Throwable) {
+    this
 }
+
+fun sanitizeStackTrace(stackTrace: Array<StackTraceElement>, instance: Instance): Array<StackTraceElement> =
+    stackTrace.tryTransforming {
+        it.map {
+            val idx = it.methodName.split("_").last().toIntOrNull()
+            if (idx != null && it.className.startsWith(PREFIX)) {
+                StackTraceElement(
+                    "Chicory",
+                    it.moduleName,
+                    it.moduleVersion,
+                    it.className.drop(PREFIX.length),
+                    instance.functionName(idx)?.tryTransforming(::demangle) ?: idx.toString(),
+                    it.fileName,
+                    it.lineNumber,
+                )
+            } else it
+        }
+            .drop(1)
+            .toTypedArray()
+    }
 
 class NativePanicException(val instance: Instance) : RuntimeException()
 
@@ -56,7 +65,7 @@ internal const val PREFIX = "com.dylibso.chicory.\$gen.CompiledMachine"
 fun TypstChicoryInstance(
     module: WasmModule,
     options: WasiOptions,
-    release: Boolean = true,
+    compiledMachine: Boolean = true,
     readFileByReaderTicket: (ticket: Long, coordinates: String) -> String,
 ): Instance {
     val readByTicket = HostFunction(
@@ -91,7 +100,7 @@ fun TypstChicoryInstance(
 
     val builder = builder(module)
     builder.withImportValues(store.toImportValues())
-    if (release) {
+    if (compiledMachine) {
         builder.withMachineFactory(MachineFactoryCompiler::compile)
     }
     val instance = builder.build()
@@ -630,8 +639,13 @@ fun ChicoryTypstCore(
         .withEnvironment("RUST_LIB_BACKTRACE", "1")
         .withDirectory("/", Paths.get("/"))
         .build(),
+    compiledMachine: Boolean = true
 ) = TypstCore { reader ->
-    val instance = TypstChicoryInstance(bytes, wasiOptions) { ticket, coordinates -> reader(ticket)(coordinates) }
+    val instance = TypstChicoryInstance(
+        bytes,
+        wasiOptions,
+        compiledMachine = compiledMachine
+    ) { ticket, coordinates -> reader(ticket)(coordinates) }
     val memory = ChicoryMemoryInterface(instance)
     val engine = ChicoryTypstDriver(instance)
     engine.boot(longArrayOf())

@@ -49,7 +49,7 @@ fun remainingPointers() : List<Pointer> {
     return pointers.values.flatten().mapNotNull { it.get() }
 }
 
-class Pointer(private val innerPtr: Long, private val freer: (Long) -> Unit) : Closeable {
+class Pointer(private val innerPtr: Long, val owner: TypstDriver, private val freer: (Long) -> Unit) : Closeable {
     init {
         pointers.compute(innerPtr) { k, v -> (v ?: listOf()) + SoftReference(this) }
     }
@@ -116,5 +116,5 @@ class Pointer(private val innerPtr: Long, private val freer: (Long) -> Unit) : C
         }
     }
 
-    fun another(ptr: Long) = if (atomicPtr.get() == ptr) this else Pointer(ptr, freer)
+    fun another(ptr: Long) = if (atomicPtr.get() == ptr) this else Pointer(ptr, owner, freer)
 }

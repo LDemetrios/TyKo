@@ -191,4 +191,5 @@ interface TypstDriver {
     fun boot(longs: LongArray)
 
     fun enforce_title(documentPtr: Long, titleLen: Long, titlePtr: Long)
+    fun dispose() = Unit
 }

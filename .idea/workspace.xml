@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
+      <change afterPath="$PROJECT_DIR$/tests/e2e-test/chicory/src/test/kotlin/org/ldemetrios/tyko/e2e/ChicoryE2ETest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/Pointers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/Pointers.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstCore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstCore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstDriver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/src/main/kotlin/org/ldemetrios/tyko/runtime/TypstRuntime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/src/main/kotlin/org/ldemetrios/tyko/runtime/TypstRuntime.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/e2e-test/chicory/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/e2e-test/chicory/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/e2e-test/common/src/main/kotlin/org/ldemetrios/tyko/e2e/E2ETest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/e2e-test/common/src/main/kotlin/org/ldemetrios/tyko/e2e/E2ETest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/typst-shared-ffi/src/test/kotlin/org/ldemetrios/tyko/tests/SpeedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/typst-shared-ffi/src/test/kotlin/org/ldemetrios/tyko/tests/SpeedTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" afterDir="false" />
     </list>
@@ -69,6 +80,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build TyKo.executor": "Run",
+    "Gradle.ChicoryE2ETest.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.Errors (1).executor": "Run",
     "Gradle.Errors.executor": "Run",
@@ -93,6 +105,8 @@
     "Gradle.TyKo [:tests:test-data:org.ldemetrios.tyko.tests.suite.RunnerKt.main()].executor": "Run",
     "Gradle.TyKo [buildTypstSharedLibrary].executor": "Run",
     "Gradle.TyKo [generateSuiteTests].executor": "Run",
+    "Gradle.TyKo [test].executor": "Run",
+    "Gradle.TypstSharedFfiSuiteTest (1).executor": "Run",
     "Gradle.TypstSharedFfiSuiteTest.executor": "Run",
     "Gradle.Wtf (1).executor": "Run",
     "Gradle.Wtf.executor": "Run",
@@ -154,8 +168,8 @@
       <recent name="org.ldemetrios.tyko.ffi" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt (1)">
-    <configuration name="Repeatable (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.TyKo [test]">
+    <configuration name="ChicoryE2ETest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -166,9 +180,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":tests:test-data:test" />
+            <option value=":tests:e2e-test:chicory-e2e:test" />
             <option value="--tests" />
-            <option value="&quot;org.ldemetrios.tyko.tests.suite.Repeatable&quot;" />
+            <option value="&quot;org.ldemetrios.tyko.e2e.ChicoryE2ETest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -203,7 +217,29 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TypstSharedFfiSuiteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TyKo [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="TypstSharedFfiSuiteTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -234,13 +270,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.docgen.org.ldemetrios.tyko.docs.MainKt" />
-      <module name="tyko.docs-generator.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="kotlin.scripts.KotlinSettingsScript.settings.gradle.kts" />
       <method v="2">
@@ -253,19 +282,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.TyKo [test]" />
+      <item itemvalue="Gradle.TypstSharedFfiSuiteTest (1)" />
+      <item itemvalue="Gradle.ChicoryE2ETest" />
       <item itemvalue="Gradle.SpeedTest" />
-      <item itemvalue="Gradle.TypstSharedFfiSuiteTest" />
-      <item itemvalue="Gradle.Repeatable (1)" />
       <item itemvalue="Kotlin.MainKt (1)" />
-      <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TyKo [test]" />
+        <item itemvalue="Gradle.TypstSharedFfiSuiteTest (1)" />
+        <item itemvalue="Gradle.ChicoryE2ETest" />
         <item itemvalue="Kotlin.MainKt (1)" />
-        <item itemvalue="Gradle.TypstSharedFfiSuiteTest" />
         <item itemvalue="Gradle.SpeedTest" />
-        <item itemvalue="Gradle.Repeatable (1)" />
-        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -427,7 +456,7 @@
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
     <envs>
-      <env key="GSID" value="IDE:idea:ea0f6c50e2f0400bbe2bda6e81df6427 IDETERM:idea:ea0f6c50e2f0400bbe2bda6e81df6427" />
+      <env key="GSID" value="IDE:idea:f4dae688b236402895f8b2d260f127d6 IDETERM:idea:f4dae688b236402895f8b2d260f127d6" />
     </envs>
   </component>
   <component name="Vcs.Log.Tabs.Properties">

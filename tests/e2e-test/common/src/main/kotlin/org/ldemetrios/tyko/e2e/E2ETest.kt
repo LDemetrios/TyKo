@@ -8,6 +8,7 @@ import java.nio.file.Paths
 open class E2ETest(typstCore: TypstCore) : FreeSpec({
     "Works as expected" {
         val runtime = TypstRuntime(typstCore)
-
+        val fonts = runtime.fontCollection(includeSystem = true, includeEmbedded = true, listOf())
+        runtime.close()
     }
 })

@@ -25,8 +25,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-val debugBuild : Boolean = true
-
 val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
     val cargoHome = System.getenv("CARGO_HOME") ?: "${System.getProperty("user.home")}/.cargo"
     val cargoBin = "$cargoHome/bin"
@@ -77,11 +75,7 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
         val result = project.exec {
             workingDir = rootProject.file("typst-shared-library")
             executable = cargoFile.absolutePath
-            if (debugBuild) {
-                args("build", "--target", "wasm32-wasip1")
-            }else {
-                args("build", "--target", "wasm32-wasip1", "--release")
-            }
+            args("build", "--target", "wasm32-wasip1", "--release")
             environment("PATH", path)
             environment("RUSTFLAGS", listOf("-Awarnings", System.getenv("RUSTFLAGS") ?: "").joinToString(" ").trim())
             if (opensslDir != null) {
@@ -109,11 +103,7 @@ val generatedWasmDir = layout.buildDirectory.dir("generated/resources/typst-shar
 
 val prepareTypstSharedWasm = tasks.register<Copy>("prepareTypstSharedWasm") {
     dependsOn(buildTypstSharedLibrary)
-    val src = if (debugBuild ) {
-        "typst-shared-library/target/wasm32-wasip1/debug/typst_shared.wasm"
-    } else {
-        "typst-shared-library/target/wasm32-wasip1/release/typst_shared.wasm"
-    }
+    val src = "typst-shared-library/target/wasm32-wasip1/release/typst_shared.wasm"
     from(rootProject.file(src)) {
         rename("typst_shared.wasm", "typst-shared.wasm")
     }

@@ -636,7 +636,7 @@ class TypstCompiler(val bridge: TypstCore) {
         return x.sanitize().map {
             it.map { ptr ->
                 PagedDocument(
-                    Pointer(ptr, bridge::freePagedDocument),
+                    Pointer(ptr, bridge.driver, bridge::freePagedDocument),
                     context,
                     bridge,
                 )
@@ -899,5 +899,9 @@ class TypstCompiler(val bridge: TypstCore) {
 
     fun evictCache(maxAge: Long) {
         bridge.evictCache(maxAge)
+    }
+
+    fun close() {
+        bridge.close()
     }
 }

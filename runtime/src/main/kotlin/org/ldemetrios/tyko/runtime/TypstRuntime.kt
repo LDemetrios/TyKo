@@ -389,6 +389,7 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         if (emptyFileCtxF.isInitialized()) emptyFileCtx.close()
         if (defaultFontsF.isInitialized()) defaultFonts.close()
         if (defaultLibraryF.isInitialized()) defaultLibrary.close()
+        compiler.close()
     }
 }
 

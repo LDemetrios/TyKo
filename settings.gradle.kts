@@ -21,3 +21,6 @@ include("tests:e2e-test:chicory")
 include("tests:e2e-test:common")
 include("tests:human-readable")
 include("tests:human-readable")
+
+// Avoid GAV collision with :drivers:chicory
+project(":tests:e2e-test:chicory").name = "chicory-e2e"

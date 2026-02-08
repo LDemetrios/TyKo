@@ -69,5 +69,6 @@ class SpeedTest : FreeSpec({
         println(document)
         val endTime = System.currentTimeMillis()
         println("Time taken: ${bootstrap - beginTime}ms for bootstraping, ${setup - bootstrap}ms for setting up, ${endTime - setup}ms for compilation")
+        runtime.close()
     }
 })
