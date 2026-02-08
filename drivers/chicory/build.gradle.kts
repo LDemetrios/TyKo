@@ -131,5 +131,5 @@ tasks.named<ProcessResources>("processResources") {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }

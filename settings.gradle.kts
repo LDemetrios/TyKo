@@ -15,3 +15,9 @@ include("tests:test-data")
 include("tests:typst-shared-ffi")
 
 include("docs-generator")
+
+include("tests:e2e-test")
+include("tests:e2e-test:chicory")
+include("tests:e2e-test:common")
+include("tests:human-readable")
+include("tests:human-readable")

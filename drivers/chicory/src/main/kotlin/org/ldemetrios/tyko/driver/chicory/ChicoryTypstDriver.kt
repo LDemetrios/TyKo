@@ -646,19 +646,19 @@ fun ChicoryTypstCore(
     wasiOptions: WasiOptions = WasiOptions.builder().inheritSystem().withEnvironment("RUST_BACKTRACE", "full").build(),
 ) = ChicoryTypstCore(MODULE, wasiOptions)
 
-fun main() {
-    val runtime = ChicoryTypstCore()
-    println(
-        runtime.formatSource(
-            """
-            #figure(
-              image("glacier.jpg", width: 70%),
-              caption: [
-                _Glaciers_ form an important part
-                of the earth's climate system.
-              ],
-            )
-        """.trimIndent(), 20, 4
-        )
-    )
-}
+//fun main() {
+//    val runtime = ChicoryTypstCore()
+//    println(
+//        runtime.formatSource(
+//            """
+//            #figure(
+//              image("glacier.jpg", width: 70%),
+//              caption: [
+//                _Glaciers_ form an important part
+//                of the earth's climate system.
+//              ],
+//            )
+//        """.trimIndent(), 20, 4
+//        )
+//    )
+//}

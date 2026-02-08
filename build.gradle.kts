@@ -52,6 +52,12 @@ kotlin {
     jvmToolchain(17)
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 //val datamodel = File("${project.rootDir}/others").readText()
 
 publishing {
@@ -98,6 +104,20 @@ subprojects {
         "drivers",
         "docs-generator"
     )
+
+    // Ensure published metadata targets Java 17 for all published subprojects
+    plugins.withId("org.jetbrains.kotlin.jvm") {
+        kotlin {
+            jvmToolchain(17)
+        }
+    }
+    plugins.withId("java") {
+        java {
+            toolchain {
+                languageVersion.set(JavaLanguageVersion.of(17))
+            }
+        }
+    }
 
     if (!path.startsWith(":tests") && name !in excludedFromPublishing) {
         plugins.withId("org.jetbrains.kotlin.jvm") {

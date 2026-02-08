@@ -17,6 +17,10 @@
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/runtime" />
             <option value="$PROJECT_DIR$/tests" />
+            <option value="$PROJECT_DIR$/tests/e2e-test" />
+            <option value="$PROJECT_DIR$/tests/e2e-test/chicory" />
+            <option value="$PROJECT_DIR$/tests/e2e-test/common" />
+            <option value="$PROJECT_DIR$/tests/human-readable" />
             <option value="$PROJECT_DIR$/tests/test-data" />
             <option value="$PROJECT_DIR$/tests/typst-shared-ffi" />
           </set>

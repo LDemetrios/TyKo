@@ -10,12 +10,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    testImplementation(project(":tests:e2e-test:common"))
+    testImplementation(project(":drivers:chicory"))
 }
 
 tasks.test {
     useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(17)
 }
