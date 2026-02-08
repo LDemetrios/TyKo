@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/typst-assets" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/typst-dev-assets" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/typst-shared-library" vcs="Git" />
   </component>
 </project>

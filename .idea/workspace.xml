@@ -6,7 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manual.typ" beforeDir="false" afterPath="$PROJECT_DIR$/manual.typ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs-generator/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/HtmlToKdoc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/HtmlToKdoc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCite.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCite.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterUpdate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCounterUpdate.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/THtmlElem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/THtmlElem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathAttach.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathAttach.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathLr.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathLr.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathOverline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathOverline.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathUnderline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathUnderline.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutline.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutlineEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TOutlineEntry.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TStateUpdate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TStateUpdate.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="Class" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -49,22 +66,7 @@
     <option name="currentCommit" value="1" />
     <option name="onto" value="f33ebf0ab7fea14a0d253c50b6d22179b0ece5fd" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$MAVEN_REPOSITORY$/org/ldemetrios/common-utils/0.1.2/common-utils-0.1.2.jar!/org/ldemetrios/testing/GroupingKt.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/ldemetrios/tyko/0.4.0/tyko-0.4.0.jar!/org/ldemetrios/tyko/model/LinearGradientKt.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/ldemetrios/tyko/0.4.0/tyko-0.4.0.jar!/org/ldemetrios/tyko/model/TLinearGradient.class" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/../../LDemetriosCommons/src/main/kotlin/org/ldemetrios/testing/Grouping.kt" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/ArrayList.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/Objects.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/TreeMap.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/java/util/TreeSet.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/jdk/internal/reflect/DirectConstructorHandleAccessor.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.base/jdk/internal/util/Preconditions.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/BufferedImage.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/ColorModel.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/Raster.class" root0="SKIP_INSPECTION" />
-    <setting file="jrt:///usr/lib/jvm/java-21-openjdk!/java.desktop/java/awt/image/SampleModel.class" root0="SKIP_INSPECTION" />
-  </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5" javaHome="$USER_HOME$/Library/Java/JavaVirtualMachines/temurin-21.0.9/Contents/Home" gradleVersion="8.5" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -87,8 +89,26 @@
     &quot;Gradle.EvalDeserReprConsistency (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.EvalDeserReprConsistency.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.EvalDeserReprConsistencyViaPng.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Repeatable (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Repeatable.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Runner.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SpeedTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TestWhatever.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TestWhatever.testRuns.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Testing (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Testing.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:compiler:org.ldemetrios.MainKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:docs-generator:org.ldemetrios.docgen.org.ldemetrios.tyko.docs.MainKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:engines:chicory:org.ldemetrios.tyko.engine.chicory.ChicoryBasedTypstRuntimeKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:gatherer:org.ldemetrios.MainKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:model:org.ldemetrios.tyko.model.SerializationKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:tests:test-data:org.ldemetrios.tyko.tests.suite.RepeatableKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [:tests:test-data:org.ldemetrios.tyko.tests.suite.RunnerKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [buildTypstSharedLibrary].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TyKo [generateSuiteTests].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TypstSharedFfiSuiteTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Wtf (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Wtf.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.CompilerExceptionsReadabilityKt.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.ErrorsKt.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.EvalDeserReprConsistencyKt.executor&quot;: &quot;Run&quot;,
@@ -110,11 +130,16 @@
     &quot;Kotlin.WorldKt.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.Z_MainKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ldemetrios/Workspace/chm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Typst&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/ldemis/Workspace/Projects/TyKo&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/ldemis/Workspace/Projects/TyKo/docs-generator/src/main/kotlin/Main.kt&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -124,18 +149,26 @@
       <recent name="$PROJECT_DIR$/src/test/kotlin/org/ldemetrios/tyko" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/f" />
+      <recent name="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model" />
+      <recent name="$PROJECT_DIR$/docs/typst-reference" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/model/ops" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/org/ldemetrios/tyko/operations" />
-      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="org.ldemetrios.tyko.model.elements" />
+      <recent name="org.ldemetrios.tyko.model" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="org.ldemetrios.docgen.org.ldemetrios.tyko.docs" />
+      <recent name="org.ldemetrios.tyko.model" />
       <recent name="org.ldemetrios.tyko.model.manual" />
       <recent name="org.ldemetrios.tyko.manual" />
       <recent name="org.ldemetrios.tyko.ffi" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.UtilsKt">
-    <configuration name="Testing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.TypstSharedFfiSuiteTest">
+    <configuration name="Repeatable (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -146,9 +179,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value=":tests:test-data:test" />
             <option value="--tests" />
-            <option value="&quot;org.ldemetrios.tyko.original.Testing&quot;" />
+            <option value="&quot;org.ldemetrios.tyko.tests.suite.Repeatable&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -159,56 +192,110 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FormattingKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.manual.FormattingKt" />
-      <module name="tyko.test" />
+    <configuration name="SpeedTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":tests:typst-shared-ffi:test" />
+            <option value="--tests" />
+            <option value="&quot;org.ldemetrios.tyko.tests.SpeedTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="TypstSharedFfiSuiteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":tests:typst-shared-ffi:test" />
+            <option value="--tests" />
+            <option value="&quot;org.ldemetrios.tyko.tests.TypstSharedFfiSuiteTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Wtf (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":tests:test-data:test" />
+            <option value="--tests" />
+            <option value="&quot;org.ldemetrios.tyko.tests.suite.Wtf&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.docgen.org.ldemetrios.tyko.docs.MainKt" />
+      <module name="tyko.docs-generator.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SaturnMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.saturnDraft.SaturnMainKt" />
-      <module name="tyko.saturn-draft.main" />
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="kotlin.scripts.KotlinSettingsScript.settings.gradle.kts" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TyKoMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.TyKoMainKt" />
-      <module name="tyko.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UtilsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ldemetrios.tyko.UtilsKt" />
-      <module name="tyko.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Z_MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="newborn.Z_MainKt" />
-      <module name="tyko.buildSrc.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="kotlin.scripts.KotlinSettingsScript.settings.gradle.kts" />
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.Testing" />
-      <item itemvalue="Kotlin.FormattingKt (1)" />
-      <item itemvalue="Kotlin.SaturnMainKt" />
-      <item itemvalue="Kotlin.TyKoMainKt" />
-      <item itemvalue="Kotlin.UtilsKt" />
-      <item itemvalue="Kotlin.Z_MainKt" />
+      <item itemvalue="Gradle.SpeedTest" />
+      <item itemvalue="Gradle.TypstSharedFfiSuiteTest" />
+      <item itemvalue="Gradle.Repeatable (1)" />
+      <item itemvalue="Gradle.Wtf (1)" />
+      <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.SaturnMainKt" />
-        <item itemvalue="Kotlin.TyKoMainKt" />
-        <item itemvalue="Kotlin.Z_MainKt" />
-        <item itemvalue="Kotlin.UtilsKt" />
-        <item itemvalue="Kotlin.FormattingKt (1)" />
+        <item itemvalue="Gradle.TypstSharedFfiSuiteTest" />
+        <item itemvalue="Gradle.SpeedTest" />
+        <item itemvalue="Gradle.Repeatable (1)" />
+        <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.Wtf (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -368,6 +455,11 @@
     <option name="localTasksCounter" value="19" />
     <servers />
   </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <envs>
+      <env key="GSID" value="IDE:idea:ea0f6c50e2f0400bbe2bda6e81df6427 IDETERM:idea:ea0f6c50e2f0400bbe2bda6e81df6427" />
+    </envs>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -441,15 +533,78 @@
           <line>102</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/drivers/src/Main.kt</url>
+          <line>11</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/drivers/src/main/kotlin/Main.kt</url>
+          <line>13</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt</url>
+          <line>54</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt</url>
+          <line>117</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt</url>
+          <line>126</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <condition expression="typeDiscriminator == &quot;dict&quot;" language="kotlin" />
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt</url>
+          <line>85</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt</url>
+          <line>182</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt</url>
+          <line>219</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <breakpoint type="java-exception">
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="14" />
         </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="39" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="41" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dylibso.chicory/runtime/1.6.1/56f877aa3d514efff8090d31f208f977701952cc/runtime-1.6.1-sources.jar!/com/dylibso/chicory/runtime/InterpreterMachine.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dylibso.chicory/runtime/1.6.1/56f877aa3d514efff8090d31f208f977701952cc/runtime-1.6.1-sources.jar!/com/dylibso/chicory/runtime/InterpreterMachine.java</url>
+          <line>1917</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GradleRunConfiguration">
-        <watch expression="value.toString(4)" language="kotlin" />
+        <watch expression="test.notes" language="kotlin" />
+        <watch expression="obj.keys.all { it in SIDES_KEYS }" />
       </configuration>
     </watches-manager>
   </component>

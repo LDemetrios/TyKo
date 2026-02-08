@@ -4,24 +4,21 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT">
-            <builds>
-              <build path="$PROJECT_DIR$/buildSrc" name="buildSrc">
-                <projects>
-                  <project path="$PROJECT_DIR$/buildSrc" />
-                </projects>
-              </build>
-            </builds>
-          </compositeBuild>
-        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/saturn-draft" />
+            <option value="$PROJECT_DIR$/compiler" />
+            <option value="$PROJECT_DIR$/docs-generator" />
+            <option value="$PROJECT_DIR$/drivers" />
+            <option value="$PROJECT_DIR$/drivers/api" />
+            <option value="$PROJECT_DIR$/drivers/chicory" />
+            <option value="$PROJECT_DIR$/model" />
+            <option value="$PROJECT_DIR$/runtime" />
+            <option value="$PROJECT_DIR$/tests" />
+            <option value="$PROJECT_DIR$/tests/test-data" />
+            <option value="$PROJECT_DIR$/tests/typst-shared-ffi" />
           </set>
         </option>
       </GradleProjectSettings>

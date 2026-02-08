@@ -1,12 +1,12 @@
-import newborn.main
+//import newborn.main
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.3.0"
     `java-library`
     `maven-publish`
     id("com.gradleup.shadow") version "8.3.0"
-    kotlin("plugin.serialization") version "2.1.0"
+    kotlin("plugin.serialization") version "2.3.0"
 }
 
 
@@ -35,7 +35,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     implementation(kotlin("reflect"))
-    implementation("org.ldemetrios:common-utils:0.1.3")
+    implementation("org.ldemetrios:common-utils:+")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation("io.kotest:kotest-runner-junit5:5.7.0")
     testImplementation("io.kotest:kotest-assertions-core:5.7.0")
@@ -80,31 +80,57 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.register("generateModel") {
-    group = "build"
-    description = "Generates model classes from others"
-    doLast {
-        main(
-//            datamodelFile = "$rootDir/others",
-//            prefix = "T",
-//            commonInterfaceName = "TValue",
-//            location = "$rootDir/src/main/kotlin/org/ldemetrios/tyko/orm",
-//            packageName = "org.ldemetrios.tyko.orm",
-        )
+//tasks.register("generateModel") {
+//    group = "build"
+//    description = "Generates model classes from others"
+//    doLast {
+//        main(
+////            datamodelFile = "$rootDir/others",
+////            prefix = "T",
+////            commonInterfaceName = "TValue",
+////            location = "$rootDir/src/main/kotlin/org/ldemetrios/tyko/orm",
+////            packageName = "org.ldemetrios.tyko.orm",
+//        )
+//    }
+//}
+
+subprojects {
+    val excludedFromPublishing = setOf(
+        "drivers",
+        "docs-generator"
+    )
+
+    if (!path.startsWith(":tests") && name !in excludedFromPublishing) {
+        plugins.withId("org.jetbrains.kotlin.jvm") {
+            apply(plugin = "maven-publish")
+
+            publishing {
+                publications {
+                    create<MavenPublication>("maven") {
+                        from(components["java"])
+                        artifactId = ("tyko" + project.path.split(":")
+                            .filter { it.isNotBlank() }
+                            .joinToString("-", prefix = "-"))
+                    }
+                }
+                repositories {
+                    mavenLocal()
+                }
+            }
+        }
+    }
+
+    tasks.withType<KotlinCompile>().matching {
+        it.name.contains("Test") // Only target KotlinCompile tasks for test sources
+    }.configureEach {
+        compilerOptions {
+            freeCompilerArgs.add("-Xcontext-parameters")
+        }
+    }
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            freeCompilerArgs.add("-Xcontext-parameters")
+            freeCompilerArgs.add("-Xannotation-target-all")
+        }
     }
 }
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions {
-        // General options for main source sets, no special flags needed for context receivers
-    }
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().matching {
-    it.name.contains("Test") // Only target KotlinCompile tasks for test sources
-}.configureEach {
-    kotlinOptions {
-        freeCompilerArgs += "-Xcontext-receivers"
-    }
-}
-

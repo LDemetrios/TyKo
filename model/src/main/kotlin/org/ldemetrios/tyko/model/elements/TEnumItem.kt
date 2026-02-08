@@ -1,0 +1,48 @@
+package org.ldemetrios.tyko.model
+
+
+import kotlinx.serialization.Serializable
+
+
+
+//!https://typst.app/docs/reference/model/enum/#definitions-item
+// AUTO-GENERATED DOCS. DO NOT EDIT.
+/**
+ * An enumeration item.
+ */
+@SerialName("enum.item")
+data class TEnumItem(
+    // AUTO-GENERATED DOCS. DO NOT EDIT.
+    /**
+     * The item's number.
+     * 
+     * Positional, settable; Typst type: auto|int
+     */
+    @all:Settable @all:Positional val number: Smart<TInt>? = null,
+    // AUTO-GENERATED DOCS. DO NOT EDIT.
+    /**
+     * The item's body.
+     * 
+     * Required, positional; Typst type: content
+     */
+    @all:Positional val body: TContent,
+    override val label: TLabel? = null
+) : TContent() {
+    override fun elem(): TElement = ELEM
+
+    companion object {
+        val ELEM = TElement("enum.item")
+    }
+
+    public constructor(
+        body: TContent,
+        label: TLabel? = null
+    ) : this(null, body, label)
+}
+
+
+@SerialName("set-enum.item")
+data class TSetEnumItem(
+    override val internals: SetRuleInternals? = null,
+    @all:Positional val number: Smart<TInt>? = null
+) : TSetRule()
