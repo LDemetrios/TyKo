@@ -330,11 +330,45 @@ private fun FlattenedSyntaxTree.decodeErrors(): List<String> {
     return messages
 }
 
-private fun FlattenedSyntaxTree.toSyntaxTree(): SyntaxTree {
+private fun buildUtf8ByteToCharIndexMap(source: String): IntArray {
+    val bytes = source.toByteArray(Charsets.UTF_8)
+    val byteToChar = IntArray(bytes.size + 1)
+    var bytePos = 0
+    var charPos = 0
+    while (charPos < source.length) {
+        val codePoint = source.codePointAt(charPos)
+        val charCount = Character.charCount(codePoint)
+        val byteLen = String(Character.toChars(codePoint)).toByteArray(Charsets.UTF_8).size
+        val nextBytePos = (bytePos + byteLen).coerceAtMost(bytes.size)
+        byteToChar[bytePos] = charPos
+        if (bytePos + 1 < nextBytePos) {
+            for (i in (bytePos + 1) until nextBytePos) {
+                byteToChar[i] = charPos
+            }
+        }
+        byteToChar[nextBytePos] = (charPos + charCount).coerceAtMost(source.length)
+        bytePos = nextBytePos
+        charPos += charCount
+    }
+    if (bytePos <= bytes.size) {
+        for (i in bytePos..bytes.size) {
+            byteToChar[i] = charPos
+        }
+    }
+    return byteToChar
+}
+
+private fun FlattenedSyntaxTree.toSyntaxTree(source: String): SyntaxTree {
     val errorsMessages = decodeErrors()
+    val byteToChar = buildUtf8ByteToCharIndexMap(source)
     val marks = marks.map { encoded ->
         val code = (encoded ushr 32).toInt()
-        val index = encoded.toInt()
+        val rawIndex = (encoded and 0xFFFF_FFFFL).toInt()
+        val index = when {
+            rawIndex < 0 -> 0
+            rawIndex >= byteToChar.size -> source.length
+            else -> byteToChar[rawIndex]
+        }
         val mark = when (code) {
              0 -> SyntaxMark.NodeStart(SyntaxKind.End)
              1 -> SyntaxMark.NodeStart(SyntaxKind.Error)
@@ -524,7 +558,7 @@ class TypstCompiler(val bridge: TypstCore) {
     }
 
     fun parseSyntax(string: String, mode: SyntaxMode): SyntaxTree {
-        return bridge.parseSyntax(string, mode.ordinal).toSyntaxTree()
+        return bridge.parseSyntax(string, mode.ordinal).toSyntaxTree(string)
     }
 
     fun detachedEvalRaw(

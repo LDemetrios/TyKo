@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
-      <change afterPath="$PROJECT_DIR$/tests/e2e-test/common/src/main/kotlin/org/ldemetrios/tyko/e2e/E2ETest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/human-readable/src/main/kotlin/org/ldemetrios/tyko/tests/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/api/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/model/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/typst-shared-ffi/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/typst-shared-ffi/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" afterDir="false" />
     </list>
