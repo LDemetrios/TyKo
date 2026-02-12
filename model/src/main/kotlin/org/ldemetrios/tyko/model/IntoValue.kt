@@ -494,8 +494,6 @@ fun TValue.into(t: KType): IntoValue {
         TopEdge::class -> return TopEdge.fromValue(this)
         BottomEdge::class -> return BottomEdge.fromValue(this)
         DataSourceOrPreset::class -> return DataSourceOrPreset.fromValue(this, typeArgs[0].type!!)
-        DataSource::class -> return DataSource.fromValue(this)
-        TPath::class -> return TPath((this as TStr).value)
         Smart::class -> return Smart.fromValue(this, typeArgs[0].type!!)
         ArrayOrSingle::class -> return ArrayOrSingle.fromValue(this, typeArgs[0].type!!)
         Progression::class -> return Progression.fromValue(this, typeArgs[0].type!!)

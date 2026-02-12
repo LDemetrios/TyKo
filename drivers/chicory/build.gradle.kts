@@ -1,9 +1,12 @@
 import java.io.ByteArrayOutputStream
 import org.gradle.language.jvm.tasks.ProcessResources
+import at.released.wasm2class.InterpreterFallback
+import at.released.wasm2class.Wasm2ClassExtension
 
 plugins {
     kotlin("jvm")
     id("com.gradleup.shadow") version "8.3.0"
+    id("at.released.wasm2class.plugin") version "0.5.0"
 }
 
 group = "org.ldemetrios"
@@ -13,12 +16,18 @@ repositories {
     mavenCentral()
 }
 
+val buildTime by sourceSets.creating
+
 dependencies {
     testImplementation(kotlin("test"))
     api(project(":drivers:api"))
     implementation("com.dylibso.chicory:runtime:1.6.1")
-    implementation("com.dylibso.chicory:compiler:1.6.1")
     api("com.dylibso.chicory:wasi:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+    add("buildTimeImplementation", kotlin("stdlib"))
+    add("buildTimeImplementation", "com.dylibso.chicory:build-time-compiler:1.6.1")
+    add("buildTimeImplementation", "com.dylibso.chicory:runtime:1.6.1")
+    add("chicoryCompiler", "com.dylibso.chicory:build-time-compiler:1.6.1")
 }
 
 tasks.test {
@@ -75,7 +84,7 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
         val result = project.exec {
             workingDir = rootProject.file("typst-shared-library")
             executable = cargoFile.absolutePath
-            args("build", "--target", "wasm32-wasip1", "--release")
+            args("build", "--target", "wasm32-wasip1") // , "--release"
             environment("PATH", path)
             environment("RUSTFLAGS", listOf("-Awarnings", System.getenv("RUSTFLAGS") ?: "").joinToString(" ").trim())
             if (opensslDir != null) {
@@ -103,21 +112,52 @@ val generatedWasmDir = layout.buildDirectory.dir("generated/resources/typst-shar
 
 val prepareTypstSharedWasm = tasks.register<Copy>("prepareTypstSharedWasm") {
     dependsOn(buildTypstSharedLibrary)
-    val src = "typst-shared-library/target/wasm32-wasip1/release/typst_shared.wasm"
+    val src = "typst-shared-library/target/wasm32-wasip1/debug/typst_shared.wasm"
     from(rootProject.file(src)) {
         rename("typst_shared.wasm", "typst-shared.wasm")
     }
     into(generatedWasmDir)
 }
 
-sourceSets {
-    main {
-        resources.srcDir(generatedWasmDir)
+tasks.named("precompileWasm2Class") { dependsOn(prepareTypstSharedWasm) }
+
+configurations.named("chicoryCompiler") {
+    resolutionStrategy.force("com.dylibso.chicory:build-time-compiler:1.6.1")
+}
+
+val wasm2classExt = extensions.getByType<Wasm2ClassExtension>()
+val precompileWasm2ClassLargeHeap = tasks.register<JavaExec>("precompileWasm2ClassLargeHeap") {
+    dependsOn(prepareTypstSharedWasm, "compileBuildTimeKotlin")
+    classpath = sourceSets["buildTime"].runtimeClasspath
+    mainClass.set("org.ldemetrios.tyko.driver.chicory.buildtime.ChicoryBuildTimeCompiler")
+    jvmArgs("-Xms2g", "-Xmx8g")
+    val wasmFile = generatedWasmDir.map { it.file("typst-shared.wasm") }
+    inputs.file(wasmFile)
+    outputs.dir(wasm2classExt.outputSources)
+    outputs.dir(wasm2classExt.outputResources)
+    outputs.dir(wasm2classExt.outputClasses)
+    doFirst {
+        args = listOf(
+            wasmFile.get().asFile.absolutePath,
+            wasm2classExt.outputSources.get().asFile.absolutePath,
+            wasm2classExt.outputResources.get().asFile.absolutePath,
+            wasm2classExt.outputClasses.get().asFile.absolutePath
+        )
     }
 }
 
-tasks.named<ProcessResources>("processResources") {
-    dependsOn(prepareTypstSharedWasm)
+tasks.named("precompileWasm2Class") { enabled = false }
+
+tasks.named("compileKotlin") { dependsOn(precompileWasm2ClassLargeHeap) }
+tasks.named("compileJava") { dependsOn(precompileWasm2ClassLargeHeap) }
+tasks.named<ProcessResources>("processResources") { dependsOn(precompileWasm2ClassLargeHeap) }
+
+wasm2class {
+    targetPackage.set("org.ldemetrios.tyko.driver.chicory")
+    modules.create("typstShared") {
+        wasm.set(generatedWasmDir.map { it.file("typst-shared.wasm") })
+        interpreterFallback.set(InterpreterFallback.WARN)
+    }
 }
 
 kotlin {

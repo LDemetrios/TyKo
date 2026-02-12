@@ -51,7 +51,7 @@ fun TValue.writeFieldsInto(sb: StringBuilder) {
     namedProps.forEach { appendField(it, sb) }
 }
 
- fun TValue.appendField(
+fun TValue.appendField(
     property: KProperty<*>,
     sb: StringBuilder
 ) {

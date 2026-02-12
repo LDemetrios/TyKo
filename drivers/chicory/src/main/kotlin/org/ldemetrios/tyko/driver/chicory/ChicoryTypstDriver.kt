@@ -1,6 +1,5 @@
 package org.ldemetrios.tyko.driver.chicory
 
-import com.dylibso.chicory.compiler.MachineFactoryCompiler
 import com.dylibso.chicory.runtime.ExportFunction
 import com.dylibso.chicory.runtime.HostFunction
 import com.dylibso.chicory.runtime.Instance
@@ -8,19 +7,29 @@ import com.dylibso.chicory.runtime.Instance.builder
 import com.dylibso.chicory.runtime.Store
 import com.dylibso.chicory.wasi.WasiOptions
 import com.dylibso.chicory.wasi.WasiPreview1
+import java.nio.file.Files
+import java.nio.file.Path
 import java.nio.file.Paths
-import com.dylibso.chicory.wasm.Parser
-import com.dylibso.chicory.wasm.WasmModule
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
+import java.time.Duration
+import java.util.Base64
 import com.dylibso.chicory.wasm.types.FunctionType
-import com.dylibso.chicory.wasm.types.NameCustomSection
 import com.dylibso.chicory.wasm.types.ValType
 import org.ldemetrios.tyko.driver.api.MemoryInterface
 import org.ldemetrios.tyko.driver.api.TypstCore
 import org.ldemetrios.tyko.driver.api.TypstDriver
-import org.ldemetrios.tyko.driver.chicory.Demangler.demangle
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import kotlin.collections.map
 
-fun <T, A: T, B : T> B.tryTransforming(func: (B) -> A) = try {
+fun <T, A : T, B : T> B.tryTransforming(func: (B) -> A) = try {
     func(this)
 } catch (e: VirtualMachineError) {
     throw e
@@ -31,14 +40,14 @@ fun <T, A: T, B : T> B.tryTransforming(func: (B) -> A) = try {
 fun sanitizeStackTrace(stackTrace: Array<StackTraceElement>, instance: Instance): Array<StackTraceElement> =
     stackTrace.tryTransforming {
         it.map {
-            val idx = it.methodName.split("_").last().toIntOrNull()
+            val idx = it.methodName.split("_", ".").last().toIntOrNull()
             if (idx != null && it.className.startsWith(PREFIX)) {
                 StackTraceElement(
                     "Chicory",
                     it.moduleName,
                     it.moduleVersion,
                     it.className.drop(PREFIX.length),
-                    instance.functionName(idx)?.tryTransforming(::demangle) ?: idx.toString(),
+                    instance.functionName(idx) ?: idx.toString(),
                     it.fileName,
                     it.lineNumber,
                 )
@@ -54,18 +63,14 @@ internal fun Instance.functionName(idx: Int) = module().run {
     if (idx < importSection().importCount()) {
         importSection().getImport(idx).name()
     } else {
-        customSection("name")
-            .let { it as? NameCustomSection }
-            ?.nameOfFunction(idx)
+        FunctionNames.nameOf(idx)
     }
 }
 
-internal const val PREFIX = "com.dylibso.chicory.\$gen.CompiledMachine"
+internal const val PREFIX = "org.ldemetrios.tyko.driver.chicory.TypstSharedMachine"
 
 fun TypstChicoryInstance(
-    module: WasmModule,
     options: WasiOptions,
-    compiledMachine: Boolean = true,
     readFileByReaderTicket: (ticket: Long, coordinates: String) -> String,
 ): Instance {
     val readByTicket = HostFunction(
@@ -92,20 +97,74 @@ fun TypstChicoryInstance(
     ) { instance, args ->
         throw NativePanicException(instance)
     }
+
+    val downloadUrl = HostFunction(
+        "env", "download_url",
+        FunctionType.of(
+            listOf(ValType.I32, ValType.I64, ValType.I32),
+            listOf()
+        ),
+    ) { instance, args ->
+        val (resultPtr, reqLen, reqPtr) = args
+        val reqJson = instance.memory().readString(reqPtr.toInt(), reqLen.toInt())
+        val responseJson = try {
+            buildDownloadResponse(reqJson)
+        } catch (e: Throwable) {
+            buildJsonObject { put("Err", JsonPrimitive(e.message ?: "download_url failed")) }.toString()
+        }
+        val responseBytes = responseJson.toByteArray()
+        val ptr = instance.export("allocate_ptr_for_raw_string").apply(responseBytes.size.toLong())[0]
+        instance.memory().write(ptr.toInt(), responseBytes)
+        instance.memory().writeLong(resultPtr.toInt(), responseBytes.size.toLong())
+        instance.memory().writeLong(resultPtr.toInt() + 8, ptr)
+        longArrayOf()
+    }
     val store = Store()
     store.addFunction(readByTicket)
     store.addFunction(printBacktrace)
+    store.addFunction(downloadUrl)
     val wasi = WasiPreview1.builder().withOptions(options).build();
     store.addFunction(*wasi.toHostFunctions())
 
-    val builder = builder(module)
+    val builder = builder(COMPILED_MODULE.wasmModule())
     builder.withImportValues(store.toImportValues())
-    if (compiledMachine) {
-        builder.withMachineFactory(MachineFactoryCompiler::compile)
-    }
+    builder.withMachineFactory(COMPILED_MODULE.machineFactory())
     val instance = builder.build()
     store.register("typst_shared", instance)
     return instance
+}
+
+private val downloadJson = Json { ignoreUnknownKeys = true }
+
+private fun buildDownloadResponse(reqJson: String): String {
+    val parsed = downloadJson.parseToJsonElement(reqJson).jsonObject
+    val url = parsed["url"]?.jsonPrimitive?.content ?: error("download_url: missing url")
+    val headersObj = parsed["headers"]?.jsonObject
+    val headers = headersObj?.mapValues { it.value.jsonPrimitive.content } ?: emptyMap()
+
+    val client = HttpClient.newBuilder()
+        .followRedirects(HttpClient.Redirect.NORMAL)
+        .connectTimeout(Duration.ofSeconds(30))
+        .build()
+    val requestBuilder = HttpRequest.newBuilder()
+        .uri(URI.create(url))
+        .GET()
+    headers.forEach { (key, value) ->
+        requestBuilder.header(key, value)
+    }
+    val response = client.send(requestBuilder.build(), HttpResponse.BodyHandlers.ofByteArray())
+    val status = response.statusCode()
+    val responseHeaders = response.headers().map().mapValues { it.value.joinToString(",") }
+    val bodyBase64 = Base64.getEncoder().encodeToString(response.body())
+
+    val ok = buildJsonObject {
+        put("status", JsonPrimitive(status))
+        put("headers", buildJsonObject {
+            responseHeaders.forEach { (key, value) -> put(key, JsonPrimitive(value)) }
+        })
+        put("body", JsonPrimitive(bodyBase64))
+    }
+    return buildJsonObject { put("Ok", ok) }.toString()
 }
 
 class ChicoryMemoryInterface(private val instance: Instance) : MemoryInterface {
@@ -328,7 +387,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         )
     }
 
-    override fun eval_main_warned(
+    override fun eval_main(
         resultPtr: Long,
         contextPtr: Long,
         stdlibPtr: Long,
@@ -338,7 +397,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         nowMillisOrFlag: Long,
         nowNanos: Int,
     ) {
-        instance.export("eval_main_warned").call(
+        instance.export("eval_main").call(
             resultPtr,
             contextPtr,
             stdlibPtr,
@@ -466,6 +525,10 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         instance.export("reset_file").call(cachePtr, idLen, idPtr)
     }
 
+    override fun resolve_preview_package(resultPtr: Long, idLen: Long, idPtr: Long) {
+        instance.export("resolve_preview_package").call(resultPtr, idLen, idPtr)
+    }
+
     override fun font_collection(
         includeSystem: Int,
         includeEmbedded: Int,
@@ -484,11 +547,9 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         instance.export("free_font_collection").call(collectionPtr)
     }
 
-    override fun library(features: Int, inputsLen: Long, inputsPtr: Long): Long {
+    override fun library(features: Int): Long {
         return instance.export("library").call(
             features.toLong(),
-            inputsLen,
-            inputsPtr
         )[0]
     }
 
@@ -632,19 +693,10 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
 
 
 fun ChicoryTypstCore(
-    bytes: WasmModule,
-    wasiOptions: WasiOptions = WasiOptions.builder()
-        .inheritSystem()
-        .withEnvironment("RUST_BACKTRACE", "full")
-        .withEnvironment("RUST_LIB_BACKTRACE", "1")
-        .withDirectory("/", Paths.get("/"))
-        .build(),
-    compiledMachine: Boolean = true
+    wasiOptions: WasiOptions = defaultWasiOptions(),
 ) = TypstCore { reader ->
     val instance = TypstChicoryInstance(
-        bytes,
         wasiOptions,
-        compiledMachine = compiledMachine
     ) { ticket, coordinates -> reader(ticket)(coordinates) }
     val memory = ChicoryMemoryInterface(instance)
     val engine = ChicoryTypstDriver(instance)
@@ -652,13 +704,36 @@ fun ChicoryTypstCore(
     Pair(engine, memory)
 }
 
-val MODULE = Parser.parse(
-    ChicoryTypstDriver::class.java.classLoader.getResourceAsStream("typst-shared.wasm")!!
-)
+private val COMPILED_MODULE = TypstShared()
+val MODULE = COMPILED_MODULE.wasmModule()
 
-fun ChicoryTypstCore(
-    wasiOptions: WasiOptions = WasiOptions.builder().inheritSystem().withEnvironment("RUST_BACKTRACE", "full").build(),
-) = ChicoryTypstCore(MODULE, wasiOptions)
+fun defaultPackagesHostPath(): Path {
+    val os = System.getProperty("os.name").lowercase()
+    val home = System.getProperty("user.home")
+    val path = when {
+        os.contains("mac") -> Paths.get(home, "Library", "Caches", "typst", "packages")
+        os.contains("win") -> {
+            val local = System.getenv("LOCALAPPDATA")
+            if (local != null) Paths.get(local, "typst", "packages")
+            else Paths.get(home, "AppData", "Local", "typst", "packages")
+        }
+
+        else -> {
+            val xdg = System.getenv("XDG_CACHE_HOME")
+            if (xdg != null) Paths.get(xdg, "typst", "packages")
+            else Paths.get(home, ".cache", "typst", "packages")
+        }
+    }
+    Files.createDirectories(path)
+    return path
+}
+
+fun defaultWasiOptions(): WasiOptions = WasiOptions.builder()
+    .inheritSystem()
+    .withEnvironment("RUST_BACKTRACE", "full")
+    .withEnvironment("RUST_LIB_BACKTRACE", "1")
+    .withDirectory("/packages", defaultPackagesHostPath())
+    .build()
 
 //fun main() {
 //    val runtime = ChicoryTypstCore()

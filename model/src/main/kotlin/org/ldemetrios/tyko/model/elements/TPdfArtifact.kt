@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 
 
 @SerialName("str")
-
 enum class TPdfArtifactKind : IntoStr {
     HEADER, FOOTER, PAGE, OTHER;
 

@@ -120,22 +120,34 @@ subprojects {
     }
 
     if (!path.startsWith(":tests") && name !in excludedFromPublishing) {
-        plugins.withId("org.jetbrains.kotlin.jvm") {
-            apply(plugin = "maven-publish")
+        apply(plugin = "maven-publish")
 
+        var publicationConfigured = false
+        fun configureMavenPublicationOnce() {
+            if (publicationConfigured) return
+            publicationConfigured = true
             publishing {
                 publications {
-                    create<MavenPublication>("maven") {
-                        from(components["java"])
-                        artifactId = ("tyko" + project.path.split(":")
-                            .filter { it.isNotBlank() }
-                            .joinToString("-", prefix = "-"))
+                    if (findByName("maven") == null) {
+                        create<MavenPublication>("maven") {
+                            from(components["java"])
+                            artifactId = ("tyko" + project.path.split(":")
+                                .filter { it.isNotBlank() }
+                                .joinToString("-", prefix = "-"))
+                        }
                     }
                 }
                 repositories {
                     mavenLocal()
                 }
             }
+        }
+
+        plugins.withId("org.jetbrains.kotlin.jvm") {
+            configureMavenPublicationOnce()
+        }
+        plugins.withId("java") {
+            configureMavenPublicationOnce()
         }
     }
 

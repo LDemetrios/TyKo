@@ -114,6 +114,10 @@ fun selectType(obj: JsonObject, typeDiscriminator: String, expectedType: KType, 
             typeOf<TLocatableElement<*>>() in options -> return typeOf<TLocatableElement<*>>()
         }
 
+        "str" -> when {
+            "path" in discriminatedTypes -> discriminatedTypes["path"]?.singleOrNull()?.let { return it }
+        }
+
         "dict" -> {
             options.find { it.classifier == TDict::class }?.let { return it }
 
@@ -254,6 +258,7 @@ fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: String): Any
             when (klass) {
                 TNone::class -> return TNone
                 TAuto::class -> return TAuto
+                VirtualRoot.Project::class -> return VirtualRoot.Project
                 LineWidth::class -> return LineWidth
                 TDict::class -> return TDict(obj["value"]!!.jsonObject.mapValues {
                     deserializeAs(
@@ -277,6 +282,12 @@ fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: String): Any
                     deserializeAs(json, TDict::class(expectedType[0]), jsonPath) as TValue,
                     Corners::class(expectedType[0].type ?: typeOf<TValue>()),
                 )
+
+                TPath::class -> {
+                    if (typeDiscriminator == "str") {
+                        return TPath(VirtualRoot.Project, obj["value"]!!.jsonPrimitive.content)
+                    }
+                }
 
                 else -> if (klass.java.isEnum) {
                     val name = obj["value"]!!.jsonPrimitive.content
@@ -370,7 +381,7 @@ val prettyPrint = Json {
 
 fun deserialize(str: String): TValue {
     val x = Json.decodeFromString<JsonElement>(str)
-//    println(prettyPrint.encodeToString(x))
+    println(prettyPrint.encodeToString(x))
     return deserialize(x)
 }
 
@@ -417,7 +428,8 @@ fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
                     "sansserif" -> return show("math.sans")
                     "plain" -> return show("math.serif")
                 }
-                8 -> TODO ("cramped")
+
+                8 -> TODO("cramped")
                 9 -> return show("math.bold")
                 10 -> when (reconstructed.castOrNull<JsonObject>()?.get("value")?.maybeBool) {
                     true -> return show("math.italic")
@@ -432,6 +444,7 @@ fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
                 10 -> TODO("kind { Header(NonZeroU32, TableHeaderScope), Footer, #[default] Data }")
             }
         }
+
         "grid.cell" -> when (id) {
             null -> when (internals.id) {
                 10 -> TODO("is_repeated")

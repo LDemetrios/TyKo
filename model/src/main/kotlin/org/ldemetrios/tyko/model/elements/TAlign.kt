@@ -1,7 +1,5 @@
 package org.ldemetrios.tyko.model
 
-import kotlinx.serialization.Serializable
-
 //!https://typst.app/docs/reference/layout/align/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**

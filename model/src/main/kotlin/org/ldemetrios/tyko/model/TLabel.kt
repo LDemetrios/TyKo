@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 
 @SerialName("label")
-class TLabel(@all: Positional val value: TStr) : TValue, TSelectable<TValue>, Attribution,TCounterKey, TLinkDestination {
+data class TLabel(@all: Positional val value: TStr) : TValue, TSelectable<TValue>, Option<TLabel>, Attribution,TCounterKey, TLinkDestination {
     override fun type(): TType = TYPE
 
     companion object {

@@ -64,7 +64,7 @@ data class TDocument(
      * 
      * Settable; Typst type: none|auto|datetime
      */
-    @all:Settable val date: Smart<DocumentDatetime>? = null,
+    @all:Settable val date: Smart<Option<TDatetime>>? = null,
     override val label: TLabel? = null
 ) : TContent() {
     override fun elem(): TElement = ELEM
@@ -82,5 +82,5 @@ data class TSetDocument(
     val author: ArrayOrSingle<TStr>? = null,
     val description: Option<TContent>? = null,
     val keywords: ArrayOrSingle<TStr>? = null,
-    val date: Smart<DocumentDatetime>? = null
+    val date: Smart<Option<TDatetime>>? = null
 ) : TSetRule()

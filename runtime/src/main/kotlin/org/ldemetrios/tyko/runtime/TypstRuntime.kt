@@ -21,6 +21,7 @@ import org.ldemetrios.tyko.compiler.map
 import org.ldemetrios.tyko.driver.api.TypstCore
 import org.ldemetrios.tyko.model.TArray
 import org.ldemetrios.tyko.model.TDict
+import org.ldemetrios.tyko.model.TSelector
 import org.ldemetrios.tyko.model.TSpace
 import org.ldemetrios.tyko.model.TStyle
 import org.ldemetrios.tyko.model.TStyled
@@ -56,99 +57,79 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         return compiler.formatSource(content, column, tabWidth)
     }
 
-    fun library(features: Set<Feature> = setOf(), inputs: String = "(:)"): Library {
-        return compiler.libraryProvider(features, inputs)
-    }
-
-    fun library(inputs: String, vararg features: Feature): Library {
-        return library(features.toSet(), inputs)
+    fun library(features: Set<Feature> = setOf()): Library {
+        return compiler.libraryProvider(features)
     }
 
     fun library(vararg features: Feature): Library {
         return library(features.toSet())
     }
 
-    fun queryRaw(
+    fun <S : TValue> queryRaw(
         context: FSContext,
-        selector: String,
+        selector: TSelector<S>,
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         main: FileDescriptor = FileDescriptor(null, "main.typ"),
         now: Now = Now.System,
-    ): Warned<RResult<TValue, List<SourceDiagnostic>>> {
-        return compiler.queryRaw(context, fonts, stdlib, main, now, selector)
-            .map { it.map { deserialize(it) } }
+    ): Warned<RResult<TArray<S>, List<SourceDiagnostic>>> {
+        return compiler.queryRaw(context, fonts, stdlib, main, now, selector.repr())
+            .map { it.map { deserialize(it) as TArray<S> } }
     }
 
-    fun query(
+    fun <S : TValue> query(
         context: FSContext,
-        selector: String,
+        selector: TSelector<S>,
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         main: FileDescriptor = FileDescriptor(null, "main.typ"),
         now: Now = Now.System,
-    ): TValue {
-        return deserialize(compiler.query(context, fonts, stdlib, main, now, selector))
+    ): TArray<S> {
+        return deserialize(compiler.query(context, fonts, stdlib, main, now, selector.repr())) as TArray<S>
     }
 
-    fun queryWarned(
+    fun <S : TValue> queryWarned(
         context: FSContext,
-        selector: String,
+        selector: TSelector<S>,
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         main: FileDescriptor = FileDescriptor(null, "main.typ"),
         now: Now = Now.System,
-    ): Warned<TValue> {
-        return compiler.queryWarned(context, fonts, stdlib, main, now, selector)
-            .map { deserialize(it) }
+    ): Warned<TArray<S>> {
+        return compiler.queryWarned(context, fonts, stdlib, main, now, selector.repr())
+            .map { deserialize(it) as TArray<S> }
     }
 
     fun parseSyntax(string: String, mode: SyntaxMode): SyntaxTree {
         return compiler.parseSyntax(string, mode)
     }
 
-    fun detachedEvalRaw(
-        source: String,
-        library: Library = defaultLibrary,
-        fonts: FontCollection = defaultFonts,
-        context: FSContext? = null,
-        mode: SyntaxMode = SyntaxMode.Code,
-    ): RResult<TValue, List<SourceDiagnostic>> {
-        return compiler.detachedEvalRaw(library, fonts, source, mode, context).map {
-            deserialize(it)
-        }
-    }
-
-    fun detachedEvalWarnedRaw(
-        source: String,
-        library: Library = defaultLibrary,
-        fonts: FontCollection = defaultFonts,
-        context: FSContext? = null,
-        mode: SyntaxMode = SyntaxMode.Code,
-    ): Warned<RResult<TValue, List<SourceDiagnostic>>> {
-        return compiler.detachedEvalWarnedRaw(library, fonts, source, mode, context).map {
-            it.map { value -> deserialize(value) }
-        }
-    }
-
-    fun evalMainWarnedRaw(
+    fun evalMainRaw(
         context: FSContext,
         main: FileDescriptor = FileDescriptor(null, "main.typ"),
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         now: Now? = Now.System,
-    ): Warned<RResult<String, List<SourceDiagnostic>>> {
-        return compiler.evalMainWarnedRaw(context, fonts, stdlib, main, now)
+    ) = compiler.evalMainRaw(context, fonts, stdlib, main, now).map { it.map { deserialize(it) } }
+
+    fun evalMain(
+        context: FSContext,
+        main: FileDescriptor = FileDescriptor(null, "main.typ"),
+        fonts: FontCollection = defaultFonts,
+        stdlib: Library = defaultLibrary,
+        now: Now? = Now.System,
+    ) = compiler.evalMain(context, fonts, stdlib, main, now).let {
+        deserialize(it)
     }
 
-    fun detachedEval(
-        source: String,
-        library: Library = defaultLibrary,
+    fun evalMainWarned(
+        context: FSContext,
+        main: FileDescriptor = FileDescriptor(null, "main.typ"),
         fonts: FontCollection = defaultFonts,
-        context: FSContext? = null,
-        mode: SyntaxMode = SyntaxMode.Code,
-    ): TValue {
-        return deserialize(compiler.detachedEval(library, fonts, source, mode, context))
+        stdlib: Library = defaultLibrary,
+        now: Now? = Now.System,
+    ) = compiler.evalMainWarned(context, fonts, stdlib, main, now).map {
+        deserialize(it)
     }
 
     fun compileHtmlRaw(
@@ -351,6 +332,10 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         return compiler.fileContext(files)
     }
 
+    fun resolvePreviewPackage(file: FileDescriptor): RResult<Base64Bytes, FileError> {
+        return compiler.resolvePreviewPackage(file)
+    }
+
     fun fileContext(files: Map<String, String>): FSContext {
         return compiler.fileContext {
             files[it.virtualPath]?.let {
@@ -364,12 +349,20 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         }
     }
 
-    fun fontCollection(includeSystem: Boolean,  includeEmbedded: Boolean, fontPaths: List<String> = listOf()): FontCollection {
-        return compiler.fontCollection(includeSystem,  includeEmbedded, fontPaths)
+    fun fontCollection(
+        includeSystem: Boolean,
+        includeEmbedded: Boolean,
+        fontPaths: List<String> = listOf()
+    ): FontCollection {
+        return compiler.fontCollection(includeSystem, includeEmbedded, fontPaths)
     }
 
-    fun fontCollection(includeSystem: Boolean = false, includeEmbedded: Boolean =true, vararg fontPaths: String): FontCollection {
-        return fontCollection(includeSystem,  includeEmbedded, fontPaths.asList())
+    fun fontCollection(
+        includeSystem: Boolean = false,
+        includeEmbedded: Boolean = true,
+        vararg fontPaths: String
+    ): FontCollection {
+        return fontCollection(includeSystem, includeEmbedded, fontPaths.asList())
     }
 
     fun fontCollection(vararg fontPaths: String): FontCollection {

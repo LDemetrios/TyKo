@@ -4,10 +4,6 @@ import org.jsoup.Jsoup.connect
 import java.nio.file.Path
 import java.nio.file.Paths
 
-data class GeneratorConfig(
-    val inputRoot: Path,
-)
-
 data class LinkComment(
     val sourceFile: Path,
     val lineNumber: Int,

@@ -14,6 +14,7 @@ import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonClassDiscriminator
 import org.ldemetrios.tyko.driver.api.FlattenedSyntaxTree
+import org.ldemetrios.tyko.driver.api.NoopCore
 import org.ldemetrios.tyko.driver.api.Pointer
 import org.ldemetrios.tyko.driver.api.RawNow
 import org.ldemetrios.tyko.driver.api.TypstCore
@@ -25,11 +26,13 @@ enum class Feature {
     Html,
     A11yExtras
 }
+
 @JvmName("generic_sanitize")
 private fun <T> Warned<T>.sanitize() = Warned(
     output,
     warnings.sanitize(),
 )
+
 private fun <T> Warned<RResult<T, List<SourceDiagnostic>>>.sanitize() = Warned(
     output.sanitize(),
     warnings.sanitize(),
@@ -83,7 +86,11 @@ data class Library(internal val pointer: Pointer, internal val bridge: TypstCore
 
 }
 
-data class FSContext(val pointer: Pointer, val bridge: TypstCore) : Closeable {
+data class FSContext(
+    val pointer: Pointer,
+    val bridge: TypstCore,
+    val original: (FileDescriptor) -> RResult<Base64Bytes, FileError>
+) : Closeable {
     override fun close() = pointer.close()
 
     fun resetFile(file: FileDescriptor) {
@@ -93,6 +100,10 @@ data class FSContext(val pointer: Pointer, val bridge: TypstCore) : Closeable {
 
 data class FontCollection(val pointer: Pointer, val bridge: TypstCore) : Closeable {
     override fun close() = pointer.close()
+
+    companion object {
+        fun nullptr() = FontCollection(Pointer.nullptr(), NoopCore)
+    }
 }
 
 data class PagedDocument(val pointer: Pointer, val carriedContext: FSContext, val bridge: TypstCore) : Closeable {
@@ -117,10 +128,14 @@ data class PagedDocument(val pointer: Pointer, val carriedContext: FSContext, va
 }
 
 @Serializable
-data class PackageSpec(val namespace: String, val name: String, val version: PackageVersion)
+data class PackageSpec(val namespace: String, val name: String, val version: PackageVersion) {
+    override fun toString() = "@$namespace/$name:$version"
+}
 
 @Serializable
-data class PackageVersion(val major: Int, val minor: Int, val patch: Int)
+data class PackageVersion(val major: Int, val minor: Int, val patch: Int) {
+    override fun toString() = "$major.$minor.$patch"
+}
 
 @Serializable
 @JsonClassDiscriminator("type")
@@ -170,7 +185,9 @@ data class FileDescriptor(
     val packageSpec: PackageSpec?,
     @SerialName("path")
     val virtualPath: String
-)
+) {
+    override fun toString() = (packageSpec?.toString() ?: "") + virtualPath
+}
 
 @Serializable
 data class Spanned<T>(
@@ -370,140 +387,140 @@ private fun FlattenedSyntaxTree.toSyntaxTree(source: String): SyntaxTree {
             else -> byteToChar[rawIndex]
         }
         val mark = when (code) {
-             0 -> SyntaxMark.NodeStart(SyntaxKind.End)
-             1 -> SyntaxMark.NodeStart(SyntaxKind.Error)
-             2 -> SyntaxMark.NodeStart(SyntaxKind.Shebang)
-             3 -> SyntaxMark.NodeStart(SyntaxKind.LineComment)
-             4 -> SyntaxMark.NodeStart(SyntaxKind.BlockComment)
-             5 -> SyntaxMark.NodeStart(SyntaxKind.Markup)
-             6 -> SyntaxMark.NodeStart(SyntaxKind.Text)
-             7 -> SyntaxMark.NodeStart(SyntaxKind.Space)
-             8 -> SyntaxMark.NodeStart(SyntaxKind.Linebreak)
-             9 -> SyntaxMark.NodeStart(SyntaxKind.Parbreak)
-             10 -> SyntaxMark.NodeStart(SyntaxKind.Escape)
-             11 -> SyntaxMark.NodeStart(SyntaxKind.Shorthand)
-             12 -> SyntaxMark.NodeStart(SyntaxKind.SmartQuote)
-             13 -> SyntaxMark.NodeStart(SyntaxKind.Strong)
-             14 -> SyntaxMark.NodeStart(SyntaxKind.Emph)
-             15 -> SyntaxMark.NodeStart(SyntaxKind.Raw)
-             16 -> SyntaxMark.NodeStart(SyntaxKind.RawLang)
-             17 -> SyntaxMark.NodeStart(SyntaxKind.RawDelim)
-             18 -> SyntaxMark.NodeStart(SyntaxKind.RawTrimmed)
-             19 -> SyntaxMark.NodeStart(SyntaxKind.Link)
-             20 -> SyntaxMark.NodeStart(SyntaxKind.Label)
-             21 -> SyntaxMark.NodeStart(SyntaxKind.Ref)
-             22 -> SyntaxMark.NodeStart(SyntaxKind.RefMarker)
-             23 -> SyntaxMark.NodeStart(SyntaxKind.Heading)
-             24 -> SyntaxMark.NodeStart(SyntaxKind.HeadingMarker)
-             25 -> SyntaxMark.NodeStart(SyntaxKind.ListItem)
-             26 -> SyntaxMark.NodeStart(SyntaxKind.ListMarker)
-             27 -> SyntaxMark.NodeStart(SyntaxKind.EnumItem)
-             28 -> SyntaxMark.NodeStart(SyntaxKind.EnumMarker)
-             29 -> SyntaxMark.NodeStart(SyntaxKind.TermItem)
-             30 -> SyntaxMark.NodeStart(SyntaxKind.TermMarker)
-             31 -> SyntaxMark.NodeStart(SyntaxKind.Equation)
-             32 -> SyntaxMark.NodeStart(SyntaxKind.Math)
-             33 -> SyntaxMark.NodeStart(SyntaxKind.MathText)
-             34 -> SyntaxMark.NodeStart(SyntaxKind.MathIdent)
-             35 -> SyntaxMark.NodeStart(SyntaxKind.MathShorthand)
-             36 -> SyntaxMark.NodeStart(SyntaxKind.MathAlignPoint)
-             37 -> SyntaxMark.NodeStart(SyntaxKind.MathDelimited)
-             38 -> SyntaxMark.NodeStart(SyntaxKind.MathAttach)
-             39 -> SyntaxMark.NodeStart(SyntaxKind.MathPrimes)
-             40 -> SyntaxMark.NodeStart(SyntaxKind.MathFrac)
-             41 -> SyntaxMark.NodeStart(SyntaxKind.MathRoot)
-             42 -> SyntaxMark.NodeStart(SyntaxKind.Hash)
-             43 -> SyntaxMark.NodeStart(SyntaxKind.LeftBrace)
-             44 -> SyntaxMark.NodeStart(SyntaxKind.RightBrace)
-             45 -> SyntaxMark.NodeStart(SyntaxKind.LeftBracket)
-             46 -> SyntaxMark.NodeStart(SyntaxKind.RightBracket)
-             47 -> SyntaxMark.NodeStart(SyntaxKind.LeftParen)
-             48 -> SyntaxMark.NodeStart(SyntaxKind.RightParen)
-             49 -> SyntaxMark.NodeStart(SyntaxKind.Comma)
-             50 -> SyntaxMark.NodeStart(SyntaxKind.Semicolon)
-             51 -> SyntaxMark.NodeStart(SyntaxKind.Colon)
-             52 -> SyntaxMark.NodeStart(SyntaxKind.Star)
-             53 -> SyntaxMark.NodeStart(SyntaxKind.Underscore)
-             54 -> SyntaxMark.NodeStart(SyntaxKind.Dollar)
-             55 -> SyntaxMark.NodeStart(SyntaxKind.Plus)
-             56 -> SyntaxMark.NodeStart(SyntaxKind.Minus)
-             57 -> SyntaxMark.NodeStart(SyntaxKind.Slash)
-             58 -> SyntaxMark.NodeStart(SyntaxKind.Hat)
-             60 -> SyntaxMark.NodeStart(SyntaxKind.Dot)
-             61 -> SyntaxMark.NodeStart(SyntaxKind.Eq)
-             62 -> SyntaxMark.NodeStart(SyntaxKind.EqEq)
-             63 -> SyntaxMark.NodeStart(SyntaxKind.ExclEq)
-             64 -> SyntaxMark.NodeStart(SyntaxKind.Lt)
-             65 -> SyntaxMark.NodeStart(SyntaxKind.LtEq)
-             66 -> SyntaxMark.NodeStart(SyntaxKind.Gt)
-             67 -> SyntaxMark.NodeStart(SyntaxKind.GtEq)
-             68 -> SyntaxMark.NodeStart(SyntaxKind.PlusEq)
-             69 -> SyntaxMark.NodeStart(SyntaxKind.HyphEq)
-             70 -> SyntaxMark.NodeStart(SyntaxKind.StarEq)
-             71 -> SyntaxMark.NodeStart(SyntaxKind.SlashEq)
-             72 -> SyntaxMark.NodeStart(SyntaxKind.Dots)
-             73 -> SyntaxMark.NodeStart(SyntaxKind.Arrow)
-             74 -> SyntaxMark.NodeStart(SyntaxKind.Root)
-             75 -> SyntaxMark.NodeStart(SyntaxKind.Bang)
-             76 -> SyntaxMark.NodeStart(SyntaxKind.Not)
-             77 -> SyntaxMark.NodeStart(SyntaxKind.And)
-             78 -> SyntaxMark.NodeStart(SyntaxKind.Or)
-             79 -> SyntaxMark.NodeStart(SyntaxKind.None)
-             80 -> SyntaxMark.NodeStart(SyntaxKind.Auto)
-             81 -> SyntaxMark.NodeStart(SyntaxKind.Let)
-             82 -> SyntaxMark.NodeStart(SyntaxKind.Set)
-             83 -> SyntaxMark.NodeStart(SyntaxKind.Show)
-             84 -> SyntaxMark.NodeStart(SyntaxKind.Context)
-             85 -> SyntaxMark.NodeStart(SyntaxKind.If)
-             86 -> SyntaxMark.NodeStart(SyntaxKind.Else)
-             87 -> SyntaxMark.NodeStart(SyntaxKind.For)
-             88 -> SyntaxMark.NodeStart(SyntaxKind.In)
-             89 -> SyntaxMark.NodeStart(SyntaxKind.While)
-             90 -> SyntaxMark.NodeStart(SyntaxKind.Break)
-             91 -> SyntaxMark.NodeStart(SyntaxKind.Continue)
-             92 -> SyntaxMark.NodeStart(SyntaxKind.Return)
-             93 -> SyntaxMark.NodeStart(SyntaxKind.Import)
-             94 -> SyntaxMark.NodeStart(SyntaxKind.Include)
-             95 -> SyntaxMark.NodeStart(SyntaxKind.As)
-             96 -> SyntaxMark.NodeStart(SyntaxKind.Code)
-             97 -> SyntaxMark.NodeStart(SyntaxKind.Ident)
-             98 -> SyntaxMark.NodeStart(SyntaxKind.Bool)
-             99 -> SyntaxMark.NodeStart(SyntaxKind.Int)
-             100 -> SyntaxMark.NodeStart(SyntaxKind.Float)
-             101 -> SyntaxMark.NodeStart(SyntaxKind.Numeric)
-             102 -> SyntaxMark.NodeStart(SyntaxKind.Str)
-             103 -> SyntaxMark.NodeStart(SyntaxKind.CodeBlock)
-             104 -> SyntaxMark.NodeStart(SyntaxKind.ContentBlock)
-             105 -> SyntaxMark.NodeStart(SyntaxKind.Parenthesized)
-             106 -> SyntaxMark.NodeStart(SyntaxKind.Array)
-             107 -> SyntaxMark.NodeStart(SyntaxKind.Dict)
-             108 -> SyntaxMark.NodeStart(SyntaxKind.Named)
-             109 -> SyntaxMark.NodeStart(SyntaxKind.Keyed)
-             110 -> SyntaxMark.NodeStart(SyntaxKind.Unary)
-             111 -> SyntaxMark.NodeStart(SyntaxKind.Binary)
-             112 -> SyntaxMark.NodeStart(SyntaxKind.FieldAccess)
-             113 -> SyntaxMark.NodeStart(SyntaxKind.FuncCall)
-             114 -> SyntaxMark.NodeStart(SyntaxKind.Args)
-             115 -> SyntaxMark.NodeStart(SyntaxKind.Spread)
-             116 -> SyntaxMark.NodeStart(SyntaxKind.Closure)
-             117 -> SyntaxMark.NodeStart(SyntaxKind.Params)
-             118 -> SyntaxMark.NodeStart(SyntaxKind.LetBinding)
-             119 -> SyntaxMark.NodeStart(SyntaxKind.SetRule)
-             120 -> SyntaxMark.NodeStart(SyntaxKind.ShowRule)
-             121 -> SyntaxMark.NodeStart(SyntaxKind.Contextual)
-             122 -> SyntaxMark.NodeStart(SyntaxKind.Conditional)
-             123 -> SyntaxMark.NodeStart(SyntaxKind.WhileLoop)
-             124 -> SyntaxMark.NodeStart(SyntaxKind.ForLoop)
-             125 -> SyntaxMark.NodeStart(SyntaxKind.ModuleImport)
-             126 -> SyntaxMark.NodeStart(SyntaxKind.ImportItems)
-             127 -> SyntaxMark.NodeStart(SyntaxKind.ImportItemPath)
-             128 -> SyntaxMark.NodeStart(SyntaxKind.RenamedImportItem)
-             129 -> SyntaxMark.NodeStart(SyntaxKind.ModuleInclude)
-             130 -> SyntaxMark.NodeStart(SyntaxKind.LoopBreak)
-             131 -> SyntaxMark.NodeStart(SyntaxKind.LoopContinue)
-             132 -> SyntaxMark.NodeStart(SyntaxKind.FuncReturn)
-             133 -> SyntaxMark.NodeStart(SyntaxKind.Destructuring)
-             134 -> SyntaxMark.NodeStart(SyntaxKind.DestructAssignment)
+            0 -> SyntaxMark.NodeStart(SyntaxKind.End)
+            1 -> SyntaxMark.NodeStart(SyntaxKind.Error)
+            2 -> SyntaxMark.NodeStart(SyntaxKind.Shebang)
+            3 -> SyntaxMark.NodeStart(SyntaxKind.LineComment)
+            4 -> SyntaxMark.NodeStart(SyntaxKind.BlockComment)
+            5 -> SyntaxMark.NodeStart(SyntaxKind.Markup)
+            6 -> SyntaxMark.NodeStart(SyntaxKind.Text)
+            7 -> SyntaxMark.NodeStart(SyntaxKind.Space)
+            8 -> SyntaxMark.NodeStart(SyntaxKind.Linebreak)
+            9 -> SyntaxMark.NodeStart(SyntaxKind.Parbreak)
+            10 -> SyntaxMark.NodeStart(SyntaxKind.Escape)
+            11 -> SyntaxMark.NodeStart(SyntaxKind.Shorthand)
+            12 -> SyntaxMark.NodeStart(SyntaxKind.SmartQuote)
+            13 -> SyntaxMark.NodeStart(SyntaxKind.Strong)
+            14 -> SyntaxMark.NodeStart(SyntaxKind.Emph)
+            15 -> SyntaxMark.NodeStart(SyntaxKind.Raw)
+            16 -> SyntaxMark.NodeStart(SyntaxKind.RawLang)
+            17 -> SyntaxMark.NodeStart(SyntaxKind.RawDelim)
+            18 -> SyntaxMark.NodeStart(SyntaxKind.RawTrimmed)
+            19 -> SyntaxMark.NodeStart(SyntaxKind.Link)
+            20 -> SyntaxMark.NodeStart(SyntaxKind.Label)
+            21 -> SyntaxMark.NodeStart(SyntaxKind.Ref)
+            22 -> SyntaxMark.NodeStart(SyntaxKind.RefMarker)
+            23 -> SyntaxMark.NodeStart(SyntaxKind.Heading)
+            24 -> SyntaxMark.NodeStart(SyntaxKind.HeadingMarker)
+            25 -> SyntaxMark.NodeStart(SyntaxKind.ListItem)
+            26 -> SyntaxMark.NodeStart(SyntaxKind.ListMarker)
+            27 -> SyntaxMark.NodeStart(SyntaxKind.EnumItem)
+            28 -> SyntaxMark.NodeStart(SyntaxKind.EnumMarker)
+            29 -> SyntaxMark.NodeStart(SyntaxKind.TermItem)
+            30 -> SyntaxMark.NodeStart(SyntaxKind.TermMarker)
+            31 -> SyntaxMark.NodeStart(SyntaxKind.Equation)
+            32 -> SyntaxMark.NodeStart(SyntaxKind.Math)
+            33 -> SyntaxMark.NodeStart(SyntaxKind.MathText)
+            34 -> SyntaxMark.NodeStart(SyntaxKind.MathIdent)
+            35 -> SyntaxMark.NodeStart(SyntaxKind.MathShorthand)
+            36 -> SyntaxMark.NodeStart(SyntaxKind.MathAlignPoint)
+            37 -> SyntaxMark.NodeStart(SyntaxKind.MathDelimited)
+            38 -> SyntaxMark.NodeStart(SyntaxKind.MathAttach)
+            39 -> SyntaxMark.NodeStart(SyntaxKind.MathPrimes)
+            40 -> SyntaxMark.NodeStart(SyntaxKind.MathFrac)
+            41 -> SyntaxMark.NodeStart(SyntaxKind.MathRoot)
+            42 -> SyntaxMark.NodeStart(SyntaxKind.Hash)
+            43 -> SyntaxMark.NodeStart(SyntaxKind.LeftBrace)
+            44 -> SyntaxMark.NodeStart(SyntaxKind.RightBrace)
+            45 -> SyntaxMark.NodeStart(SyntaxKind.LeftBracket)
+            46 -> SyntaxMark.NodeStart(SyntaxKind.RightBracket)
+            47 -> SyntaxMark.NodeStart(SyntaxKind.LeftParen)
+            48 -> SyntaxMark.NodeStart(SyntaxKind.RightParen)
+            49 -> SyntaxMark.NodeStart(SyntaxKind.Comma)
+            50 -> SyntaxMark.NodeStart(SyntaxKind.Semicolon)
+            51 -> SyntaxMark.NodeStart(SyntaxKind.Colon)
+            52 -> SyntaxMark.NodeStart(SyntaxKind.Star)
+            53 -> SyntaxMark.NodeStart(SyntaxKind.Underscore)
+            54 -> SyntaxMark.NodeStart(SyntaxKind.Dollar)
+            55 -> SyntaxMark.NodeStart(SyntaxKind.Plus)
+            56 -> SyntaxMark.NodeStart(SyntaxKind.Minus)
+            57 -> SyntaxMark.NodeStart(SyntaxKind.Slash)
+            58 -> SyntaxMark.NodeStart(SyntaxKind.Hat)
+            60 -> SyntaxMark.NodeStart(SyntaxKind.Dot)
+            61 -> SyntaxMark.NodeStart(SyntaxKind.Eq)
+            62 -> SyntaxMark.NodeStart(SyntaxKind.EqEq)
+            63 -> SyntaxMark.NodeStart(SyntaxKind.ExclEq)
+            64 -> SyntaxMark.NodeStart(SyntaxKind.Lt)
+            65 -> SyntaxMark.NodeStart(SyntaxKind.LtEq)
+            66 -> SyntaxMark.NodeStart(SyntaxKind.Gt)
+            67 -> SyntaxMark.NodeStart(SyntaxKind.GtEq)
+            68 -> SyntaxMark.NodeStart(SyntaxKind.PlusEq)
+            69 -> SyntaxMark.NodeStart(SyntaxKind.HyphEq)
+            70 -> SyntaxMark.NodeStart(SyntaxKind.StarEq)
+            71 -> SyntaxMark.NodeStart(SyntaxKind.SlashEq)
+            72 -> SyntaxMark.NodeStart(SyntaxKind.Dots)
+            73 -> SyntaxMark.NodeStart(SyntaxKind.Arrow)
+            74 -> SyntaxMark.NodeStart(SyntaxKind.Root)
+            75 -> SyntaxMark.NodeStart(SyntaxKind.Bang)
+            76 -> SyntaxMark.NodeStart(SyntaxKind.Not)
+            77 -> SyntaxMark.NodeStart(SyntaxKind.And)
+            78 -> SyntaxMark.NodeStart(SyntaxKind.Or)
+            79 -> SyntaxMark.NodeStart(SyntaxKind.None)
+            80 -> SyntaxMark.NodeStart(SyntaxKind.Auto)
+            81 -> SyntaxMark.NodeStart(SyntaxKind.Let)
+            82 -> SyntaxMark.NodeStart(SyntaxKind.Set)
+            83 -> SyntaxMark.NodeStart(SyntaxKind.Show)
+            84 -> SyntaxMark.NodeStart(SyntaxKind.Context)
+            85 -> SyntaxMark.NodeStart(SyntaxKind.If)
+            86 -> SyntaxMark.NodeStart(SyntaxKind.Else)
+            87 -> SyntaxMark.NodeStart(SyntaxKind.For)
+            88 -> SyntaxMark.NodeStart(SyntaxKind.In)
+            89 -> SyntaxMark.NodeStart(SyntaxKind.While)
+            90 -> SyntaxMark.NodeStart(SyntaxKind.Break)
+            91 -> SyntaxMark.NodeStart(SyntaxKind.Continue)
+            92 -> SyntaxMark.NodeStart(SyntaxKind.Return)
+            93 -> SyntaxMark.NodeStart(SyntaxKind.Import)
+            94 -> SyntaxMark.NodeStart(SyntaxKind.Include)
+            95 -> SyntaxMark.NodeStart(SyntaxKind.As)
+            96 -> SyntaxMark.NodeStart(SyntaxKind.Code)
+            97 -> SyntaxMark.NodeStart(SyntaxKind.Ident)
+            98 -> SyntaxMark.NodeStart(SyntaxKind.Bool)
+            99 -> SyntaxMark.NodeStart(SyntaxKind.Int)
+            100 -> SyntaxMark.NodeStart(SyntaxKind.Float)
+            101 -> SyntaxMark.NodeStart(SyntaxKind.Numeric)
+            102 -> SyntaxMark.NodeStart(SyntaxKind.Str)
+            103 -> SyntaxMark.NodeStart(SyntaxKind.CodeBlock)
+            104 -> SyntaxMark.NodeStart(SyntaxKind.ContentBlock)
+            105 -> SyntaxMark.NodeStart(SyntaxKind.Parenthesized)
+            106 -> SyntaxMark.NodeStart(SyntaxKind.Array)
+            107 -> SyntaxMark.NodeStart(SyntaxKind.Dict)
+            108 -> SyntaxMark.NodeStart(SyntaxKind.Named)
+            109 -> SyntaxMark.NodeStart(SyntaxKind.Keyed)
+            110 -> SyntaxMark.NodeStart(SyntaxKind.Unary)
+            111 -> SyntaxMark.NodeStart(SyntaxKind.Binary)
+            112 -> SyntaxMark.NodeStart(SyntaxKind.FieldAccess)
+            113 -> SyntaxMark.NodeStart(SyntaxKind.FuncCall)
+            114 -> SyntaxMark.NodeStart(SyntaxKind.Args)
+            115 -> SyntaxMark.NodeStart(SyntaxKind.Spread)
+            116 -> SyntaxMark.NodeStart(SyntaxKind.Closure)
+            117 -> SyntaxMark.NodeStart(SyntaxKind.Params)
+            118 -> SyntaxMark.NodeStart(SyntaxKind.LetBinding)
+            119 -> SyntaxMark.NodeStart(SyntaxKind.SetRule)
+            120 -> SyntaxMark.NodeStart(SyntaxKind.ShowRule)
+            121 -> SyntaxMark.NodeStart(SyntaxKind.Contextual)
+            122 -> SyntaxMark.NodeStart(SyntaxKind.Conditional)
+            123 -> SyntaxMark.NodeStart(SyntaxKind.WhileLoop)
+            124 -> SyntaxMark.NodeStart(SyntaxKind.ForLoop)
+            125 -> SyntaxMark.NodeStart(SyntaxKind.ModuleImport)
+            126 -> SyntaxMark.NodeStart(SyntaxKind.ImportItems)
+            127 -> SyntaxMark.NodeStart(SyntaxKind.ImportItemPath)
+            128 -> SyntaxMark.NodeStart(SyntaxKind.RenamedImportItem)
+            129 -> SyntaxMark.NodeStart(SyntaxKind.ModuleInclude)
+            130 -> SyntaxMark.NodeStart(SyntaxKind.LoopBreak)
+            131 -> SyntaxMark.NodeStart(SyntaxKind.LoopContinue)
+            132 -> SyntaxMark.NodeStart(SyntaxKind.FuncReturn)
+            133 -> SyntaxMark.NodeStart(SyntaxKind.Destructuring)
+            134 -> SyntaxMark.NodeStart(SyntaxKind.DestructAssignment)
             135 -> SyntaxMark.NodeEnd
             else -> SyntaxMark.Error(errorsMessages[code - 136])
         }
@@ -517,9 +534,9 @@ class TypstCompiler(val bridge: TypstCore) {
         return bridge.formatSource(content, column, tabWidth)
     }
 
-    fun libraryProvider(features: Set<Feature>, inputs: String): Library {
+    fun libraryProvider(features: Set<Feature>): Library {
         val features = features.map { 1 shl it.ordinal }.fold(0, Int::or)
-        val pointer = bridge.library(features, inputs)
+        val pointer = bridge.library(features)
         return Library(pointer, bridge)
     }
 
@@ -561,46 +578,14 @@ class TypstCompiler(val bridge: TypstCore) {
         return bridge.parseSyntax(string, mode.ordinal).toSyntaxTree(string)
     }
 
-    fun detachedEvalRaw(
-        library: Library,
-        fonts: FontCollection,
-        source: String,
-        mode: SyntaxMode,
-        context: FSContext? = null,
-    ): RResult<String, List<SourceDiagnostic>> {
-        return bridge.detachedEval(
-            library.pointer,
-            fonts.pointer,
-            source,
-            mode.ordinal,
-            context?.pointer,
-        ).deserialize<RResult<String, List<SourceDiagnostic>>>().sanitize()
-    }
-
-    fun detachedEvalWarnedRaw(
-        library: Library,
-        fonts: FontCollection,
-        source: String,
-        mode: SyntaxMode,
-        context: FSContext? = null,
-    ): Warned<RResult<String, List<SourceDiagnostic>>> {
-        return bridge.detachedEvalWarned(
-            library.pointer,
-            fonts.pointer,
-            source,
-            mode.ordinal,
-            context?.pointer,
-        ).deserialize<Warned<RResult<String, List<SourceDiagnostic>>>>().sanitize()
-    }
-
-    fun evalMainWarnedRaw(
+    fun evalMainRaw(
         context: FSContext,
         fonts: FontCollection,
         stdlib: Library,
         main: FileDescriptor,
         now: Now?,
     ): Warned<RResult<String, List<SourceDiagnostic>>> {
-        return bridge.evalMainWarned(
+        return bridge.evalMain(
             context.pointer,
             fonts.pointer,
             stdlib.pointer,
@@ -609,14 +594,24 @@ class TypstCompiler(val bridge: TypstCore) {
         ).deserialize<Warned<RResult<String, List<SourceDiagnostic>>>>().sanitize()
     }
 
-    fun detachedEval(
-        library: Library,
+    fun evalMainWarned(
+        context: FSContext,
         fonts: FontCollection,
-        source: String,
-        mode: SyntaxMode,
-        context: FSContext? = null,
+        stdlib: Library,
+        main: FileDescriptor,
+        now: Now?,
+    ): Warned<String> {
+        return evalMainRaw(context, fonts, stdlib, main, now).orThrowWithWarnings()
+    }
+
+    fun evalMain(
+        context: FSContext,
+        fonts: FontCollection,
+        stdlib: Library,
+        main: FileDescriptor,
+        now: Now?,
     ): String {
-        return detachedEvalRaw(library, fonts, source, mode, context).orThrow()
+        return evalMainRaw(context, fonts, stdlib, main, now).orThrowIgnoringWarnings()
     }
 
     fun precompilePagedRaw(
@@ -890,7 +885,12 @@ class TypstCompiler(val bridge: TypstCore) {
     fun fileContext(files: (FileDescriptor) -> RResult<Base64Bytes, FileError>): FSContext {
         return FSContext(bridge.filesCache {
             files(it.deserialize()).serialize()
-        }, bridge)
+        }, bridge, files)
+    }
+
+    fun resolvePreviewPackage(file: FileDescriptor): RResult<Base64Bytes, FileError> {
+        return bridge.resolvePreviewPackage(file.serialize())
+            .deserialize<ExtendedFileResult>()
     }
 
     fun fontCollection(includeSystem: Boolean, includeEmbedded: Boolean, fontPaths: List<String>): FontCollection {
@@ -905,3 +905,5 @@ class TypstCompiler(val bridge: TypstCore) {
         bridge.close()
     }
 }
+
+private typealias ExtendedFileResult = RResult<Base64Bytes, FileError>

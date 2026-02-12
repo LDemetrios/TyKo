@@ -1,11 +1,6 @@
 package org.ldemetrios.tyko.driver.api
 
-import java.io.Closeable
-import java.io.File
-import java.lang.ref.Cleaner
-import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicLong
-import kotlin.system.exitProcess
 
 interface MemoryInterface {
     fun write(ptr: Long, data: ByteArray)
@@ -45,10 +40,9 @@ class TypstCore(
         }
     }
 
-    fun library(features: Int, inputs: String): Pointer {
-        val inputsRaw = writeRawString(inputs)
+    fun library(features: Int): Pointer {
         return Pointer(
-            driver.library(features, inputsRaw.len, inputsRaw.ptr),
+            driver.library(features),
             driver,
             driver::free_lazy_hash_library
         )
@@ -89,49 +83,7 @@ class TypstCore(
         return tree
     }
 
-    fun detachedEval(
-        stdlib: Pointer,
-        fonts: Pointer,
-        source: String,
-        mode: Int,
-        context: Pointer? = null
-    ): String {
-        return withRawStringResult { resultPtr ->
-            val raw = writeRawString(source)
-            driver.detached_eval(
-                resultPtr,
-                context?.ptr ?: 0,
-                stdlib.ptr,
-                fonts.ptr,
-                raw.len,
-                raw.ptr,
-                mode
-            )
-        }
-    }
-
-    fun detachedEvalWarned(
-        stdlib: Pointer,
-        fonts: Pointer,
-        source: String,
-        mode: Int,
-        context: Pointer? = null
-    ): String {
-        return withRawStringResult { resultPtr ->
-            val raw = writeRawString(source)
-            driver.detached_eval_warned(
-                resultPtr,
-                context?.ptr ?: 0,
-                stdlib.ptr,
-                fonts.ptr,
-                raw.len,
-                raw.ptr,
-                mode
-            )
-        }
-    }
-
-    fun evalMainWarned(
+    fun evalMain(
         context: Pointer,
         fonts: Pointer,
         stdlib: Pointer,
@@ -140,7 +92,7 @@ class TypstCore(
     ): String {
         return withRawStringResult { resultPtr ->
             val raw = writeRawString(main)
-            driver.eval_main_warned(
+            driver.eval_main(
                 resultPtr,
                 context.ptr,
                 stdlib.ptr,
@@ -369,6 +321,13 @@ class TypstCore(
     fun resetFile(cache: Pointer, id: String) {
         val raw = writeRawString(id)
         driver.reset_file(cache.ptr, raw.len, raw.ptr)
+    }
+
+    fun resolvePreviewPackage(id: String): String {
+        return withRawStringResult { resultPtr ->
+            val raw = writeRawString(id)
+            driver.resolve_preview_package(resultPtr, raw.len, raw.ptr)
+        }
     }
 
     fun fontCollection(includeSystem: Boolean, includeEmbedded: Boolean, fontPaths: String): Pointer {

@@ -39,7 +39,7 @@ interface TypstDriver {
         mode: Int
     )
 
-    fun eval_main_warned(
+    fun eval_main(
         resultPtr: Long,
         contextPtr: Long,
         stdlibPtr: Long,
@@ -152,11 +152,12 @@ interface TypstDriver {
     fun files_cache(readerTicket: Long): Long
     fun free_files_cache(cachePtr: Long)
     fun reset_file(cachePtr: Long, idLen: Long, idPtr: Long)
+    fun resolve_preview_package(resultPtr: Long, idLen: Long, idPtr: Long)
 
     fun font_collection(includeSystem: Int, includeEmbedded: Int, fontPathsLen: Long, fontPathsPtr: Long): Long
     fun free_font_collection(collectionPtr: Long)
 
-    fun library(features: Int, inputsLen: Long, inputsPtr: Long): Long
+    fun library(features: Int): Long
     fun free_library(libraryPtr: Long)
     fun with_inputs(
         resultPtr: Long,

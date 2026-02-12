@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 
 @SerialName("none")
-data object TNone : TValue, Dash, Smart<TNone>, TCurveControl<Nothing>, DocumentDatetime, ArrayOrSingle<TNone>,
+data object TNone : TValue, Dash, Smart<TNone>, TCurveControl<Nothing>, ArrayOrSingle<TNone>,
     Option<Nothing>, SidesSplat<TNone> {
     override fun type(): TType = TYPE
 

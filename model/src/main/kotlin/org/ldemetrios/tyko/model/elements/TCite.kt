@@ -4,7 +4,7 @@ package org.ldemetrios.tyko.model
 import kotlinx.serialization.Serializable
 
 @SerialName("str")
-enum class TCiteForm : IntoStr {
+enum class TCiteForm : IntoStr, Option<TCiteForm>, DataSourceOrPreset<TCiteForm> {
     NORMAL, PROSE, FULL, AUTHOR, YEAR;
 
     override fun intoValue(): TStr = name.lowercase().t

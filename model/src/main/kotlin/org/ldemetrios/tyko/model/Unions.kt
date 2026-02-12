@@ -10,42 +10,24 @@ annotation class UnionType(val value: Array<String>)
 sealed interface DataSourceOrPreset<out E : DataSourceOrPreset<E>> : IntoValue {
     companion object {
         inline fun <reified E : DataSourceOrPreset<E>> fromValue(value: TValue): DataSourceOrPreset<E> = when (value) {
+            is TPath -> value
             is TBytes -> value
-            else -> try {
-                value.into<E>()
-            } catch (e: AssertionError) {
-                if (value is TStr) TPath(value.value)
-                else throw AssertionError("Can't convert from $value", e)
-            }
+            else -> value.into<E>()
         }
 
         fun fromValue(value: TValue, type: KType): DataSourceOrPreset<*> {
             val arg = type.arguments.firstOrNull()?.type
             return if (arg == null) {
-                if (value is TStr) TPath(value.value) else value as DataSourceOrPreset<*>
+                value as DataSourceOrPreset<*>
             } else {
-                try {
-                    value.into(arg) as DataSourceOrPreset<*>
-                } catch (e: AssertionError) {
-                    if (value is TStr) TPath(value.value) else throw AssertionError("Can't convert from $value", e)
-                }
+                value.into(arg) as DataSourceOrPreset<*>
             }
         }
     }
 }
 
-@UnionType(["none", "datetime"])
-sealed interface DocumentDatetime : TValue
-
 @UnionType(["path", "bytes"])
 sealed interface DataSource : TValue, DataSourceOrPreset<Nothing> {
-    companion object {
-         fun fromValue(value: TValue): DataSource = when (value) {
-            is TBytes -> value
-            is TStr -> TPath(value.value)
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
 }
 
 @UnionType(["int", "ratio"])

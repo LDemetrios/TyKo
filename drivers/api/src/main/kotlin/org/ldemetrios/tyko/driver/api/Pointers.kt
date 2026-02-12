@@ -45,7 +45,7 @@ private val CLEANER: Cleaner = Cleaner.create()
 private val pointers = ConcurrentHashMap<Long, List<SoftReference<Pointer>>>()
 
 @Deprecated("This function should only be used for debugging purposes")
-fun remainingPointers() : List<Pointer> {
+fun remainingPointers(): List<Pointer> {
     return pointers.values.flatten().mapNotNull { it.get() }
 }
 
@@ -117,4 +117,8 @@ class Pointer(private val innerPtr: Long, val owner: TypstDriver, private val fr
     }
 
     fun another(ptr: Long) = if (atomicPtr.get() == ptr) this else Pointer(ptr, owner, freer)
+
+    companion object {
+        fun nullptr(): Pointer = Pointer(0, NoopDriver) {}
+    }
 }
