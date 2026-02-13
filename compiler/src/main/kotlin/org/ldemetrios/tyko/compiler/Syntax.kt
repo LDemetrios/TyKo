@@ -1,5 +1,6 @@
 package org.ldemetrios.tyko.compiler
 
+import org.ldemetrios.tyko.driver.api.FlattenedSyntaxTree
 
 data class SyntaxTree(
     val marks: List<IndexedMark>
@@ -11,6 +12,147 @@ sealed interface SyntaxMark {
     data class NodeStart(val kind: SyntaxKind) : SyntaxMark
     data object NodeEnd : SyntaxMark
     data class Error(val message: String) : SyntaxMark
+
+    companion object {
+        fun decode(code: Int, errorsMessage : (Int) -> String) = when (code) {
+            0 -> NodeStart(SyntaxKind.End)
+            1 -> NodeStart(SyntaxKind.Error)
+            2 -> NodeStart(SyntaxKind.Shebang)
+            3 -> NodeStart(SyntaxKind.LineComment)
+            4 -> NodeStart(SyntaxKind.BlockComment)
+            5 -> NodeStart(SyntaxKind.Markup)
+            6 -> NodeStart(SyntaxKind.Text)
+            7 -> NodeStart(SyntaxKind.Space)
+            8 -> NodeStart(SyntaxKind.Linebreak)
+            9 -> NodeStart(SyntaxKind.Parbreak)
+            10 -> NodeStart(SyntaxKind.Escape)
+            11 -> NodeStart(SyntaxKind.Shorthand)
+            12 -> NodeStart(SyntaxKind.SmartQuote)
+            13 -> NodeStart(SyntaxKind.Strong)
+            14 -> NodeStart(SyntaxKind.Emph)
+            15 -> NodeStart(SyntaxKind.Raw)
+            16 -> NodeStart(SyntaxKind.RawLang)
+            17 -> NodeStart(SyntaxKind.RawDelim)
+            18 -> NodeStart(SyntaxKind.RawTrimmed)
+            19 -> NodeStart(SyntaxKind.Link)
+            20 -> NodeStart(SyntaxKind.Label)
+            21 -> NodeStart(SyntaxKind.Ref)
+            22 -> NodeStart(SyntaxKind.RefMarker)
+            23 -> NodeStart(SyntaxKind.Heading)
+            24 -> NodeStart(SyntaxKind.HeadingMarker)
+            25 -> NodeStart(SyntaxKind.ListItem)
+            26 -> NodeStart(SyntaxKind.ListMarker)
+            27 -> NodeStart(SyntaxKind.EnumItem)
+            28 -> NodeStart(SyntaxKind.EnumMarker)
+            29 -> NodeStart(SyntaxKind.TermItem)
+            30 -> NodeStart(SyntaxKind.TermMarker)
+            31 -> NodeStart(SyntaxKind.Equation)
+            32 -> NodeStart(SyntaxKind.Math)
+            33 -> NodeStart(SyntaxKind.MathText)
+            34 -> NodeStart(SyntaxKind.MathIdent)
+            35 -> NodeStart(SyntaxKind.MathShorthand)
+            36 -> NodeStart(SyntaxKind.MathAlignPoint)
+            37 -> NodeStart(SyntaxKind.MathDelimited)
+            38 -> NodeStart(SyntaxKind.MathAttach)
+            39 -> NodeStart(SyntaxKind.MathPrimes)
+            40 -> NodeStart(SyntaxKind.MathFrac)
+            41 -> NodeStart(SyntaxKind.MathRoot)
+            42 -> NodeStart(SyntaxKind.Hash)
+            43 -> NodeStart(SyntaxKind.LeftBrace)
+            44 -> NodeStart(SyntaxKind.RightBrace)
+            45 -> NodeStart(SyntaxKind.LeftBracket)
+            46 -> NodeStart(SyntaxKind.RightBracket)
+            47 -> NodeStart(SyntaxKind.LeftParen)
+            48 -> NodeStart(SyntaxKind.RightParen)
+            49 -> NodeStart(SyntaxKind.Comma)
+            50 -> NodeStart(SyntaxKind.Semicolon)
+            51 -> NodeStart(SyntaxKind.Colon)
+            52 -> NodeStart(SyntaxKind.Star)
+            53 -> NodeStart(SyntaxKind.Underscore)
+            54 -> NodeStart(SyntaxKind.Dollar)
+            55 -> NodeStart(SyntaxKind.Plus)
+            56 -> NodeStart(SyntaxKind.Minus)
+            57 -> NodeStart(SyntaxKind.Slash)
+            58 -> NodeStart(SyntaxKind.Hat)
+            60 -> NodeStart(SyntaxKind.Dot)
+            61 -> NodeStart(SyntaxKind.Eq)
+            62 -> NodeStart(SyntaxKind.EqEq)
+            63 -> NodeStart(SyntaxKind.ExclEq)
+            64 -> NodeStart(SyntaxKind.Lt)
+            65 -> NodeStart(SyntaxKind.LtEq)
+            66 -> NodeStart(SyntaxKind.Gt)
+            67 -> NodeStart(SyntaxKind.GtEq)
+            68 -> NodeStart(SyntaxKind.PlusEq)
+            69 -> NodeStart(SyntaxKind.HyphEq)
+            70 -> NodeStart(SyntaxKind.StarEq)
+            71 -> NodeStart(SyntaxKind.SlashEq)
+            72 -> NodeStart(SyntaxKind.Dots)
+            73 -> NodeStart(SyntaxKind.Arrow)
+            74 -> NodeStart(SyntaxKind.Root)
+            75 -> NodeStart(SyntaxKind.Bang)
+            76 -> NodeStart(SyntaxKind.Not)
+            77 -> NodeStart(SyntaxKind.And)
+            78 -> NodeStart(SyntaxKind.Or)
+            79 -> NodeStart(SyntaxKind.None)
+            80 -> NodeStart(SyntaxKind.Auto)
+            81 -> NodeStart(SyntaxKind.Let)
+            82 -> NodeStart(SyntaxKind.Set)
+            83 -> NodeStart(SyntaxKind.Show)
+            84 -> NodeStart(SyntaxKind.Context)
+            85 -> NodeStart(SyntaxKind.If)
+            86 -> NodeStart(SyntaxKind.Else)
+            87 -> NodeStart(SyntaxKind.For)
+            88 -> NodeStart(SyntaxKind.In)
+            89 -> NodeStart(SyntaxKind.While)
+            90 -> NodeStart(SyntaxKind.Break)
+            91 -> NodeStart(SyntaxKind.Continue)
+            92 -> NodeStart(SyntaxKind.Return)
+            93 -> NodeStart(SyntaxKind.Import)
+            94 -> NodeStart(SyntaxKind.Include)
+            95 -> NodeStart(SyntaxKind.As)
+            96 -> NodeStart(SyntaxKind.Code)
+            97 -> NodeStart(SyntaxKind.Ident)
+            98 -> NodeStart(SyntaxKind.Bool)
+            99 -> NodeStart(SyntaxKind.Int)
+            100 -> NodeStart(SyntaxKind.Float)
+            101 -> NodeStart(SyntaxKind.Numeric)
+            102 -> NodeStart(SyntaxKind.Str)
+            103 -> NodeStart(SyntaxKind.CodeBlock)
+            104 -> NodeStart(SyntaxKind.ContentBlock)
+            105 -> NodeStart(SyntaxKind.Parenthesized)
+            106 -> NodeStart(SyntaxKind.Array)
+            107 -> NodeStart(SyntaxKind.Dict)
+            108 -> NodeStart(SyntaxKind.Named)
+            109 -> NodeStart(SyntaxKind.Keyed)
+            110 -> NodeStart(SyntaxKind.Unary)
+            111 -> NodeStart(SyntaxKind.Binary)
+            112 -> NodeStart(SyntaxKind.FieldAccess)
+            113 -> NodeStart(SyntaxKind.FuncCall)
+            114 -> NodeStart(SyntaxKind.Args)
+            115 -> NodeStart(SyntaxKind.Spread)
+            116 -> NodeStart(SyntaxKind.Closure)
+            117 -> NodeStart(SyntaxKind.Params)
+            118 -> NodeStart(SyntaxKind.LetBinding)
+            119 -> NodeStart(SyntaxKind.SetRule)
+            120 -> NodeStart(SyntaxKind.ShowRule)
+            121 -> NodeStart(SyntaxKind.Contextual)
+            122 -> NodeStart(SyntaxKind.Conditional)
+            123 -> NodeStart(SyntaxKind.WhileLoop)
+            124 -> NodeStart(SyntaxKind.ForLoop)
+            125 -> NodeStart(SyntaxKind.ModuleImport)
+            126 -> NodeStart(SyntaxKind.ImportItems)
+            127 -> NodeStart(SyntaxKind.ImportItemPath)
+            128 -> NodeStart(SyntaxKind.RenamedImportItem)
+            129 -> NodeStart(SyntaxKind.ModuleInclude)
+            130 -> NodeStart(SyntaxKind.LoopBreak)
+            131 -> NodeStart(SyntaxKind.LoopContinue)
+            132 -> NodeStart(SyntaxKind.FuncReturn)
+            133 -> NodeStart(SyntaxKind.Destructuring)
+            134 -> NodeStart(SyntaxKind.DestructAssignment)
+            135 -> NodeEnd
+            else -> Error(errorsMessage(code - 136))
+        }
+    }
 }
 
 enum class SyntaxKind {
@@ -294,4 +436,66 @@ enum class SyntaxKind {
     Destructuring,
     /// A destructuring assignment expression: `(x, y) = (1, 2)`.
     DestructAssignment;
+}
+
+private fun FlattenedSyntaxTree.decodeErrors(): List<String> {
+    if (errorStarts.isEmpty()) return emptyList()
+    val messages = ArrayList<String>(errorStarts.size)
+    for (i in errorStarts.indices) {
+        val start = errorStarts[i]
+        val end = if (i + 1 < errorStarts.size) errorStarts[i + 1] else errors.size
+        if (start < 0 || end < start || start > errors.size) {
+            messages.add("")
+            continue
+        }
+        val safeEnd = end.coerceAtMost(errors.size)
+        val slice = errors.copyOfRange(start, safeEnd)
+        messages.add(String(slice, Charsets.UTF_8))
+    }
+    return messages
+}
+
+private fun buildUtf8ByteToCharIndexMap(source: String): IntArray {
+    val bytes = source.toByteArray(Charsets.UTF_8)
+    val byteToChar = IntArray(bytes.size + 1)
+    var bytePos = 0
+    var charPos = 0
+    while (charPos < source.length) {
+        val codePoint = source.codePointAt(charPos)
+        val charCount = Character.charCount(codePoint)
+        val byteLen = String(Character.toChars(codePoint)).toByteArray(Charsets.UTF_8).size
+        val nextBytePos = (bytePos + byteLen).coerceAtMost(bytes.size)
+        byteToChar[bytePos] = charPos
+        if (bytePos + 1 < nextBytePos) {
+            for (i in (bytePos + 1) until nextBytePos) {
+                byteToChar[i] = charPos
+            }
+        }
+        byteToChar[nextBytePos] = (charPos + charCount).coerceAtMost(source.length)
+        bytePos = nextBytePos
+        charPos += charCount
+    }
+    if (bytePos <= bytes.size) {
+        for (i in bytePos..bytes.size) {
+            byteToChar[i] = charPos
+        }
+    }
+    return byteToChar
+}
+
+internal fun FlattenedSyntaxTree.toSyntaxTree(source: String): SyntaxTree {
+    val errorMessages = decodeErrors()
+    val byteToChar = buildUtf8ByteToCharIndexMap(source)
+    val marks = marks.map { encoded ->
+        val code = (encoded ushr 32).toInt()
+        val rawIndex = (encoded and 0xFFFF_FFFFL).toInt()
+        val index = when {
+            rawIndex < 0 -> 0
+            rawIndex >= byteToChar.size -> source.length
+            else -> byteToChar[rawIndex]
+        }
+        val mark = SyntaxMark.decode(code) { errorMessages[it] }
+        IndexedMark(mark, index)
+    }
+    return SyntaxTree(marks)
 }

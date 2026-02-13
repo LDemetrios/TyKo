@@ -13,18 +13,19 @@ interface MemoryInterface {
     fun readLongs(ptr: Long, size: Long): LongArray
 }
 
-
-data class RawNow(val millisOrFlag: Long, val nanos: Int)
-
 data class FlattenedSyntaxTree(
     val marks: LongArray,
     val errors: ByteArray,
     val errorStarts: IntArray,
 )
 
+data class RawNow(val millisOrFlag: Long, val nanos: Int)
+
+
 private val newTicket = AtomicLong(0)
 private val functions = HashMap<Long, (String) -> String>()
 
+@OptIn(TyKoFFIEntity::class)
 class TypstCore(
     private val provider: ((Long) -> (String) -> String) -> Pair<TypstDriver, MemoryInterface>
 ) {
@@ -105,7 +106,7 @@ class TypstCore(
         }
     }
 
-    @Deprecated("The result of this function contains a Pointer in a serialized form")
+    @TyKoFFIEntity
     fun precompilePaged(
         context: Pointer,
         fonts: Pointer,
@@ -128,7 +129,7 @@ class TypstCore(
         }
     }
 
-    @Deprecated("Freeing lifted out of Core is dangerous", level = DeprecationLevel.WARNING)
+    @TyKoFFIEntity
     fun freePagedDocument(ptr: Long) = driver.free_paged_document(ptr)
 
     fun compileHtml(

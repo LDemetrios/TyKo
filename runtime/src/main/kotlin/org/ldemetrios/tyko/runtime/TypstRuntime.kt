@@ -17,7 +17,6 @@ import org.ldemetrios.tyko.compiler.SyntaxMode
 import org.ldemetrios.tyko.compiler.SyntaxTree
 import org.ldemetrios.tyko.compiler.TypstCompiler
 import org.ldemetrios.tyko.compiler.Warned
-import org.ldemetrios.tyko.compiler.map
 import org.ldemetrios.tyko.driver.api.TypstCore
 import org.ldemetrios.tyko.model.TArray
 import org.ldemetrios.tyko.model.TDict
@@ -110,7 +109,7 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         now: Now? = Now.System,
-    ) = compiler.evalMainRaw(context, fonts, stdlib, main, now).map { it.map { deserialize(it) } }
+    ) = compiler.evalRaw(context, fonts, stdlib, main, now).map { it.map { deserialize(it) } }
 
     fun evalMain(
         context: FSContext,
@@ -118,7 +117,7 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         now: Now? = Now.System,
-    ) = compiler.evalMain(context, fonts, stdlib, main, now).let {
+    ) = compiler.eval(context, fonts, stdlib, main, now).let {
         deserialize(it)
     }
 
@@ -128,7 +127,7 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         fonts: FontCollection = defaultFonts,
         stdlib: Library = defaultLibrary,
         now: Now? = Now.System,
-    ) = compiler.evalMainWarned(context, fonts, stdlib, main, now).map {
+    ) = compiler.evalWarned(context, fonts, stdlib, main, now).map {
         deserialize(it)
     }
 
@@ -328,18 +327,18 @@ class TypstRuntime(val bridge: TypstCore, val defaultFeatures: Set<Feature> = se
         return compiler.precompilePagedWarned(context, fonts, stdlib, main, now)
     }
 
-    fun fileContext(files: (FileDescriptor) -> RResult<Base64Bytes, FileError>): FSContext {
+    fun fileContext(files: (FileDescriptor) -> RResult<ByteArray, FileError>): FSContext {
         return compiler.fileContext(files)
     }
 
-    fun resolvePreviewPackage(file: FileDescriptor): RResult<Base64Bytes, FileError> {
+    fun resolvePreviewPackage(file: FileDescriptor): RResult<ByteArray, FileError> {
         return compiler.resolvePreviewPackage(file)
     }
 
     fun fileContext(files: Map<String, String>): FSContext {
         return compiler.fileContext {
             files[it.virtualPath]?.let {
-                RResult.Ok(Base64Bytes(it.toByteArray()))
+                RResult.Ok(it.toByteArray())
             } ?: RResult.Err(
                 when (val pack = it.packageSpec) {
                     null -> FileError.NotFound(it.virtualPath)

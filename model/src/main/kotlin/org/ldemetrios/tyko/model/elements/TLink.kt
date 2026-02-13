@@ -4,19 +4,9 @@ package org.ldemetrios.tyko.model
 import kotlinx.serialization.Serializable
 
 
-sealed interface TLinkDestination : IntoValue {
-    companion object {
-        fun fromValue(value: TValue): TLinkDestination = when (value) {
-            is TDict<*> -> LocationOnPage.fromValue(value)
-            is TStr -> value
-            is TLabel -> value
-            is TLocation -> value
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-@SerialName("dict")
+sealed interface TLinkDestination : IntoValue
 
+@SerialName("dict")
 data class LocationOnPage(val page: TInt, val x: TLength, val y: TLength) : IntoDict<IntoValue>, TLinkDestination {
     override fun intoValue(): TDict<IntoValue> = TDict(
         mapOf(

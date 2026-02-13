@@ -47,6 +47,7 @@ import org.jsoup.nodes.XmlDeclaration
 import org.jsoup.parser.Parser
 import org.ldemetrios.tyko.driver.api.PointerAutoCleaningConfiguration
 import org.ldemetrios.tyko.driver.api.PointerAutoCleaningMode
+import org.ldemetrios.tyko.driver.api.TyKoFFIEntity
 import org.ldemetrios.tyko.driver.api.remainingPointers
 import org.ldemetrios.tyko.driver.chicory.defaultPackagesHostPath
 
@@ -139,6 +140,7 @@ class TypstSharedFfiSuiteTest : FreeSpec({
     "Remaining resources" {
         // Sanity check:
         runner.close()
+        @OptIn(TyKoFFIEntity::class)
         val ptrs = remainingPointers()
         if (ptrs.isNotEmpty()) {
             throw AssertionError("Some native resources were leaked: $ptrs").also {
@@ -352,7 +354,7 @@ private class TypstSharedFfiRunner {
     ) {
         val result = runtime.fileContext {
             println("$it ?? $main")
-            if (main == it) RResult.Ok(Base64Bytes(test.content.toByteArray()))
+            if (main == it) RResult.Ok(test.content.toByteArray())
             else context.original(it)
         }.use {
             runtime.evalMainRaw(
@@ -671,25 +673,25 @@ private class TypstSharedFfiRunner {
                     file.path.replace(File.separatorChar, '/')
                 }
                 return@fileContext when {
-                    file.isFile -> RResult.Ok(Base64Bytes(file.readBytes()))
+                    file.isFile -> RResult.Ok(file.readBytes())
                     file.isDirectory -> RResult.Err(FileError.IsDirectory)
                     else -> RResult.Err(FileError.NotFound(displayPath))
                 }
             }
             if (virtualPath == mainPath.trimStart('/')) {
-                return@fileContext RResult.Ok(Base64Bytes(test.content.toByteArray()))
+                return@fileContext RResult.Ok(test.content.toByteArray())
             }
             if (virtualPath.startsWith("assets/")) {
                 val assetFile = File(assetsDir, virtualPath.removePrefix("assets/"))
                 return@fileContext when {
-                    assetFile.isFile -> RResult.Ok(Base64Bytes(assetFile.readBytes()))
+                    assetFile.isFile -> RResult.Ok(assetFile.readBytes())
                     assetFile.isDirectory -> RResult.Err(FileError.IsDirectory)
                     else -> RResult.Err(FileError.NotFound(virtualPath))
                 }
             }
             val fileOnDisk = File(File(repoRoot, "typst-shared-library"), virtualPath)
             return@fileContext when {
-                fileOnDisk.isFile -> RResult.Ok(Base64Bytes(fileOnDisk.readBytes()))
+                fileOnDisk.isFile -> RResult.Ok(fileOnDisk.readBytes())
                 fileOnDisk.isDirectory -> RResult.Err(FileError.IsDirectory)
                 else -> RResult.Err(FileError.NotFound(virtualPath))
             }

@@ -27,6 +27,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import org.ldemetrios.tyko.driver.api.TyKoFFIEntity
 import kotlin.collections.map
 
 fun <T, A : T, B : T> B.tryTransforming(func: (B) -> A) = try {
@@ -246,8 +247,9 @@ class ChicoryMemoryInterface(private val instance: Instance) : MemoryInterface {
     }
 }
 
-@Suppress("removal")
-context(driver: ChicoryTypstDriver) fun ExportFunction.call(vararg arguments: Long): LongArray {
+@TyKoFFIEntity
+@Suppress("removal", "RedundantSuppression") // ThreadDeath is deprecated for removal, but not on 17
+context(driver: ChicoryTypstDriver) internal fun ExportFunction.call(vararg arguments: Long): LongArray {
     try {
         return apply(*arguments) ?: longArrayOf()
     } catch (e: ThreadDeath) {
@@ -260,6 +262,7 @@ context(driver: ChicoryTypstDriver) fun ExportFunction.call(vararg arguments: Lo
     }
 }
 
+@TyKoFFIEntity
 class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     override fun boot(longs: LongArray) {
         instance.export("boot_driver").call(*longs)
@@ -691,7 +694,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 }
 
-
+@OptIn(TyKoFFIEntity::class)
 fun ChicoryTypstCore(
     wasiOptions: WasiOptions = defaultWasiOptions(),
 ) = TypstCore { reader ->
@@ -705,7 +708,6 @@ fun ChicoryTypstCore(
 }
 
 private val COMPILED_MODULE = TypstShared()
-val MODULE = COMPILED_MODULE.wasmModule()
 
 fun defaultPackagesHostPath(): Path {
     val os = System.getProperty("os.name").lowercase()

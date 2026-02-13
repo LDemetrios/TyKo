@@ -23,7 +23,7 @@ class PackageCentralLoadWork : FreeSpec({
         val context = runtime.fileContext { file ->
             when (val pack = file.packageSpec?.namespace) {
                 null -> if (file.virtualPath == "/main.typ") {
-                    RResult.Ok(Base64Bytes(source.toByteArray()))
+                    RResult.Ok(source.toByteArray())
                 } else {
                     RResult.Err(FileError.NotFound(file.virtualPath))
                 }

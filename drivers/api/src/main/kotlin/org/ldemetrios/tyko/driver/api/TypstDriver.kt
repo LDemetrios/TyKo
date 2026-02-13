@@ -1,5 +1,6 @@
 package org.ldemetrios.tyko.driver.api
 
+@TyKoFFIEntity
 interface TypstDriver {
     fun format_source(resultPtr: Long, contentLen: Long, contentPtr: Long, column: Int, tabWidth: Int)
     fun query(

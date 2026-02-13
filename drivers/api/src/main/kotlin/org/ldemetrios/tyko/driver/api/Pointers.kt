@@ -44,11 +44,12 @@ private val CLEANER: Cleaner = Cleaner.create()
 
 private val pointers = ConcurrentHashMap<Long, List<SoftReference<Pointer>>>()
 
-@Deprecated("This function should only be used for debugging purposes")
+@TyKoFFIEntity
 fun remainingPointers(): List<Pointer> {
     return pointers.values.flatten().mapNotNull { it.get() }
 }
 
+@OptIn(TyKoFFIEntity::class)
 class Pointer(private val innerPtr: Long, val owner: TypstDriver, private val freer: (Long) -> Unit) : Closeable {
     init {
         pointers.compute(innerPtr) { k, v -> (v ?: listOf()) + SoftReference(this) }

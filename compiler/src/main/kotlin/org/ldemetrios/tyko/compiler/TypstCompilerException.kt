@@ -16,7 +16,7 @@ fun TypstCompilerException(trace: List<SourceDiagnostic>, cause: Throwable? = nu
     return res
 }
 
-fun Span.toSTE(tracepoint: Tracepoint?) = StackTraceElement(
+private fun Span.toSTE(tracepoint: Tracepoint?) = StackTraceElement(
     file?.packageSpec?.namespace,
     file?.packageSpec?.name,
     file?.packageSpec?.version.toString(),

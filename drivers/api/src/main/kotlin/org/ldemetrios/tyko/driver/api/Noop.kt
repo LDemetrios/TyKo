@@ -1,5 +1,7 @@
 package org.ldemetrios.tyko.driver.api
 
+
+@OptIn(TyKoFFIEntity::class)
 internal object NoopDriver : TypstDriver {
     override fun format_source(
         resultPtr: Long,
@@ -325,4 +327,6 @@ internal object NoopMemory : MemoryInterface {
     }
 }
 
+@OptIn(TyKoFFIEntity::class)
+@TyKoInternalApi
 val NoopCore = TypstCore { _ -> NoopDriver to NoopMemory }
