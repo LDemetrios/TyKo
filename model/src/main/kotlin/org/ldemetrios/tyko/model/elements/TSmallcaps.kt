@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/text/smallcaps/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/smallcaps/](https://typst.app/docs/reference/text/smallcaps/)
+ * 
  * Displays text in small capitals.
  * 
  * **_Example_**
@@ -49,6 +51,8 @@ import kotlinx.serialization.Serializable
 data class TSmallcaps(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/smallcaps/](https://typst.app/docs/reference/text/smallcaps/)
+     * 
      * The content to display in small capitals.
      * 
      * Required, positional; Typst type: content
@@ -56,6 +60,8 @@ data class TSmallcaps(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/smallcaps/](https://typst.app/docs/reference/text/smallcaps/)
+     * 
      * Whether to turn uppercase letters into small capitals as well.
      * 
      * Unless overridden by a show rule, this enables the `c2sc` OpenType feature.

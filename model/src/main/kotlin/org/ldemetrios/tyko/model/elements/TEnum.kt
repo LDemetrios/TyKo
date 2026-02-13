@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/enum/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+ * 
  * A numbered list.
  * 
  * Displays a sequence of items vertically and numbers them consecutively.
@@ -69,6 +71,8 @@ import kotlinx.serialization.Serializable
 data class TEnum(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * The numbered list's items.
      * 
      * When using the enum syntax, adjacent items are automatically collected into enumerations, even through constructs like for loops.
@@ -78,6 +82,8 @@ data class TEnum(
     @all:Variadic @all:Positional val children: TArray<TEnumItem>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * Defines the default [spacing](https://typst.app/docs/reference/model/enum/#parameters-spacing) of the enumeration. If it is `false`, the items are spaced apart with [paragraph spacing](https://typst.app/docs/reference/model/par/#parameters-spacing). If it is `true`, they use [paragraph leading](https://typst.app/docs/reference/model/par/#parameters-leading) instead. This makes the list more compact, which can look better if the items are short.
      * 
      * In markup mode, the value of this parameter is determined based on whether items are separated with a blank line. If items directly follow each other, this is set to `true`; if items are separated by a blank line, this is set to `false`. The markup-defined tightness cannot be overridden with set rules.
@@ -87,6 +93,8 @@ data class TEnum(
     @all:Settable val tight: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * How to number the enumeration. Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/).
      * 
      * If the numbering pattern contains multiple counting symbols, they apply to nested enums. If given a function, the function receives one argument if `full` is `false` and multiple arguments if `full` is `true`.
@@ -96,6 +104,8 @@ data class TEnum(
     @all:Settable val numbering: Numbering? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * Which number to start the enumeration with.
      * 
      * Settable; Typst type: auto|int
@@ -103,6 +113,8 @@ data class TEnum(
     @all:Settable val start: Smart<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * Whether to display the full numbering, including the numbers of all parent enumerations.
      * 
      * Settable; Typst type: bool
@@ -110,6 +122,8 @@ data class TEnum(
     @all:Settable val full: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * Whether to reverse the numbering for this enumeration.
      * 
      * Settable; Typst type: bool
@@ -117,6 +131,8 @@ data class TEnum(
     @all:Settable val reversed: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * The indentation of each item.
      * 
      * Settable; Typst type: length
@@ -124,6 +140,8 @@ data class TEnum(
     @all:Settable val indent: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * The space between the numbering and the body of each item.
      * 
      * Settable; Typst type: length
@@ -131,6 +149,8 @@ data class TEnum(
     @all:Settable val bodyIndent: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * The spacing between the items of the enumeration.
      * 
      * If set to `auto`, uses paragraph [`leading`](https://typst.app/docs/reference/model/par/#parameters-leading) for tight enumerations and paragraph [`spacing`](https://typst.app/docs/reference/model/par/#parameters-spacing) for wide (non-tight) enumerations.
@@ -140,6 +160,8 @@ data class TEnum(
     @all:Settable val spacing: Smart<TLength>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/](https://typst.app/docs/reference/model/enum/)
+     * 
      * The alignment that enum numbers should have.
      * 
      * By default, this is set to `end + top`, which aligns enum numbers towards end of the current text direction (in left-to-right script, for example, this is the same as `right`) and at the top of the line. The choice of `end` for horizontal alignment of enum numbers is usually preferred over `start`, as numbers then grow away from the text instead of towards it, avoiding certain visual issues. This option lets you override this behaviour, however. (Also to note is that the [unordered list](https://typst.app/docs/reference/model/list/) uses a different method for this, by giving the `marker` content an alignment directly.).

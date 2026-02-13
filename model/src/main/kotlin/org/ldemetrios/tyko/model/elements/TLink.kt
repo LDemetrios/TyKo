@@ -41,6 +41,8 @@ data class LocationOnPage(val page: TInt, val x: TLength, val y: TLength) : Into
 //!https://typst.app/docs/reference/model/link/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/link/](https://typst.app/docs/reference/model/link/)
+ * 
  * Links to a URL or a location in the document.
  * 
  * By default, links do not look any different from normal text. However, you can easily apply a style of your choice with a show rule.
@@ -99,6 +101,8 @@ data class LocationOnPage(val page: TInt, val x: TLength, val y: TLength) : Into
 data class TLink(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/link/](https://typst.app/docs/reference/model/link/)
+     * 
      * The destination the link points to.
      * 
      * - To link to web pages, `dest` should be a valid URL string. If the URL is in the `mailto:` or `tel:` scheme and the `body` parameter is omitted, the email address or phone number will be the link's body, without the scheme.
@@ -112,6 +116,8 @@ data class TLink(
     @all:Positional val dest: TLinkDestination,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/link/](https://typst.app/docs/reference/model/link/)
+     * 
      * The content that should become a link.
      * 
      * If `dest` is an URL string, the parameter can be omitted. In this case, the URL will be shown as the link.

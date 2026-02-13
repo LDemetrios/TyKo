@@ -3,6 +3,8 @@ package org.ldemetrios.tyko.model
 //!https://typst.app/docs/reference/visualize/curve/#definitions-close
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-close](https://typst.app/docs/reference/visualize/curve/#definitions-close)
+ * 
  * Closes the curve by adding a segment from the last point to the start of the curve (or the last preceding `curve.move` point).
  * 
  * 
@@ -11,6 +13,8 @@ package org.ldemetrios.tyko.model
 data class TCurveClose(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-close](https://typst.app/docs/reference/visualize/curve/#definitions-close)
+     * 
      * How to close the curve.
      * 
      * | Variant | Details |

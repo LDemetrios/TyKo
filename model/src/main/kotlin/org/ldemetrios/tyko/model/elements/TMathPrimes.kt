@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/primes/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/primes/](https://typst.app/docs/reference/math/primes/)
+ * 
  * Grouped primes.
  * 
  * ```typ
@@ -23,6 +25,8 @@ import kotlinx.serialization.Serializable
 data class TMathPrimes(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/primes/](https://typst.app/docs/reference/math/primes/)
+     * 
      * The number of grouped primes.
      * 
      * Required, positional; Typst type: int

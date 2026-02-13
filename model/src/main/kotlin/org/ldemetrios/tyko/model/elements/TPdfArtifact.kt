@@ -20,6 +20,8 @@ enum class TPdfArtifactKind : IntoStr {
 //!https://typst.app/docs/reference/pdf/artifact/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/pdf/artifact/](https://typst.app/docs/reference/pdf/artifact/)
+ * 
  * Marks content as a PDF artifact.
  * 
  * Artifacts are parts of the document that are not meant to be read by Assistive Technology (AT), such as screen readers. Typical examples include purely decorative images that do not contribute to the meaning of the document, watermarks, or repeated content such as page numbers.
@@ -36,6 +38,8 @@ enum class TPdfArtifactKind : IntoStr {
 data class TPdfArtifact(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/pdf/artifact/](https://typst.app/docs/reference/pdf/artifact/)
+     * 
      * The content that is an artifact.
      * 
      * Required, positional; Typst type: content
@@ -43,6 +47,8 @@ data class TPdfArtifact(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/pdf/artifact/](https://typst.app/docs/reference/pdf/artifact/)
+     * 
      * The artifact kind.
      * 
      * This will govern how the PDF reader treats the artifact during reflow and content extraction (e.g. copy and paste).

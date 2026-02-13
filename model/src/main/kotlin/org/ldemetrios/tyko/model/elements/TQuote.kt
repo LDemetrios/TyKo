@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/quote/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/quote/](https://typst.app/docs/reference/model/quote/)
+ * 
  * Displays a quote alongside an optional attribution.
  * 
  * **_Example_**
@@ -48,6 +50,8 @@ import kotlinx.serialization.Serializable
 data class TQuote(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/quote/](https://typst.app/docs/reference/model/quote/)
+     * 
      * The quote.
      * 
      * Required, positional; Typst type: content
@@ -55,6 +59,8 @@ data class TQuote(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/quote/](https://typst.app/docs/reference/model/quote/)
+     * 
      * Whether this is a block quote.
      * 
      * Settable; Typst type: bool
@@ -62,6 +68,8 @@ data class TQuote(
     @all:Settable val block: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/quote/](https://typst.app/docs/reference/model/quote/)
+     * 
      * Whether double quotes should be added around this quote.
      * 
      * The double quotes used are inferred from the `quotes` property on [smartquote](https://typst.app/docs/reference/text/smartquote/), which is affected by the `lang` property on [text](https://typst.app/docs/reference/text/text/).
@@ -75,6 +83,8 @@ data class TQuote(
     @all:Settable val quotes: Smart<TBool>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/quote/](https://typst.app/docs/reference/model/quote/)
+     * 
      * The attribution of this quote, usually the author or source. Can be a label pointing to a bibliography entry or any content. By default only displayed for block quotes, but can be changed using a `show` rule.
      * 
      * Settable; Typst type: none|label|content

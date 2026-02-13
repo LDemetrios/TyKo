@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/lr/#functions-mid
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/lr/#functions-mid](https://typst.app/docs/reference/math/lr/#functions-mid)
+ * 
  * Scales delimiters vertically to the nearest surrounding `lr()` group.
  * 
  * 
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathMid(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/lr/#functions-mid](https://typst.app/docs/reference/math/lr/#functions-mid)
+     * 
      * The content to be scaled.
      * 
      * Required, positional; Typst type: content

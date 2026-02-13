@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/class/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/class/](https://typst.app/docs/reference/math/class/)
+ * 
  * Forced use of a certain math class.
  * 
  * This is useful to treat certain symbols as if they were of a different class, e.g. to make a symbol behave like a relation. The class of a symbol defines the way it is laid out, including spacing around it, and how its scripts are attached by default. Note that the latter can always be overridden using [`limits`](https://typst.app/docs/reference/math/attach/#functions-limits) and [`scripts`](https://typst.app/docs/reference/math/attach/#functions-scripts).
@@ -28,6 +30,8 @@ import kotlinx.serialization.Serializable
 data class TMathClass(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/class/](https://typst.app/docs/reference/math/class/)
+     * 
      * The class to apply to the content.
      * 
      * Required, positional; Typst type: str
@@ -35,6 +39,8 @@ data class TMathClass(
     @all:Positional val `class`: TStr,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/class/](https://typst.app/docs/reference/math/class/)
+     * 
      * The content to which the class is applied.
      * 
      * Required, positional; Typst type: content

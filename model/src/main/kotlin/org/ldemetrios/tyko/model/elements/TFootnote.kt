@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/footnote/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/footnote/](https://typst.app/docs/reference/model/footnote/)
+ * 
  * A footnote.
  * 
  * Includes additional remarks and references on the same page with footnotes. A footnote will insert a superscript number that links to the note at the bottom of the page. Notes are numbered sequentially throughout your document and can break across multiple pages.
@@ -44,6 +46,8 @@ import kotlinx.serialization.Serializable
 data class TFootnote(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/](https://typst.app/docs/reference/model/footnote/)
+     * 
      * The content to put into the footnote. Can also be the label of another footnote this one should point to.
      * 
      * Required, positional; Typst type: label|content
@@ -51,6 +55,8 @@ data class TFootnote(
     @all:Positional val body: Attribution,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/](https://typst.app/docs/reference/model/footnote/)
+     * 
      * How to number footnotes. Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/) taking a single number.
      * 
      * By default, the footnote numbering continues throughout your document. If you prefer per-page footnote numbering, you can reset the footnote [counter](https://typst.app/docs/reference/introspection/counter/) in the page [header](https://typst.app/docs/reference/layout/page/#parameters-header). In the future, there might be a simpler way to achieve this.

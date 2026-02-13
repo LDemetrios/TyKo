@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/underover/#functions-undershell
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-undershell](https://typst.app/docs/reference/math/underover/#functions-undershell)
+ * 
  * A horizontal tortoise shell bracket under content, with an optional annotation below.
  * 
  * 
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathUndershell(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-undershell](https://typst.app/docs/reference/math/underover/#functions-undershell)
+     * 
      * The content above the tortoise shell bracket.
      * 
      * Required, positional; Typst type: content
@@ -23,6 +27,8 @@ data class TMathUndershell(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-undershell](https://typst.app/docs/reference/math/underover/#functions-undershell)
+     * 
      * The optional content below the tortoise shell bracket.
      * 
      * Positional, settable; Typst type: none|content

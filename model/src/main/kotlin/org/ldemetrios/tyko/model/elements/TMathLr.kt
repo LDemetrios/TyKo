@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/lr/#functions-lr
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/lr/#functions-lr](https://typst.app/docs/reference/math/lr/#functions-lr)
+ * 
  * Scales delimiters.
  * 
  * While matched delimiters scale by default, this can be used to scale unmatched delimiters and to control the delimiter scaling more precisely.
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathLr(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/lr/#functions-lr](https://typst.app/docs/reference/math/lr/#functions-lr)
+     * 
      * The delimited content, including the delimiters.
      * 
      * Required, positional; Typst type: content
@@ -23,6 +27,8 @@ data class TMathLr(
     @all:Body @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/lr/#functions-lr](https://typst.app/docs/reference/math/lr/#functions-lr)
+     * 
      * The size of the brackets, relative to the height of the wrapped content.
      * 
      * Settable; Typst type: relative

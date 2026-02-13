@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/table/#definitions-header
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-header](https://typst.app/docs/reference/model/table/#definitions-header)
+ * 
  * A repeatable table header.
  * 
  * You should wrap your tables' heading rows in this function even if you do not plan to wrap your table across pages because Typst uses this function to attach accessibility metadata to tables and ensure [Universal Access](https://typst.app/docs/guides/accessibility/#basics) to your document.
@@ -22,6 +24,8 @@ import kotlinx.serialization.Serializable
 data class TTableHeader(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-header](https://typst.app/docs/reference/model/table/#definitions-header)
+     * 
      * The cells and lines within the header.
      * 
      * Required, positional, variadic; Typst type: content
@@ -29,6 +33,8 @@ data class TTableHeader(
     @all:Variadic @all:Positional val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-header](https://typst.app/docs/reference/model/table/#definitions-header)
+     * 
      * Whether this header should be repeated across pages.
      * 
      * Settable; Typst type: bool
@@ -36,6 +42,8 @@ data class TTableHeader(
     @all:Settable val repeat: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-header](https://typst.app/docs/reference/model/table/#definitions-header)
+     * 
      * The level of the header. Must not be zero.
      * 
      * This allows repeating multiple headers at once. Headers with different levels can repeat together, as long as they have ascending levels.

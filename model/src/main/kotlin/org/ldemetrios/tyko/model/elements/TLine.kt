@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/visualize/line/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
+ * 
  * A line from one point to another.
  * 
  * **_Example_**
@@ -28,6 +30,8 @@ import kotlinx.serialization.Serializable
 data class TLine(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
+     * 
      * The start point of the line.
      * 
      * Must be an array of exactly two relative lengths.
@@ -37,6 +41,8 @@ data class TLine(
     @all:Settable val start: Point<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
+     * 
      * The point where the line ends.
      * 
      * Settable; Typst type: none|array
@@ -44,6 +50,8 @@ data class TLine(
     @all:Settable val end: Option<Point<TRelative>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
+     * 
      * The line's length. This is only respected if `end` is `none`.
      * 
      * Settable; Typst type: relative
@@ -51,6 +59,8 @@ data class TLine(
     @all:Settable val length: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
+     * 
      * The angle at which the line points away from the origin. This is only respected if `end` is `none`.
      * 
      * Settable; Typst type: angle
@@ -58,6 +68,8 @@ data class TLine(
     @all:Settable val angle: TAngle? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
+     * 
      * How to [stroke](https://typst.app/docs/reference/visualize/stroke/) the line.
      * 
      * Settable; Typst type: length|color|gradient|stroke|tiling|dictionary

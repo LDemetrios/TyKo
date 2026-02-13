@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/grid/#definitions-vline
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-vline](https://typst.app/docs/reference/layout/grid/#definitions-vline)
+ * 
  * A vertical line in the grid.
  * 
  * Overrides any per-cell stroke, including stroke specified through the grid's `stroke` field. Can cross spacing between cells created through the grid's `row-gutter` option.
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TGridVline(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-vline](https://typst.app/docs/reference/layout/grid/#definitions-vline)
+     * 
      * The column before which the vertical line is placed (zero-indexed). If the `position` field is set to `end`, the line is placed after the column with the given index instead (see [`grid.vline.position`](https://typst.app/docs/reference/layout/grid/#definitions-vline-position) for details).
      * 
      * Specifying `auto` causes the line to be placed at the column after the last automatically positioned cell (that is, cell without coordinate overrides) before the line among the grid's children. If there is no such cell before the line, it is placed before the grid's first column (column 0). Note that specifying for this option exactly the total amount of columns in the grid causes this vertical line to override the end border of the grid (right in LTR, left in RTL), while a value of 0 overrides the start border (left in LTR, right in RTL).
@@ -25,6 +29,8 @@ data class TGridVline(
     @all:Settable val x: Smart<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-vline](https://typst.app/docs/reference/layout/grid/#definitions-vline)
+     * 
      * The row at which the vertical line starts (zero-indexed, inclusive).
      * 
      * Settable; Typst type: int
@@ -32,6 +38,8 @@ data class TGridVline(
     @all:Settable val start: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-vline](https://typst.app/docs/reference/layout/grid/#definitions-vline)
+     * 
      * The row on top of which the vertical line ends (zero-indexed, exclusive). Therefore, the vertical line will be drawn up to and across row `end - 1`.
      * 
      * A value equal to `none` or to the amount of rows causes it to extend all the way towards the bottom of the grid.
@@ -41,6 +49,8 @@ data class TGridVline(
     @all:Settable val end: Option<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-vline](https://typst.app/docs/reference/layout/grid/#definitions-vline)
+     * 
      * The line's stroke.
      * 
      * Specifying `none` removes any lines previously placed across this line's range, including vlines or per-cell stroke below it.
@@ -50,6 +60,8 @@ data class TGridVline(
     @all:Settable val stroke: Option<TStroke>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-vline](https://typst.app/docs/reference/layout/grid/#definitions-vline)
+     * 
      * The position at which the line is placed, given its column (`x`) - either `start` to draw before it or `end` to draw after it.
      * 
      * The values `left` and `right` are also accepted, but discouraged as they cause your grid to be inconsistent between left-to-right and right-to-left documents.

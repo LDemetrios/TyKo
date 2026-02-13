@@ -7,6 +7,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/equation/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+ * 
  * A mathematical equation.
  * 
  * Can be displayed inline with text or as a separate block. An equation becomes block-level through the presence of whitespace after the opening dollar sign and whitespace before the closing dollar sign.
@@ -36,6 +38,8 @@ import kotlinx.serialization.Serializable
 data class TEquation(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+     * 
      * The contents of the equation.
      * 
      * Required, positional; Typst type: content
@@ -43,6 +47,8 @@ data class TEquation(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+     * 
      * Whether the equation is displayed as a separate block.
      * 
      * Settable; Typst type: bool
@@ -50,6 +56,8 @@ data class TEquation(
     @all:Settable val block: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+     * 
      * How to number block-level equations. Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/) taking a single number.
      * 
      * Settable; Typst type: none|str|function
@@ -57,6 +65,8 @@ data class TEquation(
     @all:Settable val numbering: Option<Numbering>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+     * 
      * The alignment of the equation numbering.
      * 
      * By default, the alignment is `end + horizon`. For the horizontal component, you can use `right`, `left`, or `start` and `end` of the text direction; for the vertical component, you can use `top`, `horizon`, or `bottom`.
@@ -66,6 +76,8 @@ data class TEquation(
     @all:Settable val numberAlign: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+     * 
      * A supplement for the equation.
      * 
      * For references to equations, this is added before the referenced number.
@@ -77,6 +89,8 @@ data class TEquation(
     @all:Settable val supplement: Smart<Option<Computable<TContent>>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/equation/](https://typst.app/docs/reference/math/equation/)
+     * 
      * An alternative description of the mathematical equation.
      * 
      * This should describe the full equation in natural language and will be made available to Assistive Technology. You can learn more in the [Textual Representations section of the Accessibility Guide](https://typst.app/docs/guides/accessibility/#textual-representations).

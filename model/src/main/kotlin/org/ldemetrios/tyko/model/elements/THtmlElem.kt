@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/html/elem/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/html/elem/](https://typst.app/docs/reference/html/elem/)
+ * 
  * An HTML element that can contain Typst content.
  * 
  * Typst's HTML export automatically generates the appropriate tags for most elements. However, sometimes, it is desirable to retain more control. For example, when using Typst to generate your blog, you could use this function to wrap each article in an `<article>` tag.
@@ -26,6 +28,8 @@ import kotlinx.serialization.Serializable
 data class THtmlElem(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/html/elem/](https://typst.app/docs/reference/html/elem/)
+     * 
      * The element's tag.
      * 
      * Required, positional; Typst type: str
@@ -33,6 +37,8 @@ data class THtmlElem(
     @all:Positional val tag: TStr,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/html/elem/](https://typst.app/docs/reference/html/elem/)
+     * 
      * The contents of the HTML element.
      * 
      * The body can be arbitrary Typst content.
@@ -42,6 +48,8 @@ data class THtmlElem(
     @all:Settable @all:Positional val body: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/html/elem/](https://typst.app/docs/reference/html/elem/)
+     * 
      * The element's HTML attributes.
      * 
      * Settable; Typst type: dictionary

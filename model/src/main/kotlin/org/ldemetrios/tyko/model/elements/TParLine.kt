@@ -5,6 +5,8 @@ package org.ldemetrios.tyko.model
 //!https://typst.app/docs/reference/model/par/#definitions-line
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/par/#definitions-line](https://typst.app/docs/reference/model/par/#definitions-line)
+ * 
  * A paragraph line.
  * 
  * This element is exclusively used for line number configuration through set rules and cannot be placed.
@@ -19,6 +21,8 @@ package org.ldemetrios.tyko.model
 data class TParLine(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/#definitions-line](https://typst.app/docs/reference/model/par/#definitions-line)
+     * 
      * How to number each line. Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/) taking a single number.
      * 
      * Settable; Typst type: none|str|function
@@ -26,6 +30,8 @@ data class TParLine(
     @all:Settable val numbering: Option<Numbering>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/#definitions-line](https://typst.app/docs/reference/model/par/#definitions-line)
+     * 
      * The alignment of line numbers associated with each line.
      * 
      * The default of `auto` indicates a smart default where numbers grow horizontally away from the text, considering the margin they're in and the current text direction.
@@ -35,6 +41,8 @@ data class TParLine(
     @all:Settable val numberAlign: Smart<TAlignment>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/#definitions-line](https://typst.app/docs/reference/model/par/#definitions-line)
+     * 
      * The margin at which line numbers appear.
      * 
      * *Note:* In a multi-column document, the line numbers for paragraphs inside the last column will always appear on the `end` margin (right margin for left-to-right text and left margin for right-to-left), regardless of this configuration. That behavior cannot be changed at this moment.
@@ -44,6 +52,8 @@ data class TParLine(
     @all:Settable val numberMargin: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/#definitions-line](https://typst.app/docs/reference/model/par/#definitions-line)
+     * 
      * The distance between line numbers and text.
      * 
      * The default value of `auto` results in a clearance that is adaptive to the page width and yields reasonable results in most cases.
@@ -53,6 +63,8 @@ data class TParLine(
     @all:Settable val numberClearance: Smart<TLength>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/#definitions-line](https://typst.app/docs/reference/model/par/#definitions-line)
+     * 
      * Controls when to reset line numbering.
      * 
      * *Note:* The line numbering scope must be uniform across each page run (a page run is a sequence of pages without an explicit pagebreak in between). For this reason, set rules for it should be defined before any page content, typically at the very start of the document.

@@ -13,6 +13,8 @@ import kotlin.reflect.jvm.javaField
 //!https://typst.app/docs/reference/math/roots/#functions-root
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/roots/#functions-root](https://typst.app/docs/reference/math/roots/#functions-root)
+ * 
  * A general root.
  * 
  * 
@@ -21,6 +23,8 @@ import kotlin.reflect.jvm.javaField
 data class TMathRoot(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/roots/#functions-root](https://typst.app/docs/reference/math/roots/#functions-root)
+     * 
      * Which root of the radicand to take.
      * 
      * Positional, settable; Typst type: none|content
@@ -28,6 +32,8 @@ data class TMathRoot(
     @all:Positional @all:Settable val index: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/roots/#functions-root](https://typst.app/docs/reference/math/roots/#functions-root)
+     * 
      * The expression to take the root of.
      * 
      * Required, positional; Typst type: content

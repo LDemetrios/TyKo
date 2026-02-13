@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/ref/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/ref/](https://typst.app/docs/reference/model/ref/)
+ * 
  * A reference to a label or bibliography.
  * 
  * Takes a label and cross-references it. There are two kind of references, determined by its [`form`](https://typst.app/docs/reference/model/ref/#parameters-form): `"normal"` and `"page"`.
@@ -111,6 +113,8 @@ import kotlinx.serialization.Serializable
 data class TRef(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/ref/](https://typst.app/docs/reference/model/ref/)
+     * 
      * The target label that should be referenced.
      * 
      * Can be a label that is defined in the document or, if the [`form`](https://typst.app/docs/reference/model/ref/#parameters-form) is set to `"normal"`, an entry from the [`bibliography`](https://typst.app/docs/reference/model/bibliography/).
@@ -120,6 +124,8 @@ data class TRef(
     @all:Positional val target: TLabel,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/ref/](https://typst.app/docs/reference/model/ref/)
+     * 
      * A supplement for the reference.
      * 
      * If the [`form`](https://typst.app/docs/reference/model/ref/#parameters-form) is set to `"normal"`:
@@ -136,6 +142,8 @@ data class TRef(
     @all:Settable val supplement: Smart<Option<Computable<TContent>>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/ref/](https://typst.app/docs/reference/model/ref/)
+     * 
      * The kind of reference to produce.
      * 
      * | Variant | Details |

@@ -3,6 +3,8 @@ package org.ldemetrios.tyko.model
 //!https://typst.app/docs/reference/introspection/state/#definitions-update
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/introspection/state/#definitions-update](https://typst.app/docs/reference/introspection/state/#definitions-update)
+ * 
  * Updates the value of the state.
  * 
  * Returns an invisible piece of [content](https://typst.app/docs/reference/foundations/content/) that must be inserted into the document to take effect. This invisible content tells Typst that the specified update should take place wherever the content is inserted into the document.
@@ -23,6 +25,8 @@ data class TStateUpdate(
     @all:Positional val key: TStr,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/introspection/state/#definitions-update](https://typst.app/docs/reference/introspection/state/#definitions-update)
+     * 
      * A value to update to or a function to update with.
      * 
      * - If given a non-function value, sets the state to that value.

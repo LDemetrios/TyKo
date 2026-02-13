@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/rotate/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/rotate/](https://typst.app/docs/reference/layout/rotate/)
+ * 
  * Rotates content without affecting layout.
  * 
  * Rotates an element by a given angle. The layout will act as if the element was not rotated unless you specify `reflow: true`.
@@ -28,6 +30,8 @@ import kotlinx.serialization.Serializable
 data class TRotate(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/rotate/](https://typst.app/docs/reference/layout/rotate/)
+     * 
      * The amount of rotation.
      * 
      * Positional, settable; Typst type: angle
@@ -35,6 +39,8 @@ data class TRotate(
     @all:Settable @all:Positional val angle: TAngle? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/rotate/](https://typst.app/docs/reference/layout/rotate/)
+     * 
      * The content to rotate.
      * 
      * Required, positional; Typst type: content
@@ -42,6 +48,8 @@ data class TRotate(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/rotate/](https://typst.app/docs/reference/layout/rotate/)
+     * 
      * The origin of the rotation.
      * 
      * If, for instance, you wanted the bottom left corner of the rotated element to stay aligned with the baseline, you would set it to `bottom + left` instead.
@@ -51,6 +59,8 @@ data class TRotate(
     @all:Settable val origin: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/rotate/](https://typst.app/docs/reference/layout/rotate/)
+     * 
      * Whether the rotation impacts the layout.
      * 
      * If set to `false`, the rotated content will retain the bounding box of the original content. If set to `true`, the bounding box will take the rotation of the content into account and adjust the layout accordingly.

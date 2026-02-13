@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/underover/#functions-underline
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-underline](https://typst.app/docs/reference/math/underover/#functions-underline)
+ * 
  * A horizontal line under content.
  * 
  * 
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathUnderline(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-underline](https://typst.app/docs/reference/math/underover/#functions-underline)
+     * 
      * The content above the line.
      * 
      * Required, positional; Typst type: content

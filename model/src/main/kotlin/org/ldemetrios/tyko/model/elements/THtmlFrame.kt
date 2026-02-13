@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/html/frame/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/html/frame/](https://typst.app/docs/reference/html/frame/)
+ * 
  * An element that lays out its content as an inline SVG.
  * 
  * Sometimes, converting Typst content to HTML is not desirable. This can be the case for plots and other content that relies on positioning and styling to convey its message.
@@ -18,6 +20,8 @@ import kotlinx.serialization.Serializable
 data class THtmlFrame(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/html/frame/](https://typst.app/docs/reference/html/frame/)
+     * 
      * The content that shall be laid out.
      * 
      * Required, positional; Typst type: content

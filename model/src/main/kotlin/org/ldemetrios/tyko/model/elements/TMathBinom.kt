@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/binom/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/binom/](https://typst.app/docs/reference/math/binom/)
+ * 
  * A binomial expression.
  * 
  * **_Example_**
@@ -22,6 +24,8 @@ import kotlinx.serialization.Serializable
 data class TMathBinom(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/binom/](https://typst.app/docs/reference/math/binom/)
+     * 
      * The binomial's upper index.
      * 
      * Required, positional; Typst type: content
@@ -29,6 +33,8 @@ data class TMathBinom(
     @all:Positional val upper: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/binom/](https://typst.app/docs/reference/math/binom/)
+     * 
      * The binomial's lower index.
      * 
      * Required, positional, variadic; Typst type: content

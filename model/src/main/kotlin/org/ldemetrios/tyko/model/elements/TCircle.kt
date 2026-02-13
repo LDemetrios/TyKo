@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/visualize/circle/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+ * 
  * A circle with optional content.
  * 
  * **_Example_**
@@ -27,6 +29,8 @@ import kotlinx.serialization.Serializable
 data class TCircle(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * The content to place into the circle. The circle expands to fit this content, keeping the 1-1 aspect ratio.
      * 
      * Positional, settable; Typst type: none|content
@@ -34,6 +38,8 @@ data class TCircle(
     @all:Settable @all:Positional val body: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * The circle's radius. This is mutually exclusive with `width` and `height`.
      * 
      * Typst type: length
@@ -41,6 +47,8 @@ data class TCircle(
     val radius: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * The circle's width. This is mutually exclusive with `radius` and `height`.
      * 
      * In contrast to `radius`, this can be relative to the parent container's width.
@@ -50,6 +58,8 @@ data class TCircle(
     @all:Settable val width: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * The circle's height. This is mutually exclusive with `radius` and `width`.
      * 
      * In contrast to `radius`, this can be relative to the parent container's height.
@@ -59,6 +69,8 @@ data class TCircle(
     @all:Settable val height: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * How to fill the circle. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-fill) for more details.
      * 
      * Settable; Typst type: none|color|gradient|tiling
@@ -66,6 +78,8 @@ data class TCircle(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * How to stroke the circle. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-stroke) for more details.
      * 
      * Settable; Typst type: none|auto|length|color|gradient|stroke|tiling|dictionary
@@ -73,6 +87,8 @@ data class TCircle(
     @all:Settable val stroke: Sides<Smart<Option<TStroke>>>? = null, // TODO is it really Sides?
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * How much to pad the circle's content. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-inset) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -80,6 +96,8 @@ data class TCircle(
     @all:Settable val inset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/circle/](https://typst.app/docs/reference/visualize/circle/)
+     * 
      * How much to expand the circle's size without affecting the layout. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-outset) for more details.
      * 
      * Settable; Typst type: relative|dictionary

@@ -8,12 +8,16 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/enum/#definitions-item
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/enum/#definitions-item](https://typst.app/docs/reference/model/enum/#definitions-item)
+ * 
  * An enumeration item.
  */
 @SerialName("enum.item")
 data class TEnumItem(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/#definitions-item](https://typst.app/docs/reference/model/enum/#definitions-item)
+     * 
      * The item's number.
      * 
      * Positional, settable; Typst type: auto|int
@@ -21,6 +25,8 @@ data class TEnumItem(
     @all:Settable @all:Positional val number: Smart<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/enum/#definitions-item](https://typst.app/docs/reference/model/enum/#definitions-item)
+     * 
      * The item's body.
      * 
      * Required, positional; Typst type: content

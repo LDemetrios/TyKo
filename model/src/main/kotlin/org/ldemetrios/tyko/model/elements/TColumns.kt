@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/columns/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/columns/](https://typst.app/docs/reference/layout/columns/)
+ * 
  * Separates a region into multiple equally sized columns.
  * 
  * The `column` function lets you separate the interior of any container into multiple columns. It will currently not balance the height of the columns. Instead, the columns will take up the height of their container or the remaining height on the page. Support for balanced columns is planned for the future.
@@ -55,6 +57,8 @@ import kotlinx.serialization.Serializable
 data class TColumns(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/columns/](https://typst.app/docs/reference/layout/columns/)
+     * 
      * The number of columns.
      * 
      * Positional, settable; Typst type: int
@@ -62,6 +66,8 @@ data class TColumns(
     @all:Settable @all:Positional val count: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/columns/](https://typst.app/docs/reference/layout/columns/)
+     * 
      * The content that should be layouted into the columns.
      * 
      * Required, positional; Typst type: content
@@ -69,6 +75,8 @@ data class TColumns(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/columns/](https://typst.app/docs/reference/layout/columns/)
+     * 
      * The size of the gutter space between each column.
      * 
      * Settable; Typst type: relative

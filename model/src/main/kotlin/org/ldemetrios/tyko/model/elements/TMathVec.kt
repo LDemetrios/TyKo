@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/vec/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/vec/](https://typst.app/docs/reference/math/vec/)
+ * 
  * A column vector.
  * 
  * Content in the vector's elements can be aligned with the [`align`](https://typst.app/docs/reference/math/vec/#parameters-align) parameter, or the `&` symbol.
@@ -26,6 +28,8 @@ import kotlinx.serialization.Serializable
 data class TMathVec(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/vec/](https://typst.app/docs/reference/math/vec/)
+     * 
      * The elements of the vector.
      * 
      * Required, positional, variadic; Typst type: content
@@ -33,6 +37,8 @@ data class TMathVec(
     @all:Variadic @all:Positional val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/vec/](https://typst.app/docs/reference/math/vec/)
+     * 
      * The delimiter to use.
      * 
      * Can be a single character specifying the left delimiter, in which case the right delimiter is inferred. Otherwise, can be an array containing a left and a right delimiter.
@@ -42,6 +48,8 @@ data class TMathVec(
     @all:Settable val delim: ArrayOrSingle<Option<TSymbolLike>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/vec/](https://typst.app/docs/reference/math/vec/)
+     * 
      * The horizontal alignment that each element should have.
      * 
      * Settable; Typst type: alignment
@@ -49,6 +57,8 @@ data class TMathVec(
     @all:Settable val align: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/vec/](https://typst.app/docs/reference/math/vec/)
+     * 
      * The gap between elements.
      * 
      * Settable; Typst type: relative

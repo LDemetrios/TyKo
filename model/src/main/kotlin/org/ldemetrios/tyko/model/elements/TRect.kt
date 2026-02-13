@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/visualize/rect/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+ * 
  * A rectangle with optional content.
  * 
  * **_Example_**
@@ -28,6 +30,8 @@ import kotlinx.serialization.Serializable
 data class TRect(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * The content to place into the rectangle.
      * 
      * When this is omitted, the rectangle takes on a default size of at most `45pt` by `30pt`.
@@ -37,6 +41,8 @@ data class TRect(
     @all:Settable @all:Positional val body: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * The rectangle's width, relative to its parent container.
      * 
      * Settable; Typst type: auto|relative
@@ -44,6 +50,8 @@ data class TRect(
     @all:Settable val width: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * The rectangle's height, relative to its parent container.
      * 
      * Settable; Typst type: auto|relative|fraction
@@ -51,6 +59,8 @@ data class TRect(
     @all:Settable val height: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * How to fill the rectangle.
      * 
      * When setting a fill, the default stroke disappears. To create a rectangle with both fill and stroke, you have to configure both.
@@ -60,6 +70,8 @@ data class TRect(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * How to stroke the rectangle. This can be:
      * 
      * - `none` to disable stroking
@@ -79,6 +91,8 @@ data class TRect(
     @all:Settable val stroke: Sides<Smart<Option<TStroke>>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * How much to round the rectangle's corners, relative to the minimum of the width and height divided by two. This can be:
      * 
      * - A relative length for a uniform corner radius.
@@ -98,6 +112,8 @@ data class TRect(
     @all:Settable val radius: Corners<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * How much to pad the rectangle's content. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-inset) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -105,6 +121,8 @@ data class TRect(
     @all:Settable val inset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/rect/](https://typst.app/docs/reference/visualize/rect/)
+     * 
      * How much to expand the rectangle's size without affecting the layout. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-outset) for more details.
      * 
      * Settable; Typst type: relative|dictionary

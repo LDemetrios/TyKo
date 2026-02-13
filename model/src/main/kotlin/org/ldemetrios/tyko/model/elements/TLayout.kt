@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/layout/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/layout/](https://typst.app/docs/reference/layout/layout/)
+ * 
  * Provides access to the current outer container's (or page's, if none) dimensions (width and height).
  * 
  * Accepts a function that receives a single parameter, which is a dictionary with keys `width` and `height`, both of type [`length`](https://typst.app/docs/reference/layout/length/). The function is provided [context](https://typst.app/docs/reference/context/), meaning you don't need to use it in combination with the `context` keyword. This is why [`measure`](https://typst.app/docs/reference/layout/measure/) can be called in the example below.
@@ -59,6 +61,8 @@ import kotlinx.serialization.Serializable
 data class TLayout(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/layout/](https://typst.app/docs/reference/layout/layout/)
+     * 
      * A function to call with the outer container's size. Its return value is displayed in the document.
      * 
      * The container's size is given as a [dictionary](https://typst.app/docs/reference/foundations/dictionary/) with the keys `width` and `height`, both of type [`length`](https://typst.app/docs/reference/layout/length/).

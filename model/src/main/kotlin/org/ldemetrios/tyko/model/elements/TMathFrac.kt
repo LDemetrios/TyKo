@@ -11,6 +11,8 @@ import kotlin.reflect.jvm.javaField
 //!https://typst.app/docs/reference/math/frac/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/frac/](https://typst.app/docs/reference/math/frac/)
+ * 
  * A mathematical fraction.
  * 
  * **_Example_**
@@ -29,6 +31,8 @@ import kotlin.reflect.jvm.javaField
 data class TMathFrac(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/frac/](https://typst.app/docs/reference/math/frac/)
+     * 
      * The fraction's numerator.
      * 
      * Required, positional; Typst type: content
@@ -36,6 +40,8 @@ data class TMathFrac(
     @all:Positional val num: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/frac/](https://typst.app/docs/reference/math/frac/)
+     * 
      * The fraction's denominator.
      * 
      * Required, positional; Typst type: content
@@ -43,6 +49,8 @@ data class TMathFrac(
     @all:Positional val denom: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/frac/](https://typst.app/docs/reference/math/frac/)
+     * 
      * How the fraction should be laid out.
      * 
      * | Variant | Details |

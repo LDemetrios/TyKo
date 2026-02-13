@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/title/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/title/](https://typst.app/docs/reference/model/title/)
+ * 
  * A document title.
  * 
  * This should be used to display the main title of the whole document and should occur only once per document. In contrast, level 1 [headings](https://typst.app/docs/reference/model/heading/) are intended to be used for the top-level sections of the document.
@@ -34,6 +36,8 @@ import kotlinx.serialization.Serializable
 data class TTitle(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/title/](https://typst.app/docs/reference/model/title/)
+     * 
      * The content of the title.
      * 
      * When omitted (or `auto`), this will default to [`document.title`](https://typst.app/docs/reference/model/document/#parameters-title). In this case, a document title must have been previously set with `set document(title: [..])`.

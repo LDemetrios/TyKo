@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/box/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+ * 
  * An inline-level container that sizes content.
  * 
  * All elements except inline math, text, and boxes are block-level and cannot occur inside of a [paragraph](https://typst.app/docs/reference/model/par/). The box function can be used to integrate such elements into a paragraph. Boxes take the size of their contents by default but can also be sized explicitly.
@@ -26,6 +28,8 @@ import kotlinx.serialization.Serializable
 data class TBox(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * The contents of the box.
      * 
      * Positional, settable; Typst type: none|content
@@ -33,6 +37,8 @@ data class TBox(
     @all:Settable @all:Positional val body: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * The width of the box.
      * 
      * Boxes can have [fractional](https://typst.app/docs/reference/layout/fraction/) widths, as the example below demonstrates.
@@ -44,6 +50,8 @@ data class TBox(
     @all:Settable val width: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * The height of the box.
      * 
      * Settable; Typst type: auto|relative
@@ -51,6 +59,8 @@ data class TBox(
     @all:Settable val height: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * An amount to shift the box's baseline by.
      * 
      * Settable; Typst type: relative
@@ -58,6 +68,8 @@ data class TBox(
     @all:Settable val baseline: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * The box's background color. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-fill) for more details.
      * 
      * Settable; Typst type: none|color|gradient|tiling
@@ -65,6 +77,8 @@ data class TBox(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * The box's border color. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-stroke) for more details.
      * 
      * Settable; Typst type: none|length|color|gradient|stroke|tiling|dictionary
@@ -72,6 +86,8 @@ data class TBox(
     @all:Settable val stroke: Sides<Option<TStroke>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * How much to round the box's corners. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-radius) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -79,6 +95,8 @@ data class TBox(
     @all:Settable val radius: Corners<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * How much to pad the box's content.
      * 
      * This can be a single length for all sides or a dictionary of lengths for individual sides. When passing a dictionary, it can contain the following keys in order of precedence: `top`, `right`, `bottom`, `left` (controlling the respective cell sides), `x`, `y` (controlling vertical and horizontal insets), and `rest` (covers all insets not styled by other dictionary entries). All keys are optional; omitted keys will use their previously set value, or the default value if never set.
@@ -92,6 +110,8 @@ data class TBox(
     @all:Settable val inset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * How much to expand the box's size without affecting the layout.
      * 
      * This can be a single length for all sides or a dictionary of lengths for individual sides. [Relative lengths](https://typst.app/docs/reference/layout/relative/) for this parameter are relative to the box size excluding outset. See the documentation for [inset](https://typst.app/docs/reference/layout/box/#parameters-inset) above for further details.
@@ -103,6 +123,8 @@ data class TBox(
     @all:Settable val outset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/box/](https://typst.app/docs/reference/layout/box/)
+     * 
      * Whether to clip the content inside the box.
      * 
      * Clipping is useful when the box's content is larger than the box itself, as any content that exceeds the box's bounds will be hidden.

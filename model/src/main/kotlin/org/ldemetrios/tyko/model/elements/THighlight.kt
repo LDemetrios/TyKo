@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/text/highlight/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+ * 
  * Highlights text with a background color.
  * 
  * **_Example_**
@@ -21,6 +23,8 @@ import kotlinx.serialization.Serializable
 data class THighlight(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * The content that should be highlighted.
      * 
      * Required, positional; Typst type: content
@@ -28,6 +32,8 @@ data class THighlight(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * The color to highlight the text with.
      * 
      * Settable; Typst type: none|color|gradient|tiling
@@ -35,6 +41,8 @@ data class THighlight(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * The highlight's border color. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-stroke) for more details.
      * 
      * Settable; Typst type: none|length|color|gradient|stroke|tiling|dictionary
@@ -42,6 +50,8 @@ data class THighlight(
     @all:Settable val stroke: Sides<Option<TStroke>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * The top end of the background rectangle.
      * 
      * | Variant | Details |
@@ -57,6 +67,8 @@ data class THighlight(
     @all:Settable val topEdge: TopEdge? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * The bottom end of the background rectangle.
      * 
      * | Variant | Details |
@@ -70,6 +82,8 @@ data class THighlight(
     @all:Settable val bottomEdge: BottomEdge? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * The amount by which to extend the background to the sides beyond (or within if negative) the content.
      * 
      * Settable; Typst type: length
@@ -77,6 +91,8 @@ data class THighlight(
     @all:Settable val extent: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/highlight/](https://typst.app/docs/reference/text/highlight/)
+     * 
      * How much to round the highlight's corners. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-radius) for more details.
      * 
      * Settable; Typst type: relative|dictionary

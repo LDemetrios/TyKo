@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/move/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/move/](https://typst.app/docs/reference/layout/move/)
+ * 
  * Moves content without affecting layout.
  * 
  * The `move` function allows you to move content while the layout still 'sees' it at the original positions. Containers will still be sized as if the content was not moved.
@@ -35,6 +37,8 @@ import kotlinx.serialization.Serializable
 data class TMove(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/move/](https://typst.app/docs/reference/layout/move/)
+     * 
      * The content to move.
      * 
      * Required, positional; Typst type: content
@@ -42,6 +46,8 @@ data class TMove(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/move/](https://typst.app/docs/reference/layout/move/)
+     * 
      * The horizontal displacement of the content.
      * 
      * Settable; Typst type: relative
@@ -49,6 +55,8 @@ data class TMove(
     @all:Settable val dx: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/move/](https://typst.app/docs/reference/layout/move/)
+     * 
      * The vertical displacement of the content.
      * 
      * Settable; Typst type: relative

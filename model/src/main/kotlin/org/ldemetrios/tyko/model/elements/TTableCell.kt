@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/table/#definitions-cell
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+ * 
  * A cell in the table. Use this to position a cell manually or to apply styling. To do the latter, you can either use the function to override the properties for a particular cell, or use it in show rules to apply certain styles to multiple cells at once.
  * 
  * Perhaps the most important use case of `table.cell` is to make a cell span multiple columns and/or rows with the `colspan` and `rowspan` fields.
@@ -22,6 +24,8 @@ import kotlinx.serialization.Serializable
 data class TTableCell(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's body.
      * 
      * Required, positional; Typst type: content
@@ -29,6 +33,8 @@ data class TTableCell(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's column (zero-indexed). Functions identically to the `x` field in [`grid.cell`](https://typst.app/docs/reference/layout/grid/#definitions-cell).
      * 
      * Settable; Typst type: auto|int
@@ -36,6 +42,8 @@ data class TTableCell(
     @all:Settable val x: Smart<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's row (zero-indexed). Functions identically to the `y` field in [`grid.cell`](https://typst.app/docs/reference/layout/grid/#definitions-cell).
      * 
      * Settable; Typst type: auto|int
@@ -43,6 +51,8 @@ data class TTableCell(
     @all:Settable val y: Smart<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The amount of columns spanned by this cell.
      * 
      * Settable; Typst type: int
@@ -50,6 +60,8 @@ data class TTableCell(
     @all:Settable val colspan: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The amount of rows spanned by this cell.
      * 
      * Settable; Typst type: int
@@ -57,6 +69,8 @@ data class TTableCell(
     @all:Settable val rowspan: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's [inset](https://typst.app/docs/reference/model/table/#parameters-inset) override.
      * 
      * Settable; Typst type: auto|relative|dictionary
@@ -64,6 +78,8 @@ data class TTableCell(
     @all:Settable val inset: Smart<Sides<TRelative>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's [alignment](https://typst.app/docs/reference/model/table/#parameters-align) override.
      * 
      * Settable; Typst type: auto|alignment
@@ -71,6 +87,8 @@ data class TTableCell(
     @all:Settable val align: Smart<TAlignment>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's [fill](https://typst.app/docs/reference/model/table/#parameters-fill) override.
      * 
      * Settable; Typst type: none|auto|color|gradient|tiling
@@ -78,6 +96,8 @@ data class TTableCell(
     @all:Settable val fill: Smart<Option<TPaint>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * The cell's [stroke](https://typst.app/docs/reference/model/table/#parameters-stroke) override.
      * 
      * Settable; Typst type: none|length|color|gradient|stroke|tiling|dictionary
@@ -85,6 +105,8 @@ data class TTableCell(
     @all:Settable val stroke: Sides<Option<TStroke>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/#definitions-cell](https://typst.app/docs/reference/model/table/#definitions-cell)
+     * 
      * Whether rows spanned by this cell can be placed in different pages. When equal to `auto`, a cell spanning only fixed-size rows is unbreakable, while a cell spanning at least one `auto`-sized row is breakable.
      * 
      * Settable; Typst type: auto|bool

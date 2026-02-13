@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/pad/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+ * 
  * Adds spacing around content.
  * 
  * The spacing can be specified for each side individually, or for all sides at once by specifying a positional argument.
@@ -27,6 +29,8 @@ import kotlinx.serialization.Serializable
 data class TPad(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * The content to pad at the sides.
      * 
      * Required, positional; Typst type: content
@@ -34,6 +38,8 @@ data class TPad(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * The padding at the left side.
      * 
      * Settable; Typst type: relative
@@ -41,6 +47,8 @@ data class TPad(
     @all:Settable val left: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * The padding at the top side.
      * 
      * Settable; Typst type: relative
@@ -48,6 +56,8 @@ data class TPad(
     @all:Settable val top: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * The padding at the right side.
      * 
      * Settable; Typst type: relative
@@ -55,6 +65,8 @@ data class TPad(
     @all:Settable val right: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * The padding at the bottom side.
      * 
      * Settable; Typst type: relative
@@ -62,6 +74,8 @@ data class TPad(
     @all:Settable val bottom: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * A shorthand to set `left` and `right` to the same value.
      * 
      * Typst type: relative
@@ -69,6 +83,8 @@ data class TPad(
     val x: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * A shorthand to set `top` and `bottom` to the same value.
      * 
      * Typst type: relative
@@ -76,6 +92,8 @@ data class TPad(
     val y: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pad/](https://typst.app/docs/reference/layout/pad/)
+     * 
      * A shorthand to set all four sides to the same value.
      * 
      * Typst type: relative

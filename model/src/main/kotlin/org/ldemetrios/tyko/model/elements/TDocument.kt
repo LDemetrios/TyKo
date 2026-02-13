@@ -4,6 +4,8 @@ package org.ldemetrios.tyko.model
 //!https://typst.app/docs/reference/model/document/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/document/](https://typst.app/docs/reference/model/document/)
+ * 
  * The root element of a document and its metadata.
  * 
  * All documents are automatically wrapped in a `document` element. You cannot create a document element yourself. This function is only used with [set rules](https://typst.app/docs/reference/styling/#set-rules) to specify document metadata. Such a set rule must not occur inside of any layout container.
@@ -22,6 +24,8 @@ package org.ldemetrios.tyko.model
 data class TDocument(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/document/](https://typst.app/docs/reference/model/document/)
+     * 
      * The document's title. This is rendered as the title of the PDF viewer window or the browser tab of the page.
      * 
      * Adding a title is important for accessibility, as it makes it easier to navigate to your document and identify it among other open documents. When exporting to PDF/UA, a title is required.
@@ -33,6 +37,8 @@ data class TDocument(
     @all:Settable val title: Option<TAttachment>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/document/](https://typst.app/docs/reference/model/document/)
+     * 
      * The document's authors.
      * 
      * Settable; Typst type: str|array
@@ -40,6 +46,8 @@ data class TDocument(
     @all:Settable val author: ArrayOrSingle<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/document/](https://typst.app/docs/reference/model/document/)
+     * 
      * The document's description.
      * 
      * Settable; Typst type: none|content
@@ -47,6 +55,8 @@ data class TDocument(
     @all:Settable val description: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/document/](https://typst.app/docs/reference/model/document/)
+     * 
      * The document's keywords.
      * 
      * Settable; Typst type: str|array
@@ -54,6 +64,8 @@ data class TDocument(
     @all:Settable val keywords:  ArrayOrSingle<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/document/](https://typst.app/docs/reference/model/document/)
+     * 
      * The document's creation date.
      * 
      * If this is `auto` (default), Typst uses the current date and time. Setting it to `none` prevents Typst from embedding any creation date into the PDF metadata.

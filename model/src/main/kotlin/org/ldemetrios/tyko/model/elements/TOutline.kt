@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/outline/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/outline/](https://typst.app/docs/reference/model/outline/)
+ * 
  * A table of contents, figures, or other elements.
  * 
  * This function generates a list of all occurrences of an element in the document, up to a given [`depth`](https://typst.app/docs/reference/model/outline/#parameters-depth). The element's numbering and page number will be displayed in the outline alongside its title or caption.
@@ -113,6 +115,8 @@ import kotlinx.serialization.Serializable
 data class TOutline(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/outline/](https://typst.app/docs/reference/model/outline/)
+     * 
      * The title of the outline.
      * 
      * - When set to `auto`, an appropriate title for the [text language](https://typst.app/docs/reference/text/text/#parameters-lang) will be used.
@@ -126,6 +130,8 @@ data class TOutline(
     @all:Settable val title: Smart<Option<TContent>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/outline/](https://typst.app/docs/reference/model/outline/)
+     * 
      * The type of element to include in the outline.
      * 
      * To list figures containing a specific kind of element, like an image or a table, you can specify the desired kind in a [`where`](https://typst.app/docs/reference/foundations/function/#definitions-where) selector. See the section on [alternative outlines](https://typst.app/docs/reference/model/outline/#alternative-outlines) for more details.
@@ -135,6 +141,8 @@ data class TOutline(
     @all:Settable val target: TSelector<*>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/outline/](https://typst.app/docs/reference/model/outline/)
+     * 
      * The maximum level up to which elements are included in the outline. When this argument is `none`, all elements are included.
      * 
      * Settable; Typst type: none|int
@@ -142,6 +150,8 @@ data class TOutline(
     @all:Settable val depth: Option<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/outline/](https://typst.app/docs/reference/model/outline/)
+     * 
      * How to indent the outline's entries.
      * 
      * - `auto`: Indents the numbering/prefix of a nested entry with the title of its parent entry. If the entries are not numbered (e.g., via [heading numbering](https://typst.app/docs/reference/model/heading/#parameters-numbering)), this instead simply inserts a fixed amount of `1.2em` indent per level.

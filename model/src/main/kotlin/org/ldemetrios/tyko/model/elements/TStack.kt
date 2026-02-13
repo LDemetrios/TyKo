@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/stack/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/stack/](https://typst.app/docs/reference/layout/stack/)
+ * 
  * Arranges content and spacing horizontally or vertically.
  * 
  * The stack places a list of items along an axis, with optional spacing between each item.
@@ -32,6 +34,8 @@ import kotlinx.serialization.Serializable
 data class TStack(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/stack/](https://typst.app/docs/reference/layout/stack/)
+     * 
      * The children to stack along the axis.
      * 
      * Required, positional, variadic; Typst type: relative|fraction|content
@@ -39,6 +43,8 @@ data class TStack(
     @all:Variadic @all:Positional val children: TArray<TStackComponent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/stack/](https://typst.app/docs/reference/layout/stack/)
+     * 
      * The direction along which the items are stacked. Possible values are:
      * 
      * - `ltr`: Left to right.
@@ -55,6 +61,8 @@ data class TStack(
     @all:Settable val dir: TDirection? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/stack/](https://typst.app/docs/reference/layout/stack/)
+     * 
      * Spacing to insert between items where no explicit spacing was provided.
      * 
      * Settable; Typst type: none|relative|fraction

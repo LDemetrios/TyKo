@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/v/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/v/](https://typst.app/docs/reference/layout/v/)
+ * 
  * Inserts vertical spacing into a flow of blocks.
  * 
  * The spacing can be absolute, relative, or fractional. In the last case, the remaining space on the page is distributed among all fractional spacings according to their relative fractions.
@@ -33,6 +35,8 @@ import kotlinx.serialization.Serializable
 data class TV(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/v/](https://typst.app/docs/reference/layout/v/)
+     * 
      * How much spacing to insert.
      * 
      * Required, positional; Typst type: relative|fraction
@@ -40,6 +44,8 @@ data class TV(
     @all:Positional val amount: Spacing,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/v/](https://typst.app/docs/reference/layout/v/)
+     * 
      * If `true`, the spacing collapses at the start or end of a flow. Moreover, from multiple adjacent weak spacings all but the largest one collapse. Weak spacings will always collapse adjacent paragraph spacing, even if the paragraph spacing is larger.
      * 
      * Settable; Typst type: bool

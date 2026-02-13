@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/emph/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/emph/](https://typst.app/docs/reference/model/emph/)
+ * 
  * Emphasizes content by toggling italics.
  * 
  * - If the current [text style](https://typst.app/docs/reference/text/text/#parameters-style) is `"normal"`, this turns it into `"italic"`.
@@ -35,6 +37,8 @@ import kotlinx.serialization.Serializable
 data class TEmph(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/emph/](https://typst.app/docs/reference/model/emph/)
+     * 
      * The content to emphasize.
      * 
      * Required, positional; Typst type: content

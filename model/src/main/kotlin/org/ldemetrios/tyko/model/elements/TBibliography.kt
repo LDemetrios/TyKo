@@ -108,6 +108,8 @@ enum class TBibliographyStyle(val value: String) : DataSourceOrPreset<TBibliogra
 //!https://typst.app/docs/reference/model/bibliography/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/bibliography/](https://typst.app/docs/reference/model/bibliography/)
+ * 
  * A bibliography / reference listing.
  * 
  * You can create a new bibliography by calling this function with a path to a bibliography file in either one of two formats:
@@ -148,6 +150,8 @@ data class TBibliography(
     // field is not variadic -- it's not variadic for repr, but param is -- for overload generator,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/bibliography/](https://typst.app/docs/reference/model/bibliography/)
+     * 
      * One or multiple paths to or raw bytes for Hayagriva `.yaml` and/or BibLaTeX `.bib` files.
      * 
      * This can be a:
@@ -161,6 +165,8 @@ data class TBibliography(
     @all:Positional @param:Variadic val sources: TArray<DataSource>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/bibliography/](https://typst.app/docs/reference/model/bibliography/)
+     * 
      * The title of the bibliography.
      * 
      * - When set to `auto`, an appropriate title for the [text language](https://typst.app/docs/reference/text/text/#parameters-lang) will be used. This is the default.
@@ -174,6 +180,8 @@ data class TBibliography(
     @all:Settable val title: Smart<Option<TContent>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/bibliography/](https://typst.app/docs/reference/model/bibliography/)
+     * 
      * Whether to include all works from the given bibliography files, even those that weren't cited in the document.
      * 
      * To selectively add individual cited works without showing them, you can also use the `cite` function with [`form`](https://typst.app/docs/reference/model/cite/#parameters-form) set to `none`.
@@ -183,6 +191,8 @@ data class TBibliography(
     @all:Settable val full: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/bibliography/](https://typst.app/docs/reference/model/bibliography/)
+     * 
      * The bibliography style.
      * 
      * This can be:

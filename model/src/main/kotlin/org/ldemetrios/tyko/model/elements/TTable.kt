@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/table/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+ * 
  * A table of items.
  * 
  * Tables are used to arrange content in cells. Cells can contain arbitrary content, including multiple paragraphs and are specified in row-major order. For a hands-on explanation of all the ways you can use and customize tables in Typst, check out the [Table Guide](https://typst.app/docs/guides/tables/).
@@ -99,6 +101,8 @@ import kotlinx.serialization.Serializable
 data class TTable(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * The contents of the table cells, plus any extra table lines specified with the [`table.hline`](https://typst.app/docs/reference/model/table/#definitions-hline) and [`table.vline`](https://typst.app/docs/reference/model/table/#definitions-vline) elements.
      * 
      * Required, positional, variadic; Typst type: content
@@ -106,6 +110,8 @@ data class TTable(
     @all:Variadic @all:Positional val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * The column sizes. See the [grid documentation](https://typst.app/docs/reference/layout/grid/#track-size) for more information on track sizing.
      * 
      * Settable; Typst type: auto|int|relative|fraction|array
@@ -113,6 +119,8 @@ data class TTable(
     @all:Settable val columns: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * The row sizes. See the [grid documentation](https://typst.app/docs/reference/layout/grid/#track-size) for more information on track sizing.
      * 
      * Settable; Typst type: auto|int|relative|fraction|array
@@ -120,6 +128,8 @@ data class TTable(
     @all:Settable val rows: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * The gaps between rows and columns. This is a shorthand for setting `column-gutter` and `row-gutter` to the same value. See the [grid documentation](https://typst.app/docs/reference/layout/grid/#parameters-gutter) for more information on gutters.
      * 
      * Typst type: auto|int|relative|fraction|array
@@ -127,6 +137,8 @@ data class TTable(
     @all:Settable val gutter: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * The gaps between columns. Takes precedence over `gutter`. See the [grid documentation](https://typst.app/docs/reference/layout/grid/#parameters-gutter) for more information on gutters.
      * 
      * Settable; Typst type: auto|int|relative|fraction|array
@@ -134,6 +146,8 @@ data class TTable(
     @all:Settable val columnGutter: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * The gaps between rows. Takes precedence over `gutter`. See the [grid documentation](https://typst.app/docs/reference/layout/grid/#parameters-gutter) for more information on gutters.
      * 
      * Settable; Typst type: auto|int|relative|fraction|array
@@ -141,6 +155,8 @@ data class TTable(
     @all:Settable val rowGutter: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * How much to pad the cells' content.
      * 
      * To specify the same inset for all cells, use a single length for all sides, or a dictionary of lengths for individual sides. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-inset) for more details.
@@ -158,6 +174,8 @@ data class TTable(
     @all:Settable val inset: Progression<Sides<TRelative>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * How to align the cells' content.
      * 
      * If set to `auto`, the outer alignment is used.
@@ -175,6 +193,8 @@ data class TTable(
     @all:Settable val align: Progression<Smart<TAlignment>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * How to fill the cells.
      * 
      * This can be:
@@ -190,6 +210,8 @@ data class TTable(
     @all:Settable val fill: Progression<Option<TPaint>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/table/](https://typst.app/docs/reference/model/table/)
+     * 
      * How to [stroke](https://typst.app/docs/reference/visualize/stroke/) the cells.
      * 
      * Strokes can be disabled by setting this to `none`.

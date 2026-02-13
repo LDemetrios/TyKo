@@ -69,6 +69,8 @@ enum class TImageFormatPreset : IntoStr, TImageFormat {
 //!https://typst.app/docs/reference/visualize/image/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+ * 
  * A raster or vector graphic.
  * 
  * You can wrap the image in a [`figure`](https://typst.app/docs/reference/model/figure/) to give it a number and caption.
@@ -92,6 +94,8 @@ enum class TImageFormatPreset : IntoStr, TImageFormat {
 data class TImage(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * A [path](https://typst.app/docs/reference/syntax/#paths) to an image file or raw bytes making up an image in one of the supported [formats](https://typst.app/docs/reference/visualize/image/#parameters-format).
      * 
      * Bytes can be used to specify raw pixel data in a row-major, left-to-right, top-to-bottom format.
@@ -101,6 +105,8 @@ data class TImage(
     @all:Positional val source: DataSource,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * The image's format.
      * 
      * By default, the format is detected automatically. Typically, you thus only need to specify this when providing raw bytes as the [`source`](https://typst.app/docs/reference/visualize/image/#parameters-source) (even then, Typst will try to figure out the format automatically, but that's not always possible).
@@ -140,6 +146,8 @@ data class TImage(
     @all:Settable val format: TImageFormat? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * The width of the image.
      * 
      * Settable; Typst type: auto|relative
@@ -147,6 +155,8 @@ data class TImage(
     @all:Settable val width: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * The height of the image.
      * 
      * Settable; Typst type: auto|relative|fraction
@@ -154,6 +164,8 @@ data class TImage(
     @all:Settable val height: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * An alternative description of the image.
      * 
      * This text is used by Assistive Technology (AT) like screen readers to describe the image to users with visual impairments.
@@ -167,6 +179,8 @@ data class TImage(
     @all:Settable val alt: Option<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * The page number that should be embedded as an image. This attribute only has an effect for PDF files.
      * 
      * Settable; Typst type: int
@@ -174,6 +188,8 @@ data class TImage(
     @all:Settable val page: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * How the image should adjust itself to a given area (the area is defined by the `width` and `height` fields). Note that `fit` doesn't visually change anything if the area's aspect ratio is the same as the image's one.
      * 
      * | Variant | Details |
@@ -187,6 +203,8 @@ data class TImage(
     @all:Settable val fit: TStr? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * A hint to viewers how they should scale the image.
      * 
      * When set to `auto`, the default is left up to the viewer. For PNG export, Typst will default to smooth scaling, like most PDF and SVG viewers.
@@ -203,6 +221,8 @@ data class TImage(
     @all:Settable val scaling: Smart<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/image/](https://typst.app/docs/reference/visualize/image/)
+     * 
      * An ICC profile for the image.
      * 
      * ICC profiles define how to interpret the colors in an image. When set to `auto`, Typst will try to extract an ICC profile from the image.

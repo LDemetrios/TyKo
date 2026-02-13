@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/text/overline/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+ * 
  * Adds a line over text.
  * 
  * **_Example_**
@@ -21,6 +23,8 @@ import kotlinx.serialization.Serializable
 data class TOverline(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+     * 
      * The content to add a line over.
      * 
      * Required, positional; Typst type: content
@@ -28,6 +32,8 @@ data class TOverline(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+     * 
      * How to [stroke](https://typst.app/docs/reference/visualize/stroke/) the line.
      * 
      * If set to `auto`, takes on the text's color and a thickness defined in the current font.
@@ -37,6 +43,8 @@ data class TOverline(
     @all:Settable val stroke: Smart<TStroke>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+     * 
      * The position of the line relative to the baseline. Read from the font tables if `auto`.
      * 
      * Settable; Typst type: auto|length
@@ -44,6 +52,8 @@ data class TOverline(
     @all:Settable val offset: Smart<TLength>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+     * 
      * The amount by which to extend the line beyond (or within if negative) the content.
      * 
      * Settable; Typst type: length
@@ -51,6 +61,8 @@ data class TOverline(
     @all:Settable val extent: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+     * 
      * Whether the line skips sections in which it would collide with the glyphs.
      * 
      * Settable; Typst type: bool
@@ -58,6 +70,8 @@ data class TOverline(
     @all:Settable val evade: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/overline/](https://typst.app/docs/reference/text/overline/)
+     * 
      * Whether the line is placed behind the content it overlines.
      * 
      * Settable; Typst type: bool

@@ -68,10 +68,10 @@ fun writeDocs(docs: List<ClassDoc>) {
             .forEach { (paramName, index) ->
                 val kdoc = doc.params[paramName]
                     ?: throw IllegalStateException("Missing KDoc for parameter: $paramName")
-                lines.addAll(index, renderBlock(kdoc, PARAM_DOC_INDENT))
+                lines.addAll(index, renderBlock(kdoc, doc.source.url, PARAM_DOC_INDENT))
             }
 
-        lines.addAll(classInsertionIndex, renderBlock(doc.classDoc))
+        lines.addAll(classInsertionIndex, renderBlock(doc.classDoc, doc.source.url))
     }
 
     Files.write(file, lines)
@@ -150,8 +150,8 @@ private fun findInsertionIndex(lines: List<String>, classIndex: Int): Int {
     return annotationIndices.lastOrNull() ?: classIndex
 }
 
-private fun renderBlock(doc: KDocDocument, indent: String = ""): List<String> {
-    val kdoc = doc.render()
+private fun renderBlock(doc: KDocDocument, sourceUrl: String, indent: String = ""): List<String> {
+    val kdoc = doc.render(sourceUrl)
     return buildList {
         add(indent + AUTO_DOC_MARKER)
         addAll(kdoc.split('\n').map { indent + it })

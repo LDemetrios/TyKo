@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/visualize/curve/#definitions-line
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-line](https://typst.app/docs/reference/visualize/curve/#definitions-line)
+ * 
  * Adds a straight line from the current point to a following one.
  * 
  * 
@@ -14,6 +16,8 @@ import kotlinx.serialization.Serializable
 data class TCurveLine(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-line](https://typst.app/docs/reference/visualize/curve/#definitions-line)
+     * 
      * The point at which the line shall end.
      * 
      * Required, positional; Typst type: array
@@ -21,6 +25,8 @@ data class TCurveLine(
     @all:Positional val end: Point<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-line](https://typst.app/docs/reference/visualize/curve/#definitions-line)
+     * 
      * Whether the coordinates are relative to the previous point.
      * 
      * Settable; Typst type: bool

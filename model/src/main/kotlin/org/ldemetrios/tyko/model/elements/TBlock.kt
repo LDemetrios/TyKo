@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/block/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+ * 
  * A block-level container.
  * 
  * Such a container can be used to separate content, size it, and give it a background or border.
@@ -44,6 +46,8 @@ import kotlinx.serialization.Serializable
 data class TBlock(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The contents of the block.
      * 
      * Positional, settable; Typst type: none|content
@@ -51,6 +55,8 @@ data class TBlock(
     @all:Settable @all:Positional @all:Body val body: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The block's width.
      * 
      * Settable; Typst type: auto|relative
@@ -58,6 +64,8 @@ data class TBlock(
     @all:Settable val width: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The block's height. When the height is larger than the remaining space on a page and [`breakable`](https://typst.app/docs/reference/layout/block/#parameters-breakable) is `true`, the block will continue on the next page with the remaining height.
      * 
      * Settable; Typst type: auto|relative|fraction
@@ -65,6 +73,8 @@ data class TBlock(
     @all:Settable val height: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * Whether the block can be broken and continue on the next page.
      * 
      * Settable; Typst type: bool
@@ -72,6 +82,8 @@ data class TBlock(
     @all:Settable val breakable: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The block's background color. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-fill) for more details.
      * 
      * Settable; Typst type: none|color|gradient|tiling
@@ -79,6 +91,8 @@ data class TBlock(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The block's border color. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-stroke) for more details.
      * 
      * Settable; Typst type: none|length|color|gradient|stroke|tiling|dictionary
@@ -86,6 +100,8 @@ data class TBlock(
     @all:Settable val stroke: Sides<Option<TStroke>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * How much to round the block's corners. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-radius) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -93,6 +109,8 @@ data class TBlock(
     @all:Settable val radius: Corners<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * How much to pad the block's content. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-inset) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -100,6 +118,8 @@ data class TBlock(
     @all:Settable val inset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * How much to expand the block's size without affecting the layout. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-outset) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -107,6 +127,8 @@ data class TBlock(
     @all:Settable val outset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The spacing around the block. When `auto`, inherits the paragraph [`spacing`](https://typst.app/docs/reference/model/par/#parameters-spacing).
      * 
      * For two adjacent blocks, the larger of the first block's `above` and the second block's `below` spacing wins. Moreover, block spacing takes precedence over paragraph [`spacing`](https://typst.app/docs/reference/model/par/#parameters-spacing).
@@ -120,6 +142,8 @@ data class TBlock(
     @all:Settable val spacing: Spacing? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The spacing between this block and its predecessor.
      * 
      * Settable; Typst type: auto|relative|fraction
@@ -127,6 +151,8 @@ data class TBlock(
     @all:Settable val above: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * The spacing between this block and its successor.
      * 
      * Settable; Typst type: auto|relative|fraction
@@ -134,6 +160,8 @@ data class TBlock(
     @all:Settable val below: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * Whether to clip the content inside the block.
      * 
      * Clipping is useful when the block's content is larger than the block itself, as any content that exceeds the block's bounds will be hidden.
@@ -143,6 +171,8 @@ data class TBlock(
     @all:Settable val clip: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/block/](https://typst.app/docs/reference/layout/block/)
+     * 
      * Whether this block must stick to the following one, with no break in between.
      * 
      * This is, by default, set on heading blocks to prevent orphaned headings at the bottom of the page.

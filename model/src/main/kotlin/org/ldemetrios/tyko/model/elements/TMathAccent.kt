@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/accent/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/accent/](https://typst.app/docs/reference/math/accent/)
+ * 
  * Attaches an accent to a base.
  * 
  * **_Example_**
@@ -23,6 +25,8 @@ import kotlinx.serialization.Serializable
 data class TMathAccent(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/accent/](https://typst.app/docs/reference/math/accent/)
+     * 
      * The base to which the accent is applied. May consist of multiple letters.
      * 
      * Required, positional; Typst type: content
@@ -30,6 +34,8 @@ data class TMathAccent(
     @all:Positional val base: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/accent/](https://typst.app/docs/reference/math/accent/)
+     * 
      * The accent to apply to the base.
      * 
      * Supported accents include:
@@ -61,6 +67,8 @@ data class TMathAccent(
     @all:Positional val accent: TAttachment,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/accent/](https://typst.app/docs/reference/math/accent/)
+     * 
      * The size of the accent, relative to the width of the base.
      * 
      * Settable; Typst type: relative
@@ -68,6 +76,8 @@ data class TMathAccent(
     @all:Settable val size: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/accent/](https://typst.app/docs/reference/math/accent/)
+     * 
      * Whether to remove the dot on top of lowercase i and j when adding a top accent.
      * 
      * This enables the `dtls` OpenType feature.

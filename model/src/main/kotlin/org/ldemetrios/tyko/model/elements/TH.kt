@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/h/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/h/](https://typst.app/docs/reference/layout/h/)
+ * 
  * Inserts horizontal spacing into a paragraph.
  * 
  * The spacing can be absolute, relative, or fractional. In the last case, the remaining space on the line is distributed among all fractional spacings according to their relative fractions.
@@ -39,6 +41,8 @@ import kotlinx.serialization.Serializable
 data class TH(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/h/](https://typst.app/docs/reference/layout/h/)
+     * 
      * How much spacing to insert.
      * 
      * Required, positional; Typst type: relative|fraction
@@ -46,6 +50,8 @@ data class TH(
     @all:Positional val amount: Spacing,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/h/](https://typst.app/docs/reference/layout/h/)
+     * 
      * If `true`, the spacing collapses at the start or end of a paragraph. Moreover, from multiple adjacent weak spacings all but the largest one collapse.
      * 
      * Weak spacing in markup also causes all adjacent markup spaces to be removed, regardless of the amount of spacing inserted. To force a space next to weak spacing, you can explicitly write `#" "` (for a normal space) or `~` (for a non-breaking space). The latter can be useful to create a construct that always attaches to the preceding word with one non-breaking space, independently of whether a markup space existed in front or not.

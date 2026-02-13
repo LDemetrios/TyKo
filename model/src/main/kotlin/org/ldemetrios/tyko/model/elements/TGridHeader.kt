@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/grid/#definitions-header
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-header](https://typst.app/docs/reference/layout/grid/#definitions-header)
+ * 
  * A repeatable grid header.
  * 
  * If `repeat` is set to `true`, the header will be repeated across pages. For an example, refer to the [`table.header`](https://typst.app/docs/reference/model/table/#definitions-header) element and the [`grid.stroke`](https://typst.app/docs/reference/layout/grid/#parameters-stroke) parameter.
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TGridHeader(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-header](https://typst.app/docs/reference/layout/grid/#definitions-header)
+     * 
      * The cells and lines within the header.
      * 
      * Required, positional, variadic; Typst type: content
@@ -23,6 +27,8 @@ data class TGridHeader(
     @all:Variadic @all:Positional val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-header](https://typst.app/docs/reference/layout/grid/#definitions-header)
+     * 
      * Whether this header should be repeated across pages.
      * 
      * Settable; Typst type: bool
@@ -30,6 +36,8 @@ data class TGridHeader(
     @all:Settable val repeat: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-header](https://typst.app/docs/reference/layout/grid/#definitions-header)
+     * 
      * The level of the header. Must not be zero.
      * 
      * This allows repeating multiple headers at once. Headers with different levels can repeat together, as long as they have ascending levels.

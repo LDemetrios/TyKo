@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/pagebreak/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/pagebreak/](https://typst.app/docs/reference/layout/pagebreak/)
+ * 
  * A manual page break.
  * 
  * Must not be used inside any containers.
@@ -32,6 +34,8 @@ import kotlinx.serialization.Serializable
 data class TPagebreak(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pagebreak/](https://typst.app/docs/reference/layout/pagebreak/)
+     * 
      * If `true`, the page break is skipped if the current page is already empty.
      * 
      * Settable; Typst type: bool
@@ -39,6 +43,8 @@ data class TPagebreak(
     @all:Settable val weak: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/pagebreak/](https://typst.app/docs/reference/layout/pagebreak/)
+     * 
      * If given, ensures that the next page will be an even/odd page, with an empty page in between if necessary.
      * 
      * | Variant | Details |

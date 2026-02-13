@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/parbreak/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/parbreak/](https://typst.app/docs/reference/model/parbreak/)
+ * 
  * A paragraph break.
  * 
  * This starts a new paragraph. Especially useful when used within code like [for loops](https://typst.app/docs/reference/scripting/#loops). Multiple consecutive paragraph breaks collapse into a single one.

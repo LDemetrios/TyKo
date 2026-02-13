@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/stretch/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/stretch/](https://typst.app/docs/reference/math/stretch/)
+ * 
  * Stretches a glyph.
  * 
  * This function can also be used to automatically stretch the base of an attachment, so that it fits the top and bottom attachments.
@@ -26,6 +28,8 @@ import kotlinx.serialization.Serializable
 data class TMathStretch(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/stretch/](https://typst.app/docs/reference/math/stretch/)
+     * 
      * The glyph to stretch.
      * 
      * Required, positional; Typst type: content
@@ -33,6 +37,8 @@ data class TMathStretch(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/stretch/](https://typst.app/docs/reference/math/stretch/)
+     * 
      * The size to stretch to, relative to the maximum size of the glyph and its attachments.
      * 
      * Settable; Typst type: relative

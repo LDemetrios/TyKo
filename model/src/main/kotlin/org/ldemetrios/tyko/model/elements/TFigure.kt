@@ -25,6 +25,8 @@ sealed interface TFigureKind : TValue
 //!https://typst.app/docs/reference/model/figure/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+ * 
  * A figure with an optional caption.
  * 
  * Automatically detects its kind to select the correct counting track. For example, figures containing images will be numbered separately from figures containing tables.
@@ -110,6 +112,8 @@ sealed interface TFigureKind : TValue
 data class TFigure(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * The content of the figure. Often, an [image](https://typst.app/docs/reference/visualize/image/).
      * 
      * Required, positional; Typst type: content
@@ -117,6 +121,8 @@ data class TFigure(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * An alternative description of the figure.
      * 
      * When you add an alternative description, AT will read both it and the caption (if any). However, the content of the figure itself will be skipped.
@@ -130,6 +136,8 @@ data class TFigure(
     @all:Settable val alt: Option<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * The figure's placement on the page.
      * 
      * - `none`: The figure stays in-flow exactly where it was specified like other content.
@@ -144,6 +152,8 @@ data class TFigure(
     @all:Settable val placement: Smart<Option<TAlignment>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * Relative to which containing scope the figure is placed.
      * 
      * Set this to `"parent"` to create a full-width figure in a two-column document.
@@ -160,6 +170,8 @@ data class TFigure(
     @all:Settable val scope: TFigureScope? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * The figure's caption.
      * 
      * Settable; Typst type: none|content
@@ -167,6 +179,8 @@ data class TFigure(
     @all:Settable val caption: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * The kind of figure this is.
      * 
      * All figures of the same kind share a common counter.
@@ -193,6 +207,8 @@ data class TFigure(
     @all:Settable val kind: Smart<TFigureKind>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * The figure's supplement.
      * 
      * If set to `auto`, the figure will try to automatically determine the correct supplement based on the `kind` and the active [text language](https://typst.app/docs/reference/text/text/#parameters-lang). If you are using a custom figure type, you will need to manually specify the supplement.
@@ -204,6 +220,8 @@ data class TFigure(
     @all:Settable val supplement: Smart<Option<Computable<TContent>>>?,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * How to number the figure. Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/) taking a single number.
      * 
      * Settable; Typst type: none|str|function
@@ -211,6 +229,8 @@ data class TFigure(
     @all:Settable val numbering: Option<Numbering>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * The vertical gap between the body and caption.
      * 
      * Settable; Typst type: length
@@ -218,6 +238,8 @@ data class TFigure(
     @all:Settable val gap: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/figure/](https://typst.app/docs/reference/model/figure/)
+     * 
      * Whether the figure should appear in an [`outline`](https://typst.app/docs/reference/model/outline/) of figures.
      * 
      * Settable; Typst type: bool

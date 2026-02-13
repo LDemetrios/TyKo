@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/text/super/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/super/](https://typst.app/docs/reference/text/super/)
+ * 
  * Renders text in superscript.
  * 
  * The text is rendered smaller and its baseline is raised.
@@ -23,6 +25,8 @@ import kotlinx.serialization.Serializable
 data class TSuper(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/super/](https://typst.app/docs/reference/text/super/)
+     * 
      * The text to display in superscript.
      * 
      * Required, positional; Typst type: content
@@ -30,6 +34,8 @@ data class TSuper(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/super/](https://typst.app/docs/reference/text/super/)
+     * 
      * Whether to use superscript glyphs from the font if available.
      * 
      * Ideally, superscripts glyphs are provided by the font (using the `sups` OpenType feature). Otherwise, Typst is able to synthesize superscripts by raising and scaling down regular glyphs.
@@ -41,6 +47,8 @@ data class TSuper(
     @all:Settable val typographic: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/super/](https://typst.app/docs/reference/text/super/)
+     * 
      * The downward baseline shift for synthesized superscripts.
      * 
      * This only applies to synthesized superscripts. In other words, this has no effect if `typographic` is `true` and the font provides the necessary superscript glyphs.
@@ -54,6 +62,8 @@ data class TSuper(
     @all:Settable val baseline: Smart<TLength>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/super/](https://typst.app/docs/reference/text/super/)
+     * 
      * The font size for synthesized superscripts.
      * 
      * This only applies to synthesized superscripts. In other words, this has no effect if `typographic` is `true` and the font provides the necessary superscript glyphs.

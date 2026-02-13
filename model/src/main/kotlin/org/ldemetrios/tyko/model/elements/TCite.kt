@@ -18,6 +18,8 @@ enum class TCiteForm : IntoStr, Option<TCiteForm>, DataSourceOrPreset<TCiteForm>
 //!https://typst.app/docs/reference/model/cite/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/cite/](https://typst.app/docs/reference/model/cite/)
+ * 
  * Cite a work from the bibliography.
  * 
  * Before you starting citing, you need to add a [bibliography](https://typst.app/docs/reference/model/bibliography/) somewhere in your document.
@@ -53,6 +55,8 @@ enum class TCiteForm : IntoStr, Option<TCiteForm>, DataSourceOrPreset<TCiteForm>
 data class TCite(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/cite/](https://typst.app/docs/reference/model/cite/)
+     * 
      * The citation key that identifies the entry in the bibliography that shall be cited, as a label.
      * 
      * Required, positional; Typst type: label
@@ -60,6 +64,8 @@ data class TCite(
     @all:Positional val key: TLabel,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/cite/](https://typst.app/docs/reference/model/cite/)
+     * 
      * A supplement for the citation such as page or chapter number.
      * 
      * In reference syntax, the supplement can be added in square brackets:
@@ -69,6 +75,8 @@ data class TCite(
     @all:Settable val supplement: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/cite/](https://typst.app/docs/reference/model/cite/)
+     * 
      * The kind of citation to produce. Different forms are useful in different scenarios: A normal citation is useful as a source at the end of a sentence, while a "prose" citation is more suitable for inclusion in the flow of text.
      * 
      * If set to `none`, the cited work is included in the bibliography, but nothing will be displayed.
@@ -86,6 +94,8 @@ data class TCite(
     @all:Settable val form: Option<TCiteForm>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/cite/](https://typst.app/docs/reference/model/cite/)
+     * 
      * The citation style.
      * 
      * This can be:

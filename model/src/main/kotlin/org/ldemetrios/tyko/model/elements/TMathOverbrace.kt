@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/underover/#functions-overbrace
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-overbrace](https://typst.app/docs/reference/math/underover/#functions-overbrace)
+ * 
  * A horizontal brace over content, with an optional annotation above.
  * 
  * 
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathOverbrace(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-overbrace](https://typst.app/docs/reference/math/underover/#functions-overbrace)
+     * 
      * The content below the brace.
      * 
      * Required, positional; Typst type: content
@@ -23,6 +27,8 @@ data class TMathOverbrace(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-overbrace](https://typst.app/docs/reference/math/underover/#functions-overbrace)
+     * 
      * The optional content above the brace.
      * 
      * Positional, settable; Typst type: none|content

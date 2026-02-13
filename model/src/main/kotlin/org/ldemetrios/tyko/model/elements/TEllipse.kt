@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/visualize/ellipse/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+ * 
  * An ellipse with optional content.
  * 
  * **_Example_**
@@ -29,6 +31,8 @@ import kotlinx.serialization.Serializable
 data class TEllipse(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * The content to place into the ellipse.
      * 
      * When this is omitted, the ellipse takes on a default size of at most `45pt` by `30pt`.
@@ -38,6 +42,8 @@ data class TEllipse(
     @all:Settable @all:Positional val body: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * The ellipse's width, relative to its parent container.
      * 
      * Settable; Typst type: auto|relative
@@ -45,6 +51,8 @@ data class TEllipse(
     @all:Settable val width: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * The ellipse's height, relative to its parent container.
      * 
      * Settable; Typst type: auto|relative|fraction
@@ -52,6 +60,8 @@ data class TEllipse(
     @all:Settable val height: Smart<Spacing>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * How to fill the ellipse. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-fill) for more details.
      * 
      * Settable; Typst type: none|color|gradient|tiling
@@ -59,6 +69,8 @@ data class TEllipse(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * How to stroke the ellipse. See the [rectangle's documentation](https://typst.app/docs/reference/visualize/rect/#parameters-stroke) for more details.
      * 
      * Settable; Typst type: none|auto|length|color|gradient|stroke|tiling|dictionary
@@ -66,6 +78,8 @@ data class TEllipse(
     @all:Settable val stroke: Sides<Smart<Option<TStroke>>>? = null, // TODO really Sides>
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * How much to pad the ellipse's content. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-inset) for more details.
      * 
      * Settable; Typst type: relative|dictionary
@@ -73,6 +87,8 @@ data class TEllipse(
     @all:Settable val inset: Sides<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/ellipse/](https://typst.app/docs/reference/visualize/ellipse/)
+     * 
      * How much to expand the ellipse's size without affecting the layout. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-outset) for more details.
      * 
      * Settable; Typst type: relative|dictionary

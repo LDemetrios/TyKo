@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/text/sub/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/sub/](https://typst.app/docs/reference/text/sub/)
+ * 
  * Renders text in subscript.
  * 
  * The text is rendered smaller and its baseline is lowered.
@@ -23,6 +25,8 @@ import kotlinx.serialization.Serializable
 data class TSub(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/sub/](https://typst.app/docs/reference/text/sub/)
+     * 
      * The text to display in subscript.
      * 
      * Required, positional; Typst type: content
@@ -30,6 +34,8 @@ data class TSub(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/sub/](https://typst.app/docs/reference/text/sub/)
+     * 
      * Whether to use subscript glyphs from the font if available.
      * 
      * Ideally, subscripts glyphs are provided by the font (using the `subs` OpenType feature). Otherwise, Typst is able to synthesize subscripts by lowering and scaling down regular glyphs.
@@ -41,6 +47,8 @@ data class TSub(
     @all:Settable val typographic: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/sub/](https://typst.app/docs/reference/text/sub/)
+     * 
      * The downward baseline shift for synthesized subscripts.
      * 
      * This only applies to synthesized subscripts. In other words, this has no effect if `typographic` is `true` and the font provides the necessary subscript glyphs.
@@ -52,6 +60,8 @@ data class TSub(
     @all:Settable val baseline: Smart<TLength>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/sub/](https://typst.app/docs/reference/text/sub/)
+     * 
      * The font size for synthesized subscripts.
      * 
      * This only applies to synthesized subscripts. In other words, this has no effect if `typographic` is `true` and the font provides the necessary subscript glyphs.

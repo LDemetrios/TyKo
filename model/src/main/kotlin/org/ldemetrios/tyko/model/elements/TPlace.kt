@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/place/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+ * 
  * Places content relatively to its parent container.
  * 
  * Placed content can be either overlaid (the default) or floating. Overlaid content is aligned with the parent container according to the given [`alignment`](https://typst.app/docs/reference/layout/place/#parameters-alignment), and shown over any other content added so far in the container. Floating content is placed at the top or bottom of the container, displacing other content down or up respectively. In both cases, the content position can be adjusted with [`dx`](https://typst.app/docs/reference/layout/place/#parameters-dx) and [`dy`](https://typst.app/docs/reference/layout/place/#parameters-dy) offsets without affecting the layout.
@@ -62,6 +64,8 @@ import kotlinx.serialization.Serializable
 data class TPlace(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * Relative to which position in the parent container to place the content.
      * 
      * - If `float` is `false`, then this can be any alignment other than `auto`.
@@ -74,6 +78,8 @@ data class TPlace(
     @all:Settable @all:Positional val alignment: Smart<TAlignment>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * The content to place.
      * 
      * Required, positional; Typst type: content
@@ -81,6 +87,8 @@ data class TPlace(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * Relative to which containing scope something is placed.
      * 
      * The parent scope is primarily used with figures and, for this reason, the figure function has a mirrored [`scope` parameter](https://typst.app/docs/reference/model/figure/#parameters-scope). Nonetheless, it can also be more generally useful to break out of the columns. A typical example would be to [create a single-column title section](https://typst.app/docs/guides/page-setup/#columns) in a two-column document.
@@ -97,6 +105,8 @@ data class TPlace(
     @all:Settable val scope: TStr? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * Whether the placed element has floating layout.
      * 
      * Floating elements are positioned at the top or bottom of the parent container, displacing in-flow content. They are always placed in the in-flow order relative to each other, as well as before any content following a later [`place.flush`](https://typst.app/docs/reference/layout/place/#definitions-flush) element.
@@ -106,6 +116,8 @@ data class TPlace(
     @all:Settable val float: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * The spacing between the placed element and other elements in a floating layout.
      * 
      * Has no effect if `float` is `false`.
@@ -115,6 +127,8 @@ data class TPlace(
     @all:Settable val clearance: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * The horizontal displacement of the placed content.
      * 
      * This does not affect the layout of in-flow content. In other words, the placed content is treated as if it were wrapped in a [`move`](https://typst.app/docs/reference/layout/move/) element.
@@ -124,6 +138,8 @@ data class TPlace(
     @all:Settable val dx: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/place/](https://typst.app/docs/reference/layout/place/)
+     * 
      * The vertical displacement of the placed content.
      * 
      * This does not affect the layout of in-flow content. In other words, the placed content is treated as if it were wrapped in a [`move`](https://typst.app/docs/reference/layout/move/) element.

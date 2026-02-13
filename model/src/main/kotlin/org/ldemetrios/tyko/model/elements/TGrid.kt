@@ -10,6 +10,8 @@ import javax.swing.GroupLayout
 //!https://typst.app/docs/reference/layout/grid/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+ * 
  * Arranges content in a grid.
  * 
  * The grid element allows you to arrange content in a grid. You can define the number of rows and columns, as well as the size of the gutters between them. There are multiple sizing modes for columns and rows that can be used to create complex layouts.
@@ -123,6 +125,8 @@ import javax.swing.GroupLayout
 data class TGrid(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * The contents of the grid cells, plus any extra grid lines specified with the [`grid.hline`](https://typst.app/docs/reference/layout/grid/#definitions-hline) and [`grid.vline`](https://typst.app/docs/reference/layout/grid/#definitions-vline) elements.
      * 
      * The cells are populated in row-major order.
@@ -132,6 +136,8 @@ data class TGrid(
     @all:Variadic @all:Positional val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * The column sizes.
      * 
      * Either specify a track size array or provide an integer to create a grid with that many `auto`-sized columns. Note that opposed to rows and gutters, providing a single track size will only ever create a single column.
@@ -143,6 +149,8 @@ data class TGrid(
     @all:Settable val columns: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * The row sizes.
      * 
      * If there are more cells than fit the defined rows, the last row is repeated until there are no more cells.
@@ -154,6 +162,8 @@ data class TGrid(
     @all:Settable val rows: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * The gaps between rows and columns. This is a shorthand to set [`column-gutter`](https://typst.app/docs/reference/layout/grid/#parameters-column-gutter) and [`row-gutter`](https://typst.app/docs/reference/layout/grid/#parameters-row-gutter) to the same value.
      * 
      * If there are more gutters than defined sizes, the last gutter is repeated.
@@ -165,6 +175,8 @@ data class TGrid(
     @all:Settable val gutter: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * The gaps between columns.
      * 
      * Settable; Typst type: auto|int|relative|fraction|array
@@ -172,6 +184,8 @@ data class TGrid(
     @all:Settable val columnGutter: ArrayOrSingle<Smart<TrackSize>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * The gaps between rows.
      * 
      * Settable; Typst type: auto|int|relative|fraction|array
@@ -179,6 +193,8 @@ data class TGrid(
     @all:Settable val rowGutter: ArrayOrSingle<Smart<TrackSize>>?,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * How much to pad the cells' content.
      * 
      * To specify a uniform inset for all cells, you can use a single length for all sides, or a dictionary of lengths for individual sides. See the [box's documentation](https://typst.app/docs/reference/layout/box/#parameters-inset) for more details.
@@ -198,6 +214,8 @@ data class TGrid(
     @all:Settable val inset: Progression<Sides<TRelative>>?,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * How to align the cells' content.
      * 
      * If set to `auto`, the outer alignment is used.
@@ -217,6 +235,8 @@ data class TGrid(
     @all:Settable val align: Progression<Smart<TAlignment>>?,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * How to fill the cells.
      * 
      * This can be:
@@ -232,6 +252,8 @@ data class TGrid(
     @all:Settable val fill: Progression<Option<TPaint>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/](https://typst.app/docs/reference/layout/grid/)
+     * 
      * How to [stroke](https://typst.app/docs/reference/visualize/stroke/) the cells.
      * 
      * Grids have no strokes by default, which can be changed by setting this option to the desired stroke.

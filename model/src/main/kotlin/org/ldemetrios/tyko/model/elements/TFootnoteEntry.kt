@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/footnote/#definitions-entry
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/footnote/#definitions-entry](https://typst.app/docs/reference/model/footnote/#definitions-entry)
+ * 
  * An entry in a footnote list.
  * 
  * This function is not intended to be called directly. Instead, it is used in set and show rules to customize footnote listings.
@@ -18,6 +20,8 @@ import kotlinx.serialization.Serializable
 data class TFootnoteEntry(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/#definitions-entry](https://typst.app/docs/reference/model/footnote/#definitions-entry)
+     * 
      * The footnote for this entry. Its location can be used to determine the footnote counter state.
      * 
      * Required, positional; Typst type: content
@@ -25,6 +29,8 @@ data class TFootnoteEntry(
     @all:Positional val note: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/#definitions-entry](https://typst.app/docs/reference/model/footnote/#definitions-entry)
+     * 
      * The separator between the document body and the footnote listing.
      * 
      * Settable; Typst type: content
@@ -32,6 +38,8 @@ data class TFootnoteEntry(
     @all:Settable val separator: TContent? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/#definitions-entry](https://typst.app/docs/reference/model/footnote/#definitions-entry)
+     * 
      * The amount of clearance between the document body and the separator.
      * 
      * Settable; Typst type: length
@@ -39,6 +47,8 @@ data class TFootnoteEntry(
     @all:Settable val clearance: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/#definitions-entry](https://typst.app/docs/reference/model/footnote/#definitions-entry)
+     * 
      * The gap between footnote entries.
      * 
      * Settable; Typst type: length
@@ -46,6 +56,8 @@ data class TFootnoteEntry(
     @all:Settable val gap: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/footnote/#definitions-entry](https://typst.app/docs/reference/model/footnote/#definitions-entry)
+     * 
      * The indent of each footnote entry.
      * 
      * Settable; Typst type: length

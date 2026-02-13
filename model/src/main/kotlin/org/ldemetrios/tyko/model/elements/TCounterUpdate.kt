@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/introspection/counter/#definitions-update
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/introspection/counter/#definitions-update](https://typst.app/docs/reference/introspection/counter/#definitions-update)
+ * 
  * Updates the value of the counter.
  * 
  * Just like with `step`, the update only occurs if you put the resulting content into the document.
@@ -18,6 +20,8 @@ data class TCounterUpdate(
     val key: IntoCounter,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/introspection/counter/#definitions-update](https://typst.app/docs/reference/introspection/counter/#definitions-update)
+     * 
      * If given an integer or array of integers, sets the counter to that value. If given a function, that function receives the previous counter value (with each number as a separate argument) and has to return the new value (integer or array).
      * 
      * Required, positional; Typst type: int|array|function

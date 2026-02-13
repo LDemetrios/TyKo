@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/underover/#functions-overparen
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-overparen](https://typst.app/docs/reference/math/underover/#functions-overparen)
+ * 
  * A horizontal parenthesis over content, with an optional annotation above.
  * 
  * 
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathOverparen(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-overparen](https://typst.app/docs/reference/math/underover/#functions-overparen)
+     * 
      * The content below the parenthesis.
      * 
      * Required, positional; Typst type: content
@@ -23,6 +27,8 @@ data class TMathOverparen(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/underover/#functions-overparen](https://typst.app/docs/reference/math/underover/#functions-overparen)
+     * 
      * The optional content above the parenthesis.
      * 
      * Positional, settable; Typst type: none|content

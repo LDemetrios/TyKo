@@ -3,6 +3,8 @@ package org.ldemetrios.tyko.model
 //!https://typst.app/docs/reference/layout/align/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/align/](https://typst.app/docs/reference/layout/align/)
+ * 
  * Aligns content horizontally and vertically.
  * 
  * **_Example_**
@@ -77,6 +79,8 @@ package org.ldemetrios.tyko.model
 data class TAlign(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/align/](https://typst.app/docs/reference/layout/align/)
+     * 
      * The [alignment](https://typst.app/docs/reference/layout/alignment/) along both axes.
      * 
      * Positional, settable; Typst type: alignment
@@ -84,6 +88,8 @@ data class TAlign(
     @all:Settable @all:Positional val alignment: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/align/](https://typst.app/docs/reference/layout/align/)
+     * 
      * The content to align.
      * 
      * Required, positional; Typst type: content

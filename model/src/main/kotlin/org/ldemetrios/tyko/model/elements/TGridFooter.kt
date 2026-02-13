@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/grid/#definitions-footer
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-footer](https://typst.app/docs/reference/layout/grid/#definitions-footer)
+ * 
  * A repeatable grid footer.
  * 
  * Just like the [`grid.header`](https://typst.app/docs/reference/layout/grid/#definitions-header) element, the footer can repeat itself on every page of the grid.
@@ -18,6 +20,8 @@ import kotlinx.serialization.Serializable
 data class TGridFooter(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-footer](https://typst.app/docs/reference/layout/grid/#definitions-footer)
+     * 
      * The cells and lines within the footer.
      * 
      * Required, positional, variadic; Typst type: content
@@ -25,6 +29,8 @@ data class TGridFooter(
     @all:Variadic @all:Positional val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/grid/#definitions-footer](https://typst.app/docs/reference/layout/grid/#definitions-footer)
+     * 
      * Whether this footer should be repeated across pages.
      * 
      * Settable; Typst type: bool

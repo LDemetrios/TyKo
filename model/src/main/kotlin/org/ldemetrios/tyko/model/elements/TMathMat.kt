@@ -39,6 +39,8 @@ data class TMatAugmentDict(
 //!https://typst.app/docs/reference/math/mat/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+ * 
  * A matrix.
  * 
  * The elements of a row should be separated by commas, while the rows themselves should be separated by semicolons. The semicolon syntax merges preceding arguments separated by commas into an array. You can also use this special syntax of math function calls to define custom functions that take 2D data.
@@ -61,6 +63,8 @@ data class TMatAugmentDict(
 data class TMathMat(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * An array of arrays with the rows of the matrix.
      * 
      * Required, positional, variadic; Typst type: array
@@ -68,6 +72,8 @@ data class TMathMat(
     @all:Variadic @all:Positional val rows: TArray<TArray<SequenceElement>>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * The delimiter to use.
      * 
      * Can be a single character specifying the left delimiter, in which case the right delimiter is inferred. Otherwise, can be an array containing a left and a right delimiter.
@@ -77,6 +83,8 @@ data class TMathMat(
     @all:Settable val delim: ArrayOrSingle<Option<TSymbolLike>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * The horizontal alignment that each cell should have.
      * 
      * Settable; Typst type: alignment
@@ -84,6 +92,8 @@ data class TMathMat(
     @all:Settable val align: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * Draws augmentation lines in a matrix.
      * 
      * - `none`: No lines are drawn.
@@ -98,6 +108,8 @@ data class TMathMat(
     @all:Settable val augment: Option<TMatAugment>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * The gap between rows and columns.
      * 
      * This is a shorthand to set `row-gap` and `column-gap` to the same value.
@@ -107,6 +119,8 @@ data class TMathMat(
     val gap: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * The gap between rows.
      * 
      * Settable; Typst type: relative
@@ -114,6 +128,8 @@ data class TMathMat(
     @all:Settable val rowGap: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/mat/](https://typst.app/docs/reference/math/mat/)
+     * 
      * The gap between columns.
      * 
      * Settable; Typst type: relative

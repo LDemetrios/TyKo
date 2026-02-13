@@ -59,6 +59,8 @@ enum class TFontCoveragePreset(val value: String) : TFontCoverage, IntoStr {
 //!https://typst.app/docs/reference/text/text/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+ * 
  * Customizes the look and layout of text in a variety of ways.
  * 
  * This function is used frequently, both with set rules and directly. While the set rule is often the simpler choice, calling the `text` function directly can be useful when passing text as an argument to another function.
@@ -79,6 +81,8 @@ enum class TFontCoveragePreset(val value: String) : TFontCoverage, IntoStr {
 data class TText(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The text.
      * 
      * Required, positional; Typst type: str
@@ -86,6 +90,8 @@ data class TText(
     @all:Positional val text: TStr,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * A font family descriptor or priority list of font family descriptors.
      * 
      * A font family descriptor can be a plain string representing the family name or a dictionary with the following keys:
@@ -108,6 +114,8 @@ data class TText(
     @all:Settable val font: ArrayOrSingle<TFontDescriptor>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to allow last resort font fallback when the primary font list contains no match. This lets Typst search through all available fonts for the most similar one that has the necessary glyphs.
      * 
      * *Note:* Currently, there are no warnings when fallback is disabled and no glyphs are found. Instead, your text shows up in the form of "tofus": Small boxes that indicate the lack of an appropriate glyph. In the future, you will be able to instruct Typst to issue warnings so you know something is up.
@@ -117,6 +125,8 @@ data class TText(
     @all:Settable val fallback: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The desired font style.
      * 
      * When an italic style is requested and only an oblique one is available, it is used. Similarly, the other way around, an italic style can stand in for an oblique one. When neither an italic nor an oblique style is available, Typst selects the normal style. Since most fonts are only available either in an italic or oblique style, the difference between italic and oblique style is rarely observable.
@@ -134,6 +144,8 @@ data class TText(
     @all:Settable val style: TStr? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The desired thickness of the font's glyphs. Accepts an integer between `100` and `900` or one of the predefined weight names. When the desired weight is not available, Typst selects the font from the family that is closest in weight.
      * 
      * If you want to strongly emphasize your text, you should do so using the [strong](https://typst.app/docs/reference/model/strong/) function instead. This makes it easy to adapt the style later if you change your mind about how to signify the strong emphasis.
@@ -155,6 +167,8 @@ data class TText(
     @all:Settable val weight: TTextWeight? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The desired width of the glyphs. Accepts a ratio between `50%` and `200%`. When the desired width is not available, Typst selects the font from the family that is closest in stretch. This will only stretch the text if a condensed or expanded version of the font is available.
      * 
      * If you want to adjust the amount of space between characters instead of stretching the glyphs itself, use the [`tracking`](https://typst.app/docs/reference/text/text/#parameters-tracking) property instead.
@@ -164,6 +178,8 @@ data class TText(
     @all:Settable val stretch: TRatio? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The size of the glyphs. This value forms the basis of the `em` unit: `1em` is equivalent to the font size.
      * 
      * You can also give the font size itself in `em` units. Then, it is relative to the previous font size.
@@ -173,6 +189,8 @@ data class TText(
     @all:Settable val size: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The glyph fill paint.
      * 
      * Settable; Typst type: color|gradient|tiling
@@ -180,6 +198,8 @@ data class TText(
     @all:Settable val fill: TPaint? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * How to stroke the text.
      * 
      * Settable; Typst type: none|length|color|gradient|stroke|tiling|dictionary
@@ -187,6 +207,8 @@ data class TText(
     @all:Settable val stroke: Option<TStroke>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The amount of space that should be added between characters.
      * 
      * Settable; Typst type: length
@@ -194,6 +216,8 @@ data class TText(
     @all:Settable val tracking: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The amount of space between words.
      * 
      * Can be given as an absolute length, but also relative to the width of the space character in the font.
@@ -205,6 +229,8 @@ data class TText(
     @all:Settable val spacing: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to automatically insert spacing between CJK and Latin characters.
      * 
      * Settable; Typst type: none|auto
@@ -212,6 +238,8 @@ data class TText(
     @all:Settable val cjkLatinSpacing: Smart<TNone>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * An amount to shift the text baseline by.
      * 
      * Settable; Typst type: length
@@ -219,6 +247,8 @@ data class TText(
     @all:Settable val baseline: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether certain glyphs can hang over into the margin in justified text. This can make justification visually more pleasing.
      * 
      * Settable; Typst type: bool
@@ -226,6 +256,8 @@ data class TText(
     @all:Settable val overhang: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The top end of the conceptual frame around the text used for layout and positioning. This affects the size of containers that hold text.
      * 
      * | Variant | Details |
@@ -241,6 +273,8 @@ data class TText(
     @all:Settable val topEdge: TopEdge? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The bottom end of the conceptual frame around the text used for layout and positioning. This affects the size of containers that hold text.
      * 
      * | Variant | Details |
@@ -254,6 +288,8 @@ data class TText(
     @all:Settable val bottomEdge: BottomEdge? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * An [ISO 639-1/2/3 language code.](https://en.wikipedia.org/wiki/ISO_639)
      * 
      * Setting the correct language affects various parts of Typst:
@@ -276,6 +312,8 @@ data class TText(
     @all:Settable val lang: TStr? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * An [ISO 3166-1 alpha-2 region code.](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
      * 
      * This lets the text processing pipeline make more informed choices.
@@ -287,6 +325,8 @@ data class TText(
     @all:Settable val region: Option<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The OpenType writing script.
      * 
      * The combination of `lang` and `script` determine how font features, such as glyph substitution, are implemented. Frequently the value is a modified (all-lowercase) ISO 15924 script identifier, and the `math` writing script is used for features appropriate for mathematical symbols.
@@ -298,6 +338,8 @@ data class TText(
     @all:Settable val script: Smart<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The dominant direction for text and inline objects. Possible values are:
      * 
      * - `auto`: Automatically infer the direction from the `lang` property.
@@ -313,6 +355,8 @@ data class TText(
     @all:Settable val dir: Smart<TDirection>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to hyphenate text to improve line breaking. When `auto`, text will be hyphenated if and only if justification is enabled.
      * 
      * Setting the [text language](https://typst.app/docs/reference/text/text/#parameters-lang) ensures that the correct hyphenation patterns are used.
@@ -322,6 +366,8 @@ data class TText(
     @all:Settable val hyphenate: Smart<TBool>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The "cost" of various choices when laying out text. A higher cost means the layout engine will make the choice less often. Costs are specified as a ratio of the default cost, so `50%` will make text layout twice as eager to make a given choice, while `200%` will make it half as eager.
      * 
      * Currently, the following costs can be customized:
@@ -342,6 +388,8 @@ data class TText(
     @all:Settable val costs: TDict<TValue>? = null, // TODO <*>
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to apply kerning.
      * 
      * When enabled, specific letter pairings move closer together or further apart for a more visually pleasing result. The example below demonstrates how decreasing the gap between the "T" and "o" results in a more natural look. Setting this to `false` disables kerning by turning off the OpenType `kern` font feature.
@@ -351,6 +399,8 @@ data class TText(
     @all:Settable val kerning: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to apply stylistic alternates.
      * 
      * Sometimes fonts contain alternative glyphs for the same codepoint. Setting this to `true` switches to these by enabling the OpenType `salt` font feature.
@@ -360,6 +410,8 @@ data class TText(
     @all:Settable val alternates: TAlternation? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Which stylistic sets to apply. Font designers can categorize alternative glyphs forms into stylistic sets. As this value is highly font-specific, you need to consult your font to know which sets are available.
      * 
      * This can be set to an integer or an array of integers, all of which must be between `1` and `20`, enabling the corresponding OpenType feature(s) from `ss01` to `ss20`. Setting this to `none` will disable all stylistic sets.
@@ -369,6 +421,8 @@ data class TText(
     @all:Settable val stylisticSet: Option<ArrayOrSingle<TInt>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether standard ligatures are active.
      * 
      * Certain letter combinations like "fi" are often displayed as a single merged glyph called a *ligature.* Setting this to `false` disables these ligatures by turning off the OpenType `liga` and `clig` font features.
@@ -380,6 +434,8 @@ data class TText(
     @all:Settable val ligatures: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether ligatures that should be used sparingly are active. Setting this to `true` enables the OpenType `dlig` font feature.
      * 
      * Settable; Typst type: bool
@@ -387,6 +443,8 @@ data class TText(
     @all:Settable val discretionaryLigatures: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether historical ligatures are active. Setting this to `true` enables the OpenType `hlig` font feature.
      * 
      * Settable; Typst type: bool
@@ -394,6 +452,8 @@ data class TText(
     @all:Settable val historicalLigatures: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Which kind of numbers / figures to select. When set to `auto`, the default numbers for the font are used.
      * 
      * | Variant | Details |
@@ -406,6 +466,8 @@ data class TText(
     @all:Settable val numberType: Smart<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * The width of numbers / figures. When set to `auto`, the default numbers for the font are used.
      * 
      * | Variant | Details |
@@ -418,6 +480,8 @@ data class TText(
     @all:Settable val numberWidth: Smart<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to have a slash through the zero glyph. Setting this to `true` enables the OpenType `zero` font feature.
      * 
      * Settable; Typst type: bool
@@ -425,6 +489,8 @@ data class TText(
     @all:Settable val slashedZero: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Whether to turn numbers into fractions. Setting this to `true` enables the OpenType `frac` font feature.
      * 
      * It is not advisable to enable this property globally as it will mess with all appearances of numbers after a slash (e.g., in URLs). Instead, enable it locally when you want a fraction.
@@ -434,6 +500,8 @@ data class TText(
     @all:Settable val fractions: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Raw OpenType features to apply.
      * 
      * - If given an array of strings, sets the features identified by the strings to `1`.
@@ -444,6 +512,8 @@ data class TText(
     @all:Settable val features: TCollection<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/text/](https://typst.app/docs/reference/text/text/)
+     * 
      * Content in which all text is styled according to the other arguments.
      * 
      * Typst type: content

@@ -43,6 +43,8 @@ data class FirstLineIndentImpl(
 //!https://typst.app/docs/reference/model/par/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+ * 
  * A logical subdivison of textual content.
  * 
  * Typst automatically collects *inline-level* elements into paragraphs. Inline-level elements include [text](https://typst.app/docs/reference/text/text/), [horizontal spacing](https://typst.app/docs/reference/layout/h/), [boxes](https://typst.app/docs/reference/layout/box/), and [inline equations](https://typst.app/docs/reference/math/equation/).
@@ -101,6 +103,8 @@ data class FirstLineIndentImpl(
 data class TPar(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * The contents of the paragraph.
      * 
      * Required, positional; Typst type: content
@@ -108,6 +112,8 @@ data class TPar(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * The spacing between lines.
      * 
      * Leading defines the spacing between the [bottom edge](https://typst.app/docs/reference/text/text/#parameters-bottom-edge) of one line and the [top edge](https://typst.app/docs/reference/text/text/#parameters-top-edge) of the following line. By default, these two properties are up to the font, but they can also be configured manually with a text set rule.
@@ -119,6 +125,8 @@ data class TPar(
     @all:Settable val leading: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * The spacing between paragraphs.
      * 
      * Just like leading, this defines the spacing between the bottom edge of a paragraph's last line and the top edge of the next paragraph's first line.
@@ -130,6 +138,8 @@ data class TPar(
     @all:Settable val spacing: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * Whether to justify text in its line.
      * 
      * Hyphenation will be enabled for justified paragraphs if the [text function's `hyphenate` property](https://typst.app/docs/reference/text/text/#parameters-hyphenate) is set to `auto` and the current language is known.
@@ -143,6 +153,8 @@ data class TPar(
     @all:Settable val justify: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * How much the spacing between words and characters may be adjusted during justification.
      * 
      * When justifying text, Typst needs to stretch or shrink a line to the full width of the measure. To achieve this, by default, it adjusts the spacing between words. Additionally, it can also adjust the spacing between individual characters. This property allows you to configure lower and upper bounds for these adjustments.
@@ -163,6 +175,8 @@ data class TPar(
     @all:Settable val justificationLimits: TDict<TValue>? = null, // TODO <*>
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * How to determine line breaks.
      * 
      * When this property is set to `auto`, its default value, optimized line breaks will be used for justified paragraphs. Enabling optimized line breaks for ragged paragraphs may also be worthwhile to improve the appearance of the text.
@@ -177,6 +191,8 @@ data class TPar(
     @all:Settable val linebreaks: Smart<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * The indent the first line of a paragraph should have.
      * 
      * By default, only the first line of a consecutive paragraph will be indented (not the first one in the document or container, and not paragraphs immediately following other block-level elements).
@@ -193,6 +209,8 @@ data class TPar(
     @all:Settable val firstLineIndent: FirstLineIndent? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/par/](https://typst.app/docs/reference/model/par/)
+     * 
      * The indent that all but the first line of a paragraph should have.
      * 
      * Settable; Typst type: length

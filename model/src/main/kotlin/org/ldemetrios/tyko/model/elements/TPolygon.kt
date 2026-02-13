@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/visualize/polygon/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/polygon/](https://typst.app/docs/reference/visualize/polygon/)
+ * 
  * A closed polygon.
  * 
  * The polygon is defined by its corner points and is closed automatically.
@@ -30,6 +32,8 @@ import kotlinx.serialization.Serializable
 data class TPolygon(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/polygon/](https://typst.app/docs/reference/visualize/polygon/)
+     * 
      * The vertices of the polygon. Each point is specified as an array of two [relative lengths](https://typst.app/docs/reference/layout/relative/).
      * 
      * Required, positional, variadic; Typst type: array
@@ -37,6 +41,8 @@ data class TPolygon(
     @all:Variadic @all:Positional val vertices: TArray<Point<TRelative>>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/polygon/](https://typst.app/docs/reference/visualize/polygon/)
+     * 
      * How to fill the polygon.
      * 
      * When setting a fill, the default stroke disappears. To create a rectangle with both fill and stroke, you have to configure both.
@@ -46,6 +52,8 @@ data class TPolygon(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/polygon/](https://typst.app/docs/reference/visualize/polygon/)
+     * 
      * The drawing rule used to fill the polygon.
      * 
      * See the [curve documentation](https://typst.app/docs/reference/visualize/curve/#parameters-fill-rule) for an example.
@@ -60,6 +68,8 @@ data class TPolygon(
     @all:Settable val fillRule: TStr? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/polygon/](https://typst.app/docs/reference/visualize/polygon/)
+     * 
      * How to [stroke](https://typst.app/docs/reference/visualize/stroke/) the polygon.
      * 
      * Can be set to `none` to disable the stroke or to `auto` for a stroke of `1pt` black if and only if no fill is given.

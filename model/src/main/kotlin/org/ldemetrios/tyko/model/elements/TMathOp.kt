@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/op/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/op/](https://typst.app/docs/reference/math/op/)
+ * 
  * A text operator in an equation.
  * 
  * **_Example_**
@@ -27,6 +29,8 @@ import kotlinx.serialization.Serializable
 data class TMathOp(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/op/](https://typst.app/docs/reference/math/op/)
+     * 
      * The operator's text.
      * 
      * Required, positional; Typst type: content
@@ -34,6 +38,8 @@ data class TMathOp(
     @all:Positional val text: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/op/](https://typst.app/docs/reference/math/op/)
+     * 
      * Whether the operator should show attachments as limits in display mode.
      * 
      * Settable; Typst type: bool

@@ -28,6 +28,8 @@ sealed interface TCurveControl<out T : IntoValue> : IntoValue {
 //!https://typst.app/docs/reference/visualize/curve/#definitions-cubic
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-cubic](https://typst.app/docs/reference/visualize/curve/#definitions-cubic)
+ * 
  * Adds a cubic Bézier curve segment from the last point to `end`, using `control-start` and `control-end` as the control points.
  * 
  * 
@@ -36,6 +38,8 @@ sealed interface TCurveControl<out T : IntoValue> : IntoValue {
 data class TCurveCubic(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-cubic](https://typst.app/docs/reference/visualize/curve/#definitions-cubic)
+     * 
      * The control point going out from the start of the curve segment.
      * 
      * - If `auto` and this element follows another `curve.cubic` element, the last control point will be mirrored. In SVG terms, this makes `curve.cubic` behave like the `S` operator instead of the `C` operator.
@@ -46,6 +50,8 @@ data class TCurveCubic(
     @all:Positional val controlStart: Smart<TCurveControl<TRelative>>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-cubic](https://typst.app/docs/reference/visualize/curve/#definitions-cubic)
+     * 
      * The control point going into the end point of the curve segment.
      * 
      * If set to `none`, the curve has no end control point, or equivalently, the control point defaults to the curve's end point.
@@ -55,6 +61,8 @@ data class TCurveCubic(
     @all:Positional val controlEnd: TCurveControl<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-cubic](https://typst.app/docs/reference/visualize/curve/#definitions-cubic)
+     * 
      * The point at which the curve segment shall end.
      * 
      * Required, positional; Typst type: array
@@ -62,6 +70,8 @@ data class TCurveCubic(
     @all:Positional val end: Point<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-cubic](https://typst.app/docs/reference/visualize/curve/#definitions-cubic)
+     * 
      * Whether the `control-start`, `control-end`, and `end` coordinates are relative to the previous point.
      * 
      * Settable; Typst type: bool

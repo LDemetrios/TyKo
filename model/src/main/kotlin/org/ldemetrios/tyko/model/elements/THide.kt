@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/hide/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/hide/](https://typst.app/docs/reference/layout/hide/)
+ * 
  * Hides content without affecting layout.
  * 
  * The `hide` function allows you to hide content while the layout still "sees" it. This is useful for creating blank space that is exactly as large as some content.
@@ -30,6 +32,8 @@ import kotlinx.serialization.Serializable
 data class THide(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/hide/](https://typst.app/docs/reference/layout/hide/)
+     * 
      * The content to hide.
      * 
      * Required, positional; Typst type: content

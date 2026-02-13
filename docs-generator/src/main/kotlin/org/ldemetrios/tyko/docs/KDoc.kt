@@ -184,8 +184,17 @@ data class KDocTable(val header: List<KDocTableRow>, val body: List<KDocTableRow
 data class KDocParagraph(val content: List<KDocNode>)
 
 data class KDocDocument(val paragraphs: List<KDocParagraph>) {
-    fun render(): String {
-        return paragraphs
+    fun render(sourceUrl: String? = null): String {
+        val sourceParagraph = sourceUrl?.let { url ->
+            KDocParagraph(
+                listOf(
+                    KDocText("Generated based on: "),
+                    KDocLink(KDocText(url), url),
+                )
+            )
+        }
+        val allParagraphs = listOfNotNull(sourceParagraph) + paragraphs
+        return allParagraphs
             .joinToString("\n\n") { renderParagraph(it) }
             .replace(Regex("\n\n\n+"), "\n\n")
             .split("\n")

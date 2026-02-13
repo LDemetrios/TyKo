@@ -65,6 +65,8 @@ data class TSmartquoteSymbols(
 //!https://typst.app/docs/reference/text/smartquote/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/smartquote/](https://typst.app/docs/reference/text/smartquote/)
+ * 
  * A language-aware quote that reacts to its context.
  * 
  * Automatically turns into an appropriate opening or closing quote based on the active [text language](https://typst.app/docs/reference/text/text/#parameters-lang).
@@ -90,6 +92,8 @@ data class TSmartquoteSymbols(
 data class TSmartquote(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/smartquote/](https://typst.app/docs/reference/text/smartquote/)
+     * 
      * Whether this should be a double quote.
      * 
      * Settable; Typst type: bool
@@ -97,6 +101,8 @@ data class TSmartquote(
     @all:Settable val double: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/smartquote/](https://typst.app/docs/reference/text/smartquote/)
+     * 
      * Whether smart quotes are enabled.
      * 
      * To disable smartness for a single quote, you can also escape it with a backslash.
@@ -106,6 +112,8 @@ data class TSmartquote(
     @all:Settable val enabled: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/smartquote/](https://typst.app/docs/reference/text/smartquote/)
+     * 
      * Whether to use alternative quotes.
      * 
      * Does nothing for languages that don't have alternative quotes, or if explicit quotes were set.
@@ -115,6 +123,8 @@ data class TSmartquote(
     @all:Settable val alternative: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/smartquote/](https://typst.app/docs/reference/text/smartquote/)
+     * 
      * The quotes to use.
      * 
      * - When set to `auto`, the appropriate single quotes for the [text language](https://typst.app/docs/reference/text/text/#parameters-lang) will be used. This is the default.

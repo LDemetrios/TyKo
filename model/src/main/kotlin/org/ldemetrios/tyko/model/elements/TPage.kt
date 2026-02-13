@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/page/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+ * 
  * Layouts its child onto one or multiple pages.
  * 
  * Although this function is primarily used in set rules to affect page properties, it can also be used to explicitly render its argument onto a set of pages of its own.
@@ -33,6 +35,8 @@ import kotlinx.serialization.Serializable
 data class TPage(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * A standard paper size to set width and height.
      * 
      * This is just a shorthand for setting `width` and `height` and, as such, cannot be retrieved in a context expression.
@@ -42,6 +46,8 @@ data class TPage(
     val paper: TStr? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The width of the page.
      * 
      * Settable; Typst type: auto|length
@@ -49,6 +55,8 @@ data class TPage(
     @all:Settable val width: Smart<Option<TLength>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The height of the page.
      * 
      * If this is set to `auto`, page breaks can only be triggered manually by inserting a [page break](https://typst.app/docs/reference/layout/pagebreak/) or by adding another non-empty page set rule. Most examples throughout this documentation use `auto` for the height of the page to dynamically grow and shrink to fit their content.
@@ -58,6 +66,8 @@ data class TPage(
     @all:Settable val height: Smart<Option<TLength>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * Whether the page is flipped into landscape orientation.
      * 
      * Settable; Typst type: bool
@@ -65,6 +75,8 @@ data class TPage(
     @all:Settable val flipped: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The page's margins.
      * 
      * - `auto`: The margins are set automatically to 2.5/21 times the smaller dimension of the page. This results in 2.5 cm margins for an A4 page.
@@ -87,6 +99,8 @@ data class TPage(
     @all:Settable val margin: Margin<Smart<TRelative>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * On which side the pages will be bound.
      * 
      * - `auto`: Equivalent to `left` if the [text direction](https://typst.app/docs/reference/text/text/#parameters-dir) is left-to-right and `right` if it is right-to-left.
@@ -100,6 +114,8 @@ data class TPage(
     @all:Settable val binding: Smart<TAlignment>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * How many columns the page has.
      * 
      * If you need to insert columns into a page or other container, you can also use the [`columns` function](https://typst.app/docs/reference/layout/columns/).
@@ -109,6 +125,8 @@ data class TPage(
     @all:Settable val columns: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The page's background fill.
      * 
      * Setting this to something non-transparent instructs the printer to color the complete page. If you are considering larger production runs, it may be more environmentally friendly and cost-effective to source pre-dyed pages and not set this property.
@@ -122,6 +140,8 @@ data class TPage(
     @all:Settable val fill: Smart<Option<TPaint>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * How to number the pages. You can refer to the Page Setup Guide for [customizing page numbers](https://typst.app/docs/guides/page-setup/#page-numbers).
      * 
      * Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/) taking one or two numbers:
@@ -138,6 +158,8 @@ data class TPage(
     @all:Settable val numbering: Option<Numbering>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * A supplement for the pages.
      * 
      * For page references, this is added before the page number.
@@ -147,6 +169,8 @@ data class TPage(
     @all:Settable val supplement: Smart<Option<TContent>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The alignment of the page numbering.
      * 
      * If the vertical component is `top`, the numbering is placed into the header and if it is `bottom`, it is placed in the footer. Horizon alignment is forbidden. If an explicit matching `header` or `footer` is given, the numbering is ignored.
@@ -156,6 +180,8 @@ data class TPage(
     @all:Settable val numberAlign: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The page's header. Fills the top margin of each page.
      * 
      * - Content: Shows the content as the header.
@@ -167,6 +193,8 @@ data class TPage(
     @all:Settable val header: Smart<Option<TContent>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The amount the header is raised into the top margin.
      * 
      * Settable; Typst type: relative
@@ -174,6 +202,8 @@ data class TPage(
     @all:Settable val headerAscent: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The page's footer. Fills the bottom margin of each page.
      * 
      * - Content: Shows the content as the footer.
@@ -187,6 +217,8 @@ data class TPage(
     @all:Settable val footer: Smart<Option<TContent>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The amount the footer is lowered into the bottom margin.
      * 
      * Settable; Typst type: relative
@@ -194,6 +226,8 @@ data class TPage(
     @all:Settable val footerDescent: TRelative? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * Content in the page's background.
      * 
      * This content will be placed behind the page's body. It can be used to place a background image or a watermark.
@@ -203,6 +237,8 @@ data class TPage(
     @all:Settable val background: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * Content in the page's foreground.
      * 
      * This content will overlay the page's body.
@@ -212,6 +248,8 @@ data class TPage(
     @all:Settable val foreground: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/page/](https://typst.app/docs/reference/layout/page/)
+     * 
      * The contents of the page(s).
      * 
      * Multiple pages will be created if the content does not fit on a single page. A new page with the page properties prior to the function invocation will be created after the body has been typeset.

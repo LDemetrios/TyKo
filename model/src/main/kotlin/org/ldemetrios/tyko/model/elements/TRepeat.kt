@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/repeat/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/repeat/](https://typst.app/docs/reference/layout/repeat/)
+ * 
  * Repeats content to the available space.
  * 
  * This can be useful when implementing a custom index, reference, or outline.
@@ -38,6 +40,8 @@ import kotlinx.serialization.Serializable
 data class TRepeat(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/repeat/](https://typst.app/docs/reference/layout/repeat/)
+     * 
      * The content to repeat.
      * 
      * Required, positional; Typst type: content
@@ -45,6 +49,8 @@ data class TRepeat(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/repeat/](https://typst.app/docs/reference/layout/repeat/)
+     * 
      * The gap between each instance of the body.
      * 
      * Settable; Typst type: length
@@ -52,6 +58,8 @@ data class TRepeat(
     @all:Settable val gap: TLength? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/repeat/](https://typst.app/docs/reference/layout/repeat/)
+     * 
      * Whether to increase the gap between instances to completely fill the available space.
      * 
      * Settable; Typst type: bool

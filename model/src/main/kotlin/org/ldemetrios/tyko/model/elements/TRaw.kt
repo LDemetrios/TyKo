@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/text/raw/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+ * 
  * Raw text with optional syntax highlighting.
  * 
  * Displays the text verbatim and in a monospace font. This is typically used to embed computer code into your document.
@@ -88,6 +90,8 @@ import kotlinx.serialization.Serializable
 data class TRaw(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * The raw text.
      * 
      * You can also use raw blocks creatively to create custom syntaxes for your automations.
@@ -97,6 +101,8 @@ data class TRaw(
     @all:Positional val text: TStr,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * Whether the raw text is displayed as a separate block.
      * 
      * In markup mode, using one-backtick notation makes this `false`. Using three-backtick notation makes it `true` if the enclosed content contains at least one line break.
@@ -106,6 +112,8 @@ data class TRaw(
     @all:Settable val block: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * The language to syntax-highlight in.
      * 
      * Apart from typical language tags known from Markdown, this supports the `"typ"`, `"typc"`, and `"typm"` tags for [Typst markup](https://typst.app/docs/reference/syntax/#markup), [Typst code](https://typst.app/docs/reference/syntax/#code), and [Typst math](https://typst.app/docs/reference/syntax/#math), respectively.
@@ -115,6 +123,8 @@ data class TRaw(
     @all:Settable val lang: Option<TStr>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * The horizontal alignment that each line in a raw block should have. This option is ignored if this is not a raw block (if specified `block: false` or single backticks were used in markup mode).
      * 
      * By default, this is set to `start`, meaning that raw text is aligned towards the start of the text direction inside the block by default, regardless of the current context's alignment (allowing you to center the raw block itself without centering the text inside it, for example).
@@ -124,6 +134,8 @@ data class TRaw(
     @all:Settable val align: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * Additional syntax definitions to load. The syntax definitions should be in the [`sublime-syntax` file format](https://www.sublimetext.com/docs/syntax.html).
      * 
      * You can pass any of the following values:
@@ -137,6 +149,8 @@ data class TRaw(
     @all:Settable val syntaxes: ArrayOrSingle<DataSource>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * The theme to use for syntax highlighting. Themes should be in the [`tmTheme` file format](https://www.sublimetext.com/docs/color_schemes_tmtheme.html).
      * 
      * You can pass any of the following values:
@@ -153,6 +167,8 @@ data class TRaw(
     @all:Settable val theme: Smart<Option<DataSource>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/text/raw/](https://typst.app/docs/reference/text/raw/)
+     * 
      * The size for a tab stop in spaces. A tab is replaced with enough spaces to align with the next multiple of the size.
      * 
      * Settable; Typst type: int

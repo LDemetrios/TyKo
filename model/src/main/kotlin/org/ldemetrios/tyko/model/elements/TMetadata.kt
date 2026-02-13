@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/introspection/metadata/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/introspection/metadata/](https://typst.app/docs/reference/introspection/metadata/)
+ * 
  * Exposes a value to the query system without producing visible content.
  * 
  * This element can be retrieved with the [`query`](https://typst.app/docs/reference/introspection/query/) function and from the command line with [`typst query`](https://typst.app/docs/reference/introspection/query/#command-line-queries). Its purpose is to expose an arbitrary value to the introspection system. To identify a metadata value among others, you can attach a [`label`](https://typst.app/docs/reference/foundations/label/) to it and query for that label.
@@ -27,6 +29,8 @@ import kotlinx.serialization.Serializable
 data class TMetadata<out D: IntoValue>(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/introspection/metadata/](https://typst.app/docs/reference/introspection/metadata/)
+     * 
      * The value to embed into the document.
      * 
      * Required, positional; Typst type: any

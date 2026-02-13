@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/attach/#functions-attach
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+ * 
  * A base with optional attachments.
  * 
  * 
@@ -16,6 +18,8 @@ import kotlinx.serialization.Serializable
 data class TMathAttach(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The base to which things are attached.
      * 
      * Required, positional; Typst type: content
@@ -23,6 +27,8 @@ data class TMathAttach(
     @all:Positional val base: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The top attachment, smartly positioned at top-right or above the base.
      * 
      * You can wrap the base in `limits()` or `scripts()` to override the smart positioning.
@@ -32,6 +38,8 @@ data class TMathAttach(
     @all:Settable val t: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The bottom attachment, smartly positioned at the bottom-right or below the base.
      * 
      * You can wrap the base in `limits()` or `scripts()` to override the smart positioning.
@@ -41,6 +49,8 @@ data class TMathAttach(
     @all:Settable val b: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The top-left attachment (before the base).
      * 
      * Settable; Typst type: none|content
@@ -48,6 +58,8 @@ data class TMathAttach(
     @all:Settable val tl: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The bottom-left attachment (before base).
      * 
      * Settable; Typst type: none|content
@@ -55,6 +67,8 @@ data class TMathAttach(
     @all:Settable val bl: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The top-right attachment (after the base).
      * 
      * Settable; Typst type: none|content
@@ -62,6 +76,8 @@ data class TMathAttach(
     @all:Settable val tr: Option<TContent>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/attach/#functions-attach](https://typst.app/docs/reference/math/attach/#functions-attach)
+     * 
      * The bottom-right attachment (after the base).
      * 
      * Settable; Typst type: none|content

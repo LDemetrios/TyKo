@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/layout/scale/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+ * 
  * Scales content without affecting layout.
  * 
  * Lets you mirror content by specifying a negative scale on a single axis.
@@ -25,6 +27,8 @@ import kotlinx.serialization.Serializable
 data class TScale(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+     * 
      * The content to scale.
      * 
      * Required, positional; Typst type: content
@@ -32,6 +36,8 @@ data class TScale(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+     * 
      * The scaling factor for both axes, as a positional argument. This is just an optional shorthand notation for setting `x` and `y` to the same value.
      * 
      * Typst type: auto|length|ratio
@@ -39,6 +45,8 @@ data class TScale(
     val factor: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+     * 
      * The horizontal scaling factor.
      * 
      * The body will be mirrored horizontally if the parameter is negative.
@@ -48,6 +56,8 @@ data class TScale(
     @all:Settable val x: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+     * 
      * The vertical scaling factor.
      * 
      * The body will be mirrored vertically if the parameter is negative.
@@ -57,6 +67,8 @@ data class TScale(
     @all:Settable val y: Smart<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+     * 
      * The origin of the transformation.
      * 
      * Settable; Typst type: alignment
@@ -64,6 +76,8 @@ data class TScale(
     @all:Settable val origin: TAlignment? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/layout/scale/](https://typst.app/docs/reference/layout/scale/)
+     * 
      * Whether the scaling impacts the layout.
      * 
      * If set to `false`, the scaled content will be allowed to overlap other content. If set to `true`, it will compute the new size of the scaled content and adjust the layout accordingly.

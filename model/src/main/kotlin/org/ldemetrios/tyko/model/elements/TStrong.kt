@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/strong/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/strong/](https://typst.app/docs/reference/model/strong/)
+ * 
  * Strongly emphasizes content by increasing the font weight.
  * 
  * Increases the current font weight by a given `delta`.
@@ -31,6 +33,8 @@ import kotlinx.serialization.Serializable
 data class TStrong(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/strong/](https://typst.app/docs/reference/model/strong/)
+     * 
      * The content to strongly emphasize.
      * 
      * Required, positional; Typst type: content
@@ -38,6 +42,8 @@ data class TStrong(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/strong/](https://typst.app/docs/reference/model/strong/)
+     * 
      * The delta to apply on the font weight.
      * 
      * Settable; Typst type: int

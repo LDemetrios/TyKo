@@ -9,6 +9,8 @@ sealed class TCurveComponent(override val label: TLabel?): TContent()
 //!https://typst.app/docs/reference/visualize/curve/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/visualize/curve/](https://typst.app/docs/reference/visualize/curve/)
+ * 
  * A curve consisting of movements, lines, and Bézier segments.
  * 
  * At any point in time, there is a conceptual pen or cursor.
@@ -41,6 +43,8 @@ sealed class TCurveComponent(override val label: TLabel?): TContent()
 data class TCurve(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/](https://typst.app/docs/reference/visualize/curve/)
+     * 
      * The components of the curve, in the form of moves, line and Bézier segment, and closes.
      * 
      * Required, positional, variadic; Typst type: content
@@ -48,6 +52,8 @@ data class TCurve(
     @all:Variadic @all:Positional val components: TArray<TCurveComponent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/](https://typst.app/docs/reference/visualize/curve/)
+     * 
      * How to fill the curve.
      * 
      * When setting a fill, the default stroke disappears. To create a curve with both fill and stroke, you have to configure both.
@@ -57,6 +63,8 @@ data class TCurve(
     @all:Settable val fill: Option<TPaint>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/](https://typst.app/docs/reference/visualize/curve/)
+     * 
      * The drawing rule used to fill the curve.
      * 
      * | Variant | Details |
@@ -69,6 +77,8 @@ data class TCurve(
     @all:SerialName("fill-rule") @all:Settable val fillRule: TFillRule? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/visualize/curve/](https://typst.app/docs/reference/visualize/curve/)
+     * 
      * How to [stroke](https://typst.app/docs/reference/visualize/stroke/) the curve.
      * 
      * Can be set to `none` to disable the stroke or to `auto` for a stroke of `1pt` black if and only if no fill is given.

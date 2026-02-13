@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/model/heading/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+ * 
  * A section heading.
  * 
  * With headings, you can structure your document into sections. Each heading has a *level,* which starts at one and is unbounded upwards. This level indicates the logical role of the following content (section, subsection, etc.) A top-level heading indicates a top-level section of the document (not the document's title). To insert a title, use the [`title`](https://typst.app/docs/reference/model/title/) element instead.
@@ -51,6 +53,8 @@ import kotlinx.serialization.Serializable
 data class THeading(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * The heading's title.
      * 
      * Required, positional; Typst type: content
@@ -58,6 +62,8 @@ data class THeading(
     @all:Positional val body: TContent,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * The absolute nesting depth of the heading, starting from one. If set to `auto`, it is computed from `offset + depth`.
      * 
      * This is primarily useful for usage in [show rules](https://typst.app/docs/reference/styling/#show-rules) (either with [`where`](https://typst.app/docs/reference/foundations/function/#definitions-where) selectors or by accessing the level directly on a shown heading).
@@ -67,6 +73,8 @@ data class THeading(
     @all:Settable val level: Smart<TInt>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * The relative nesting depth of the heading, starting from one. This is combined with `offset` to compute the actual `level`.
      * 
      * This is set by the heading syntax, such that `== Heading` creates a heading with logical depth of 2, but actual level `offset + 2`. If you construct a heading manually, you should typically prefer this over setting the absolute level.
@@ -76,6 +84,8 @@ data class THeading(
     @all:Settable val depth: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * The starting offset of each heading's `level`, used to turn its relative `depth` into its absolute `level`.
      * 
      * Settable; Typst type: int
@@ -83,6 +93,8 @@ data class THeading(
     @all:Settable val offset: TInt? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * How to number the heading. Accepts a [numbering pattern or function](https://typst.app/docs/reference/model/numbering/) taking multiple numbers.
      * 
      * Settable; Typst type: none|str|function
@@ -90,6 +102,8 @@ data class THeading(
     @all:Settable val numbering: Option<Numbering>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * A supplement for the heading.
      * 
      * For references to headings, this is added before the referenced number.
@@ -101,6 +115,8 @@ data class THeading(
     @all:Settable val supplement: Smart<Option<Computable<TContent>>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * Whether the heading should appear in the [outline](https://typst.app/docs/reference/model/outline/).
      * 
      * Note that this property, if set to `true`, ensures the heading is also shown as a bookmark in the exported PDF's outline (when exporting to PDF). To change that behavior, use the `bookmarked` property.
@@ -110,6 +126,8 @@ data class THeading(
     @all:Settable val outlined: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * Whether the heading should appear as a bookmark in the exported PDF's outline. Doesn't affect other export formats, such as PNG.
      * 
      * The default value of `auto` indicates that the heading will only appear in the exported PDF's outline if its `outlined` property is set to `true`, that is, if it would also be listed in Typst's [outline](https://typst.app/docs/reference/model/outline/). Setting this property to either `true` (bookmark) or `false` (don't bookmark) bypasses that behavior.
@@ -119,6 +137,8 @@ data class THeading(
     @all:Settable val bookmarked: Smart<TBool>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/model/heading/](https://typst.app/docs/reference/model/heading/)
+     * 
      * The indent all but the first line of a heading should have.
      * 
      * The default value of `auto` uses the width of the numbering as indent if the heading is aligned at the [start](https://typst.app/docs/reference/layout/direction/#definitions-start) of the [text direction](https://typst.app/docs/reference/text/text/#parameters-dir), and no indent for center and other alignments.

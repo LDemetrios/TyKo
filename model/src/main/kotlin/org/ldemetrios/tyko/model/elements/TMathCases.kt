@@ -8,6 +8,8 @@ import kotlinx.serialization.Serializable
 //!https://typst.app/docs/reference/math/cases/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
+ * Generated based on: [https://typst.app/docs/reference/math/cases/](https://typst.app/docs/reference/math/cases/)
+ * 
  * A case distinction.
  * 
  * Content across different branches can be aligned with the `&` symbol.
@@ -28,6 +30,8 @@ import kotlinx.serialization.Serializable
 data class TMathCases(
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/cases/](https://typst.app/docs/reference/math/cases/)
+     * 
      * The branches of the case distinction.
      * 
      * Required, positional, variadic; Typst type: content
@@ -35,6 +39,8 @@ data class TMathCases(
     @all:Variadic @all:Positional  val children: TArray<TContent>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/cases/](https://typst.app/docs/reference/math/cases/)
+     * 
      * The delimiter to use.
      * 
      * Can be a single character specifying the left delimiter, in which case the right delimiter is inferred. Otherwise, can be an array containing a left and a right delimiter.
@@ -44,6 +50,8 @@ data class TMathCases(
     @all:Settable val delim: ArrayOrSingle<Option<TSymbolLike>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/cases/](https://typst.app/docs/reference/math/cases/)
+     * 
      * Whether the direction of cases should be reversed.
      * 
      * Settable; Typst type: bool
@@ -51,6 +59,8 @@ data class TMathCases(
     @all:Settable val reverse: TBool? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
+     * Generated based on: [https://typst.app/docs/reference/math/cases/](https://typst.app/docs/reference/math/cases/)
+     * 
      * The gap between branches.
      * 
      * Settable; Typst type: relative

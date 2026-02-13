@@ -19,6 +19,10 @@ https://github.com/LDemetrios/typst-shared-library
 Modifications are Copyright 2026 Dmitry Roman "LDemetrios" Liapin
 and are also licensed under the Apache License, Version 2.0.
 ========================================================================
+This project includes documentation that contains excerpts from the
+original Typst documentation, which is also licensed under the Apache
+License, Version 2.0 and subject to the same copyright notices as above.
+========================================================================
 
 ========================================================================
 Additional dependencies included in this distribution:

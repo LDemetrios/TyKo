@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
-      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NOTICE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory-based/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/buildTime/kotlin/org/ldemetrios/tyko/driver/chicory/buildtime/ChicoryBuildTimeCompiler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory-based/src/buildTime/kotlin/org/ldemetrios/tyko/driver/chicory_based/buildtime/ChicoryBuildTimeCompiler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/buildTime/kotlin/org/ldemetrios/tyko/driver/chicory/buildtime/Demangler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory-based/src/buildTime/kotlin/org/ldemetrios/tyko/driver/chicory_based/buildtime/Demangler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/buildTime/resources/rustc_demangle.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory-based/src/buildTime/resources/rustc_demangle.wasm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory-based/src/main/kotlin/org/ldemetrios/tyko/driver/chicory_based/ChicoryTypstDriver.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/FunctionNames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory-based/src/main/kotlin/org/ldemetrios/tyko/driver/chicory_based/FunctionNames.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/model/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/PackageCentralLoadWork.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/PackageCentralLoadWork.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/SpeedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/SpeedTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/TypstSharedFfiSuiteTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/TypstSharedFfiSuiteTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/Various.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/Various.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NOTICE" beforeDir="false" afterPath="$PROJECT_DIR$/NOTICE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/KDoc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/KDoc.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +172,7 @@
       <recent name="org.ldemetrios.tyko.manual" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'org.ldemetrios.tyko.tests'">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="Tests in 'org.ldemetrios.tyko.tests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
