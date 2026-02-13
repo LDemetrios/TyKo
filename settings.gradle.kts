@@ -13,9 +13,7 @@ rootProject.name = "tyko"
 
 include("drivers")
 include("drivers:api")
-include("drivers:chicory")
-include("drivers:chicory-syntax-only")
-include("drivers:chicory-formatter-only")
+include("drivers:chicory-based")
 include("compiler")
 include("model")
 include("runtime")

@@ -1,4 +1,4 @@
-package org.ldemetrios.tyko.driver.chicory.buildtime
+package org.ldemetrios.tyko.driver.chicory_based.buildtime
 
 import com.dylibso.chicory.build.time.compiler.Config
 import com.dylibso.chicory.build.time.compiler.Generator
@@ -23,7 +23,7 @@ object ChicoryBuildTimeCompiler {
         val classesDir = Path.of(args[3])
         val config = Config.builder()
             .withWasmFile(wasmPath)
-            .withName("org.ldemetrios.tyko.driver.chicory.TypstShared")
+            .withName("org.ldemetrios.tyko.driver.chicory_based.TypstShared")
             .withTargetClassFolder(classesDir)
             .withTargetSourceFolder(sourceDir)
             .withTargetWasmFolder(resourcesDir)

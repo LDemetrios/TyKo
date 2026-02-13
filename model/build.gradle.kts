@@ -20,6 +20,12 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.withType<Jar>().configureEach {
+    from(rootProject.file("LICENSE.txt"))
+    from(rootProject.file("NOTICE"))
+}
+
 kotlin {
     jvmToolchain(17)
 }

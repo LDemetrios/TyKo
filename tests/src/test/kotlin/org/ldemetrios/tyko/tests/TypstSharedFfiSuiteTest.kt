@@ -1,7 +1,6 @@
 package org.ldemetrios.tyko.tests
 
 import com.dylibso.chicory.wasi.WasiOptions.builder
-import org.ldemetrios.tyko.compiler.Base64Bytes
 import org.ldemetrios.tyko.compiler.Feature
 import org.ldemetrios.tyko.compiler.FileDescriptor
 import org.ldemetrios.tyko.compiler.FileError
@@ -18,7 +17,7 @@ import org.ldemetrios.tyko.compiler.RResult
 import org.ldemetrios.tyko.compiler.SourceDiagnostic
 import org.ldemetrios.tyko.compiler.TypstCompilerException
 import org.ldemetrios.tyko.compiler.Warned
-import org.ldemetrios.tyko.driver.chicory.ChicoryTypstCore
+import org.ldemetrios.tyko.driver.chicory_based.ChicoryTypstCore
 import org.ldemetrios.tyko.model.TAuto
 import org.ldemetrios.tyko.model.TSetPage
 import org.ldemetrios.tyko.model.TSetText
@@ -49,7 +48,7 @@ import org.ldemetrios.tyko.driver.api.PointerAutoCleaningConfiguration
 import org.ldemetrios.tyko.driver.api.PointerAutoCleaningMode
 import org.ldemetrios.tyko.driver.api.TyKoFFIEntity
 import org.ldemetrios.tyko.driver.api.remainingPointers
-import org.ldemetrios.tyko.driver.chicory.defaultPackagesHostPath
+import org.ldemetrios.tyko.driver.chicory_based.defaultPackagesHostPath
 
 val SKIP = setOf(
     "image-decode-bad-svg",

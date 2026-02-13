@@ -13,9 +13,7 @@
             <option value="$PROJECT_DIR$/docs-generator" />
             <option value="$PROJECT_DIR$/drivers" />
             <option value="$PROJECT_DIR$/drivers/api" />
-            <option value="$PROJECT_DIR$/drivers/chicory" />
-            <option value="$PROJECT_DIR$/drivers/chicory-formatter-only" />
-            <option value="$PROJECT_DIR$/drivers/chicory-syntax-only" />
+            <option value="$PROJECT_DIR$/drivers/chicory-based" />
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/runtime" />
             <option value="$PROJECT_DIR$/tests" />

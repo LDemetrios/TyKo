@@ -381,7 +381,7 @@ val prettyPrint = Json {
 
 fun deserialize(str: String): TValue {
     val x = Json.decodeFromString<JsonElement>(str)
-    println(prettyPrint.encodeToString(x))
+//    println(prettyPrint.encodeToString(x))
     return deserialize(x)
 }
 

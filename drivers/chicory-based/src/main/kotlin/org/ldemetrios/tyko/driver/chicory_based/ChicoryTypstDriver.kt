@@ -1,4 +1,4 @@
-package org.ldemetrios.tyko.driver.chicory
+package org.ldemetrios.tyko.driver.chicory_based
 
 import com.dylibso.chicory.runtime.ExportFunction
 import com.dylibso.chicory.runtime.HostFunction
@@ -22,7 +22,6 @@ import org.ldemetrios.tyko.driver.api.MemoryInterface
 import org.ldemetrios.tyko.driver.api.TypstCore
 import org.ldemetrios.tyko.driver.api.TypstDriver
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonObject
@@ -68,7 +67,7 @@ internal fun Instance.functionName(idx: Int) = module().run {
     }
 }
 
-internal const val PREFIX = "org.ldemetrios.tyko.driver.chicory.TypstSharedMachine"
+internal const val PREFIX = "org.ldemetrios.tyko.driver.chicory_based.TypstSharedMachine"
 
 fun TypstChicoryInstance(
     options: WasiOptions,

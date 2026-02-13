@@ -1,4 +1,4 @@
-package org.ldemetrios.tyko.driver.chicory
+package org.ldemetrios.tyko.driver.chicory_based
 
 import java.io.BufferedReader
 

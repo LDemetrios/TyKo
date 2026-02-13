@@ -34,6 +34,15 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.withType<Jar>().configureEach {
+    from(rootProject.file("LICENSE.txt"))
+    from(rootProject.file("NOTICE"))
+}
+
+val cargoProfile = providers.environmentVariable("TYKO_CARGO_PROFILE")
+    .map { it.trim().lowercase() }
+    .orElse("release")
+
 val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
     val cargoHome = System.getenv("CARGO_HOME") ?: "${System.getProperty("user.home")}/.cargo"
     val cargoBin = "$cargoHome/bin"
@@ -41,6 +50,12 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
         .orElse(providers.gradleProperty("cargoPath"))
         .orElse("cargo")
     doLast {
+        val resolvedCargoProfile = cargoProfile.get()
+        if (resolvedCargoProfile != "release" && resolvedCargoProfile != "debug") {
+            throw GradleException(
+                "Unsupported TYKO_CARGO_PROFILE='$resolvedCargoProfile'. Use 'release' or 'debug'."
+            )
+        }
         val stdout = ByteArrayOutputStream()
         val stderr = ByteArrayOutputStream()
         val resolvedCargo = cargoExecutable.get()
@@ -84,7 +99,12 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
         val result = project.exec {
             workingDir = rootProject.file("typst-shared-library")
             executable = cargoFile.absolutePath
-            args("build", "--target", "wasm32-wasip1") // , "--release"
+            args(
+                "build",
+                "--target",
+                "wasm32-wasip1",
+                *if (resolvedCargoProfile == "release") arrayOf("--release") else emptyArray()
+            )
             environment("PATH", path)
             environment("RUSTFLAGS", listOf("-Awarnings", System.getenv("RUSTFLAGS") ?: "").joinToString(" ").trim())
             if (opensslDir != null) {
@@ -112,8 +132,10 @@ val generatedWasmDir = layout.buildDirectory.dir("generated/resources/typst-shar
 
 val prepareTypstSharedWasm = tasks.register<Copy>("prepareTypstSharedWasm") {
     dependsOn(buildTypstSharedLibrary)
-    val src = "typst-shared-library/target/wasm32-wasip1/debug/typst_shared.wasm"
-    from(rootProject.file(src)) {
+    val src = cargoProfile.map { profile ->
+        "typst-shared-library/target/wasm32-wasip1/$profile/typst_shared.wasm"
+    }
+    from(src.map { rootProject.file(it) }) {
         rename("typst_shared.wasm", "typst-shared.wasm")
     }
     into(generatedWasmDir)
@@ -129,7 +151,7 @@ val wasm2classExt = extensions.getByType<Wasm2ClassExtension>()
 val precompileWasm2ClassLargeHeap = tasks.register<JavaExec>("precompileWasm2ClassLargeHeap") {
     dependsOn(prepareTypstSharedWasm, "compileBuildTimeKotlin")
     classpath = sourceSets["buildTime"].runtimeClasspath
-    mainClass.set("org.ldemetrios.tyko.driver.chicory.buildtime.ChicoryBuildTimeCompiler")
+    mainClass.set("org.ldemetrios.tyko.driver.chicory_based.buildtime.ChicoryBuildTimeCompiler")
     jvmArgs("-Xms2g", "-Xmx8g")
     val wasmFile = generatedWasmDir.map { it.file("typst-shared.wasm") }
     inputs.file(wasmFile)
@@ -153,7 +175,7 @@ tasks.named("compileJava") { dependsOn(precompileWasm2ClassLargeHeap) }
 tasks.named<ProcessResources>("processResources") { dependsOn(precompileWasm2ClassLargeHeap) }
 
 wasm2class {
-    targetPackage.set("org.ldemetrios.tyko.driver.chicory")
+    targetPackage.set("org.ldemetrios.tyko.driver.chicory_based")
     modules.create("typstShared") {
         wasm.set(generatedWasmDir.map { it.file("typst-shared.wasm") })
         interpreterFallback.set(InterpreterFallback.WARN)

@@ -3,8 +3,8 @@ package org.ldemetrios.tyko.tests
 import io.kotest.core.spec.style.FreeSpec
 import org.ldemetrios.tyko.compiler.Feature
 import org.ldemetrios.tyko.compiler.FontCollection
-import org.ldemetrios.tyko.driver.chicory.ChicoryTypstCore
-import org.ldemetrios.tyko.driver.chicory.defaultWasiOptions
+import org.ldemetrios.tyko.driver.chicory_based.ChicoryTypstCore
+import org.ldemetrios.tyko.driver.chicory_based.defaultWasiOptions
 import org.ldemetrios.tyko.model.TAuto
 import org.ldemetrios.tyko.model.TSetPage
 import org.ldemetrios.tyko.model.TSetText

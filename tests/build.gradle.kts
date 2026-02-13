@@ -18,7 +18,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     implementation(project(":runtime"))
     implementation(project(":compiler"))
-    implementation(project(":drivers:chicory"))
+    implementation(project(":drivers:chicory-based"))
     implementation(project(":model"))
 }
 

@@ -3,8 +3,8 @@ package org.ldemetrios.tyko.tests
 import io.kotest.assertions.fail
 import io.kotest.core.spec.style.FreeSpec
 import org.ldemetrios.tyko.compiler.*
-import org.ldemetrios.tyko.driver.chicory.ChicoryTypstCore
-import org.ldemetrios.tyko.driver.chicory.defaultWasiOptions
+import org.ldemetrios.tyko.driver.chicory_based.ChicoryTypstCore
+import org.ldemetrios.tyko.driver.chicory_based.defaultWasiOptions
 import org.ldemetrios.tyko.runtime.TypstRuntime
 
 class PackageCentralLoadWork : FreeSpec({

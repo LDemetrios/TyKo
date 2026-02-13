@@ -7,8 +7,8 @@ import org.ldemetrios.tyko.compiler.SyntaxKind
 import org.ldemetrios.tyko.compiler.SyntaxKind.*
 import org.ldemetrios.tyko.compiler.SyntaxMark
 import org.ldemetrios.tyko.compiler.SyntaxMode
-import org.ldemetrios.tyko.driver.chicory.ChicoryTypstCore
-import org.ldemetrios.tyko.driver.chicory.defaultWasiOptions
+import org.ldemetrios.tyko.driver.chicory_based.ChicoryTypstCore
+import org.ldemetrios.tyko.driver.chicory_based.defaultWasiOptions
 import org.ldemetrios.tyko.model.TArgs
 import org.ldemetrios.tyko.model.TArray
 import org.ldemetrios.tyko.model.TDict
