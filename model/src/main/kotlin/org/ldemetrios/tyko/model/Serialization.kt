@@ -182,7 +182,7 @@ val SIDES_KEYS = setOf("top", "right", "bottom", "left", "x", "y", "rest")
 val MARGIN_KEYS = setOf("top", "right", "bottom", "left", "inside", "outside", "x", "y", "rest")
 val SMARTQUOTE_KEYS = setOf("single", "double")
 val MAT_AUGMENT_KEYS = setOf("hline", "vline", "stroke")
-val CORNERS_KEYS = setOf("top-left", "top-right", "bottom-left", "bottom-right", "left", "top", "right", "bottom")
+val CORNERS_KEYS = setOf("top-left", "top-right", "bottom-left", "bottom-right", "left", "top", "right", "bottom", "rest")
 val POSSIBLY_EMPTY_DICT_CLASSES = setOf(
     TStrokeImpl::class, SidesImpl::class, MarginImpl::class, TSmartquoteSymbols::class,
     TMatAugmentDict::class, Corners::class

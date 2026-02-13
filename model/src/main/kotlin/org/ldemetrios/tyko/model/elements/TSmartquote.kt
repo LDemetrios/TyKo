@@ -53,8 +53,8 @@ data class TSmartquoteSymbols(
     companion object {
         fun fromValue(value: TValue): TSmartquoteSymbols = when (value) {
             is TDict<*> -> TSmartquoteSymbols(
-                value["single"]!!.intoValue() as TSmartquoteLevel,
-                value["double"]!!.intoValue() as TSmartquoteLevel,
+                value["single"]?.intoValue()?.let { TSmartquoteSpec.fromValue(it) },
+                value["double"]?.intoValue()?.let { TSmartquoteSpec.fromValue(it) },
             )
 
             else -> throw AssertionError("Can't convert from $value")

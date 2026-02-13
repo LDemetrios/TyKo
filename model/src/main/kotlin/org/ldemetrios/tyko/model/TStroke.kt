@@ -87,6 +87,9 @@ sealed interface Dash : IntoValue {
     companion object {
         fun fromValue(value: TValue): Dash = when (value) {
             is TDict<*> -> DashPattern.fromValue(value)
+            is TArray<*> -> DashArray.fromValue(value)
+            is TStr -> DashPatternPreset.fromValue(value)
+            is TNone -> TNone
             else -> throw AssertionError("Can't convert from $value")
         }
     }

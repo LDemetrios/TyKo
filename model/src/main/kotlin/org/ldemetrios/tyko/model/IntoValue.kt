@@ -200,7 +200,7 @@ data class MarginImpl<out M : IntoValue>(override val sides: Sides<M>, override 
 }
 
 fun <M : IntoValue> Margin(top: M, bottom: M, left: M, right: M): Margin<M> =
-    MarginImpl(Sides(top, bottom, left, right), false.t)
+    MarginImpl(Sides(top, right, bottom, left), false.t)
 
 sealed interface Corners<out T : IntoValue> : IntoValue {
     val topLeft: T?
@@ -253,7 +253,7 @@ data class CornersImpl<out S : IntoValue>(
     )
 
     companion object {
-        fun <T : IntoValue> splat(x: T) = Sides(x, x, x, x)
+        fun <T : IntoValue> splat(x: T) = CornersImpl(x, x, x, x)
 
         inline fun <reified T : IntoValue> fromValue(value: TValue): CornersImpl<T> {
             val dict = value as TDict<*>
@@ -511,6 +511,7 @@ fun TValue.into(t: KType): IntoValue {
         FirstLineIndent::class -> return FirstLineIndent.fromValue(this)
         FirstLineIndentImpl::class -> return FirstLineIndentImpl.fromValue(this)
         TCurveControl::class -> return TCurveControl.fromValue(this, t)
+        TPdfAttachRelationship::class -> return TPdfAttachRelationship.fromValue(this)
 
         else -> return if (TValue::class.java.isAssignableFrom((t.classifier as KClass<*>).java)) this
         else throw IllegalArgumentException(

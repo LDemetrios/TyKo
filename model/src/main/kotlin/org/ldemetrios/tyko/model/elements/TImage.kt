@@ -8,7 +8,7 @@ sealed interface TImageFormat {
         fun fromValue(value: TValue) = when (value) {
             is TDict<*> -> TImageFormatDict.fromValue(value)
             TAuto -> TAuto
-            is TStr -> TImageFormatEncoding.fromValue(value)
+            is TStr -> TImageFormatPreset.fromValue(value)
             else -> throw AssertionError("Can't convert from $value")
         }
     }

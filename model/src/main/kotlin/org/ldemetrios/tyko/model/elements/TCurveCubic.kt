@@ -9,13 +9,13 @@ import kotlin.reflect.KType
 sealed interface TCurveControl<out T : IntoValue> : IntoValue {
     companion object {
         inline fun <reified T : IntoValue> fromValue(value: TValue): TCurveControl<T> = when (value) {
-            is TDict<*> -> Point.fromValue<T>(value)
+            is TArray<*> -> Point.fromValue<T>(value)
             TNone -> TNone
             else -> throw AssertionError("Can't convert from $value")
         }
 
         fun fromValue(value: TValue, type: KType): TCurveControl<*> = when (value) {
-            is TDict<*> -> {
+            is TArray<*> -> {
                 val arg = type.arguments.firstOrNull()?.type
                 if (arg == null) Point.fromValue<IntoValue>(value) else Point.fromValue(value, arg)
             }

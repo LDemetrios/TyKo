@@ -5,30 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Base64Bytes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Feature.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/FileError.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Locators.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Now.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/RResult.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/SyntaxMode.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Utils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/OptInRequirements.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yatool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yatool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Diagnostics.kt" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Diagnostics.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Syntax.kt" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/Syntax.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompiler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompilerException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/kotlin/org/ldemetrios/tyko/compiler/TypstCompilerException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/Noop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/Noop.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/Pointers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/Pointers.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstCore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstCore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/api/src/main/kotlin/org/ldemetrios/tyko/driver/api/TypstDriver.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chicory/src/main/kotlin/org/ldemetrios/tyko/driver/chicory/ChicoryTypstDriver.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TLink.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TLink.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/src/main/kotlin/org/ldemetrios/tyko/runtime/TypstRuntime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/src/main/kotlin/org/ldemetrios/tyko/runtime/TypstRuntime.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/PackageCentralLoadWork.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/PackageCentralLoadWork.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/TypstSharedFfiSuiteTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/test/kotlin/org/ldemetrios/tyko/tests/TypstSharedFfiSuiteTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/sessions/kotlin-compiler-17267793789440156608.salive" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCurveCubic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TCurveCubic.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathMat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TMathMat.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TPdfAttach.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TPdfAttach.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TSmartquote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/elements/TSmartquote.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
