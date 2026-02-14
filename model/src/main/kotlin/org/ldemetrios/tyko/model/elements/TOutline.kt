@@ -171,6 +171,9 @@ data class TOutline(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TOutline]
+ */
 @SerialName("set-outline")
 data class TSetOutline(
     override val internals: SetRuleInternals? = null,

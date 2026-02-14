@@ -1,10 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-
-
 //!https://typst.app/docs/reference/visualize/line/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -38,7 +34,7 @@ data class TLine(
      * 
      * Settable; Typst type: array
      */
-    @all:Settable val start: Point<TRelative>? = null,
+    @all:Settable val start: TPoint<TRelative>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
@@ -47,7 +43,7 @@ data class TLine(
      * 
      * Settable; Typst type: none|array
      */
-    @all:Settable val end: Option<Point<TRelative>>? = null,
+    @all:Settable val end: Option<TPoint<TRelative>>? = null,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/line/](https://typst.app/docs/reference/visualize/line/)
@@ -85,11 +81,14 @@ data class TLine(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TLine]
+ */
 @SerialName("set-line")
 data class TSetLine(
     override val internals: SetRuleInternals? = null,
-    val start: Point<TRelative>? = null,
-    val end: Option<Point<TRelative>>? = null,
+    val start: TPoint<TRelative>? = null,
+    val end: Option<TPoint<TRelative>>? = null,
     val length: TRelative? = null,
     val angle: TAngle? = null,
     val stroke: TStroke? = null

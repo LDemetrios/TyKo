@@ -59,6 +59,9 @@ data class TStrong(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TStrong]
+ */
 @SerialName("set-strong")
 data class TSetStrong(
     override val internals: SetRuleInternals? = null,

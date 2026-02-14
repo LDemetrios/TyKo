@@ -44,6 +44,9 @@ data class TMathUnderbracket(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathUnderbracket]
+ */
 @SerialName("set-math.underbracket")
 data class TSetMathUnderbracket(
     override val internals: SetRuleInternals? = null,

@@ -1,8 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Spacing
+import org.ldemetrios.tyko.model.TPaint
 
 
 //!https://typst.app/docs/reference/visualize/rect/
@@ -138,6 +138,9 @@ data class TRect(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TRect]
+ */
 @SerialName("set-rect")
 data class TSetRect(
     override val internals: SetRuleInternals? = null,

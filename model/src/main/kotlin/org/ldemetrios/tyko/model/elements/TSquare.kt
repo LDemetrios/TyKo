@@ -1,8 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Spacing
+import org.ldemetrios.tyko.model.TPaint
 
 
 //!https://typst.app/docs/reference/visualize/square/
@@ -125,6 +125,9 @@ data class TSquare(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TSquare]
+ */
 @SerialName("set-square")
 data class TSetSquare(
     override val internals: SetRuleInternals? = null,

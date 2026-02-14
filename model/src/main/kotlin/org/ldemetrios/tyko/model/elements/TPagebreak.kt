@@ -65,6 +65,9 @@ data class TPagebreak(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TPagebreak]
+ */
 @SerialName("set-pagebreak")
 data class TSetPagebreak(
     override val internals: SetRuleInternals? = null,

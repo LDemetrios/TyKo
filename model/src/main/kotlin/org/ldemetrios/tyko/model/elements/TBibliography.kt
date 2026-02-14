@@ -1,109 +1,7 @@
 package org.ldemetrios.tyko.model
 
+import org.ldemetrios.tyko.model.DataSource
 
-import kotlinx.serialization.Serializable
-
-@SerialName("str")
-enum class TBibliographyStyle(val value: String) : DataSourceOrPreset<TBibliographyStyle>, IntoStr, Smart<TBibliographyStyle> {
-    ALPHANUMERIC("alphanumeric"),
-    AMERICAN_ANTHROPOLOGICAL_ASSOCIATION("american-anthropological-association"),
-    AMERICAN_CHEMICAL_SOCIETY("american-chemical-society"),
-    AMERICAN_GEOPHYSICAL_UNION("american-geophysical-union"),
-    AMERICAN_INSTITUTE_OF_AERONAUTICS_AND_ASTRONAUTICS("american-institute-of-aeronautics-and-astronautics"),
-    AMERICAN_INSTITUTE_OF_PHYSICS("american-institute-of-physics"),
-    AMERICAN_MEDICAL_ASSOCIATION("american-medical-association"),
-    AMERICAN_METEOROLOGICAL_SOCIETY("american-meteorological-society"),
-    AMERICAN_PHYSICS_SOCIETY("american-physics-society"),
-    AMERICAN_PHYSIOLOGICAL_SOCIETY("american-physiological-society"),
-    AMERICAN_POLITICAL_SCIENCE_ASSOCIATION("american-political-science-association"),
-    AMERICAN_PSYCHOLOGICAL_ASSOCIATION("american-psychological-association"),
-    APA("apa"),
-    AMERICAN_SOCIETY_FOR_MICROBIOLOGY("american-society-for-microbiology"),
-    AMERICAN_SOCIETY_OF_CIVIL_ENGINEERS("american-society-of-civil-engineers"),
-    AMERICAN_SOCIETY_OF_MECHANICAL_ENGINEERS("american-society-of-mechanical-engineers"),
-    AMERICAN_SOCIOLOGICAL_ASSOCIATION("american-sociological-association"),
-    ANGEWANDTE_CHEMIE("angewandte-chemie"),
-    ANNUAL_REVIEWS("annual-reviews"),
-    ANNUAL_REVIEWS_AUTHOR_DATE("annual-reviews-author-date"),
-    ASSOCIACAO_BRASILEIRA_DE_NORMAS_TECNICAS("associacao-brasileira-de-normas-tecnicas"),
-    ASSOCIATION_FOR_COMPUTING_MACHINERY("association-for-computing-machinery"),
-    BIOMED_CENTRAL("biomed-central"),
-    BRISTOL_UNIVERSITY_PRESS("bristol-university-press"),
-    BRITISH_MEDICAL_JOURNAL("british-medical-journal"),
-    BMJ("bmj"),
-    CELL("cell"),
-    CHICAGO_AUTHOR_DATE("chicago-author-date"),
-    CHICAGO_NOTES("chicago-notes"),
-    CHICAGO_FULLNOTES("chicago-fullnotes"),
-    CHICAGO_SHORTENED_NOTES("chicago-shortened-notes"),
-    COPERNICUS("copernicus"),
-    COUNCIL_OF_SCIENCE_EDITORS("council-of-science-editors"),
-    COUNCIL_OF_SCIENCE_EDITORS_AUTHOR_DATE("council-of-science-editors-author-date"),
-    CURRENT_OPINION("current-opinion"),
-    DEUTSCHE_GESELLSCHAFT_FÜR_PSYCHOLOGIE("deutsche-gesellschaft-für-psychologie"),
-    DEUTSCHE_SPRACHE("deutsche-sprache"),
-    ELSEVIER_HARVARD("elsevier-harvard"),
-    ELSEVIER_VANCOUVER("elsevier-vancouver"),
-    ELSEVIER_WITH_TITLES("elsevier-with-titles"),
-    FRONTIERS("frontiers"),
-    FUTURE_MEDICINE("future-medicine"),
-    FUTURE_SCIENCE("future-science"),
-    GB_7714_2005_NUMERIC("gb-7714-2005-numeric"),
-    GB_7714_2015_AUTHOR_DATE("gb-7714-2015-author-date"),
-    GB_7714_2015_NOTE("gb-7714-2015-note"),
-    GB_7714_2015_NUMERIC("gb-7714-2015-numeric"),
-    GOST_R_705_2008_NUMERIC("gost-r-705-2008-numeric"),
-    HARVARD_CITE_THEM_RIGHT("harvard-cite-them-right"),
-    INSTITUTE_OF_ELECTRICAL_AND_ELECTRONICS_ENGINEERS("institute-of-electrical-and-electronics-engineers"),
-    IEEE("ieee"),
-    INSTITUTE_OF_PHYSICS_NUMERIC("institute-of-physics-numeric"),
-    ISO_690_AUTHOR_DATE("iso-690-author-date"),
-    ISO_690_NUMERIC("iso-690-numeric"),
-    KARGER("karger"),
-    MARY_ANN_LIEBERT_VANCOUVER("mary-ann-liebert-vancouver"),
-    MODERN_HUMANITIES_RESEARCH_ASSOCIATION_NOTES("modern-humanities-research-association-notes"),
-    MODERN_HUMANITIES_RESEARCH_ASSOCIATION("modern-humanities-research-association"),
-    MODERN_LANGUAGE_ASSOCIATION("modern-language-association"),
-    MLA("mla"),
-    MODERN_LANGUAGE_ASSOCIATION_8("modern-language-association-8"),
-    MLA_8("mla-8"),
-    MULTIDISCIPLINARY_DIGITAL_PUBLISHING_INSTITUTE("multidisciplinary-digital-publishing-institute"),
-    NATURE("nature"),
-    PENSOFT("pensoft"),
-    PUBLIC_LIBRARY_OF_SCIENCE("public-library-of-science"),
-    PLOS("plos"),
-    ROYAL_SOCIETY_OF_CHEMISTRY("royal-society-of-chemistry"),
-    SAGE_VANCOUVER("sage-vancouver"),
-    SIST02("sist02"),
-    SPIE("spie"),
-    SPRINGER_BASIC("springer-basic"),
-    SPRINGER_BASIC_AUTHOR_DATE("springer-basic-author-date"),
-    SPRINGER_FACHZEITSCHRIFTEN_MEDIZIN_PSYCHOLOGIE("springer-fachzeitschriften-medizin-psychologie"),
-    SPRINGER_HUMANITIES_AUTHOR_DATE("springer-humanities-author-date"),
-    SPRINGER_LECTURE_NOTES_IN_COMPUTER_SCIENCE("springer-lecture-notes-in-computer-science"),
-    SPRINGER_MATHPHYS("springer-mathphys"),
-    SPRINGER_SOCPSYCH_AUTHOR_DATE("springer-socpsych-author-date"),
-    SPRINGER_VANCOUVER("springer-vancouver"),
-    TAYLOR_AND_FRANCIS_CHICAGO_AUTHOR_DATE("taylor-and-francis-chicago-author-date"),
-    TAYLOR_AND_FRANCIS_NATIONAL_LIBRARY_OF_MEDICINE("taylor-and-francis-national-library-of-medicine"),
-    THE_INSTITUTION_OF_ENGINEERING_AND_TECHNOLOGY("the-institution-of-engineering-and-technology"),
-    THE_LANCET("the-lancet"),
-    THIEME("thieme"),
-    TRENDS("trends"),
-    TURABIAN_AUTHOR_DATE("turabian-author-date"),
-    TURABIAN_FULLNOTE_8("turabian-fullnote-8"),
-    VANCOUVER("vancouver"),
-    VANCOUVER_SUPERSCRIPT("vancouver-superscript");
-
-    override fun intoValue(): TStr {
-        return value.t
-    }
-
-    companion object {
-        private val valuesByStr by lazy { entries.associateBy { it.value } }
-        fun fromValue(value: TValue) = if(value is TStr) valuesByStr[value.value]!! else throw AssertionError("Can't convert from $value")
-    }
-}
 
 //!https://typst.app/docs/reference/model/bibliography/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -211,6 +109,9 @@ data class TBibliography(
         val ELEM = TLocatableElement<TBibliography>("bibliography")
     }
 }
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TBibliography]
+ */
 @SerialName("set-bibliography")
 data class TSetBibliography(
     override val internals: SetRuleInternals? = null,

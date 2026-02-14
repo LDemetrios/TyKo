@@ -72,6 +72,9 @@ data class TMove(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMove]
+ */
 @SerialName("set-move")
 data class TSetMove(
     override val internals: SetRuleInternals? = null,

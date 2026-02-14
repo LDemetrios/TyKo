@@ -54,6 +54,9 @@ data class TMathStretch(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathStretch]
+ */
 @SerialName("set-math.stretch")
 data class TSetMathStretch(
     override val internals: SetRuleInternals? = null,

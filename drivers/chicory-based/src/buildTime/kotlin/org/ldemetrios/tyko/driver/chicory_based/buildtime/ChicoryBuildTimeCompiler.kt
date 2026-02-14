@@ -32,7 +32,6 @@ object ChicoryBuildTimeCompiler {
         val generator = Generator(config)
         val interpreted = generator.generateResources()
         generator.generateMetaWasm(interpreted)
-        generator.generateSources()
         writeFunctionNames(wasmPath, resourcesDir)
     }
 

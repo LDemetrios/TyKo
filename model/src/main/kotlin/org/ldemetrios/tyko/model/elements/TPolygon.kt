@@ -1,10 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-
-
 //!https://typst.app/docs/reference/visualize/polygon/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -38,7 +34,7 @@ data class TPolygon(
      * 
      * Required, positional, variadic; Typst type: array
      */
-    @all:Variadic @all:Positional val vertices: TArray<Point<TRelative>>,
+    @all:Variadic @all:Positional val vertices: TArray<TPoint<TRelative>>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/polygon/](https://typst.app/docs/reference/visualize/polygon/)
@@ -87,6 +83,9 @@ data class TPolygon(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TPolygon]
+ */
 @SerialName("set-polygon")
 data class TSetPolygon(
     override val internals: SetRuleInternals? = null,

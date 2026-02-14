@@ -1,8 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Spacing
+import org.ldemetrios.tyko.model.TPaint
 
 
 //!https://typst.app/docs/reference/visualize/ellipse/
@@ -104,6 +104,9 @@ data class TEllipse(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TEllipse]
+ */
 @SerialName("set-ellipse")
 data class TSetEllipse(
     override val internals: SetRuleInternals? = null,

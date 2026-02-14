@@ -95,6 +95,9 @@ data class TScale(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TScale]
+ */
 @SerialName("set-scale")
 data class TSetScale(
     override val internals: SetRuleInternals? = null,

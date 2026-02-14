@@ -1,7 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
+import org.ldemetrios.tyko.model.Numbering
 
 
 //!https://typst.app/docs/reference/math/equation/
@@ -108,6 +108,9 @@ data class TEquation(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TEquation]
+ */
 @SerialName("set-math.equation")
 data class TSetEquation(
     override val internals: SetRuleInternals? = null,

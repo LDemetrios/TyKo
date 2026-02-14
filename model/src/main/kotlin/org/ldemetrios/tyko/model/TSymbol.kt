@@ -1,6 +1,12 @@
 package org.ldemetrios.tyko.model
 
+import org.ldemetrios.tyko.model.TSymbolLike
 
+/**
+ * Represents a [symbol](https://typst.app/docs/reference/foundations/symbol/).
+ * Uses native form, because I didn't come up with better representation.
+ * Probably, I'll later come with some more friendly API.
+ */
 sealed class TSymbol : TValue, TSymbolLike, ArrayOrSingle<TSymbol>, Option<TSymbol> {
     override fun type(): TType = TYPE
 
@@ -8,7 +14,6 @@ sealed class TSymbol : TValue, TSymbolLike, ArrayOrSingle<TSymbol>, Option<TSymb
         val TYPE = TType.SYMBOL
     }
 }
-
 
 @SerialName("symbol.single")
 data class TSingleSymbol(val text: TStr) : TSymbol() {
@@ -19,7 +24,6 @@ data class TSingleSymbol(val text: TStr) : TSymbol() {
     }
 }
 
-
 @SerialName("symbol.complex")
 data class TComplexSymbol(val value: TArray<SymVariant>) : TSymbol() {
     override fun repr(sb: StringBuilder) {
@@ -28,7 +32,6 @@ data class TComplexSymbol(val value: TArray<SymVariant>) : TSymbol() {
         sb.append(")")
     }
 }
-
 
 @SerialName("symbol.modified")
 data class TModifiedSymbol(val list: TArray<SymVariant>, val modifiers: String) : TSymbol() {

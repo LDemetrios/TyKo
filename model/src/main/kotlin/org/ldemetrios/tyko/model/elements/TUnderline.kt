@@ -87,6 +87,9 @@ data class TUnderline(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TUnderline]
+ */
 @SerialName("set-underline")
 data class TSetUnderline(
     override val internals: SetRuleInternals? = null,

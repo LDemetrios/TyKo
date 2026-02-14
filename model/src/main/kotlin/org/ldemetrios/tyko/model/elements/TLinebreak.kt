@@ -50,6 +50,9 @@ data class TLinebreak(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TLinebreak]
+ */
 @SerialName("set-linebreak")
 data class TSetLinebreak(
     override val internals: SetRuleInternals? = null,

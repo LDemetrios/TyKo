@@ -53,6 +53,9 @@ data class TColbreak(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TColbreak]
+ */
 @SerialName("set-colbreak")
 data class TSetColbreak(
     override val internals: SetRuleInternals? = null,

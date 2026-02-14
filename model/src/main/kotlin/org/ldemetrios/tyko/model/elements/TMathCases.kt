@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.TSymbolLike
 
 
 //!https://typst.app/docs/reference/math/cases/
@@ -76,6 +75,9 @@ data class TMathCases(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathCases]
+ */
 @SerialName("set-math.cases")
 data class TSetMathCases(
     override val internals: SetRuleInternals? = null,

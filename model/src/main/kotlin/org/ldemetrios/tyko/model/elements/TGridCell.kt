@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.TPaint
 
 
 //!https://typst.app/docs/reference/layout/grid/#definitions-cell
@@ -122,6 +121,9 @@ data class TGridCell(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TGridCell]
+ */
 @SerialName("set-grid.cell")
 data class TSetGridCell(
     override val internals: SetRuleInternals? = null,

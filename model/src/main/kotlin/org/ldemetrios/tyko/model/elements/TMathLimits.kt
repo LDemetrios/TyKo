@@ -45,6 +45,9 @@ data class TMathLimits(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathLimits]
+ */
 @SerialName("set-math.limits")
 data class TSetMathLr(
     override val internals: SetRuleInternals? = null,

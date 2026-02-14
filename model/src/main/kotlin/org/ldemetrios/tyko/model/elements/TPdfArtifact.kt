@@ -1,22 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-
-@SerialName("str")
-enum class TPdfArtifactKind : IntoStr {
-    HEADER, FOOTER, PAGE, OTHER;
-
-    override fun intoValue(): TStr = name.lowercase().t
-
-    companion object {
-        private val valuesByStr by lazy { TPdfArtifactKind.entries.associateBy { it.intoValue() } }
-        fun fromValue(value: TValue): TPdfArtifactKind =
-            if (value is TStr) valuesByStr[value]!! else throw AssertionError("Can't convert from $value")
-    }
-}
-
 //!https://typst.app/docs/reference/pdf/artifact/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -73,6 +57,9 @@ data class TPdfArtifact(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TPdfArtifact]
+ */
 @SerialName("set-pdf.artifact")
 data class TSetPdfArtifact(
     override val internals: SetRuleInternals? = null,

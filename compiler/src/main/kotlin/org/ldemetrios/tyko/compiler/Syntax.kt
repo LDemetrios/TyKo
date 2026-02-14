@@ -1,20 +1,38 @@
 package org.ldemetrios.tyko.compiler
 
 import org.ldemetrios.tyko.driver.api.FlattenedSyntaxTree
+import org.ldemetrios.tyko.driver.api.TyKoInternalApi
 
+/**
+ * Carries a flattened version of syntax tree, suitable for lexers or parsers.
+ */
 data class SyntaxTree(
     val marks: List<IndexedMark>
 )
 
 data class IndexedMark(val mark: SyntaxMark, val index: Int)
 
+/**
+ * An event in syntax tree traversal.
+ */
 sealed interface SyntaxMark {
+    /**
+     * Syntax node start (occurs at leftmost index)
+     */
     data class NodeStart(val kind: SyntaxKind) : SyntaxMark
+
+    /**
+     * Syntax node end (occurs after rightmost index), either healthy ([NodeStart]) or erroneous ([Error])
+     */
     data object NodeEnd : SyntaxMark
+
+    /**
+     * Erroneous node start, with message attached (occurs at leftmost index)
+     */
     data class Error(val message: String) : SyntaxMark
 
     companion object {
-        fun decode(code: Int, errorsMessage : (Int) -> String) = when (code) {
+        internal fun decode(code: Int, errorsMessage : (Int) -> String) = when (code) {
             0 -> NodeStart(SyntaxKind.End)
             1 -> NodeStart(SyntaxKind.Error)
             2 -> NodeStart(SyntaxKind.Shebang)
@@ -155,6 +173,9 @@ sealed interface SyntaxMark {
     }
 }
 
+/**
+ * Syntax node kind, as in native compiler.
+ */
 enum class SyntaxKind {
     /// The end of token stream.
     End,
@@ -438,6 +459,7 @@ enum class SyntaxKind {
     DestructAssignment;
 }
 
+@OptIn(TyKoInternalApi::class)
 private fun FlattenedSyntaxTree.decodeErrors(): List<String> {
     if (errorStarts.isEmpty()) return emptyList()
     val messages = ArrayList<String>(errorStarts.size)
@@ -483,6 +505,7 @@ private fun buildUtf8ByteToCharIndexMap(source: String): IntArray {
     return byteToChar
 }
 
+@OptIn(TyKoInternalApi::class)
 internal fun FlattenedSyntaxTree.toSyntaxTree(source: String): SyntaxTree {
     val errorMessages = decodeErrors()
     val byteToChar = buildUtf8ByteToCharIndexMap(source)

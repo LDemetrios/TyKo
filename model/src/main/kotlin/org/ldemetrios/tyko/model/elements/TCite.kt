@@ -1,20 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-@SerialName("str")
-enum class TCiteForm : IntoStr, Option<TCiteForm>, DataSourceOrPreset<TCiteForm> {
-    NORMAL, PROSE, FULL, AUTHOR, YEAR;
-
-    override fun intoValue(): TStr = name.lowercase().t
-
-    companion object {
-        private val valuesByStr by lazy { entries.associateBy { it.intoValue() } }
-        fun fromValue(value: TValue) = if(value is TStr) valuesByStr[value]!! else throw AssertionError("Can't convert from $value")
-    }
-}
-
 //!https://typst.app/docs/reference/model/cite/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -118,6 +104,9 @@ data class TCite(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCite]
+ */
 @SerialName("set-cite")
 data class TSetCite(
     override val internals: SetRuleInternals? = null,

@@ -72,6 +72,9 @@ data class TMathFrac(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathFrac]
+ */
 @SerialName("set-math.frac")
 data class TSetMathFrac(
     override val internals: SetRuleInternals? = null,

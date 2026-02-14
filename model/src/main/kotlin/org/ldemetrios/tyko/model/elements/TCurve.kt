@@ -1,10 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
+import org.ldemetrios.tyko.model.TPaint
 
-
-sealed class TCurveComponent(override val label: TLabel?): TContent()
 
 //!https://typst.app/docs/reference/visualize/curve/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -96,6 +94,9 @@ data class TCurve(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCurve]
+ */
 @SerialName("set-curve")
 data class TSetCurve(
     override val internals: SetRuleInternals? = null,

@@ -78,6 +78,9 @@ data class TRotate(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TRotate]
+ */
 @SerialName("set-rotate")
 data class TSetRotate(
     override val internals: SetRuleInternals? = null,

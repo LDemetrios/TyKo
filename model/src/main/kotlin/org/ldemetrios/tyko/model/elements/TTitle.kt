@@ -55,6 +55,9 @@ data class TTitle(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTitle]
+ */
 @SerialName("set-title")
 data class TSetTitle(
     override val internals: SetRuleInternals? = null,

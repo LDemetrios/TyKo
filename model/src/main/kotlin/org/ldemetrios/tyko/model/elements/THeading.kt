@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Numbering
 
 
 //!https://typst.app/docs/reference/model/heading/
@@ -156,6 +155,9 @@ data class THeading(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [THeading]
+ */
 @SerialName("set-heading")
 data class TSetHeading(
     override val internals: SetRuleInternals? = null,

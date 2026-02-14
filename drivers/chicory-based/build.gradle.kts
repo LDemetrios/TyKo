@@ -155,10 +155,10 @@ val precompileWasm2ClassLargeHeap = tasks.register<JavaExec>("precompileWasm2Cla
     jvmArgs("-Xms2g", "-Xmx8g")
     val wasmFile = generatedWasmDir.map { it.file("typst-shared.wasm") }
     inputs.file(wasmFile)
-    outputs.dir(wasm2classExt.outputSources)
     outputs.dir(wasm2classExt.outputResources)
     outputs.dir(wasm2classExt.outputClasses)
     doFirst {
+        wasm2classExt.outputSources.get().asFile.deleteRecursively()
         args = listOf(
             wasmFile.get().asFile.absolutePath,
             wasm2classExt.outputSources.get().asFile.absolutePath,

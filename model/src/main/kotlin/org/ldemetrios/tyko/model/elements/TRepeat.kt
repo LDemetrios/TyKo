@@ -75,6 +75,9 @@ data class TRepeat(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TRepeat]
+ */
 @SerialName("set-repeat")
 data class TSetRepeat(
     override val internals: SetRuleInternals? = null,

@@ -103,6 +103,9 @@ data class TAlign(
     }
 }
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TAlign]
+ */
 @SerialName("set-align")
 data class TSetAlign(
     override val internals: SetRuleInternals? = null,

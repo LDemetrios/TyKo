@@ -81,6 +81,9 @@ data class TGridHline(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TGridHline]
+ */
 @SerialName("set-grid.hline")
 data class TSetGridHline(
     override val internals: SetRuleInternals? = null,

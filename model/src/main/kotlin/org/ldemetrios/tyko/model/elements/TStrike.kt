@@ -82,6 +82,9 @@ data class TStrike(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TStrike]
+ */
 @SerialName("set-strike")
 data class TSetStrike(
     override val internals: SetRuleInternals? = null,

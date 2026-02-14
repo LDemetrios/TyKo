@@ -6,9 +6,38 @@
   <component name="ChangeListManager">
     <list default="true" id="8b52a696-c433-408d-af6f-d51493950943" name="Changes" comment="+ Example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NOTICE" beforeDir="false" afterPath="$PROJECT_DIR$/NOTICE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/FileIO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/KDoc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/docs-generator/src/main/kotlin/org/ldemetrios/tyko/docs/KDoc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TAlignment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TAlignment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TAngle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TAngle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TArray.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TArray.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TBool.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TBool.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TBytes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TBytes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TColor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TColor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TContent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TContent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TCounter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TCounter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TFloat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TFloat.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TStr.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TStr.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Corners.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Corners.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/GenericUnions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/GenericUnions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Margin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Margin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TCurveControl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TCurveControl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFigureKind.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFigureKind.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontCoverage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontCoverage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontDescriptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontDescriptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TParFirstLineIndent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TParFirstLineIndent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextEdge.kt" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextEdge.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typst-shared-library" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" beforeDir="false" afterPath="$PROJECT_DIR$/typst-shared-library/crates/typst-shared/src/serial/values.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +173,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.tabs"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -165,11 +194,11 @@
       <recent name="org.ldemetrios.tyko.model" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="org.ldemetrios.tyko.model.syntetic" />
+      <recent name="org.ldemetrios.tyko.model" />
       <recent name="org.ldemetrios.tyko.tests" />
       <recent name="org.ldemetrios.docgen.org.ldemetrios.tyko.docs" />
-      <recent name="org.ldemetrios.tyko.model" />
       <recent name="org.ldemetrios.tyko.model.manual" />
-      <recent name="org.ldemetrios.tyko.manual" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
@@ -187,30 +216,6 @@
             <option value=":tests:test" />
             <option value="--tests" />
             <option value="&quot;org.ldemetrios.tyko.tests.*&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="TypstSharedFfiSuiteTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":tests:typst-shared-ffi:test" />
-            <option value="--tests" />
-            <option value="&quot;org.ldemetrios.tyko.tests.TypstSharedFfiSuiteTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -263,7 +268,6 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Tests in 'org.ldemetrios.tyko.tests'" />
-      <item itemvalue="Gradle.TypstSharedFfiSuiteTest (1)" />
       <item itemvalue="Kotest.All tests in 'org.ldemetrios.tyko.tests'" />
       <item itemvalue="Kotlin.DemanglerKt" />
       <item itemvalue="Kotlin.MainKt" />
@@ -271,10 +275,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'org.ldemetrios.tyko.tests'" />
-        <item itemvalue="Gradle.TypstSharedFfiSuiteTest (1)" />
-        <item itemvalue="Kotlin.DemanglerKt" />
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotest.All tests in 'org.ldemetrios.tyko.tests'" />
+        <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Kotlin.DemanglerKt" />
       </list>
     </recent_temporary>
   </component>
@@ -436,7 +439,7 @@
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
     <envs>
-      <env key="GSID" value="IDE:idea:a0734f573ba64a1d9700139a676baf3a IDETERM:idea:a0734f573ba64a1d9700139a676baf3a" />
+      <env key="GSID" value="IDE:idea:e7688ded19c34edaab7eca36e014a1c9 IDETERM:idea:e7688ded19c34edaab7eca36e014a1c9" />
     </envs>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,7 +527,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt</url>
-          <line>54</line>
+          <line>123</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -534,27 +537,6 @@
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt</url>
-          <line>126</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <condition expression="typeDiscriminator == &quot;dict&quot;" language="kotlin" />
-          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt</url>
-          <line>85</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt</url>
-          <line>182</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt</url>
-          <line>219</line>
-          <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/tests/e2e-test/src/main/kotlin/Main.kt</url>
@@ -568,13 +550,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/drivers/chicory-based/src/main/kotlin/org/ldemetrios/tyko/driver/chicory_based/ChicoryTypstDriver.kt</url>
-          <line>259</line>
+          <line>265</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/drivers/chicory-based/src/main/kotlin/org/ldemetrios/tyko/driver/chicory_based/ChicoryTypstDriver.kt</url>
-          <line>66</line>
+          <line>71</line>
           <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt</url>
+          <line>86</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />

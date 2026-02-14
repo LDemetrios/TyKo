@@ -46,6 +46,9 @@ data class TGridFooter(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TGridFooter]
+ */
 @SerialName("set-grid.footer")
 data class TSetGridFooter(
     override val internals: SetRuleInternals? = null,

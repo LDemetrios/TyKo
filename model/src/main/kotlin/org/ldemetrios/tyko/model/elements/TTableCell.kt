@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.TPaint
 
 
 //!https://typst.app/docs/reference/model/table/#definitions-cell
@@ -122,6 +121,9 @@ data class TTableCell(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTableCell]
+ */
 @SerialName("set-table.cell")
 data class TSetTableCell(
     override val internals: SetRuleInternals? = null,

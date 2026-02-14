@@ -1,8 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
 //!https://typst.app/docs/reference/visualize/curve/#definitions-line
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -22,7 +20,7 @@ data class TCurveLine(
      * 
      * Required, positional; Typst type: array
      */
-    @all:Positional val end: Point<TRelative>,
+    @all:Positional val end: TPoint<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-line](https://typst.app/docs/reference/visualize/curve/#definitions-line)
@@ -42,6 +40,9 @@ data class TCurveLine(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCurveLine]
+ */
 @SerialName("set-curve.line")
 data class TSetCurveLine(
     override val internals: SetRuleInternals? = null,

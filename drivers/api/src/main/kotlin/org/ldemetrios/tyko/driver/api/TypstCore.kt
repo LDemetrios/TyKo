@@ -13,27 +13,33 @@ interface MemoryInterface {
     fun readLongs(ptr: Long, size: Long): LongArray
 }
 
+@TyKoInternalApi
 data class FlattenedSyntaxTree(
     val marks: LongArray,
     val errors: ByteArray,
     val errorStarts: IntArray,
 )
 
+@TyKoInternalApi
 data class RawNow(val millisOrFlag: Long, val nanos: Int)
-
 
 private val newTicket = AtomicLong(0)
 private val functions = HashMap<Long, (String) -> String>()
 
 @OptIn(TyKoFFIEntity::class)
-class TypstCore(
+
+class TypstCore @TyKoInternalApi constructor(
     private val provider: ((Long) -> (String) -> String) -> Pair<TypstDriver, MemoryInterface>
 ) {
     private val pair = provider {
         functions.get(it) ?: throw RuntimeException("Function $it is already cleaned up")
     }
+    @TyKoInternalApi
     val driver = pair.first
+    @TyKoInternalApi
     val mem = pair.second
+
+    @OptIn(TyKoInternalApi::class)
     fun formatSource(content: String, column: Int, tabWidth: Int): String {
         return withRawStringResult { resultPtr ->
             val contentRaw = writeRawString(content)
@@ -41,6 +47,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun library(features: Int): Pointer {
         return Pointer(
             driver.library(features),
@@ -49,6 +56,7 @@ class TypstCore(
         )
     }
 
+    @TyKoInternalApi
     fun query(
         context: Pointer,
         fonts: Pointer,
@@ -75,6 +83,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun parseSyntax(string: String, mode: Int): FlattenedSyntaxTree {
         val treePtr = driver.allocate_flattened_tree()
         val raw = writeRawString(string)
@@ -84,6 +93,7 @@ class TypstCore(
         return tree
     }
 
+    @TyKoInternalApi
     fun evalMain(
         context: Pointer,
         fonts: Pointer,
@@ -107,6 +117,7 @@ class TypstCore(
     }
 
     @TyKoFFIEntity
+    @TyKoInternalApi
     fun precompilePaged(
         context: Pointer,
         fonts: Pointer,
@@ -130,8 +141,10 @@ class TypstCore(
     }
 
     @TyKoFFIEntity
+    @TyKoInternalApi
     fun freePagedDocument(ptr: Long) = driver.free_paged_document(ptr)
 
+    @TyKoInternalApi
     fun compileHtml(
         context: Pointer,
         fonts: Pointer,
@@ -154,6 +167,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun compileSvg(
         context: Pointer,
         fonts: Pointer,
@@ -180,6 +194,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun renderSvg(
         document: Pointer,
         from: Int,
@@ -195,6 +210,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun compilePng(
         context: Pointer,
         fonts: Pointer,
@@ -223,6 +239,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun renderPng(
         document: Pointer,
         from: Int,
@@ -240,6 +257,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun renderPdf(
         document: Pointer,
         context: Pointer,
@@ -257,6 +275,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun compilePngMergedWithLinks(
         context: Pointer,
         fonts: Pointer,
@@ -281,6 +300,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun compilePdf(
         context: Pointer,
         fonts: Pointer,
@@ -307,6 +327,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun filesCache(reader: (String) -> String): Pointer {
         val readerTicket = newTicket.getAndIncrement()
         functions[readerTicket] = reader
@@ -319,11 +340,13 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun resetFile(cache: Pointer, id: String) {
         val raw = writeRawString(id)
         driver.reset_file(cache.ptr, raw.len, raw.ptr)
     }
 
+    @TyKoInternalApi
     fun resolvePreviewPackage(id: String): String {
         return withRawStringResult { resultPtr ->
             val raw = writeRawString(id)
@@ -331,6 +354,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun fontCollection(includeSystem: Boolean, includeEmbedded: Boolean, fontPaths: String): Pointer {
         val raw = writeRawString(fontPaths)
         return Pointer(
@@ -344,6 +368,7 @@ class TypstCore(
         )
     }
 
+    @TyKoInternalApi
     fun withInputs(library: Pointer, fonts: Pointer, inputs: String, closePrevious: Boolean): String {
         return withRawStringResult { resultPtr ->
             val raw = writeRawString(inputs)
@@ -355,6 +380,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun withStyles(library: Pointer, fonts: Pointer, styles: String, closePrevious: Boolean, append: Boolean): String {
         return withRawStringResult { resultPtr ->
             val raw = writeRawString(styles)
@@ -370,6 +396,7 @@ class TypstCore(
         }
     }
 
+    @TyKoInternalApi
     fun withTestDefinitions(library: Pointer, closePrevious: Boolean): Pointer {
         return Pointer(
             driver.ext_with_test_definitions(
@@ -381,10 +408,12 @@ class TypstCore(
         )
     }
 
+    @OptIn(TyKoInternalApi::class)
     fun evictCache(maxAge: Long) {
         driver.evict_cache(maxAge)
     }
 
+    @TyKoInternalApi
     fun enforceTitle(document: Pointer, title: String) {
         val raw = writeRawString(title)
         driver.enforce_title(document.ptr, raw.len, raw.ptr)
@@ -392,6 +421,7 @@ class TypstCore(
 
     private data class RawStringHandle(val len: Long, val ptr: Long)
 
+    @TyKoInternalApi
     private fun writeRawString(value: String): RawStringHandle {
         val bytes = value.toByteArray(Charsets.UTF_8)
         if (bytes.isEmpty()) {
@@ -402,6 +432,7 @@ class TypstCore(
         return RawStringHandle(bytes.size.toLong(), ptr)
     }
 
+    @TyKoInternalApi
     private fun withRawStringResult(call: (Long) -> Unit): String {
         val resultPtr = driver.allocate_raw_string()
         call(resultPtr)
@@ -415,6 +446,7 @@ class TypstCore(
         return String(resultBytes, Charsets.UTF_8)
     }
 
+    @TyKoInternalApi
     private fun readFlattenedSyntaxTree(treePtr: Long): FlattenedSyntaxTree {
         val fields = mem.readLongs(treePtr, 9)
         val marksPtr = fields[0]
@@ -442,6 +474,7 @@ class TypstCore(
         return FlattenedSyntaxTree(marks, errors, errorStarts)
     }
 
+    @OptIn(TyKoInternalApi::class)
     fun close() {
         remainingPointers().filter { it.owner == this.driver }.forEach { it.close() }
         driver.dispose()

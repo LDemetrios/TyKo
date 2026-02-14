@@ -10,7 +10,9 @@ import kotlinx.serialization.encoding.Encoder
 import org.ldemetrios.tyko.driver.api.TyKoInternalApi
 import java.util.Base64
 
-
+/**
+ * A wrapper for ByteArray, providing serialization as base-64 string
+ */
 @Serializable(with = Base64BytesSerializer::class)
 @TyKoInternalApi
 data class Base64Bytes(val bytes: ByteArray) {

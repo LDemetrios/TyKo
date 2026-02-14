@@ -65,6 +65,9 @@ data class THtmlElem(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [THtmlElem]
+ */
 @SerialName("set-html.elem")
 data class TSetHtmlElem(
     override val internals: SetRuleInternals? = null,

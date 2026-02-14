@@ -9,7 +9,7 @@ internal inline fun <reified T> String.deserialize(): T = Json.decodeFromString<
 
 internal fun <T> RResult<T, List<SourceDiagnostic>>.orThrow(): T = when (this) {
     is RResult.Ok -> value
-    is RResult.Err -> throw TypstCompilerException(error)
+    is RResult.Err -> throw TypstCompilerException.construct(error)
 }
 
 internal fun <T> Warned<RResult<T, List<SourceDiagnostic>>>.orThrowIgnoringWarnings(): T = output.orThrow()

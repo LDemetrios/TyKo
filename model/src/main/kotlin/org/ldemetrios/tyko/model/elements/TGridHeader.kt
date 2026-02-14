@@ -57,6 +57,9 @@ data class TGridHeader(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TGridHeader]
+ */
 @SerialName("set-grid.header")
 data class TSetGridHeader(
     override val internals: SetRuleInternals? = null,

@@ -55,6 +55,9 @@ data class TMathOp(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathOp]
+ */
 @SerialName("set-math.op")
 data class TSetMathOp(
     override val internals: SetRuleInternals? = null,

@@ -1,5 +1,7 @@
 package org.ldemetrios.tyko.model
 
+import org.ldemetrios.tyko.model.TAttachment
+
 
 //!https://typst.app/docs/reference/model/document/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -87,6 +89,9 @@ data class TDocument(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TDocument]
+ */
 @SerialName("set-document")
 data class TSetDocument(
     override val internals: SetRuleInternals? = null,

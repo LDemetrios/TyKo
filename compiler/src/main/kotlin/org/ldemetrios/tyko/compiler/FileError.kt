@@ -3,6 +3,9 @@ package org.ldemetrios.tyko.compiler
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Different kinds of errors in attempt to read a file
+ */
 @Serializable
 sealed class FileError {
     @Serializable
@@ -34,6 +37,9 @@ sealed class FileError {
     data class Other(val message: String?) : FileError()
 }
 
+/**
+ * Special kind of [FileError], related to package resolution
+ */
 @Serializable
 sealed class PackageError {
     @Serializable

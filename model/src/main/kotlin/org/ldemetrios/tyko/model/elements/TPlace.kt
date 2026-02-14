@@ -157,6 +157,9 @@ data class TPlace(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TPlace]
+ */
 @SerialName("set-place")
 data class TSetPlace(
     override val internals: SetRuleInternals? = null,

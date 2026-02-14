@@ -83,6 +83,9 @@ data class TSuper(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TSuper]
+ */
 @SerialName("set-super")
 data class TSetSuper(
     override val internals: SetRuleInternals? = null,

@@ -8,6 +8,9 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import org.ldemetrios.tyko.driver.api.TyKoInternalApi
 
+/**
+ * Model of Rust's `Result` type. Can carry either a result of the operation (&lt;T>), or an error (&lt;E>).
+ */
 @OptIn(TyKoInternalApi::class)
 @Serializable(with = RResultSerializer::class)
 sealed class RResult<out T, out E> {
@@ -17,16 +20,25 @@ sealed class RResult<out T, out E> {
     @Serializable
     data class Err<out E>(val error: E) : RResult<Nothing, E>()
 
+    /**
+     * Transform the result, if it's successful.
+     */
     inline fun <R> map(transform: (T) -> R): RResult<R, E> = when (this) {
         is Ok -> Ok(transform(value))
         is Err -> this
     }
 
+    /**
+     * Transform the error, if it's unsuccessful.
+     */
     inline fun <F> mapError(transform: (E) -> F): RResult<T, F> = when (this) {
         is Ok -> this
         is Err -> Err(transform(error))
     }
 
+    /**
+     * Monadic `>>=` operator: if it's successful, perform one more potentially erroneous computation with the result
+     */
     inline fun <R> flatMap(transform: (T) -> RResult<R, @UnsafeVariance E>): RResult<R, E> = when (this) {
         is Ok -> transform(value)
         is Err -> this

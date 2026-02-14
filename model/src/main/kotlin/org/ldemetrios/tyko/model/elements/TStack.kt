@@ -1,8 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Spacing
+import org.ldemetrios.tyko.model.TStackComponent
 
 
 //!https://typst.app/docs/reference/layout/stack/
@@ -78,6 +78,9 @@ data class TStack(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TStack]
+ */
 @SerialName("set-stack")
 data class TSetStack(
     override val internals: SetRuleInternals? = null,

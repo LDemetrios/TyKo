@@ -1,10 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-import javax.swing.GroupLayout
-
+import org.ldemetrios.tyko.model.TPaint
+import org.ldemetrios.tyko.model.TrackSize
 
 
 //!https://typst.app/docs/reference/layout/grid/
@@ -283,6 +281,9 @@ data class TGrid(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TGrid]
+ */
 @SerialName("set-grid")
 data class TSetGrid(
     override val internals: SetRuleInternals? = null,

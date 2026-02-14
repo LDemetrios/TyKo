@@ -1,8 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
 //!https://typst.app/docs/reference/visualize/curve/#definitions-move
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -24,7 +22,7 @@ data class TCurveMove(
      * 
      * Required, positional; Typst type: array
      */
-    @all:Positional val start: Point<TRelative>,
+    @all:Positional val start: TPoint<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-move](https://typst.app/docs/reference/visualize/curve/#definitions-move)
@@ -44,6 +42,9 @@ data class TCurveMove(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCurveMove]
+ */
 @SerialName("set-curve.move")
 data class TSetCurveMove(
     override val internals: SetRuleInternals? = null,

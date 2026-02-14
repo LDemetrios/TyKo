@@ -47,6 +47,9 @@ data class TEnumItem(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TEnumItem]
+ */
 @SerialName("set-enum.item")
 data class TSetEnumItem(
     override val internals: SetRuleInternals? = null,

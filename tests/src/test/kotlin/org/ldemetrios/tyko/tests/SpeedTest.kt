@@ -3,6 +3,7 @@ package org.ldemetrios.tyko.tests
 import io.kotest.core.spec.style.FreeSpec
 import org.ldemetrios.tyko.compiler.Feature
 import org.ldemetrios.tyko.compiler.FontCollection
+import org.ldemetrios.tyko.driver.api.TyKoInternalApi
 import org.ldemetrios.tyko.driver.chicory_based.ChicoryTypstCore
 import org.ldemetrios.tyko.driver.chicory_based.defaultWasiOptions
 import org.ldemetrios.tyko.model.TAuto
@@ -37,7 +38,6 @@ class SpeedTest : FreeSpec({
         )
 
         val library = runtime.library(setOf(Feature.Html, Feature.A11yExtras))
-            .withTestDefinitions(true)
             .withStylesOrThrow(
                 TSetPage(width = 120.0.t.pt),
                 TSetPage(height = TAuto),

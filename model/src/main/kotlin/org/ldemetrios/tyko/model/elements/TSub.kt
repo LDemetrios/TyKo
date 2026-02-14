@@ -81,6 +81,9 @@ data class TSub(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TSub]
+ */
 @SerialName("set-sub")
 data class TSetSub(
     override val internals: SetRuleInternals? = null,

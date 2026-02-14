@@ -79,6 +79,9 @@ data class TSmallcaps(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TSmallcaps]
+ */
 @SerialName("set-smallcaps")
 data class TSetSmallcaps(
     override val internals: SetRuleInternals? = null,

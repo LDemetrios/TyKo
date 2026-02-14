@@ -1,12 +1,15 @@
 package org.ldemetrios.tyko.model
 
+import org.ldemetrios.tyko.model.IntoValue
+import org.ldemetrios.tyko.model.TBytes
+import org.ldemetrios.tyko.model.TPath
+import org.ldemetrios.tyko.model.TValue
+import org.ldemetrios.tyko.model.into
 import kotlin.reflect.KType
-import kotlin.reflect.typeOf
 
-@Retention(AnnotationRetention.RUNTIME)
-@Target(AnnotationTarget.CLASS)
-annotation class UnionType(val value: Array<String>)
-
+/**
+ * Either some built-in value (&lt;E>), or a [DataSource]
+ */
 sealed interface DataSourceOrPreset<out E : DataSourceOrPreset<E>> : IntoValue {
     companion object {
         inline fun <reified E : DataSourceOrPreset<E>> fromValue(value: TValue): DataSourceOrPreset<E> = when (value) {
@@ -26,43 +29,9 @@ sealed interface DataSourceOrPreset<out E : DataSourceOrPreset<E>> : IntoValue {
     }
 }
 
-@UnionType(["path", "bytes"])
-sealed interface DataSource : TValue, DataSourceOrPreset<Nothing> {
-}
-
-@UnionType(["int", "ratio"])
-sealed interface TColorComponent : TValue
-
-@UnionType(["color", "gradient", "tiling"])
-sealed interface TPaint : TValue, TStroke {
-    override val paint: Smart<TPaint> get() = this as Smart<TPaint>
-    override val thickness: Smart<TLength> get() = TAuto
-    override val cap: Smart<LineCap> get() = TAuto
-    override val join: Smart<LineJoin> get() = TAuto
-    override val dash: Smart<Dash> get() = TAuto
-    override val miterLimit: Smart<TFloat> get() = TAuto
-}
-
-sealed interface Smart<out T : IntoValue> : IntoValue {
-    companion object {
-        inline fun <reified T : IntoValue> fromValue(value: TValue): Smart<T> = when (value) {
-            is TAuto -> TAuto
-            else -> value.into<T>() as Smart<T>
-        }
-
-        fun fromValue(value: TValue, type: KType): Smart<*> {
-            val arg = type.arguments.firstOrNull()?.type
-            return when (value) {
-                is TAuto -> TAuto
-                else -> if (arg == null) value as Smart<*> else value.into(arg) as Smart<*>
-            }
-        }
-    }
-}
-
-@UnionType(["content", "func", "style"])
-sealed interface TTransform : TValue
-
+/**
+ * Either single `T`, or an array of ones
+ */
 sealed interface ArrayOrSingle<out T : IntoValue> : IntoValue, Progression<T> {
     companion object {
         inline fun <reified T : IntoValue> fromValue(value: TValue): ArrayOrSingle<T> = when (value) {
@@ -80,6 +49,9 @@ sealed interface ArrayOrSingle<out T : IntoValue> : IntoValue, Progression<T> {
     }
 }
 
+/**
+ * Either single `T`, array of ones, or a function that generates on of them.
+ */
 sealed interface Progression<out T : IntoValue> : IntoValue {
     companion object {
         inline fun <reified T : IntoValue> fromValue(value: TValue): Progression<T> = when (value) {
@@ -94,6 +66,9 @@ sealed interface Progression<out T : IntoValue> : IntoValue {
     }
 }
 
+/**
+ * Either T, or [TNone]
+ */
 sealed interface Option<out T : IntoValue> : IntoValue {
     companion object {
         inline fun <reified T : IntoValue> fromValue(value: TValue): Option<T> = when (value) {
@@ -111,18 +86,9 @@ sealed interface Option<out T : IntoValue> : IntoValue {
     }
 }
 
-@UnionType(["int", "relative", "fraction"])
-sealed interface TrackSize : TValue
-
-@UnionType(["relative", "fraction"])
-sealed interface Spacing : TrackSize, TStackComponent
-
-@UnionType(["str", "function"])
-sealed interface Numbering : TValue
-
-@UnionType(["label", "content"])
-sealed interface Attribution : TValue
-
+/**
+ * Either T, or a function that computes one.
+ */
 sealed interface Computable<out T : IntoValue> : IntoValue {
     companion object {
         inline fun <reified T : IntoValue> fromValue(value: TValue): Computable<T> = when (value) {
@@ -140,47 +106,25 @@ sealed interface Computable<out T : IntoValue> : IntoValue {
     }
 }
 
-sealed interface TTextWeight : IntoValue {
+/**
+ * Either T, or [TAuto]
+ */
+sealed interface Smart<out T : IntoValue> : IntoValue {
     companion object {
-        inline fun fromValue(value: TValue): TTextWeight = when (value) {
-            is TInt -> value
-            is TStr -> TTextWeightPreset.fromValue(value)
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-
-@UnionType(["content", "relative", "fraction"])
-sealed interface TStackComponent : TValue
-
-@UnionType(["content", "str"])
-sealed interface TAttachment : TValue
-
-
-@UnionType(["str", "symbol"])
-sealed interface TSymbolLike : TValue
-
-@UnionType(["bool", "int"])
-sealed interface TAlternation : TValue
-
-@UnionType(["array", "dict"])
-sealed interface TCollection<out E : IntoValue> : TValue, IntoCollection<E> {
-    override fun intoValue(): TCollection<E> = this
-
-    companion object {
-        inline fun <reified T : IntoValue> fromValue(value: TValue): TCollection<T> = when (value) {
-            is TArray<*> -> TArray.fromValue<T>(value)
-            is TDict<*> -> TDict.fromValue<T>(value)
-            else -> throw AssertionError("Can't convert from $value")
+        inline fun <reified T : IntoValue> fromValue(value: TValue): Smart<T> = when (value) {
+            is TAuto -> TAuto
+            else -> value.into<T>() as Smart<T>
         }
 
-        fun fromValue(value: TValue, type: KType): TCollection<*> {
-            val arg = type.arguments.firstOrNull()?.type ?: typeOf<IntoValue>()
+        fun fromValue(value: TValue, type: KType): Smart<*> {
+            val arg = type.arguments.firstOrNull()?.type
             return when (value) {
-                is TArray<*> -> TArray.fromValue(value, arg)
-                is TDict<*> -> TDict.fromValue(value, arg)
-                else -> throw AssertionError("Can't convert from $value")
+                is TAuto -> TAuto
+                else -> if (arg == null) value as Smart<*> else value.into(arg) as Smart<*>
             }
         }
     }
 }
+
+sealed interface Self<out T : Self<T>> : Smart<T>, Option<T>, ArrayOrSingle<T>, Computable<T>, MarginSplat<T>,
+    SidesSplat<T>, CornersSplat<T>

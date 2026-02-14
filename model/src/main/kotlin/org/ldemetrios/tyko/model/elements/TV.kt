@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Spacing
 
 
 //!https://typst.app/docs/reference/layout/v/
@@ -61,6 +60,9 @@ data class TV(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TV]
+ */
 @SerialName("set-v")
 data class TSetV(
     override val internals: SetRuleInternals? = null,

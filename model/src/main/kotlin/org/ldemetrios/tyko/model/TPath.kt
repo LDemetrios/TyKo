@@ -1,7 +1,6 @@
 package org.ldemetrios.tyko.model
 
-
-import kotlinx.serialization.Serializable
+import org.ldemetrios.tyko.model.DataSource
 
 @SerialName("package-version")
 data class PackageVersion(val major: Int, val minor: Int, val patch: Int) {

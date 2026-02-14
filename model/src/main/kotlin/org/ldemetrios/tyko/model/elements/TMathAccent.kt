@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.TAttachment
 
 
 //!https://typst.app/docs/reference/math/accent/
@@ -95,6 +94,9 @@ data class TMathAccent(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathAccent]
+ */
 @SerialName("set-math.accent")
 data class TSetMathAccent(
     override val internals: SetRuleInternals? = null,

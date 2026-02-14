@@ -1,66 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-
-sealed interface TSmartquoteSpec : IntoValue {
-    companion object {
-        fun fromValue(value: TValue): TSmartquoteSpec = when (value) {
-            is TSmartquoteLevel -> value
-            is TDict<*> -> TSmartquoteSymbols.fromValue(value)
-            is TArray<*> -> TOpenCloseQuotes.fromValue(value)
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-
-@UnionType(["str", "auto"])
-sealed interface TSmartquoteLevel : TSmartquoteSpec, TValue
-
-
-@SerialName("array")
-data class TOpenCloseQuotes(val open: TStr, val close: TStr) : TSmartquoteSpec, IntoArr<TStr> {
-    override fun intoValue(): TArray<TStr> = TArray(listOf(open, close))
-
-    companion object {
-        fun fromValue(value: TValue): TOpenCloseQuotes = when (value) {
-            is TArray<*> -> if (value.size == 2) TOpenCloseQuotes(
-                value[0].intoValue() as TStr,
-                value[1].intoValue() as TStr
-            ) else {
-                throw AssertionError("Can't convert from $value")
-            }
-
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-
-
-@SerialName("dict")
-data class TSmartquoteSymbols(
-    val single: TSmartquoteSpec?,
-    val double: TSmartquoteSpec?,
-) : IntoDict<TSmartquoteSpec>, TSmartquoteSpec {
-    override fun intoValue(): TDict<TSmartquoteSpec> = TDict(
-        mapOfNotNullValues(
-             "single" to single,
-             "double" to double,
-        )
-    )
-
-    companion object {
-        fun fromValue(value: TValue): TSmartquoteSymbols = when (value) {
-            is TDict<*> -> TSmartquoteSymbols(
-                value["single"]?.intoValue()?.let { TSmartquoteSpec.fromValue(it) },
-                value["double"]?.intoValue()?.let { TSmartquoteSpec.fromValue(it) },
-            )
-
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
 
 //!https://typst.app/docs/reference/text/smartquote/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -135,7 +75,7 @@ data class TSmartquote(
      * 
      * Settable; Typst type: auto|str|array|dictionary
      */
-    @all:Settable val quotes: TSmartquoteSpec? = null,
+    @all:Settable val quotes: TSmartquoteQuotes? = null,
     override val label: TLabel? = null
 ) : TContent() {
     override fun elem(): TElement = ELEM
@@ -146,11 +86,14 @@ data class TSmartquote(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TSmartquote]
+ */
 @SerialName("set-smartquote")
 data class TSetSmartquote(
     override val internals: SetRuleInternals? = null,
     val double: TBool? = null,
     val enabled: TBool? = null,
     val alternative: TBool? = null,
-    val quotes: TSmartquoteSpec? = null
+    val quotes: TSmartquoteQuotes? = null
 ) : TSetRule()

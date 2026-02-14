@@ -63,6 +63,9 @@ data class TTableHeader(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTableHeader]
+ */
 @SerialName("set-table.header")
 data class TSetTableHeader(
     override val internals: SetRuleInternals? = null,

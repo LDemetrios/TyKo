@@ -1,0 +1,169 @@
+Missing public top-level docs: 122
+Scope: model/** excluding elements/**; exclusions applied: @TyKoInternalApi, override, fromValue, TYPE:TType
+
+By file:
+ 15  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt
+  8  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt
+  8  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt
+  7  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt
+  7  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSymbol.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt
+  4  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt
+  3  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt
+  3  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TPath.kt
+  3  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Utils.kt
+  3  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Corners.kt
+  3  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Margin.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TAlignment.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TAngle.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TCounter.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFloat.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontDescriptor.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TImageFormat.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TLinkDestination.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TMathMatAugment.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TParFirstLineIndent.kt
+  2  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextEdge.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TArray.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TBool.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TBytes.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TColor.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TContent.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TGradient.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TLocation.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStr.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/GenericUnions.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TCurveControl.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFigureKind.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontCoverage.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TPoint.kt
+  1  /Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextWeight.kt
+
+Details:
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt:3  [class] Positional  :: annotation class Positional
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt:4  [class] Settable  :: annotation class Settable
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt:5  [class] Variadic  :: annotation class Variadic
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Annotations.kt:6  [class] Body  :: annotation class Body
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:7  [interface] IntoValue  :: sealed interface IntoValue : Argument {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:17  [interface] IntoStr  :: sealed interface IntoStr : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:27  [interface] IntoCollection  :: sealed interface IntoCollection<out T : IntoValue> : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:39  [interface] IntoDict  :: sealed interface IntoDict<out T : IntoValue> : IntoCollection<T> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:43  [interface] IntoArr  :: sealed interface IntoArr<E : IntoValue> : IntoValue, IntoCollection<E> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:47  [fun] IntoValue  :: fun IntoValue.type() = intoValue().type()
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:49  [fun] TValue  :: inline fun <reified T : IntoValue> TValue.into(): T {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/IntoValue.kt:53  [fun] TValue  :: fun TValue.into(t: KType): IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt:37  [class] SerialName  :: public annotation class SerialName(val value: String)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt:383  [fun] deserialize  :: fun deserialize(str: String): TValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Serialization.kt:458  [class] UnrecognizedSetRule  :: class UnrecognizedSetRule(val elem: String, val id: String?, val internalsId: Int, val json: JsonObject) : Exception(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TAlignment.kt:115  [fun] THAlignment  :: operator fun THAlignment.plus(v: TVAlignment): TAlignment = TCompositeAlignment(this, v)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TAlignment.kt:116  [fun] TVAlignment  :: operator fun TVAlignment.plus(h: THAlignment): TAlignment = TCompositeAlignment(h, this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TAngle.kt:42  [val] TFloat  :: val TFloat.rad get() = TAngle(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TAngle.kt:43  [val] TFloat  :: val TFloat.deg get() = TAngle(TFloat(this.value * Math.PI / 180))
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TArray.kt:74  [val]   :: val <T : IntoValue> List<T>.t get() = TArray(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TBool.kt:37  [val] Boolean  :: val Boolean.t get() = TBool(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TBytes.kt:62  [val] ByteArray  :: val ByteArray.t get() = TBytes(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TColor.kt:614  [val] Color  :: val Color.t get() = TRgbColor(red.t, green.t, blue.t, alpha.t)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TContent.kt:91  [class] TSelectableContent  :: sealed class TSelectableContent<Self: TSelectableContent<Self>>() : TContent() {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TCounter.kt:6  [interface] IntoCounter  :: sealed interface IntoCounter: TValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TCounter.kt:11  [interface] TCounterKey  :: sealed interface TCounterKey : TValue, IntoCounter {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFloat.kt:42  [val] Double  :: val Double.t get() = TFloat(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFloat.kt:43  [val] Float  :: val Float.t get() = TFloat(this.toDouble())
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:106  [interface] TSelectableFunc  :: sealed interface TSelectableFunc<S : TContent> : TFunc, TSelectable<S> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:115  [class] TNativeFunc  :: data class TNativeFunc(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:134  [class] TElement  :: open class TElement(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:159  [class] TLocatableElement  :: class TLocatableElement<S : TContent>(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:166  [class] TClosure  :: data class TClosure(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:200  [class] TClosureSyntaxNode  :: sealed class TClosureSyntaxNode {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:205  [class] RealClosure  :: data class RealClosure(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TFunc.kt:215  [class] TFuncWith  :: data class TFuncWith(val func: TFunc, val args: TArgs<*>) : TFunc {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TGradient.kt:112  [class] TGradientStop  :: data class TGradientStop(val color: TColor, val position: TRatio? = null) : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt:49  [val] Long  :: val Long.t get() = TInt(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt:50  [val] Int  :: val Int.t get() = TInt(this.toLong())
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt:51  [val] Short  :: val Short.t get() = TInt(this.toLong())
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TInt.kt:52  [val] Byte  :: val Byte.t get() = TInt(this.toLong())
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TLocation.kt:8  [class] TLocation  :: data class TLocation(val id: TStr) : TValue, TSelectable<TValue>, TLinkDestination {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TPath.kt:6  [class] PackageVersion  :: data class PackageVersion(val major: Int, val minor: Int, val patch: Int) {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TPath.kt:10  [class] VirtualRoot  :: sealed class VirtualRoot {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TPath.kt:23  [class] TPath  :: data class TPath(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:204  [class] TRatio  :: data class TRatio(val value: TFloat) : TValue, TColorComponent, TRelativeBase<TRatio>(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:222  [val] TFloat  :: val TFloat.pc get() = TRatio((this.value / 100.0).t)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:224  [val] TFloat  :: val TFloat.pt get() = TLength(this, 0.0.t)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:225  [val] TFloat  :: val TFloat.em get() = TLength(0.0.t, this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:227  [fun] TLength  :: fun TLength.plus(another: TLength) = TLength(TFloat(abs.value + another.abs.value), TFloat(em.value + another.em.value))
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:228  [fun] TRatio  :: fun TRatio.plus(another: TRatio) = TRatio(TFloat(value.value + another.value.value))
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TRelativeLength.kt:229  [fun] TRelativeBase  :: fun TRelativeBase<*>.plus(another: TRelativeBase<*>): TRelative = TRelativeBase<TRelative>(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt:47  [fun] TSelector  :: fun <S : TValue> TSelector<S>.or(vararg others: TSelector<S>) = TOrSelector(TArray(listOf(this, *others)))
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt:48  [fun] TSelector  :: fun <S : TValue> TSelector<S>.and(vararg others: TSelector<*>): TSelector<S> =
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt:51  [fun] TSelector  :: fun <S : TValue> TSelector<S>.before(end: TSelector<*>, inclusive: Boolean = true) =
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSelector.kt:54  [fun] TSelector  :: fun <S : TValue> TSelector<S>.after(start: TSelector<*>, inclusive: Boolean = true) =
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStr.kt:62  [val] String  :: val String.t get() = TStr(this)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:192  [class] TStrokeImpl  :: data class TStrokeImpl(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:201  [fun] TStroke  :: fun TStroke(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:210  [interface] Dash  :: sealed interface Dash : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:223  [class] DashArray  :: data class DashArray(val array: List<DashLength>) : Dash, IntoArr<DashLength>, Smart<DashLength> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:237  [class] DashPattern  :: data class DashPattern(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:260  [interface] DashLength  :: sealed interface DashLength : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStroke.kt:275  [object] LineWidth  :: data object LineWidth : DashLength, IntoStr {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt:52  [class] TStyle  :: sealed class TStyle : SequenceElement(), TValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt:62  [class] TShowRule  :: data class TShowRule(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt:80  [class] SetRuleInternals  :: data class SetRuleInternals(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TStyle.kt:88  [class] TSetRule  :: sealed class TSetRule() : TStyle() {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSymbol.kt:19  [class] TSingleSymbol  :: data class TSingleSymbol(val text: TStr) : TSymbol() {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSymbol.kt:28  [class] TComplexSymbol  :: data class TComplexSymbol(val value: TArray<SymVariant>) : TSymbol() {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSymbol.kt:37  [class] TModifiedSymbol  :: data class TModifiedSymbol(val list: TArray<SymVariant>, val modifiers: String) : TSymbol() {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/TSymbol.kt:45  [class] SymVariant  :: data class SymVariant(val variant: TStr, val value: TStr) : IntoArr<TStr> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Utils.kt:3  [fun] mapOfNotNullValues  :: fun <K, V : Any> mapOfNotNullValues(vararg pairs: Pair<K, V?>): Map<K, V> =
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Utils.kt:6  [fun] Any  :: inline fun <reified T : Any> Any?.castOrNull() = this as? T
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/Utils.kt:7  [fun] Any  :: inline fun <reified T> Any?.cast() = this as T
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Corners.kt:7  [interface] Corners  :: sealed interface Corners<out T : IntoValue> : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Corners.kt:31  [interface] CornersSplat  :: sealed interface CornersSplat<out Self : CornersSplat<Self>> : Corners<Self> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Corners.kt:39  [class] CornersImpl  :: data class CornersImpl<out S : IntoValue>(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/GenericUnions.kt:129  [interface] Self  :: sealed interface Self<out T : Self<T>> : Smart<T>, Option<T>, ArrayOrSingle<T>, Computable<T>, MarginSplat<T>,
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Margin.kt:7  [interface] Margin  :: sealed interface Margin<out M : IntoValue> : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Margin.kt:29  [interface] MarginSplat  :: sealed interface MarginSplat<out Self : MarginSplat<Self>> : SidesSplat<Self>, Margin<Self> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Margin.kt:96  [fun] Margin  :: fun <M : IntoValue> Margin(top: M, bottom: M, left: M, right: M): Margin<M> =
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt:17  [interface] Sides  :: sealed interface Sides<out S : IntoValue> : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt:43  [interface] SidesSplat  :: sealed interface SidesSplat<out Self : SidesSplat<Self>> : Sides<Self> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt:51  [class] SidesImpl  :: data class SidesImpl<out S : IntoValue>(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Sides.kt:91  [fun] Sides  :: fun <S : IntoValue> Sides(top: S, right: S, bottom: S, left: S) = SidesImpl(top, right, bottom, left)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TCurveControl.kt:6  [interface] TCurveControl  :: sealed interface TCurveControl<out T : IntoValue> : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFigureKind.kt:6  [interface] TFigureKind  :: sealed interface TFigureKind : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontCoverage.kt:12  [interface] TFontCoverage  :: sealed interface TFontCoverage : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontDescriptor.kt:4  [interface] TFontDescriptor  :: sealed interface TFontDescriptor : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TFontDescriptor.kt:15  [class] TFontDescriptorImpl  :: data class TFontDescriptorImpl(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TImageFormat.kt:16  [interface] TImageFormat  :: sealed interface TImageFormat {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TImageFormat.kt:47  [class] TImageFormatDict  :: data class TImageFormatDict(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TLinkDestination.kt:15  [interface] TLinkDestination  :: sealed interface TLinkDestination : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TLinkDestination.kt:28  [class] LocationOnPage  :: data class LocationOnPage(val page: TInt, val x: TLength, val y: TLength) : IntoDict<IntoValue>, TLinkDestination, Self<LocationOnPage> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TMathMatAugment.kt:17  [interface] TMatAugment  :: sealed interface TMatAugment: IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TMathMatAugment.kt:28  [class] TMatAugmentDict  :: data class TMatAugmentDict(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TParFirstLineIndent.kt:11  [interface] FirstLineIndent  :: sealed interface FirstLineIndent : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TParFirstLineIndent.kt:25  [class] FirstLineIndentImpl  :: data class FirstLineIndentImpl(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TPoint.kt:7  [class] TPoint  :: data class TPoint<out T : IntoValue>(val x: T, val y: T) : IntoValue, Self<TPoint<T>>, TCurveControl<T> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt:5  [interface] TSmartquoteQuotes  :: sealed interface TSmartquoteQuotes : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt:17  [interface] TSmartquoteLevel  :: sealed interface TSmartquoteLevel : TSmartquoteQuotes, TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt:20  [class] TOpenCloseQuotes  :: data class TOpenCloseQuotes(val open: TStr, val close: TStr) : TSmartquoteQuotes, IntoArr<TStr>, Self<TOpenCloseQuotes> {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TSmartquoteQuotes.kt:38  [class] TSmartquoteSymbols  :: data class TSmartquoteSymbols(
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextEdge.kt:11  [interface] TopEdge  :: sealed interface TopEdge : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextEdge.kt:21  [interface] BottomEdge  :: sealed interface BottomEdge : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/TTextWeight.kt:9  [interface] TTextWeight  :: sealed interface TTextWeight : IntoValue {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:8  [class] UnionType  :: annotation class UnionType(val value: Array<String>)
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:11  [class] SequenceElement  :: sealed class SequenceElement : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:14  [interface] DataSource  :: sealed interface DataSource : TValue, DataSourceOrPreset<Nothing>
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:17  [interface] TColorComponent  :: sealed interface TColorComponent : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:20  [interface] TPaint  :: sealed interface TPaint : TValue, TStroke {
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:30  [interface] TTransform  :: sealed interface TTransform : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:33  [interface] TrackSize  :: sealed interface TrackSize : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:36  [interface] Spacing  :: sealed interface Spacing : TrackSize, TStackComponent
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:39  [interface] Numbering  :: sealed interface Numbering : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:42  [interface] Attribution  :: sealed interface Attribution : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:45  [interface] TStackComponent  :: sealed interface TStackComponent : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:48  [interface] TAttachment  :: sealed interface TAttachment : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:51  [interface] TSymbolLike  :: sealed interface TSymbolLike : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:54  [interface] TAlternation  :: sealed interface TAlternation : TValue
+/Users/ldemis/Workspace/Projects/TyKo/model/src/main/kotlin/org/ldemetrios/tyko/model/syntetic/Unions.kt:57  [interface] TCollection  :: sealed interface TCollection<out E : IntoValue> : TValue, IntoCollection<E> {

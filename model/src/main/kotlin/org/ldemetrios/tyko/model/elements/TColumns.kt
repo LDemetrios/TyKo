@@ -98,6 +98,9 @@ data class TColumns(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TColumns]
+ */
 @SerialName("set-columns")
 data class TSetColumns(
     override val internals: SetRuleInternals? = null,

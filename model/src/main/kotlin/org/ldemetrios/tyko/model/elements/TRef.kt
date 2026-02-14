@@ -164,6 +164,9 @@ data class TRef(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TRef]
+ */
 @SerialName("set-ref")
 data class TSetRef(
     override val internals: SetRuleInternals? = null,

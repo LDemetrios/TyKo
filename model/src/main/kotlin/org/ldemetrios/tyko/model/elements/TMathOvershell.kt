@@ -44,6 +44,9 @@ data class TMathOvershell(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathOvershell]
+ */
 @SerialName("set-math.overshell")
 data class TSetMathOvershell(
     override val internals: SetRuleInternals? = null,

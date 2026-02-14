@@ -79,6 +79,9 @@ data class TTableVline(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTableVline]
+ */
 @SerialName("set-table.vline")
 data class TSetTableVline(
     override val internals: SetRuleInternals? = null,

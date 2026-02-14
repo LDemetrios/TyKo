@@ -4,9 +4,12 @@ import com.dylibso.chicory.runtime.ExportFunction
 import com.dylibso.chicory.runtime.HostFunction
 import com.dylibso.chicory.runtime.Instance
 import com.dylibso.chicory.runtime.Instance.builder
+import com.dylibso.chicory.runtime.Machine
 import com.dylibso.chicory.runtime.Store
 import com.dylibso.chicory.wasi.WasiOptions
 import com.dylibso.chicory.wasi.WasiPreview1
+import com.dylibso.chicory.wasm.Parser
+import com.dylibso.chicory.wasm.WasmModule
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -16,6 +19,7 @@ import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 import java.time.Duration
 import java.util.Base64
+import java.util.function.Function
 import com.dylibso.chicory.wasm.types.FunctionType
 import com.dylibso.chicory.wasm.types.ValType
 import org.ldemetrios.tyko.driver.api.MemoryInterface
@@ -27,6 +31,7 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.ldemetrios.tyko.driver.api.TyKoFFIEntity
+import org.ldemetrios.tyko.driver.api.TyKoInternalApi
 import kotlin.collections.map
 
 fun <T, A : T, B : T> B.tryTransforming(func: (B) -> A) = try {
@@ -68,8 +73,9 @@ internal fun Instance.functionName(idx: Int) = module().run {
 }
 
 internal const val PREFIX = "org.ldemetrios.tyko.driver.chicory_based.TypstSharedMachine"
+private const val GENERATED_META_RESOURCE = "org/ldemetrios/tyko/driver/chicory_based/TypstShared.meta"
 
-fun TypstChicoryInstance(
+internal fun TypstChicoryInstance(
     options: WasiOptions,
     readFileByReaderTicket: (ticket: Long, coordinates: String) -> String,
 ): Instance {
@@ -126,9 +132,9 @@ fun TypstChicoryInstance(
     val wasi = WasiPreview1.builder().withOptions(options).build();
     store.addFunction(*wasi.toHostFunctions())
 
-    val builder = builder(COMPILED_MODULE.wasmModule())
+    val builder = builder(COMPILED_MODULE)
     builder.withImportValues(store.toImportValues())
-    builder.withMachineFactory(COMPILED_MODULE.machineFactory())
+    builder.withMachineFactory(COMPILED_MACHINE_FACTORY)
     val instance = builder.build()
     store.register("typst_shared", instance)
     return instance
@@ -167,7 +173,7 @@ private fun buildDownloadResponse(reqJson: String): String {
     return buildJsonObject { put("Ok", ok) }.toString()
 }
 
-class ChicoryMemoryInterface(private val instance: Instance) : MemoryInterface {
+internal class ChicoryMemoryInterface(private val instance: Instance) : MemoryInterface {
     override fun write(ptr: Long, data: ByteArray) {
         if (data.isEmpty()) {
             return
@@ -693,7 +699,19 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 }
 
-@OptIn(TyKoFFIEntity::class)
+/**
+ * Create a Chicory-based (pure-JVM, 32-bit) core for `TypstCompiler` or `TypstRuntime`.
+ *
+ * Basic differences of Chicory-based core:
+ *  - Completely pure-JVM and cross-platform.
+ *  - Runs in completely isolated environment. Paths should be wired explicitly via WasiOptions.
+ *  - Can be in multiple, independent instances.
+ *  - Apparently not thread-safe.
+ *  - Limited to 32 bits of memory.
+ *
+ * @param wasiOptions Options of Chicory Instance VM. By default, set to [defaultWasiOptions].
+ */
+@OptIn(TyKoFFIEntity::class, TyKoInternalApi::class)
 fun ChicoryTypstCore(
     wasiOptions: WasiOptions = defaultWasiOptions(),
 ) = TypstCore { reader ->
@@ -706,8 +724,25 @@ fun ChicoryTypstCore(
     Pair(engine, memory)
 }
 
-private val COMPILED_MODULE = TypstShared()
+private val COMPILED_MODULE by lazy { compiledTypstModule() }
 
+@OptIn(TyKoFFIEntity::class)
+private fun compiledTypstModule(): WasmModule {
+    val stream = ChicoryTypstDriver::class.java.classLoader.getResourceAsStream(GENERATED_META_RESOURCE)
+        ?: error("Missing generated resource: $GENERATED_META_RESOURCE")
+    return stream.use(Parser::parse)
+}
+
+@OptIn(TyKoFFIEntity::class)
+private val COMPILED_MACHINE_FACTORY: Function<Instance, Machine> = Function { instance ->
+    val machineClass = Class.forName(PREFIX, true, ChicoryTypstDriver::class.java.classLoader)
+    val constructor = machineClass.getDeclaredConstructor(Instance::class.java)
+    constructor.newInstance(instance) as Machine
+}
+
+/**
+ * Makes an attempt to guess typical location for Typst's package cache.
+ */
 fun defaultPackagesHostPath(): Path {
     val os = System.getProperty("os.name").lowercase()
     val home = System.getProperty("user.home")
@@ -729,26 +764,15 @@ fun defaultPackagesHostPath(): Path {
     return path
 }
 
+/**
+ * Default WASI options:
+ *
+ * - binds System's `in`, `out` and `err` to ones of the WASI VM.
+ * - binds VM's `/packages` path to your system's regular package location
+ */
 fun defaultWasiOptions(): WasiOptions = WasiOptions.builder()
     .inheritSystem()
     .withEnvironment("RUST_BACKTRACE", "full")
     .withEnvironment("RUST_LIB_BACKTRACE", "1")
     .withDirectory("/packages", defaultPackagesHostPath())
     .build()
-
-//fun main() {
-//    val runtime = ChicoryTypstCore()
-//    println(
-//        runtime.formatSource(
-//            """
-//            #figure(
-//              image("glacier.jpg", width: 70%),
-//              caption: [
-//                _Glaciers_ form an important part
-//                of the earth's climate system.
-//              ],
-//            )
-//        """.trimIndent(), 20, 4
-//        )
-//    )
-//}

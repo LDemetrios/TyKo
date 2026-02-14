@@ -1,40 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
+import org.ldemetrios.tyko.model.TSymbolLike
 
-
-sealed interface TMatAugment: IntoValue {
-    companion object {
-        fun fromValue(value: TValue) : TMatAugment = when (value) {
-            is TDict<*> -> TMatAugmentDict.fromValue(value)
-            is TInt -> value
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-@SerialName("dict")
-
-data class TMatAugmentDict(
-    val hline: ArrayOrSingle<TInt>? = null,
-    val vline: ArrayOrSingle<TInt>? = null,
-    val stroke: Smart<TStroke>? = null
-) : IntoDict<IntoValue>, TMatAugment, Option<TMatAugmentDict> {
-    override fun intoValue(): TDict<IntoValue> = TDict(
-        mapOfNotNullValues(
-            "hline" to hline,
-            "vline" to vline,
-            "stroke" to stroke.takeIf { it != TAuto }
-        )
-    )
-    companion object {
-        fun fromValue(value: TValue) = if(value is TDict<*>) TMatAugmentDict(
-            value["hline"]?.intoValue()?.let { ArrayOrSingle.fromValue<TInt>(it) },
-            value["vline"]?.intoValue()?.let { ArrayOrSingle.fromValue<TInt>(it) },
-            value["stroke"]?.intoValue()?.let { Smart.fromValue<TStroke>(it) },
-        ) else throw AssertionError("Can't convert from $value")
-    }
-}
 
 //!https://typst.app/docs/reference/math/mat/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -145,6 +113,9 @@ data class TMathMat(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathMat]
+ */
 @SerialName("set-math.mat")
 data class TSetMathMat(
     override val internals: SetRuleInternals? = null,

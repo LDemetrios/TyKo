@@ -35,6 +35,9 @@ data class TCurveClose(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCurveClose]
+ */
 @SerialName("set-curve.close")
 data class TSetCurveClose(
     override val internals: SetRuleInternals? = null,

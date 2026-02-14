@@ -1,7 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
+import org.ldemetrios.tyko.model.Spacing
+import org.ldemetrios.tyko.model.TPaint
 
 //!https://typst.app/docs/reference/layout/box/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -142,6 +143,9 @@ data class TBox(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TBox]
+ */
 @SerialName("set-box")
 data class TSetBox(
     override val internals: SetRuleInternals? = null,

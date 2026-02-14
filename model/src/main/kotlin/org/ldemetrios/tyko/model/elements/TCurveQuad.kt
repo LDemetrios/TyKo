@@ -1,9 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-
 //!https://typst.app/docs/reference/visualize/curve/#definitions-quad
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -35,7 +32,7 @@ data class TCurveQuad(
      * 
      * Required, positional; Typst type: array
      */
-    @all:Positional val end: Point<TRelative>,
+    @all:Positional val end: TPoint<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-quad](https://typst.app/docs/reference/visualize/curve/#definitions-quad)
@@ -55,6 +52,9 @@ data class TCurveQuad(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCurveQuad]
+ */
 @SerialName("set-curve.quad")
 data class TSetCurveQuad(
     override val internals: SetRuleInternals? = null,

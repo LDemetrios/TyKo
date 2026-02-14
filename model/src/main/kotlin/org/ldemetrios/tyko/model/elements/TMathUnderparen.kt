@@ -44,6 +44,9 @@ data class TMathUnderparen(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathUnderparen]
+ */
 @SerialName("set-math.underparen")
 data class TSetMathUnderparen(
     override val internals: SetRuleInternals? = null,

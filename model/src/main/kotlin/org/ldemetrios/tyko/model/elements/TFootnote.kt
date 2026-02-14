@@ -1,8 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Attribution
+import org.ldemetrios.tyko.model.Numbering
 
 
 //!https://typst.app/docs/reference/model/footnote/
@@ -74,6 +74,9 @@ data class TFootnote(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TFootnote]
+ */
 @SerialName("set-footnote")
 data class TSetFootnote(
     override val internals: SetRuleInternals? = null,

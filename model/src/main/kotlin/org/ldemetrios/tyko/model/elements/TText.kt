@@ -1,60 +1,8 @@
 package org.ldemetrios.tyko.model
 
-
-import kotlinx.serialization.Serializable
-
-
-sealed interface TFontDescriptor : IntoValue {
-    companion object {
-        fun fromValue(value: TValue) = when (value) {
-            is TDict<*> -> TFontDescriptorImpl.fromValue(value)
-            is TStr -> value
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-@SerialName("dict")
-
-data class TFontDescriptorImpl(
-    val name: TStr,
-    val covers: TFontCoverage? = null
-) : IntoDict<IntoValue>, TFontDescriptor, ArrayOrSingle<TFontDescriptorImpl> {
-    override fun intoValue(): TDict<IntoValue> = if (covers == null) {
-        TDict(mapOf("name" to name))
-    } else {
-        TDict(mapOf("name" to name, "covers" to covers.intoValue()))
-    }
-    companion object {
-        fun fromValue(value: TValue) = if (value is TDict<*>) TFontDescriptorImpl(
-            value["name"]!!.intoValue() as TStr,
-            value["covers"]?.intoValue()?.let { TFontCoverage.fromValue(it) }
-        ) else throw AssertionError("Can't convert from $value")
-    }
-}
-
-sealed interface TFontCoverage : IntoValue {
-    companion object {
-        fun fromValue(value: TValue) = when (value) {
-            is TRegex -> value
-            is TStr -> TFontCoveragePreset.fromValue(value)
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-@SerialName("str")
-
-enum class TFontCoveragePreset(val value: String) : TFontCoverage, IntoStr {
-    LATIN_IN_CJK("latin-in-cjk");
-
-    override fun intoValue(): TStr = value.t
-
-    companion object {
-        fun fromValue(value: TValue) = when (value) {
-            LATIN_IN_CJK.value.t -> LATIN_IN_CJK
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
+import org.ldemetrios.tyko.model.TAlternation
+import org.ldemetrios.tyko.model.TCollection
+import org.ldemetrios.tyko.model.TPaint
 
 //!https://typst.app/docs/reference/text/text/
 // AUTO-GENERATED DOCS. DO NOT EDIT.
@@ -529,6 +477,9 @@ data class TText(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TText]
+ */
 @SerialName("set-text")
 data class TSetText(
     override val internals: SetRuleInternals? = null,

@@ -93,6 +93,9 @@ data class TMathCancel(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathCancel]
+ */
 @SerialName("set-math.cancel")
 data class TSetMathCancel(
     override val internals: SetRuleInternals? = null,

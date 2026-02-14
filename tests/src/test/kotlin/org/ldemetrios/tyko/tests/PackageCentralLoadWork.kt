@@ -28,12 +28,12 @@ class PackageCentralLoadWork : FreeSpec({
                     RResult.Err(FileError.NotFound(file.virtualPath))
                 }
 
-                "preview" -> runtime.resolvePreviewPackage(file)
+                "preview" -> runtime.resolvePackage(file)
                 else -> RResult.Err(FileError.Package(PackageError.NotFound(file.packageSpec!!)))
             }
         }
 
-        val result = runtime.evalMainRaw(context, main)
+        val result = runtime.evalRaw(context, main)
         when (val output = result.output) {
             is RResult.Ok -> println(output.value)
             is RResult.Err -> fail("Expected package load to succeed, got: ${output.error}")

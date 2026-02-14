@@ -73,6 +73,9 @@ data class TFootnoteEntry(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TFootnoteEntry]
+ */
 @SerialName("set-footnote.entry")
 data class TSetFootnoteEntry(
     override val internals: SetRuleInternals? = null,

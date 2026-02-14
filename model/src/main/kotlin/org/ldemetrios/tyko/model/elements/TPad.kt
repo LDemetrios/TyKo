@@ -109,6 +109,9 @@ data class TPad(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TPad]
+ */
 @SerialName("set-pad")
 data class TSetPad(
     override val internals: SetRuleInternals? = null,

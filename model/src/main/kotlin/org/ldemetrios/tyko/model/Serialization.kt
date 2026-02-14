@@ -2,7 +2,6 @@ package org.ldemetrios.tyko.model
 
 
 import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
@@ -17,6 +16,8 @@ import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.long
+import org.ldemetrios.tyko.model.DataSource
+import org.ldemetrios.tyko.model.TCollection
 import java.lang.AssertionError
 import kotlin.io.encoding.Base64
 import kotlin.reflect.KClass
@@ -31,7 +32,6 @@ import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.typeOf
 
-@MustBeDocumented
 @Target(AnnotationTarget.PROPERTY, AnnotationTarget.CLASS, AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)
 public annotation class SerialName(val value: String)
 
@@ -41,7 +41,7 @@ private operator fun KClassifier.invoke(vararg args: KType) =
 
 private operator fun KClassifier.invoke(vararg args: KTypeProjection) = this.createType(args.asList())
 
-fun subtypes(type: KType): List<KType> {
+internal fun subtypes(type: KType): List<KType> {
     when (type.classifier) {
         IntoValue::class, null -> return listOf(typeOf<TValue>())
         IntoArr::class -> return listOf(TArray::class(type[0]))
@@ -67,7 +67,7 @@ fun subtypes(type: KType): List<KType> {
     }
 }
 
-fun options(type: KType): List<KType> {
+internal fun options(type: KType): List<KType> {
     val result = mutableSetOf<KType>()
     var step = setOf(type)
     while (step.isNotEmpty()) {
@@ -77,12 +77,12 @@ fun options(type: KType): List<KType> {
     return result.toList()
 }
 
-fun <T> MutableSet<T>.prefer(what: T, over: T): MutableSet<T> {
+internal fun <T> MutableSet<T>.prefer(what: T, over: T): MutableSet<T> {
     if (what in this) remove(over)
     return this
 }
 
-fun selectType(obj: JsonObject, typeDiscriminator: String, expectedType: KType, jsonPath: String): KType {
+internal fun selectType(obj: JsonObject, typeDiscriminator: String, expectedType: KType, jsonPath: String): KType {
     val discriminatedTypes: MutableMap<String, List<KType>> = options(expectedType)
         .groupBy {
             (it.classifier!! as KClass<*>)
@@ -177,18 +177,19 @@ fun selectType(obj: JsonObject, typeDiscriminator: String, expectedType: KType, 
 }
 
 private fun <T> Iterable<T>.filterIfAny(predicate: (T) -> Boolean) = filter(predicate).ifEmpty { this }
-val STROKE_KEYS = setOf("paint", "thickness", "cap", "join", "dash", "miter-limit")
-val SIDES_KEYS = setOf("top", "right", "bottom", "left", "x", "y", "rest")
-val MARGIN_KEYS = setOf("top", "right", "bottom", "left", "inside", "outside", "x", "y", "rest")
-val SMARTQUOTE_KEYS = setOf("single", "double")
-val MAT_AUGMENT_KEYS = setOf("hline", "vline", "stroke")
-val CORNERS_KEYS = setOf("top-left", "top-right", "bottom-left", "bottom-right", "left", "top", "right", "bottom", "rest")
-val POSSIBLY_EMPTY_DICT_CLASSES = setOf(
+internal val STROKE_KEYS = setOf("paint", "thickness", "cap", "join", "dash", "miter-limit")
+internal val SIDES_KEYS = setOf("top", "right", "bottom", "left", "x", "y", "rest")
+internal val MARGIN_KEYS = setOf("top", "right", "bottom", "left", "inside", "outside", "x", "y", "rest")
+internal val SMARTQUOTE_KEYS = setOf("single", "double")
+internal val MAT_AUGMENT_KEYS = setOf("hline", "vline", "stroke")
+internal val CORNERS_KEYS =
+    setOf("top-left", "top-right", "bottom-left", "bottom-right", "left", "top", "right", "bottom", "rest")
+internal val POSSIBLY_EMPTY_DICT_CLASSES = setOf(
     TStrokeImpl::class, SidesImpl::class, MarginImpl::class, TSmartquoteSymbols::class,
     TMatAugmentDict::class, Corners::class
 )
 
-fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: String): Any? {
+internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: String): Any? {
     if (json is JsonNull) {
         if (expectedType.isMarkedNullable) return null as Any?
         throw AssertionError("Can't deserialize $json as $expectedType at $jsonPath")
@@ -370,22 +371,25 @@ private fun KType.resolveParameter(constructorOwner: KType): KType = when (val k
     else -> throw AssertionError("Can't resolve $this as parameter of $constructorOwner")
 }
 
-fun deserialize(json: JsonElement): TValue = deserializeAs(json, typeOf<TValue>(), "") as TValue
+internal fun deserialize(json: JsonElement): TValue = deserializeAs(json, typeOf<TValue>(), "") as TValue
 
 @OptIn(ExperimentalSerializationApi::class)
-val prettyPrint = Json {
+internal val prettyPrint = Json {
     encodeDefaults = true
     prettyPrint = true
     prettyPrintIndent = "    "
 }
 
+/**
+ * Deserializes JSON into a TValue.
+ */
 fun deserialize(str: String): TValue {
     val x = Json.decodeFromString<JsonElement>(str)
 //    println(prettyPrint.encodeToString(x))
     return deserialize(x)
 }
 
-fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
+internal fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
     val elem = json["elem"]!!.jsonPrimitive.takeIf { it.isString }!!.content
     val id = json["id"]?.jsonPrimitive?.takeIf { it.isString }?.content
     val internalsJson = json["internals"]!!
@@ -454,11 +458,14 @@ fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
     throw UnrecognizedSetRule(elem, id, internals.id, json)
 }
 
+/**
+ * Error raised when a serialized set rule is not recognized by TyKo model (this usually means it's a set-rule that doesn't originate from set-rule expression).
+ */
 class UnrecognizedSetRule(val elem: String, val id: String?, val internalsId: Int, val json: JsonObject) : Exception(
     "Unrecognized set $elem(${id ?: internalsId}), initial json: $json"
 )
 
-val SOURCE = Regex(
+internal val SOURCE = Regex(
     listOf(
         "(?<=[a-z])(?=[A-Z0-9])", // lowercase followed by uppercase or digit
         "(?<=[A-Z])(?=[A-Z][a-z])",  // uppercase followed by uppercase then lowercase
@@ -466,7 +473,7 @@ val SOURCE = Regex(
     ).joinToString("|")
 )
 
-fun camelToKebab(str: String): String = str.replace(SOURCE, "-").lowercase()
+internal fun camelToKebab(str: String): String = str.replace(SOURCE, "-").lowercase()
 
-val JsonElement.maybeString get() = castOrNull<JsonPrimitive>()?.takeIf { it.isString }?.content
-val JsonElement.maybeBool get() = castOrNull<JsonPrimitive>()?.booleanOrNull
+internal val JsonElement.maybeString get() = castOrNull<JsonPrimitive>()?.takeIf { it.isString }?.content
+internal val JsonElement.maybeBool get() = castOrNull<JsonPrimitive>()?.booleanOrNull

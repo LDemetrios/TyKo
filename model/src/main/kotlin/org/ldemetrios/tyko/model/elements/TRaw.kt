@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.DataSource
 
 
 //!https://typst.app/docs/reference/text/raw/
@@ -184,6 +183,9 @@ data class TRaw(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TRaw]
+ */
 @SerialName("set-raw")
 data class TSetRaw(
     override val internals: SetRuleInternals? = null,

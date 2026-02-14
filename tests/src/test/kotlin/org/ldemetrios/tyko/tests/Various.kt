@@ -74,7 +74,7 @@ class Various : FreeSpec({
                 .withInputsOrThrow(TDict(mapOf("a" to "b".t)), fonts, true)
                 .use { library ->
                     val value = runtime.withSingleFile("#sys.inputs.a") {
-                        runtime.evalMainRaw(this, stdlib = library, fonts = fonts)
+                        runtime.evalRaw(this, stdlib = library, fonts = fonts)
                     }
                     println(value.output)
                 }

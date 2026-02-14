@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Spacing
 
 
 //!https://typst.app/docs/reference/layout/h/
@@ -69,6 +68,9 @@ data class TH(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TH]
+ */
 @SerialName("set-h")
 data class TSetH(
     override val internals: SetRuleInternals? = null,

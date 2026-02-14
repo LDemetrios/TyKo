@@ -84,6 +84,9 @@ data class TSkew(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TSkew]
+ */
 @SerialName("set-skew")
 data class TSetSkew(
     override val internals: SetRuleInternals? = null,

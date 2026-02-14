@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Numbering
 
 
 //!https://typst.app/docs/reference/model/enum/
@@ -179,6 +178,9 @@ data class TEnum(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TEnum]
+ */
 @SerialName("set-enum")
 data class TSetEnum(
     override val internals: SetRuleInternals? = null,

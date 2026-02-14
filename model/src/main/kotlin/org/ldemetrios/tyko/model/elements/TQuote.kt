@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.Attribution
 
 
 //!https://typst.app/docs/reference/model/quote/
@@ -100,6 +99,9 @@ data class TQuote(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TQuote]
+ */
 @SerialName("set-quote")
 data class TSetQuote(
     override val internals: SetRuleInternals? = null,

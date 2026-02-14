@@ -8,13 +8,17 @@ import kotlin.reflect.jvm.javaField
 
 internal fun IntoValue.repr(sb: StringBuilder) = intoValue().repr(sb)
 
+/**
+ * `repr` of the value this object represents.
+ * Warning: the resulting `repr` is not human-readable, but it is correct Typst code, representing this value.
+ */
 fun IntoValue.repr() = buildString { repr(this) }
 
-fun StringBuilder.sumOfNotNull(vararg value: IntoValue?) {
+internal fun StringBuilder.sumOfNotNull(vararg value: IntoValue?) {
     this.sumOfNotNull(null as String?, *value)
 }
 
-fun StringBuilder.sumOfNotNull(ifEmpty: String?, vararg value: IntoValue?) {
+internal fun StringBuilder.sumOfNotNull(ifEmpty: String?, vararg value: IntoValue?) {
     val values = value.filterNotNull()
     when (values.size) {
         0 -> append(ifEmpty!!)
@@ -32,7 +36,7 @@ fun StringBuilder.sumOfNotNull(ifEmpty: String?, vararg value: IntoValue?) {
     }
 }
 
-fun TValue.writeFieldsInto(sb: StringBuilder) {
+internal fun TValue.writeFieldsInto(sb: StringBuilder) {
     val kClass = this.javaClass.kotlin
     val props = kClass.declaredMembers
         .filterIsInstance<KProperty<*>>()
@@ -51,7 +55,7 @@ fun TValue.writeFieldsInto(sb: StringBuilder) {
     namedProps.forEach { appendField(it, sb) }
 }
 
-fun TValue.appendField(
+internal fun  TValue.appendField(
     property: KProperty<*>,
     sb: StringBuilder
 ) {

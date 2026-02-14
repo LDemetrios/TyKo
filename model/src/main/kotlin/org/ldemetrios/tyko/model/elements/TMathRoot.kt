@@ -57,6 +57,9 @@ data class TMathRoot(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathRoot]
+ */
 @SerialName("set-math.root")
 data class TSetMathRoot(
     override val internals: SetRuleInternals? = null,

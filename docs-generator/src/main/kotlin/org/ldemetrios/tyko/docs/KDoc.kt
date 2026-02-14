@@ -19,6 +19,14 @@ data class KDocEmphasis(val content: List<KDocNode>) : KDocNode {
     }
 }
 
+data class KDocStrong(val content: List<KDocNode>) : KDocNode {
+    override fun render(builder: StringBuilder) {
+        builder.append("__")
+        content.forEach { it.render(builder) }
+        builder.append("__")
+    }
+}
+
 data class KDocHeader(val text: KDocNode, val level: Int) : KDocNode {
     override fun render(builder: StringBuilder) {
         builder.append("**_")

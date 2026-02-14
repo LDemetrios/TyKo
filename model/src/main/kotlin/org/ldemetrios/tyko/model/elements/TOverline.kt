@@ -87,6 +87,9 @@ data class TOverline(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TOverline]
+ */
 @SerialName("set-overline")
 data class TSetOverline(
     override val internals: SetRuleInternals? = null,

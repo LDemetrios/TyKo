@@ -104,21 +104,9 @@ data class TPdfAttach(
     }
 }
 
-@SerialName("str")
-enum class TPdfAttachRelationship : IntoStr, Option<TPdfAttachRelationship> {
-    SOURCE, DATA, ALTERNATIVE, SUPPLEMENT;
-
-    override fun intoValue(): TStr = toString().lowercase().t
-
-    companion object {
-        fun fromValue(value: TValue): TPdfAttachRelationship {
-            val candidate = (value as? TStr)?.value?.uppercase()
-            return entries.find { it.name == candidate }
-                ?: throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TPdfAttach]
+ */
 @SerialName("set-pdf.attach")
 data class TSetPdfAttach(
     override val internals: SetRuleInternals? = null,

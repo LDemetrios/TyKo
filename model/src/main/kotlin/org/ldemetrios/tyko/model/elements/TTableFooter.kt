@@ -46,6 +46,9 @@ data class TTableFooter(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTableFooter]
+ */
 @SerialName("set-table.footer")
 data class TSetTableFooter(
     override val internals: SetRuleInternals? = null,

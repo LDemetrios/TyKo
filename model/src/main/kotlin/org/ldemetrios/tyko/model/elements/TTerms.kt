@@ -103,6 +103,9 @@ data class TTerms(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTerms]
+ */
 @SerialName("set-terms")
 data class TSetTerms(
     override val internals: SetRuleInternals? = null,

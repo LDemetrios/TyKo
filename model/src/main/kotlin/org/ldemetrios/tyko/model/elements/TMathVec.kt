@@ -1,8 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.TSymbolLike
 
 
 //!https://typst.app/docs/reference/math/vec/
@@ -74,6 +73,9 @@ data class TMathVec(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathVec]
+ */
 @SerialName("set-math.vec")
 data class TSetMathVec(
     override val internals: SetRuleInternals? = null,

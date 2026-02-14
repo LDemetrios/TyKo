@@ -79,6 +79,9 @@ data class TTableHline(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTableHline]
+ */
 @SerialName("set-table.hline")
 data class TSetTableHline(
     override val internals: SetRuleInternals? = null,

@@ -59,6 +59,9 @@ data class TFigureCaption(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TFigureCaption]
+ */
 @SerialName("set-figure.caption")
 data class TSetFigureCaption(
     override val internals: SetRuleInternals? = null,

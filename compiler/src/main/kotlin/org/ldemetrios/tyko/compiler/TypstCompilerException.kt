@@ -2,18 +2,28 @@
 
 package org.ldemetrios.tyko.compiler
 
+/**
+ * Exception, representing a failed attempt to compile or evaluate the document.
+ * Should usually be created via [construct].
+ */
 class TypstCompilerException : RuntimeException {
     constructor() : super()
     constructor(message: String?) : super(message)
     constructor(message: String?, cause: Throwable?) : super(message, cause)
     constructor(cause: Throwable?) : super(cause)
-}
 
-fun TypstCompilerException(trace: List<SourceDiagnostic>, cause: Throwable? = null): TypstCompilerException {
-    val exc = trace.map { TypstCompilerException(it, cause) }
-    val res = exc.first()
-    for (another in exc.drop(1)) res.addSuppressed(another)
-    return res
+    companion object {
+        /**
+         * Performs an attempt to transform Typst's own representation of errors (List of [SourceDiagnostic]s)
+         * into JVM-like way, that is, [StackTraceElement]s. Multiple errors will be represented as [Throwable.getSuppressed].
+         */
+        fun construct(trace: List<SourceDiagnostic>, cause: Throwable? = null): TypstCompilerException {
+            val exc = trace.map { TypstCompilerException(it, cause) }
+            val res = exc.first()
+            for (another in exc.drop(1)) res.addSuppressed(another)
+            return res
+        }
+    }
 }
 
 private fun Span.toSTE(tracepoint: Tracepoint?) = StackTraceElement(

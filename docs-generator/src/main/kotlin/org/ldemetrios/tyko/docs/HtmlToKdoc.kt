@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.nodes.Node
 import org.jsoup.nodes.TextNode
+import org.jsoup.select.Elements
 import kotlin.collections.takeWhile
 
 context(urlContext: UrlContext)
@@ -32,25 +33,52 @@ fun composeDoc(html: Document, source: LinkComment): ClassDoc {
         SectionConfig(nodes, "h3", "parameters-", null)
     }
 
-    val paramHeadingLevel = headingLevel(section.paramHeadingTag) ?: 3
-    val parameters = documentation.select("${section.paramHeadingTag}[id^=${section.paramIdPrefix}]")
-        .filter { section.subDefinitionPrefix == null || !it.id().startsWith(section.subDefinitionPrefix) }
+    var parameters = collectParameters(
+        documentation = documentation,
+        paramHeadingTag = section.paramHeadingTag,
+        paramIdPrefix = section.paramIdPrefix,
+        subDefinitionPrefix = section.subDefinitionPrefix,
+    )
+
+    // Some type pages expose fields under "Constructor" with ids like "constructor-year",
+    // without a dedicated "parameters-*" section.
+    if (fragment == null && parameters.isEmpty()) {
+        parameters = collectParameters(
+            documentation = documentation,
+            paramHeadingTag = "h4",
+            paramIdPrefix = "constructor-",
+            subDefinitionPrefix = null,
+        )
+    }
+
+    return ClassDoc(
+        classDoc = headerKdoc(
+            section.header.takeWhile { !isClassDocBoundary(it) }
+        ),
+        params = parameters,
+        source = source,
+    )
+}
+
+context(urlContext: UrlContext)
+private fun collectParameters(
+    documentation: Elements,
+    paramHeadingTag: String,
+    paramIdPrefix: String,
+    subDefinitionPrefix: String?,
+): Map<String, KDocDocument> {
+    val paramHeadingLevel = headingLevel(paramHeadingTag) ?: 3
+    return documentation.select("$paramHeadingTag[id^=$paramIdPrefix]")
+        .filter { subDefinitionPrefix == null || !it.id().startsWith(subDefinitionPrefix) }
         .map { paramSection ->
             listOf(paramSection) + paramSection.nextElementSiblings().takeWhile {
-                !isParamSectionBoundary(it, paramHeadingLevel, section.paramIdPrefix)
+                !isParamSectionBoundary(it, paramHeadingLevel, paramIdPrefix)
             }
         }
         .associate {
             val name = it.first().select("code").first()!!.text().trim()
             name to paramKdoc(it)
         }
-    return ClassDoc(
-        classDoc = headerKdoc(
-            section.header.takeWhile { it.className() != "page-end-buttons" && !it.id().endsWith("definitions") }
-        ),
-        params = parameters,
-        source = source,
-    )
 }
 
 context(urlContext: UrlContext)
@@ -84,13 +112,14 @@ fun paramKdoc(elements: List<Element>): KDocDocument {
 }
 
 context(urlContext: UrlContext)
-fun paragraphKdoc(element: Element): KDocParagraph? =
-    when (element.tagName()) {
+fun paragraphKdoc(element: Element): KDocParagraph? {
+    return when (element.tagName()) {
         "h1", "h2", "h3", "h4", "h5", "h6" -> {
             if (element.hasClass("scoped-function")) return null
             val level = element.tagName().removePrefix("h").toIntOrNull() ?: 1
             KDocParagraph(listOf(KDocHeader(KDocText(headingText(element)), level)))
         }
+
         "details", "table", "thead", "tbody", "tr", "ul", "ol" -> KDocParagraph(listOfNotNull(node(element)))
         "div" -> when {
             element.className().startsWith("code code-definition") -> null
@@ -100,6 +129,7 @@ fun paragraphKdoc(element: Element): KDocParagraph? =
 
         else -> KDocParagraph(element.childNodes().mapNotNull { node(it) })
     }
+}
 
 context(urlContext: UrlContext)
 fun node(it: Node): KDocNode? = when (it) {
@@ -127,6 +157,7 @@ fun elementNode(el: Element): KDocNode = when (el.tagName()) {
     "pre" -> KDocBlockCode(el.text())
     "img" -> KDocImage(KDocText(el.attr("alt")), urlContext.resolve(el.attr("src")))
     "em" -> KDocEmphasis(el.childNodes().mapNotNull { node(it) })
+    "strong" -> KDocStrong(el.childNodes().mapNotNull { node(it) })
     "a" -> KDocLink(KDocSequence(el.childNodes().mapNotNull { node(it) }), urlContext.resolve(el.attr("href")))
     "h2" -> KDocHeader(KDocText(el.text()), 2)
     "h3" -> KDocHeader(KDocText(el.text()), 3)
@@ -158,6 +189,7 @@ fun elementNode(el: Element): KDocNode = when (el.tagName()) {
 
     "details" -> detailsNode(el)
     "summary" -> KDocSequence(el.childNodes().mapNotNull { node(it) })
+    "br" -> KDocSequence(el.childNodes().mapNotNull { node(it) })
     "table" -> tableNode(el)
     "thead" -> KDocTable(el.children().filter { it.tagName() == "tr" }.map { tableRow(it) }, emptyList())
     "tbody" -> KDocTable(emptyList(), el.children().filter { it.tagName() == "tr" }.map { tableRow(it) })
@@ -214,6 +246,12 @@ fun tableCell(it: Element): KDocTableCell =
 
 private fun headingLevel(tagName: String): Int? =
     tagName.lowercase().removePrefix("h").toIntOrNull()
+
+private fun isClassDocBoundary(element: Element): Boolean {
+    if (element.className() == "page-end-buttons" || element.id().endsWith("definitions")) return true
+    if (headingLevel(element.tagName()) == null) return false
+    return headingText(element).equals("Constructor", ignoreCase = true)
+}
 
 private fun isParamSectionBoundary(element: Element, paramHeadingLevel: Int, paramIdPrefix: String): Boolean {
     val level = headingLevel(element.tagName()) ?: return false

@@ -10,8 +10,8 @@ private const val AUTO_DOC_MARKER = "// AUTO-GENERATED DOCS. DO NOT EDIT."
 private const val PARAM_DOC_INDENT = "    "
 private val CLASS_DECLARATION = Regex(
     """^\s*(?:(?:public|private|protected|internal)\s+)?""" +
-        """(?:(?:data|sealed|enum|open|abstract|final)\s+)*""" +
-        """(class|interface|object)\b"""
+            """(?:(?:data|sealed|enum|open|abstract|final)\s+)*""" +
+            """(class|interface|object)\b"""
 )
 
 fun scanLinks(root: Path): List<LinkComment> {
@@ -170,15 +170,18 @@ private fun findParamInsertionPoints(
         ?: throw IllegalStateException(
             "Primary constructor parameter list not found near line ${classIndex + 1}",
         )
-    val paramLines = (paramRange.first..paramRange.last).toList()
+    // Ignore same-line constructor parameters in class declaration.
+    // These tend to be compact wrappers where field-level generated docs are undesired.
+    val paramLines = (paramRange.first..paramRange.last).filter { it != classIndex }
 
     return params.associateWith { name ->
         val lineIndex = findParamLineIndex(lines, paramLines, name)
-            ?: throw IllegalArgumentException(
-                "Missing '$name' in ${file.fileName}",
-            )
+            ?: return@associateWith null
+//            throw IllegalArgumentException( <- for types it's actually okay
+//                "Missing '$name' in ${file.fileName}",
+//            )
         findParamInsertionIndex(lines, lineIndex, paramRange)
-    }
+    }.filterValues { it != null } as Map<String, Int>
 }
 
 private fun findParamLineIndex(
@@ -188,15 +191,17 @@ private fun findParamLineIndex(
 ): Int? {
     val nameKebab = name.replace('\u00A0', ' ').trim()
     val namePattern = Regex("""(?<!@)\b${Regex.escape(nameKebab)}\b\s*:""")
-    val backtickedPattern = Regex("""(?<!@)`${
-        Regex.escape(nameKebab)
-    }`\s*:""")
+    val backtickedPattern = Regex(
+        """(?<!@)`${
+            Regex.escape(nameKebab)
+        }`\s*:"""
+    )
     return paramLines.firstOrNull { index ->
         val line = lines[index]
         val paramNames = extractParamNames(line)
         paramNames.any { camelToKebab(it) == nameKebab } ||
-            namePattern.containsMatchIn(line) ||
-            backtickedPattern.containsMatchIn(line)
+                namePattern.containsMatchIn(line) ||
+                backtickedPattern.containsMatchIn(line)
     }
 }
 

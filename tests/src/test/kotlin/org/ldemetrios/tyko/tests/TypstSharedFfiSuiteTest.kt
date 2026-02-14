@@ -47,6 +47,7 @@ import org.jsoup.parser.Parser
 import org.ldemetrios.tyko.driver.api.PointerAutoCleaningConfiguration
 import org.ldemetrios.tyko.driver.api.PointerAutoCleaningMode
 import org.ldemetrios.tyko.driver.api.TyKoFFIEntity
+import org.ldemetrios.tyko.driver.api.TyKoInternalApi
 import org.ldemetrios.tyko.driver.api.remainingPointers
 import org.ldemetrios.tyko.driver.chicory_based.defaultPackagesHostPath
 
@@ -190,6 +191,7 @@ private class TypstSharedFfiRunner {
         )
     )
 
+    @OptIn(TyKoInternalApi::class)
     private val libraryPrototype: Library = runtime.library(setOf(Feature.Html, Feature.A11yExtras))
         .withTestDefinitions(true)
         .withStylesOrThrow(
@@ -230,7 +232,7 @@ private class TypstSharedFfiRunner {
             val hasErrors = test.notes.any { it.kind == NoteKind.Error }
 
             if (test.attrs.eval) {
-                val eval = runtime.evalMainRaw(
+                val eval = runtime.evalRaw(
                     context,
                     main,
                     fonts = fonts,
@@ -241,6 +243,7 @@ private class TypstSharedFfiRunner {
             }
 
             if (test.attrs.paged) {
+                @OptIn(TyKoInternalApi::class)
                 val render = runtime.compileMergedWithLinksRaw(
                     context,
                     main,
@@ -356,7 +359,7 @@ private class TypstSharedFfiRunner {
             if (main == it) RResult.Ok(test.content.toByteArray())
             else context.original(it)
         }.use {
-            runtime.evalMainRaw(
+            runtime.evalRaw(
                 it,
                 main,
                 stdlib = library,
@@ -366,7 +369,7 @@ private class TypstSharedFfiRunner {
 
         val evaled = when (result) {
             is RResult.Ok -> result.value
-            is RResult.Err -> throw TypstCompilerException(result.error)
+            is RResult.Err -> throw TypstCompilerException.construct(result.error)
         }
 
         val repr = evaled.repr()
@@ -657,7 +660,7 @@ private class TypstSharedFfiRunner {
             val packageSpec = descriptor.packageSpec
             if (packageSpec != null) {
                 if (packageSpec.namespace == "preview") {
-                    return@fileContext runtime.resolvePreviewPackage(descriptor)
+                    return@fileContext runtime.resolvePackage(descriptor)
                 }
                 val version = "${packageSpec.version.major}.${packageSpec.version.minor}.${packageSpec.version.patch}"
                 val packageDir = File(packagesDir, "${packageSpec.name}-$version")

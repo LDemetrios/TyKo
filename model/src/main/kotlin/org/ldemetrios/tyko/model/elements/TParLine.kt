@@ -1,5 +1,6 @@
 package org.ldemetrios.tyko.model
 
+import org.ldemetrios.tyko.model.Numbering
 
 
 //!https://typst.app/docs/reference/model/par/#definitions-line
@@ -86,6 +87,9 @@ data class TParLine(
     }
 }
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TParLine]
+ */
 @SerialName("set-par.line")
 data class TSetParLine(
     override val internals: SetRuleInternals? = null,

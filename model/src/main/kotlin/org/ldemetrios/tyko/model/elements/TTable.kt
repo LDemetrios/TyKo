@@ -1,8 +1,8 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
+import org.ldemetrios.tyko.model.TPaint
+import org.ldemetrios.tyko.model.TrackSize
 
 
 //!https://typst.app/docs/reference/model/table/
@@ -241,6 +241,9 @@ data class TTable(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TTable]
+ */
 @SerialName("set-table")
 data class TSetTable(
     override val internals: SetRuleInternals? = null,

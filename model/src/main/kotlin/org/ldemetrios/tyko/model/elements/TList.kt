@@ -115,6 +115,9 @@ data class TList(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TList]
+ */
 @SerialName("set-list")
 data class TSetList(
     override val internals: SetRuleInternals? = null,

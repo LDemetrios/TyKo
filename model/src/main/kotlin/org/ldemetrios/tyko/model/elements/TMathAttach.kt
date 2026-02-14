@@ -93,6 +93,9 @@ data class TMathAttach(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TMathAttach]
+ */
 @SerialName("set-math.attach")
 data class TSetMathAttach(
     override val internals: SetRuleInternals? = null,

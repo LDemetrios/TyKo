@@ -1,30 +1,6 @@
 package org.ldemetrios.tyko.model
 
 
-import kotlinx.serialization.Serializable
-
-import kotlin.reflect.KType
-
-
-sealed interface TCurveControl<out T : IntoValue> : IntoValue {
-    companion object {
-        inline fun <reified T : IntoValue> fromValue(value: TValue): TCurveControl<T> = when (value) {
-            is TArray<*> -> Point.fromValue<T>(value)
-            TNone -> TNone
-            else -> throw AssertionError("Can't convert from $value")
-        }
-
-        fun fromValue(value: TValue, type: KType): TCurveControl<*> = when (value) {
-            is TArray<*> -> {
-                val arg = type.arguments.firstOrNull()?.type
-                if (arg == null) Point.fromValue<IntoValue>(value) else Point.fromValue(value, arg)
-            }
-            TNone -> TNone
-            else -> throw AssertionError("Can't convert from $value")
-        }
-    }
-}
-
 //!https://typst.app/docs/reference/visualize/curve/#definitions-cubic
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
@@ -67,7 +43,7 @@ data class TCurveCubic(
      * 
      * Required, positional; Typst type: array
      */
-    @all:Positional val end: Point<TRelative>,
+    @all:Positional val end: TPoint<TRelative>,
     // AUTO-GENERATED DOCS. DO NOT EDIT.
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/curve/#definitions-cubic](https://typst.app/docs/reference/visualize/curve/#definitions-cubic)
@@ -87,6 +63,9 @@ data class TCurveCubic(
 }
 
 
+/**
+ * Represents [`set`-rule](https://typst.app/docs/reference/styling/#set-rules) for [TCurveCubic]
+ */
 @SerialName("set-curve.cubic")
 data class TSetCurveCubic(
     override val internals: SetRuleInternals? = null,
