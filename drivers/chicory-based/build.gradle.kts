@@ -1,4 +1,3 @@
-import java.io.ByteArrayOutputStream
 import org.gradle.language.jvm.tasks.ProcessResources
 import at.released.wasm2class.InterpreterFallback
 import at.released.wasm2class.Wasm2ClassExtension
@@ -56,8 +55,6 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
                 "Unsupported TYKO_CARGO_PROFILE='$resolvedCargoProfile'. Use 'release' or 'debug'."
             )
         }
-        val stdout = ByteArrayOutputStream()
-        val stderr = ByteArrayOutputStream()
         val resolvedCargo = cargoExecutable.get()
         val path = listOf(cargoBin, System.getenv("PATH")).joinToString(":")
         val cargoFile = if (resolvedCargo.contains(File.separator)) {
@@ -79,16 +76,13 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
                 .map { file("$it/brew") }
                 .firstOrNull { it.exists() }
             if (brewFile != null) {
-                val brewOut = ByteArrayOutputStream()
-                val brewResult = project.exec {
+                val brewResult = providers.exec {
                     executable = brewFile.absolutePath
                     args("--prefix", "openssl")
-                    standardOutput = brewOut
-                    errorOutput = ByteArrayOutputStream()
                     isIgnoreExitValue = true
                 }
-                if (brewResult.exitValue == 0) {
-                    brewOut.toString().trim().ifEmpty { null }
+                if (brewResult.result.get().exitValue == 0) {
+                    brewResult.standardOutput.asText.get().trim().ifEmpty { null }
                 } else {
                     null
                 }
@@ -96,7 +90,7 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
                 null
             }
         }
-        val result = project.exec {
+        val result = providers.exec {
             workingDir = rootProject.file("typst-shared-library")
             executable = cargoFile.absolutePath
             args(
@@ -110,20 +104,19 @@ val buildTypstSharedLibrary = tasks.register("buildTypstSharedLibrary") {
             if (opensslDir != null) {
                 environment("OPENSSL_DIR", opensslDir)
             }
-            standardOutput = stdout
-            errorOutput = stderr
             isIgnoreExitValue = true
         }
-        val outText = stdout.toString().trim()
-        val errText = stderr.toString().trim()
+        val outText = result.standardOutput.asText.get().trim()
+        val errText = result.standardError.asText.get().trim()
         if (outText.isNotEmpty()) {
             logger.lifecycle(outText)
         }
         if (errText.isNotEmpty()) {
             logger.error(errText)
         }
-        if (result.exitValue != 0) {
-            throw GradleException("cargo build failed with exit code ${result.exitValue}.")
+        val exitValue = result.result.get().exitValue
+        if (exitValue != 0) {
+            throw GradleException("cargo build failed with exit code $exitValue.")
         }
     }
 }
@@ -173,6 +166,11 @@ tasks.named("precompileWasm2Class") { enabled = false }
 tasks.named("compileKotlin") { dependsOn(precompileWasm2ClassLargeHeap) }
 tasks.named("compileJava") { dependsOn(precompileWasm2ClassLargeHeap) }
 tasks.named<ProcessResources>("processResources") { dependsOn(precompileWasm2ClassLargeHeap) }
+tasks.withType<Jar>().configureEach {
+    if (name == "sourcesJar") {
+        dependsOn(precompileWasm2ClassLargeHeap)
+    }
+}
 
 wasm2class {
     targetPackage.set("org.ldemetrios.tyko.driver.chicory_based")
