@@ -21,3 +21,8 @@ include("tests")
 
 include("docs-generator")
 
+
+include("manual-plugins")
+include("manual-plugins:jar-loader")
+include("manual-plugins:launcher")
+include("tyko-cli")

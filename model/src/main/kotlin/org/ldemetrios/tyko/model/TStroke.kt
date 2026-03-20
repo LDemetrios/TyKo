@@ -59,13 +59,13 @@ enum class LineJoin : IntoStr, Smart<LineJoin> {
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
  * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
- * 
+ *
  * Defines how to draw a line.
- * 
+ *
  * A stroke has a *paint* (a solid color or gradient), a *thickness,* a line *cap,* a line *join,* a *miter limit,* and a *dash* pattern. All of these values are optional and have sensible defaults.
- * 
+ *
  * **_Example_**
- * 
+ *
  * ```typ
  * #set line(length: 100%)
  * #stack(
@@ -77,23 +77,24 @@ enum class LineJoin : IntoStr, Smart<LineJoin> {
  * )
  * ```
  * <img src="https://typst.app/assets/docs/3NofubbwIllodsFawlNd8wAAAAAAAAAA.png" alt="Preview" />
- * 
+ *
  * **_Simple strokes_**
- * 
+ *
  * You can create a simple solid stroke from a color, a thickness, or a combination of the two. Specifically, wherever a stroke is expected you can pass any of the following values:
- * 
+ *
  * - A length specifying the stroke's thickness. The color is inherited, defaulting to black.
  * - A color to use for the stroke. The thickness is inherited, defaulting to `1pt`.
  * - A stroke combined from color and thickness using the `+` operator as in `2pt + red`.
- * 
+ *
  * For full control, you can also provide a [dictionary](https://typst.app/docs/reference/foundations/dictionary/) or a `stroke` object to any function that expects a stroke. The dictionary's keys may include any of the parameters for the constructor function, shown below.
- * 
+ *
  * **_Fields_**
- * 
+ *
  * On a stroke object, you can access any of the fields listed in the constructor function. For example, `(2pt + blue).thickness` is `2pt`. Meanwhile, `stroke(red).cap` is `auto` because it's unspecified. Fields set to `auto` are inherited.
  */
 sealed interface TStroke : TValue {
     override fun type(): TType = TYPE
+
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
      *
@@ -104,6 +105,7 @@ sealed interface TStroke : TValue {
      * Required, positional; Typst type: auto|color|gradient|tiling
      */
     val paint: Smart<TPaint>?
+
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
      *
@@ -114,6 +116,7 @@ sealed interface TStroke : TValue {
      * Required, positional; Typst type: auto|length
      */
     val thickness: Smart<TLength>?
+
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
      *
@@ -130,6 +133,7 @@ sealed interface TStroke : TValue {
      * Required, positional; Typst type: auto|str
      */
     val cap: Smart<LineCap>?
+
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
      *
@@ -146,6 +150,7 @@ sealed interface TStroke : TValue {
      * Required, positional; Typst type: auto|str
      */
     val join: Smart<LineJoin>?
+
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
      *
@@ -170,6 +175,7 @@ sealed interface TStroke : TValue {
      * Required, positional; Typst type: none|auto|str|array|dictionary
      */
     val dash: Smart<Dash>?
+
     /**
      * Generated based on: [https://typst.app/docs/reference/visualize/stroke/](https://typst.app/docs/reference/visualize/stroke/)
      *
@@ -199,12 +205,12 @@ data class TStrokeImpl(
 ) : TValue, TStroke, Option<TStrokeImpl>, Smart<TStrokeImpl>, ArrayOrSingle<TStrokeImpl>, SidesSplat<TStrokeImpl>
 
 fun TStroke(
-    paint: Smart<TPaint>,
-    thickness: Smart<TLength>,
-    cap: Smart<LineCap>,
-    join: Smart<LineJoin>,
-    dash: Smart<Dash>,
-    miterLimit: Smart<TFloat>
+    paint: Smart<TPaint>? = null,
+    thickness: Smart<TLength>? = null,
+    cap: Smart<LineCap>? = null,
+    join: Smart<LineJoin>? = null,
+    dash: Smart<Dash>? = null,
+    miterLimit: Smart<TFloat>? = null,
 ) = TStrokeImpl(paint, thickness, cap, join, dash, miterLimit)
 
 sealed interface Dash : IntoValue {
@@ -228,6 +234,7 @@ data class DashArray(val array: List<DashLength>) : Dash, IntoArr<DashLength>, S
             is TArray<*> -> DashArray(
                 value.map { DashLength.fromValue(it.intoValue()) }
             )
+
             else -> throw AssertionError("Can't convert from $value")
         }
     }
@@ -303,3 +310,6 @@ enum class DashPatternPreset(val string: String) : IntoStr, Dash, Smart<DashPatt
         }
     }
 }
+
+operator fun TPaint.plus(x: TLength) = TStroke(this as Smart<TPaint>, x)
+operator fun TLength.plus(x: TPaint) = TStroke(x as Smart<TPaint>, this)

@@ -18,11 +18,11 @@ data class TContext(
         val ELEM = TLocatableElement<TContext>("context")
     }
 
-    override fun reprImpl(sb: StringBuilder) {
+    override fun reprImpl(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("{")
         for ((k, v) in func.captured) {
             sb.append("let $k = ")
-            v.repr(sb)
+            v.repr(sb, registrar)
             sb.append(";")
         }
         sb.append("context (")

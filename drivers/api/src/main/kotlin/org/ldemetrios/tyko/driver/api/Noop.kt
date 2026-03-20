@@ -14,6 +14,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun query(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -45,31 +46,8 @@ internal object NoopDriver : TypstDriver {
         throw UnsupportedOperationException()
     }
 
-    override fun detached_eval(
-        resultPtr: Long,
-        contextPtr: Long,
-        stdlibPtr: Long,
-        fontsPtr: Long,
-        sourceLen: Long,
-        sourcePtr: Long,
-        mode: Int
-    ) {
-        throw UnsupportedOperationException()
-    }
-
-    override fun detached_eval_warned(
-        resultPtr: Long,
-        contextPtr: Long,
-        stdlibPtr: Long,
-        fontsPtr: Long,
-        sourceLen: Long,
-        sourcePtr: Long,
-        mode: Int
-    ) {
-        throw UnsupportedOperationException()
-    }
-
     override fun eval_main(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         stdlibPtr: Long,
@@ -83,6 +61,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun compile_html(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -96,6 +75,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun precompile_paged(
+        session: Long,
         result: Long,
         context: Long,
         fonts: Long,
@@ -109,6 +89,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun compile_svg(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -128,6 +109,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun compile_png(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -154,6 +136,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun compile_png_merged_with_links(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -168,6 +151,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun compile_pdf(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -183,6 +167,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun render_pdf(
+        session: Long,
         result: Long,
         document: Long,
         context: Long,
@@ -234,6 +219,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun with_inputs(
+        session: Long,
         resultPtr: Long,
         fonts: Long,
         libraryPtr: Long,
@@ -245,6 +231,7 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun with_styles(
+        session: Long,
         resultPtr: Long,
         fonts: Long,
         libraryPtr: Long,
@@ -257,6 +244,38 @@ internal object NoopDriver : TypstDriver {
     }
 
     override fun ext_with_test_definitions(libraryPtr: Long, close_previous: Int): Long {
+        throw UnsupportedOperationException()
+    }
+
+    override fun create_native_func_data(nameLen: Long, namePtr: Long, ticket: Long): Long {
+        throw UnsupportedOperationException()
+    }
+
+    override fun free_native_func_data(nativeFuncDataPtr: Long) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun register_native_func(
+        libraryPtr: Long,
+        nativeFuncDataPtr: Long,
+        nameLen: Long,
+        namePtr: Long,
+        closePrevious: Int,
+    ): Long {
+        throw UnsupportedOperationException()
+    }
+
+    override fun register_value(
+        session: Long,
+        resultPtr: Long,
+        fonts: Long,
+        libraryPtr: Long,
+        nameLen: Long,
+        namePtr: Long,
+        valueLen: Long,
+        valuePtr: Long,
+        closePrevious: Int,
+    ) {
         throw UnsupportedOperationException()
     }
 
@@ -329,4 +348,4 @@ internal object NoopMemory : MemoryInterface {
 
 @OptIn(TyKoFFIEntity::class)
 @TyKoInternalApi
-val NoopCore = TypstCore { _ -> NoopDriver to NoopMemory }
+val NoopCore = TypstCore { _, _ -> NoopDriver to NoopMemory }

@@ -12,7 +12,7 @@ data class TLocation(val id: TStr) : TValue, TSelectable<TValue>, TLinkDestinati
         val TYPE = TType.LOCATION
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         TODO()
     }
 }

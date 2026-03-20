@@ -29,8 +29,10 @@ data class TFraction(val value: TFloat) : TValue, Spacing, Smart<TFraction>, Opt
         val TYPE = TType.FRACTION
     }
 
-    override fun repr(sb: StringBuilder)  {
-        value.repr(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>)  {
+        value.repr(sb, registrar)
         sb.append("fr")
     }
 }
+
+val TFloat.fr get() = TFraction(this)

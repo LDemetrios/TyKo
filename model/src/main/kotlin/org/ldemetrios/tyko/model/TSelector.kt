@@ -37,7 +37,7 @@ package org.ldemetrios.tyko.model
 sealed interface TSelector<out S : TValue> : TCounterKey, TValue {
     override fun type(): TType = TYPE
 
-    fun reprAsSelector(sb: StringBuilder) = repr(sb)
+    fun reprAsSelector(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) = repr(sb, registrar)
 
     companion object {
         val TYPE = TType.SELECTOR
@@ -71,9 +71,9 @@ fun <S : TValue> TSelector<S>.after(start: TSelector<*>, inclusive: Boolean = tr
  * in others can be explicitly transformed into a selector.
  */
 sealed interface TSelectable<out S : TValue> : TSelector<S> {
-    override fun reprAsSelector(sb: StringBuilder) {
+    override fun reprAsSelector(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("selector(")
-        repr(sb)
+        repr(sb, registrar)
         sb.append(")")
     }
 }
@@ -84,11 +84,11 @@ sealed interface TSelectable<out S : TValue> : TSelector<S> {
  */
 @SerialName("selector.or")
 data class TOrSelector<out S : TValue>(val options: TArray<TSelector<S>>) : TSelector<S>, Smart<TSelector<S>> {
-    override fun repr(sb: StringBuilder) {
-        options.first<TSelector<S>>().reprAsSelector(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        options.first<TSelector<S>>().reprAsSelector(sb, registrar)
         if (options.size > 1) {
             sb.append(".or(")
-            options.drop(1).forEach { it.reprAsSelector(sb); sb.append(",") }
+            options.drop(1).forEach { it.reprAsSelector(sb, registrar); sb.append(",") }
             sb.append(")")
         }
     }
@@ -100,11 +100,11 @@ data class TOrSelector<out S : TValue>(val options: TArray<TSelector<S>>) : TSel
  */
 @SerialName("selector.and")
 data class TAndSelector<S : TValue>(val options: TArray<TSelector<S>>) : TSelector<S>, Smart<TSelector<S>> {
-    override fun repr(sb: StringBuilder) {
-        options.first<TSelector<S>>().reprAsSelector(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        options.first<TSelector<S>>().reprAsSelector(sb, registrar)
         if (options.size > 1) {
             sb.append(".and(")
-            options.drop(1).forEach { it.reprAsSelector(sb); sb.append(",") }
+            options.drop(1).forEach { it.reprAsSelector(sb, registrar); sb.append(",") }
             sb.append(")")
         }
     }
@@ -120,10 +120,10 @@ data class TBeforeSelector<S : TValue>(
     val end: TSelector<*>,
     val inclusive: Boolean = true
 ) : TSelector<S>, Smart<TSelector<S>> {
-    override fun repr(sb: StringBuilder) {
-        selector.reprAsSelector(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        selector.reprAsSelector(sb, registrar)
         sb.append(".before(")
-        end.repr(sb)
+        end.repr(sb, registrar)
         if (!inclusive) {
             sb.append(", inclusive: false")
         }
@@ -141,10 +141,10 @@ data class TAfterSelector<S : TValue>(
     val start: TSelector<*>,
     val inclusive: Boolean = true
 ) : TSelector<S>, Smart<TSelector<S>> {
-    override fun repr(sb: StringBuilder) {
-        selector.reprAsSelector(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        selector.reprAsSelector(sb, registrar)
         sb.append(".after(")
-        start.repr(sb)
+        start.repr(sb, registrar)
         if (!inclusive) {
             sb.append(", inclusive: false")
         }
@@ -158,10 +158,10 @@ data class TAfterSelector<S : TValue>(
  */
 @SerialName("selector.where")
 data class TWhereSelector<S : TContent>(val func: TSelectableFunc<S>, val args: TArgs<*>) : TSelector<S> {
-    override fun repr(sb: StringBuilder) {
-        func.repr(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        func.repr(sb, registrar)
         sb.append(".where(..")
-        args.repr(sb)
+        args.repr(sb, registrar)
         sb.append(")")
     }
 }

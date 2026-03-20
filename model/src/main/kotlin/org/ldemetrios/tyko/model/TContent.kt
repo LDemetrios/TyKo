@@ -37,7 +37,7 @@ import org.ldemetrios.tyko.model.TTransform
  * 
  * In the web app, you can hover over a content variable to see exactly which elements the content is composed of and what fields they have. Alternatively, you can inspect the output of the [`repr`](https://typst.app/docs/reference/foundations/repr/) function.
  */
-sealed class TContent() : SequenceElement(), TValue, TTransform, ArrayOrSingle<TContent>, Option<TContent>,
+sealed class TContent() : SequenceElement, TValue, TTransform, ArrayOrSingle<TContent>, Option<TContent>,
     Smart<TContent>, Attribution, Computable<TContent>, TStackComponent, TAttachment {
     override fun type(): TType = TYPE
     abstract fun elem(): TElement
@@ -46,21 +46,21 @@ sealed class TContent() : SequenceElement(), TValue, TTransform, ArrayOrSingle<T
         val TYPE = TType.CONTENT
     }
 
-    internal open fun reprImpl(sb: StringBuilder) {
-        elem().repr(sb)
+    internal open fun reprImpl(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        elem().repr(sb, registrar)
         sb.append("(")
-        writeFieldsInto(sb)
+        writeFieldsInto(sb, registrar)
         sb.append(")")
     }
 
-    override fun repr(sb: StringBuilder)  {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>)  {
         if (label == null) {
-            reprImpl(sb)
+            reprImpl(sb, registrar)
         } else {
             sb.append("[#(")
-            reprImpl(sb)
+            reprImpl(sb, registrar)
             sb.append(")#")
-            label!!.repr(sb)
+            label!!.repr(sb, registrar)
             sb.append("]")
         }
     }

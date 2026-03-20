@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("org.ldemetrios:tyko:0.4.0")
+    implementation("org.ldemetrios:tyko:0.5.a")
     implementation("org.jetbrains.kotlin:kotlin-scripting-common:2.1.0")
     implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:2.1.0")
     implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:2.1.0")

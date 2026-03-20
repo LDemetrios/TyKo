@@ -1,6 +1,7 @@
 package org.ldemetrios.tyko.model
 
 
+import org.ldemetrios.tyko.model.TStyle.Companion.TYPE
 import org.ldemetrios.tyko.model.TTransform
 import org.ldemetrios.tyko.model.UnionType
 import kotlin.reflect.KProperty
@@ -18,9 +19,9 @@ data class TStyles(@SerialName("value") val value: TArray<TStyle>) : TValue, TTr
         val TYPE = TType.STYLE
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         if (value.size == 1) {
-            value[0].repr(sb)
+            value[0].repr(sb, registrar)
         } else {
             val classes = value.map { it.javaClass }
             if (classes.distinct().size != 1) {
@@ -40,7 +41,7 @@ data class TStyles(@SerialName("value") val value: TArray<TStyle>) : TValue, TTr
                     .filterIsInstance<KProperty<*>>()
                     .filter { it.name != "internals" }
                     .forEach {
-                        style.appendField(it, sb)
+                        style.appendField(it, sb, registrar)
                     }
             }
             sb.append(")")
@@ -52,7 +53,7 @@ data class TStyles(@SerialName("value") val value: TArray<TStyle>) : TValue, TTr
 /**
  * Represents a style, either `set`-rule or `show`-rule
  */
-sealed class TStyle : SequenceElement(), TValue {
+sealed interface TStyle : SequenceElement, TValue {
     override fun type(): TType = TYPE
 
     companion object {
@@ -131,15 +132,15 @@ data class TShowRule(
     val selector: TSelector<*>?,
     val transform: TTransform,
     val outside: Boolean? = null, // TODO wtf is this?
-) : TStyle() {
-    override fun repr(sb: StringBuilder) {
+) : TStyle {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("show")
         if (selector != null) {
             sb.append(" ")
-            selector.repr(sb)
+            selector.repr(sb, registrar)
         }
         sb.append(":")
-        transform.repr(sb)
+        transform.repr(sb, registrar)
     }
 }
 
@@ -262,11 +263,11 @@ data class SetRuleInternals(
  * ```
  * <img src="https://typst.app/assets/docs/NBzIViTspdnPhsbo3WGDLAAAAAAAAAAA.png" alt="Preview" />
  */
-sealed class TSetRule() : TStyle() {
+sealed class TSetRule() : TStyle {
     abstract val internals: SetRuleInternals?
     override fun type(): TType = TYPE
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("set ")
         this.javaClass
             .getAnnotation(SerialName::class.java)
@@ -279,8 +280,18 @@ sealed class TSetRule() : TStyle() {
             .filterIsInstance<KProperty<*>>()
             .filter { it.name != "internals" }
             .forEach {
-                appendField(it, sb)
+                appendField(it, sb, registrar)
             }
         sb.append(")")
     }
 }
+
+enum class TTarget : TStyle {
+    Paged, Html;
+
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        TODO()
+    }
+}
+
+

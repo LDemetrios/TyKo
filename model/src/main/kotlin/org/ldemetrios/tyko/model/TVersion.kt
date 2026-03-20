@@ -28,7 +28,7 @@ data class TVersion(
      * 
      * Required, positional, variadic; Typst type: int|array
      */
-    @all:Variadic @all:SerialName("value") val components: TArray<TInt>
+    @all:Variadic @all:SerialName("value") @all:Positional val components: TArray<TInt>
 ) : TValue, Smart<TVersion> {
     override fun type(): TType = TYPE
 

@@ -16,13 +16,13 @@ data class TStyled(
         val ELEM = TElement("styled")
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("{")
         for (style in styles.value) {
-            style.repr(sb)
+            style.repr(sb, registrar)
             sb.append(";")
         }
-        child.repr(sb)
+        child.repr(sb, registrar)
         sb.append("}")
     }
 }

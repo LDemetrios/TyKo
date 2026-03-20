@@ -25,10 +25,10 @@ sealed interface TValue : IntoValue {
      * Append a `repr` of the value onto given StringBuilder.
      * Warning: the resulting `repr` is not human-readable, but it is correct Typst code, representing this value.
      */
-    fun repr(sb: StringBuilder)  {
+    fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(javaClass.getAnnotation(SerialName::class.java).value)
         sb.append("(")
-        writeFieldsInto(sb)
+        writeFieldsInto(sb, registrar)
         sb.append(")")
     }
 }

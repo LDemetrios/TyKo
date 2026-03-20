@@ -28,7 +28,9 @@ data object TNone : TValue, Dash, Smart<TNone>, TCurveControl<Nothing>, ArrayOrS
 
     val TYPE = TType.NONE
 
-    override fun repr(sb: StringBuilder) {
+    override fun toString() = "TNone"
+
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("none")
     }
 }

@@ -99,7 +99,7 @@ data class TType(
         val PATH = TType("path")
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(name.value)
     }
 }

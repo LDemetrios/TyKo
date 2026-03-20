@@ -4,6 +4,7 @@ package org.ldemetrios.tyko.driver.api
 interface TypstDriver {
     fun format_source(resultPtr: Long, contentLen: Long, contentPtr: Long, column: Int, tabWidth: Int)
     fun query(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -20,27 +21,8 @@ interface TypstDriver {
     fun allocate_flattened_tree(): Long
     fun release_flattened_tree(treePtr: Long)
 
-    fun detached_eval(
-        resultPtr: Long,
-        contextPtr: Long,
-        stdlibPtr: Long,
-        fontsPtr: Long,
-        sourceLen: Long,
-        sourcePtr: Long,
-        mode: Int
-    )
-
-    fun detached_eval_warned(
-        resultPtr: Long,
-        contextPtr: Long,
-        stdlibPtr: Long,
-        fontsPtr: Long,
-        sourceLen: Long,
-        sourcePtr: Long,
-        mode: Int
-    )
-
     fun eval_main(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         stdlibPtr: Long,
@@ -52,6 +34,7 @@ interface TypstDriver {
     )
 
     fun compile_html(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -63,6 +46,7 @@ interface TypstDriver {
     )
 
     fun precompile_paged(
+        session: Long,
         result: Long,
         context: Long,
         fonts: Long,
@@ -74,6 +58,7 @@ interface TypstDriver {
     )
 
     fun compile_svg(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -94,6 +79,7 @@ interface TypstDriver {
     )
 
     fun compile_png(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -116,6 +102,7 @@ interface TypstDriver {
     )
 
     fun compile_png_merged_with_links(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -128,6 +115,7 @@ interface TypstDriver {
     )
 
     fun compile_pdf(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -141,6 +129,7 @@ interface TypstDriver {
     )
 
     fun render_pdf(
+        session: Long,
         result: Long,
         document: Long,
         context: Long,
@@ -161,6 +150,7 @@ interface TypstDriver {
     fun library(features: Int): Long
     fun free_library(libraryPtr: Long)
     fun with_inputs(
+        session: Long,
         resultPtr: Long,
         fonts: Long,
         libraryPtr: Long,
@@ -170,6 +160,7 @@ interface TypstDriver {
     )
 
     fun with_styles(
+        session: Long,
         resultPtr: Long,
         fonts: Long,
         libraryPtr: Long,
@@ -180,6 +171,27 @@ interface TypstDriver {
     )
 
     fun ext_with_test_definitions(libraryPtr: Long, close_previous: Int): Long
+
+    fun create_native_func_data(nameLen: Long, namePtr: Long, ticket: Long): Long
+    fun free_native_func_data(nativeFuncDataPtr: Long)
+    fun register_native_func(
+        libraryPtr: Long,
+        nativeFuncDataPtr: Long,
+        nameLen: Long,
+        namePtr: Long,
+        closePrevious: Int,
+    ): Long
+    fun register_value(
+        session: Long,
+        resultPtr: Long,
+        fonts: Long,
+        libraryPtr: Long,
+        nameLen: Long,
+        namePtr: Long,
+        valueLen: Long,
+        valuePtr: Long,
+        closePrevious: Int,
+    )
 
     fun free_lazy_hash_library(lazyHashPtr: Long)
 

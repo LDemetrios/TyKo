@@ -26,8 +26,8 @@ data class TPath(
 ) : TValue, Smart<TPath>, DataSource, Option<TPath>, ArrayOrSingle<TPath> {
     override fun type(): TType = TYPE
 
-    override fun repr(sb: StringBuilder) {
-        TStr("$root$path").repr(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        TStr("$root$path").repr(sb, registrar)
     }
 
     companion object {

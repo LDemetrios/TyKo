@@ -30,10 +30,10 @@ data class TCounterStep(
 ) : TSelectableContent<TCounterStep>() {
     override fun elem(): TLocatableElement<TCounterStep> = ELEM
 
-    override fun reprImpl(sb: StringBuilder) {
-        key.counter().repr(sb)
+    override fun reprImpl(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        key.counter().repr(sb, registrar)
         sb.append(".step(level:")
-        level.repr(sb)
+        level.repr(sb, registrar)
         sb.append(")")
     }
 

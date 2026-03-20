@@ -14,9 +14,13 @@
             <option value="$PROJECT_DIR$/drivers" />
             <option value="$PROJECT_DIR$/drivers/api" />
             <option value="$PROJECT_DIR$/drivers/chicory-based" />
+            <option value="$PROJECT_DIR$/manual-plugins" />
+            <option value="$PROJECT_DIR$/manual-plugins/jar-loader" />
+            <option value="$PROJECT_DIR$/manual-plugins/launcher" />
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/runtime" />
             <option value="$PROJECT_DIR$/tests" />
+            <option value="$PROJECT_DIR$/tyko-cli" />
           </set>
         </option>
       </GradleProjectSettings>

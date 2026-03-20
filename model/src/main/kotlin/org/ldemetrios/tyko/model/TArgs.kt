@@ -53,12 +53,12 @@ data class TArgs<out T : IntoValue>(val positional: TArray<T>, val named: TDict<
         )
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("arguments(")
         sb.append("..")
-        positional.repr(sb)
+        positional.repr(sb, registrar)
         sb.append(", ..")
-        named.repr(sb)
+        named.repr(sb, registrar)
         sb.append(")")
     }
 }

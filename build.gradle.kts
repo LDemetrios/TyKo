@@ -13,7 +13,7 @@ plugins {
 
 
 group = "org.ldemetrios"
-version = "0.4.0"
+version = "0.5.a"
 //
 //tasks.jar {
 //    manifest {
@@ -63,12 +63,15 @@ tasks.test {
     useJUnitPlatform()
 }
 
-subprojects {
-    val excludedFromPublishing = setOf(
-        "drivers",
-        "docs-generator"
-    )
+val publishableProjectPaths = setOf(
+    ":compiler",
+    ":model",
+    ":runtime",
+    ":drivers:api",
+    ":drivers:chicory-based"
+)
 
+subprojects {
     // Ensure published metadata targets Java 17 for all published subprojects
     plugins.withId("org.jetbrains.kotlin.jvm") {
         kotlin {
@@ -83,7 +86,7 @@ subprojects {
         }
     }
 
-    if (!path.startsWith(":tests") && name !in excludedFromPublishing) {
+    if (path in publishableProjectPaths) {
         apply(plugin = "com.vanniktech.maven.publish")
         apply(plugin = "signing")
 
@@ -103,7 +106,7 @@ subprojects {
                 "tyko" + project.path.split(":")
                     .filter { it.isNotBlank() }
                     .joinToString("-", prefix = "-"),
-                "0.4.0"
+                "0.5.a"
             )
 
             pom {
@@ -149,7 +152,7 @@ subprojects {
 }
 
 val centralPublishableProjects = subprojects.filter {
-    !it.path.startsWith(":tests") && it.name !in setOf("drivers", "docs-generator")
+    it.path in publishableProjectPaths
 }
 
 tasks.register("publishToMavenCentral") {
@@ -163,4 +166,3 @@ tasks.register("publishAndReleaseToMavenCentral") {
     description = "Publishes and releases all publishable modules to Maven Central."
     dependsOn(centralPublishableProjects.map { "${it.path}:publishAndReleaseToMavenCentral" })
 }
-

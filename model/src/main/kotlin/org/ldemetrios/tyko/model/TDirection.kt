@@ -43,7 +43,7 @@ enum class TDirection : TValue, Smart<TDirection>, Option<TDirection> {
         val TYPE = TType.DIRECTION
     }
 
-    override fun repr(sb: StringBuilder)  {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>)  {
         sb.append(name.lowercase())
     }
 }

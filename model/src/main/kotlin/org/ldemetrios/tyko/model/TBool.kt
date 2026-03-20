@@ -29,7 +29,7 @@ data class TBool(val value: Boolean) : TValue, Smart<TBool>, Option<TBool>, TAlt
         val TYPE = TType.BOOL
     }
 
-    override fun repr(sb: StringBuilder)  {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>)  {
         sb.append(value)
     }
 }

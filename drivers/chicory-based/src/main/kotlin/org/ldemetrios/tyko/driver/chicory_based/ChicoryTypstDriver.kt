@@ -32,6 +32,7 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.ldemetrios.tyko.driver.api.TyKoFFIEntity
 import org.ldemetrios.tyko.driver.api.TyKoInternalApi
+import org.ldemetrios.tyko.driver.api.resolveJavaObject
 import kotlin.collections.map
 
 fun <T, A : T, B : T> B.tryTransforming(func: (B) -> A) = try {
@@ -58,7 +59,6 @@ fun sanitizeStackTrace(stackTrace: Array<StackTraceElement>, instance: Instance)
                 )
             } else it
         }
-            .drop(1)
             .toTypedArray()
     }
 
@@ -78,6 +78,7 @@ private const val GENERATED_META_RESOURCE = "org/ldemetrios/tyko/driver/chicory_
 internal fun TypstChicoryInstance(
     options: WasiOptions,
     readFileByReaderTicket: (ticket: Long, coordinates: String) -> String,
+    invokeNativeFunctionByTicket: (ticket: Long, session: Long, args: String, context: String) -> String,
 ): Instance {
     val readByTicket = HostFunction(
         "env", "read_file_by_reader_ticket",
@@ -125,10 +126,98 @@ internal fun TypstChicoryInstance(
         instance.memory().writeLong(resultPtr.toInt() + 8, ptr)
         longArrayOf()
     }
+    val invokeNativeFunction = HostFunction(
+        "env", "invoke_native_function_by_ticket",
+        FunctionType.of(
+            listOf(ValType.I32, ValType.I64, ValType.I64, ValType.I32, ValType.I64, ValType.I32, ValType.I64),
+            listOf()
+        ),
+    ) { instance, args ->
+        val resultPtr = args[0]
+        val ticket = args[1]
+        val valuesLen = args[2]
+        val valuesPtr = args[3]
+        val contextLen = args[4]
+        val contextPtr = args[5]
+        val session = args[6]
+        val values = instance.memory().readString(valuesPtr.toInt(), valuesLen.toInt())
+        val context = instance.memory().readString(contextPtr.toInt(), contextLen.toInt())
+        val result = invokeNativeFunctionByTicket(ticket, session, values, context)
+        val resultBytes = result.toByteArray()
+        val ptr = instance.export("allocate_ptr_for_raw_string").apply(resultBytes.size.toLong())[0]
+        instance.memory().write(ptr.toInt(), resultBytes)
+        instance.memory().writeLong(resultPtr.toInt(), resultBytes.size.toLong())
+        instance.memory().writeLong(resultPtr.toInt() + 8, ptr)
+        longArrayOf()
+    }
+
+    val jvmObjectToString = HostFunction(
+        "env", "jvm_object_to_string",
+        FunctionType.of(
+            listOf(ValType.I32, ValType.I64, ValType.I64),
+            listOf()
+        ),
+    ) { instance, args ->
+        val (result_ptr, session, id) = args;
+        val result_v = resolveJavaObject(session, id).toString()
+        val resultBytes = result_v.toByteArray()
+        val ptr = instance.export("allocate_ptr_for_raw_string").apply(resultBytes.size.toLong())[0]
+        instance.memory().write(ptr.toInt(), resultBytes)
+        instance.memory().writeLong(result_ptr.toInt(), resultBytes.size.toLong())
+        instance.memory().writeLong(result_ptr.toInt() + 8, ptr)
+        longArrayOf()
+    }
+
+    val jvmObjectGetClass = HostFunction(
+        "env", "jvm_object_get_class",
+        FunctionType.of(
+            listOf(ValType.I32, ValType.I64, ValType.I64),
+            listOf()
+        ),
+    ) { instance, args ->
+        val (result_ptr, session, id) = args;
+        val result_v = resolveJavaObject(session, id)?.javaClass?.descriptorString() ?: "null"
+        val resultBytes = result_v.toByteArray()
+        val ptr = instance.export("allocate_ptr_for_raw_string").apply(resultBytes.size.toLong())[0]
+        instance.memory().write(ptr.toInt(), resultBytes)
+        instance.memory().writeLong(result_ptr.toInt(), resultBytes.size.toLong())
+        instance.memory().writeLong(result_ptr.toInt() + 8, ptr)
+        longArrayOf()
+    }
+
+    val jvmObjectHashCode = HostFunction(
+        "env", "jvm_object_hash_code",
+        FunctionType.of(
+            listOf(ValType.I64, ValType.I64),
+            listOf(ValType.I32)
+        )
+    ) { instance, args ->
+        val (session, id) = args;
+        val result_v = resolveJavaObject(session, id).hashCode()
+        longArrayOf(result_v.toLong())
+    }
+
+    val jvmObjectEquals = HostFunction(
+        "env", "jvm_object_equals",
+        FunctionType.of(
+            listOf(ValType.I64, ValType.I64, ValType.I64, ValType.I64),
+            listOf(ValType.I32)
+        )
+    ) { instance, args ->
+        val (lSession, lId, rSession, rId) = args;
+        val result_v = resolveJavaObject(lSession, lId) == (resolveJavaObject(rSession, rId))
+        longArrayOf(if (result_v) 1L else 0L)
+    }
+
     val store = Store()
     store.addFunction(readByTicket)
     store.addFunction(printBacktrace)
     store.addFunction(downloadUrl)
+    store.addFunction(invokeNativeFunction)
+    store.addFunction(jvmObjectToString)
+    store.addFunction(jvmObjectGetClass)
+    store.addFunction(jvmObjectHashCode)
+    store.addFunction(jvmObjectEquals)
     val wasi = WasiPreview1.builder().withOptions(options).build();
     store.addFunction(*wasi.toHostFunctions())
 
@@ -286,6 +375,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun query(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -298,6 +388,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         selectorPtr: Long
     ) {
         instance.export("query").call(
+            session,
             resultPtr,
             contextPtr,
             fontsPtr,
@@ -333,47 +424,8 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         instance.export("release_flattened_tree").call(treePtr)
     }
 
-    override fun detached_eval(
-        resultPtr: Long,
-        contextPtr: Long,
-        stdlibPtr: Long,
-        fontsPtr: Long,
-        sourceLen: Long,
-        sourcePtr: Long,
-        mode: Int
-    ) {
-        instance.export("detached_eval").call(
-            resultPtr,
-            contextPtr,
-            stdlibPtr,
-            fontsPtr,
-            sourceLen,
-            sourcePtr,
-            mode.toLong()
-        )
-    }
-
-    override fun detached_eval_warned(
-        resultPtr: Long,
-        contextPtr: Long,
-        stdlibPtr: Long,
-        fontsPtr: Long,
-        sourceLen: Long,
-        sourcePtr: Long,
-        mode: Int
-    ) {
-        instance.export("detached_eval_warned").call(
-            resultPtr,
-            contextPtr,
-            stdlibPtr,
-            fontsPtr,
-            sourceLen,
-            sourcePtr,
-            mode.toLong()
-        )
-    }
-
     override fun compile_html(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -384,6 +436,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         nowNanos: Int,
     ) {
         instance.export("compile_html").call(
+            session,
             resultPtr,
             contextPtr,
             fontsPtr,
@@ -396,6 +449,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun eval_main(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         stdlibPtr: Long,
@@ -406,6 +460,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         nowNanos: Int,
     ) {
         instance.export("eval_main").call(
+            session,
             resultPtr,
             contextPtr,
             stdlibPtr,
@@ -418,6 +473,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun compile_svg(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -430,6 +486,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         to: Int,
     ) {
         instance.export("compile_svg").call(
+            session,
             resultPtr,
             contextPtr,
             fontsPtr,
@@ -444,6 +501,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun compile_png(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -457,6 +515,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         ppi: Double,
     ) {
         instance.export("compile_png").call(
+            session,
             resultPtr,
             contextPtr,
             fontsPtr,
@@ -472,6 +531,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun compile_png_merged_with_links(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -483,6 +543,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         ppi: Double,
     ) {
         instance.export("compile_png_merged_with_links").call(
+            session,
             resultPtr,
             contextPtr,
             fontsPtr,
@@ -496,6 +557,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun compile_pdf(
+        session: Long,
         resultPtr: Long,
         contextPtr: Long,
         fontsPtr: Long,
@@ -508,6 +570,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         optionsPtr: Long,
     ) {
         instance.export("compile_pdf").call(
+            session,
             resultPtr,
             contextPtr,
             fontsPtr,
@@ -566,6 +629,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun with_inputs(
+        session: Long,
         resultPtr: Long,
         fontsPtr: Long,
         libraryPtr: Long,
@@ -574,6 +638,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         closePrevious: Int,
     ) {
         instance.export("with_inputs").call(
+            session,
             resultPtr,
             fontsPtr,
             libraryPtr,
@@ -585,6 +650,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
 
 
     override fun with_styles(
+        session: Long,
         resultPtr: Long,
         fontsPtr: Long,
         libraryPtr: Long,
@@ -594,6 +660,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         append: Int,
     ) {
         instance.export("with_styles").call(
+            session,
             resultPtr,
             fontsPtr,
             libraryPtr,
@@ -606,6 +673,55 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
 
     override fun ext_with_test_definitions(libraryPtr: Long, close_previous: Int): Long {
         return instance.export("ext_with_test_definitions").call(libraryPtr, close_previous.toLong())[0]
+    }
+
+    override fun create_native_func_data(nameLen: Long, namePtr: Long, ticket: Long): Long {
+        return instance.export("create_native_func_data").call(nameLen, namePtr, ticket)[0]
+    }
+
+    override fun free_native_func_data(nativeFuncDataPtr: Long) {
+        instance.export("free_native_func_data").call(nativeFuncDataPtr)
+    }
+
+    override fun register_native_func(
+        libraryPtr: Long,
+        nativeFuncDataPtr: Long,
+        nameLen: Long,
+        namePtr: Long,
+        closePrevious: Int,
+    ): Long {
+        return instance.export("register_native_func")
+            .call(
+                libraryPtr,
+                nativeFuncDataPtr,
+                nameLen,
+                namePtr,
+                closePrevious.toLong(),
+            )[0]
+    }
+
+    override fun register_value(
+        session: Long,
+        resultPtr: Long,
+        fonts: Long,
+        libraryPtr: Long,
+        nameLen: Long,
+        namePtr: Long,
+        valueLen: Long,
+        valuePtr: Long,
+        closePrevious: Int,
+    ) {
+        instance.export("register_value").call(
+            session,
+            resultPtr,
+            fonts,
+            libraryPtr,
+            nameLen,
+            namePtr,
+            valueLen,
+            valuePtr,
+            closePrevious.toLong(),
+        )
     }
 
     override fun free_lazy_hash_library(lazyHashPtr: Long) {
@@ -633,6 +749,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun precompile_paged(
+        session: Long,
         result: Long,
         context: Long,
         fonts: Long,
@@ -643,6 +760,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         now_nanos: Int
     ) {
         instance.export("precompile_paged").call(
+            session,
             result,
             context,
             fonts,
@@ -675,6 +793,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
     }
 
     override fun render_pdf(
+        session: Long,
         result: Long,
         document: Long,
         context: Long,
@@ -682,6 +801,7 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
         options_ptr: Long
     ) {
         instance.export("render_pdf").call(
+            session,
             result,
             document,
             context,
@@ -714,10 +834,12 @@ class ChicoryTypstDriver(val instance: Instance) : TypstDriver {
 @OptIn(TyKoFFIEntity::class, TyKoInternalApi::class)
 fun ChicoryTypstCore(
     wasiOptions: WasiOptions = defaultWasiOptions(),
-) = TypstCore { reader ->
+) = TypstCore { readByTicket, nativeCallByTicket ->
     val instance = TypstChicoryInstance(
         wasiOptions,
-    ) { ticket, coordinates -> reader(ticket)(coordinates) }
+        { ticket, coordinates -> readByTicket(ticket)(coordinates) },
+        { ticket, session, args, context -> nativeCallByTicket(ticket)(session, args, context) },
+    )
     val memory = ChicoryMemoryInterface(instance)
     val engine = ChicoryTypstDriver(instance)
     engine.boot(longArrayOf())

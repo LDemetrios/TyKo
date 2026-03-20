@@ -50,7 +50,7 @@ data class TModule(
         val TYPE = TType.MODULE
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("std.")
         sb.append(name!!.value)
     }

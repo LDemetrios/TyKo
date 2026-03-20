@@ -14,7 +14,7 @@ data class TSpace(
         val ELEM = TElement("space")
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append( "[ ]")
     }
 }

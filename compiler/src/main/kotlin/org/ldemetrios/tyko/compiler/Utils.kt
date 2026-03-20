@@ -7,12 +7,11 @@ internal inline fun <reified T> T.serialize(): String = Json.encodeToString<T>(t
 
 internal inline fun <reified T> String.deserialize(): T = Json.decodeFromString<T>(this)
 
-internal fun <T> RResult<T, List<SourceDiagnostic>>.orThrow(): T = when (this) {
+fun <T> RResult<T, List<SourceDiagnostic>>.orThrow(): T = when (this) {
     is RResult.Ok -> value
     is RResult.Err -> throw TypstCompilerException.construct(error)
 }
 
-internal fun <T> Warned<RResult<T, List<SourceDiagnostic>>>.orThrowIgnoringWarnings(): T = output.orThrow()
+fun <T> Warned<RResult<T, List<SourceDiagnostic>>>.outputOrThrow(): T = output.orThrow()
 
-internal fun <T> Warned<RResult<T, List<SourceDiagnostic>>>.orThrowWithWarnings(): Warned<T> =
-    Warned(output.orThrow(), warnings)
+fun <T> Warned<RResult<T, List<SourceDiagnostic>>>.warnedOrThrow(): Warned<T> = map { it.orThrow() }

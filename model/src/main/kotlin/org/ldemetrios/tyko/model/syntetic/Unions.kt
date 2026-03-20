@@ -8,7 +8,7 @@ import kotlin.reflect.typeOf
 annotation class UnionType(val value: Array<String>)
 
 @UnionType(["style", "content", "symbol"])
-sealed class SequenceElement : TValue
+sealed interface SequenceElement : TValue
 
 @UnionType(["path", "bytes"])
 sealed interface DataSource : TValue, DataSourceOrPreset<Nothing>

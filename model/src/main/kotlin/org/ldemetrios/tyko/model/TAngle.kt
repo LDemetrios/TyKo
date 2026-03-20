@@ -33,8 +33,8 @@ data class TAngle(/** Value of the angle, in `rad`ians */ val value: TFloat) : T
         val TYPE = TType.ANGLE
     }
 
-    override fun repr(sb: StringBuilder)  {
-        value.repr(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>)  {
+        value.repr(sb, registrar)
         sb.append("rad")
     }
 }

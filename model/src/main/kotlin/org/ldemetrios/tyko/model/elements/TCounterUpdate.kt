@@ -31,10 +31,10 @@ data class TCounterUpdate(
 ) : TSelectableContent<TCounterUpdate>() {
     override fun elem(): TLocatableElement<TCounterUpdate> = ELEM
 
-    override fun reprImpl(sb: StringBuilder) {
-        key.counter().repr(sb)
+    override fun reprImpl(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        key.counter().repr(sb, registrar)
         sb.append(".update(")
-        update.repr(sb)
+        update.repr(sb, registrar)
         sb.append(")")
     }
 

@@ -47,11 +47,11 @@ data class TMathRoot(
         val ELEM = TElement("math.root")
     }
 
-    override fun reprImpl(sb: StringBuilder) {
+    override fun reprImpl(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("math.root(")
-        (index ?: TNone).repr(sb)
+        (index ?: TNone).repr(sb, registrar)
         sb.append(",")
-        radicand.repr(sb)
+        radicand.repr(sb, registrar)
         sb.append(")")
     }
 }

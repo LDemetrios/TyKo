@@ -54,7 +54,7 @@ data class TStr(val value: String) : TValue, TSmartquoteLevel, TFigureKind, TFon
         val TYPE = TType.STR
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(Json.encodeToString(value))
     }
 }

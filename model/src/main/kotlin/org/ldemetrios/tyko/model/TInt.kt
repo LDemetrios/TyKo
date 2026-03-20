@@ -41,7 +41,7 @@ data class TInt(val value: Long) : TValue, TColorComponent, TTextWeight, TMatAug
         val TYPE = TType.INT
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(value)
     }
 }

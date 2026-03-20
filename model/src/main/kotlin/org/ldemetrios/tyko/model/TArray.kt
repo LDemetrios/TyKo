@@ -61,10 +61,10 @@ data class TArray<out T : IntoValue>(val value: List<T>) : TValue, Option<TArray
         return super.toArray(generator)
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("(")
         value.forEach {
-            it.repr(sb)
+            it.repr(sb, registrar)
             sb.append(",")
         }
         sb.append(")")

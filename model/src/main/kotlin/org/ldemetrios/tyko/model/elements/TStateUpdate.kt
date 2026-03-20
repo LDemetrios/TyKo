@@ -38,7 +38,7 @@ data class TStateUpdate(
      * 
      * Required, positional; Typst type: any|function
      */
-    @all:Positional val update: TFunc,
+    @all:Positional val update: TValue,
     override val label: TLabel? = null
 ) : TSelectableContent<TStateUpdate>() {
     override fun elem(): TLocatableElement<TStateUpdate> = ELEM
@@ -47,11 +47,11 @@ data class TStateUpdate(
         val ELEM = TLocatableElement<TStateUpdate>("state.update")
     }
 
-    override fun reprImpl(sb: StringBuilder) {
+    override fun reprImpl(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("state(")
-        key.repr(sb)
+        key.repr(sb, registrar)
         sb.append(").update(")
-        update?.repr(sb)
+        update.repr(sb, registrar)
         sb.append(")")
     }
 }

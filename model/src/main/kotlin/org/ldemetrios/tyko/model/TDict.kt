@@ -60,15 +60,15 @@ data class TDict<out V: IntoValue>(val value: Map<String, V>) : TValue, Map<Stri
 
     override fun intoValue(): TDict<V> = this
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         if (value.isEmpty()) {
             sb.append("(:)")
         } else {
             sb.append("(")
             value.forEach { (key, value) ->
-                sb.append(key)
+                key.t.repr(sb, registrar)
                 sb.append(":")
-                value.repr(sb)
+                value.repr(sb, registrar)
                 sb.append(", ")
             }
             sb.append(")")

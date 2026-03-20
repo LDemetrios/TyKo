@@ -161,7 +161,7 @@ data class TDatetime(
         val TYPE = TType.DATETIME
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("datetime(")
         if (year is TInt) sb.append("year:").append(year.value).append(",")
         if (month is TInt) sb.append("month:").append(month.value).append(",")

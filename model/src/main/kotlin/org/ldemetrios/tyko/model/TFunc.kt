@@ -132,7 +132,7 @@ data class TNativeFunc(
                     ptr == other.ptr
                 }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(name)
     }
 }
@@ -154,11 +154,12 @@ open class TElement(
                     ptr == other.ptr
                 }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(
             when (name) {
                 "sequence" -> "[a\\ ].func()"
                 "math.align-point" -> "\$&\$.body.func()"
+                "context" -> "(context none).func()"
                 else -> name
             }
         )
@@ -187,11 +188,11 @@ data class TClosure(
     val captured: TDict<TValue>,
     val numPosParams: Long,
 ) : TFunc {
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("{")
         for ((k, v) in captured) {
             sb.append("let $k = ")
-            v.repr(sb)
+            v.repr(sb, registrar)
             sb.append(";")
         }
         if (node is RealClosure) {
@@ -231,11 +232,11 @@ data class SyntClosure(override val value: String) : TClosureSyntaxNode()
 
 @SerialName("func.with")
 data class TFuncWith(val func: TFunc, val args: TArgs<*>) : TFunc {
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("(")
-        func.repr(sb)
+        func.repr(sb, registrar)
         sb.append(".with(..")
-        args.repr(sb)
+        args.repr(sb, registrar)
         sb.append("))")
     }
 }

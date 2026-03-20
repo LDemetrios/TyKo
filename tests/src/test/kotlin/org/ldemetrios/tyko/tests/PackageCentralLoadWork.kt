@@ -9,18 +9,18 @@ import org.ldemetrios.tyko.runtime.TypstRuntime
 
 class PackageCentralLoadWork : FreeSpec({
     "Compiles with preview package via fs context download" {
-        val runtime = TypstRuntime(
+        val runtime = TypstRuntime {
             ChicoryTypstCore(
                 defaultWasiOptions()
             )
-        )
+        }
         val main = FileDescriptor(null, "/main.typ")
         val source = """
             #import "@preview/alchemist:0.1.8" : *
             = Hello
         """.trimIndent()
 
-        val context = runtime.fileContext { file ->
+        val context = runtime.fileContextOf { file ->
             when (val pack = file.packageSpec?.namespace) {
                 null -> if (file.virtualPath == "/main.typ") {
                     RResult.Ok(source.toByteArray())
@@ -33,13 +33,13 @@ class PackageCentralLoadWork : FreeSpec({
             }
         }
 
-        val result = runtime.evalRaw(context, main)
+        val result = runtime.eval(context, main)
         when (val output = result.output) {
             is RResult.Ok -> println(output.value)
             is RResult.Err -> fail("Expected package load to succeed, got: ${output.error}")
         }
 
-        context.close()
+        context.release()
         runtime.close()
     }
 })

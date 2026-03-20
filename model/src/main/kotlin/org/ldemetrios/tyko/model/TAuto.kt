@@ -21,7 +21,9 @@ MarginSplat<TAuto> {
 
     val TYPE = TType.AUTO
 
-    override fun repr(sb: StringBuilder) {
+    override fun toString() = "TAuto"
+
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("auto")
     }
 }

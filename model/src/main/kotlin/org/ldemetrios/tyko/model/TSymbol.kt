@@ -17,26 +17,26 @@ sealed class TSymbol : TValue, TSymbolLike, ArrayOrSingle<TSymbol>, Option<TSymb
 
 @SerialName("symbol.single")
 data class TSingleSymbol(val text: TStr) : TSymbol() {
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("symbol(")
-        text.repr(sb)
+        text.repr(sb, registrar)
         sb.append(")")
     }
 }
 
 @SerialName("symbol.complex")
 data class TComplexSymbol(val value: TArray<SymVariant>) : TSymbol() {
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("symbol(..")
-        value.repr(sb)
+        value.repr(sb, registrar)
         sb.append(")")
     }
 }
 
 @SerialName("symbol.modified")
 data class TModifiedSymbol(val list: TArray<SymVariant>, val modifiers: String) : TSymbol() {
-    override fun repr(sb: StringBuilder) {
-        TComplexSymbol(list).repr(sb)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        TComplexSymbol(list).repr(sb, registrar)
         sb.append(".").append(modifiers)
     }
 }

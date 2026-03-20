@@ -63,8 +63,8 @@ sealed interface TAlignment : TValue, Smart<TAlignment>, ArrayOrSingle<TAlignmen
 
 @SerialName("alignment")
 internal class TCompositeAlignment(override val h: THAlignment, override val v: TVAlignment) : TAlignment {
-    override fun repr(sb: StringBuilder) {
-        sb.sumOfNotNull(h, v)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        sb.sumOfNotNull(registrar, h, v)
     }
 }
 
@@ -87,7 +87,7 @@ enum class THAlignment : TAlignment {
     override val h: THAlignment get() = this
     override val v: TVAlignment? get() = null
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(name.lowercase())
     }
 }
@@ -107,7 +107,7 @@ enum class TVAlignment : TAlignment {
     override val h: THAlignment? get() = null
     override val v: TVAlignment get() = this
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(name.lowercase())
     }
 }

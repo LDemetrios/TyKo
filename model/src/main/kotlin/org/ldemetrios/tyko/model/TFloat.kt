@@ -7,17 +7,17 @@ import kotlinx.serialization.Serializable
 // AUTO-GENERATED DOCS. DO NOT EDIT.
 /**
  * Generated based on: [https://typst.app/docs/reference/foundations/float/](https://typst.app/docs/reference/foundations/float/)
- * 
+ *
  * A floating-point number.
- * 
+ *
  * A limited-precision representation of a real number. Typst uses 64 bits to store floats. Wherever a float is expected, you can also pass an [integer](https://typst.app/docs/reference/foundations/int/).
- * 
+ *
  * You can convert a value to a float with this type's constructor.
- * 
+ *
  * NaN and positive infinity are available as `float.nan` and `float.inf` respectively.
- * 
+ *
  * **_Example_**
- * 
+ *
  * ```typ
  * #3.14 \
  * #1e4 \
@@ -34,8 +34,15 @@ data class TFloat(val value: Double) : TValue, ArrayOrSingle<TFloat>, Smart<TFlo
         val TYPE = TType.FLOAT
     }
 
-    override fun repr(sb: StringBuilder)  {
-        sb.append(value)
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
+        sb.append(
+            when {
+                value.isInfinite() && value < 0 -> "-float.inf"
+                value.isInfinite() -> "float.inf"
+                value.isNaN() -> "float.nan"
+                else -> value.toString()
+            }
+        )
     }
 }
 
@@ -43,6 +50,7 @@ data class TFloat(val value: Double) : TValue, ArrayOrSingle<TFloat>, Smart<TFlo
  * Convenience extension converting `Double` into the corresponding Typst value.
  */
 val Double.t get() = TFloat(this)
+
 /**
  * Convenience extension converting `Float` into the corresponding Typst value.
  */

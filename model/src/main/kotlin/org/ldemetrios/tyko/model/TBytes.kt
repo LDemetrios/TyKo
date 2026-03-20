@@ -48,7 +48,7 @@ data class TBytes(val value: ByteArray) : TValue, DataSource {
         val TYPE = TType.BYTES
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("bytes((")
         value.forEach {
             sb.append("0x")

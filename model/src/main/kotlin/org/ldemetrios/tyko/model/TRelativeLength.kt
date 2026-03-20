@@ -101,7 +101,9 @@ open class TRelativeBase<out Self : TRelativeBase<Self>> internal constructor(
         val TYPE = TType.RELATIVE
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun toString(): String = "TRelative($absolutePart pt, $fontPart em, $ratioPart)"
+
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         listOfNotNull(
             "${absolutePart.value}" to "pt",
             "${fontPart.value}" to "em",
@@ -184,7 +186,7 @@ data class TLength(
         internal val ZERO = TLength(0.0.t, 0.0.t)
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append("(")
         if (abs.value != 0.0 || em.value == 0.0) {
             sb.append(abs.value).append("pt")
@@ -245,7 +247,7 @@ data class TRatio(val value: TFloat) : TValue, TColorComponent, TRelativeBase<TR
         internal val ZERO = TRatio(0.0.t)
     }
 
-    override fun repr(sb: StringBuilder) {
+    override fun repr(sb: StringBuilder, registrar: (Any) -> Pair<Long, Long>) {
         sb.append(value.value * 100).append("%")
     }
 }
@@ -267,15 +269,15 @@ val TFloat.em get() = TLength(0.0.t, this)
 /**
  * Adds two absolute-or-em lengths component-wise.
  */
-fun TLength.plus(another: TLength) = TLength(TFloat(abs.value + another.abs.value), TFloat(em.value + another.em.value))
+operator fun TLength.plus(another: TLength) = TLength(TFloat(abs.value + another.abs.value), TFloat(em.value + another.em.value))
 /**
  * Adds two ratio values.
  */
-fun TRatio.plus(another: TRatio) = TRatio(TFloat(value.value + another.value.value))
+operator fun TRatio.plus(another: TRatio) = TRatio(TFloat(value.value + another.value.value))
 /**
  * Adds two relative values by combining absolute and ratio components.
  */
-fun TRelativeBase<*>.plus(another: TRelativeBase<*>): TRelative = TRelativeBase<TRelative>(
+operator fun TRelativeBase<*>.plus(another: TRelativeBase<*>): TRelative = TRelativeBase<TRelative>(
     TFloat(absolutePart.value + another.absolutePart.value),
     TFloat(fontPart.value + another.fontPart.value),
     TFloat(ratioPart.value + another.ratioPart.value)

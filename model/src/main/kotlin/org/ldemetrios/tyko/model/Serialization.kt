@@ -2,6 +2,7 @@ package org.ldemetrios.tyko.model
 
 
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
@@ -12,6 +13,7 @@ import kotlinx.serialization.json.boolean
 import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.double
 import kotlinx.serialization.json.int
+import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -189,7 +191,12 @@ internal val POSSIBLY_EMPTY_DICT_CLASSES = setOf(
     TMatAugmentDict::class, Corners::class
 )
 
-internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: String): Any? {
+internal fun deserializeAs(
+    json: JsonElement,
+    expectedType: KType,
+    jsonPath: String,
+    resolver: (Long, Long) -> Any?
+): Any? {
     if (json is JsonNull) {
         if (expectedType.isMarkedNullable) return null as Any?
         throw AssertionError("Can't deserialize $json as $expectedType at $jsonPath")
@@ -223,7 +230,8 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
                 deserializeAs(
                     it,
                     expectedType.arguments[0].type!!,
-                    "$jsonPath/$idx"
+                    "$jsonPath/$idx",
+                    resolver,
                 )
             }
 
@@ -238,7 +246,7 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
             if (typeDiscriminator == "set-rule") {
                 val origin = obj["original"]
                 if (origin == JsonNull || origin == null) {
-                    val (newObj, parsed) = preprocessSetRule(obj)
+                    val (newObj, parsed) = preprocessSetRule(obj, jsonPath, resolver)
                     if (parsed != null) return parsed
                     obj = newObj!!
                 } else {
@@ -250,6 +258,10 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
                         )
                     )
                 }
+            } else if (typeDiscriminator == "jvm_object") {
+                val session = obj["session"]!!.jsonPrimitive.long
+                val id = obj["id"]!!.jsonPrimitive.long
+                return TJvmObject(resolver(session, id))
             }
 
             typeDiscriminator = obj["type"]!!.jsonPrimitive.content
@@ -259,28 +271,38 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
             when (klass) {
                 TNone::class -> return TNone
                 TAuto::class -> return TAuto
+                TFloat::class -> {
+                    val bits = obj["value-bits"]?.jsonPrimitive?.contentOrNull
+                    if (bits != null) {
+                        val raw = bits.toULongOrNull()
+                            ?: throw AssertionError("Invalid float bit pattern `$bits` at $jsonPath")
+                        return TFloat(Double.fromBits(raw.toLong()))
+                    }
+                }
+
                 VirtualRoot.Project::class -> return VirtualRoot.Project
                 LineWidth::class -> return LineWidth
                 TDict::class -> return TDict(obj["value"]!!.jsonObject.mapValues {
                     deserializeAs(
                         it.value,
                         type[0].type ?: typeOf<TValue>(),
-                        "$jsonPath/${it.key}"
+                        "$jsonPath/${it.key}",
+                        resolver,
                     ) as IntoValue
                 })
 
                 SidesImpl::class -> return Sides.fromValue(
-                    deserializeAs(json, TDict::class(expectedType[0]), jsonPath) as TValue,
+                    deserializeAs(json, TDict::class(expectedType[0]), jsonPath, resolver) as TValue,
                     Sides::class(expectedType[0].type ?: typeOf<TValue>()),
                 )
 
                 MarginImpl::class -> return Margin.fromValue(
-                    deserializeAs(json, TDict::class(expectedType[0]), jsonPath) as TValue,
+                    deserializeAs(json, TDict::class(expectedType[0]), jsonPath, resolver) as TValue,
                     Margin::class(expectedType[0].type ?: typeOf<TValue>()),
                 )
 
                 CornersImpl::class -> return Corners.fromValue(
-                    deserializeAs(json, TDict::class(expectedType[0]), jsonPath) as TValue,
+                    deserializeAs(json, TDict::class(expectedType[0]), jsonPath, resolver) as TValue,
                     Corners::class(expectedType[0].type ?: typeOf<TValue>()),
                 )
 
@@ -310,7 +332,8 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
                             deserializeAs(
                                 it,
                                 type[0].type ?: typeOf<TValue>(),
-                                "$jsonPath/$idx"
+                                "$jsonPath/$idx",
+                                resolver,
                             ) as IntoValue
                         }
                     )
@@ -320,7 +343,8 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
                             deserializeAs(
                                 it,
                                 typeOf<DashLength>(),
-                                "$jsonPath/$idx"
+                                "$jsonPath/$idx",
+                                resolver,
                             ) as DashLength
                         }
                     )
@@ -329,7 +353,7 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
             val arguments = if (typeDiscriminator == "array") {
                 val arr = obj["value"]!!.jsonArray
                 parameters.mapIndexed { idx, it ->
-                    deserializeAs(arr[idx], it, "$jsonPath/${constructor.parameters[idx].name}")
+                    deserializeAs(arr[idx], it, "$jsonPath/${constructor.parameters[idx].name}", resolver)
                 }
             } else {
                 val source = if (typeDiscriminator == "dict") obj["value"]!!.jsonObject else obj
@@ -338,7 +362,7 @@ internal fun deserializeAs(json: JsonElement, expectedType: KType, jsonPath: Str
                         ?: camelToKebab(constructor.parameters[idx].name!!)
                     val value = source[name]
                     value?.let { json ->
-                        deserializeAs(json, it, "$jsonPath/${constructor.parameters[idx].name}")
+                        deserializeAs(json, it, "$jsonPath/${constructor.parameters[idx].name}", resolver)
                     }
                 }
             }
@@ -371,7 +395,8 @@ private fun KType.resolveParameter(constructorOwner: KType): KType = when (val k
     else -> throw AssertionError("Can't resolve $this as parameter of $constructorOwner")
 }
 
-internal fun deserialize(json: JsonElement): TValue = deserializeAs(json, typeOf<TValue>(), "") as TValue
+internal fun deserialize(json: JsonElement, resolver: (Long, Long) -> Any?): TValue =
+    deserializeAs(json, typeOf<TValue>(), "", resolver) as TValue
 
 @OptIn(ExperimentalSerializationApi::class)
 internal val prettyPrint = Json {
@@ -383,17 +408,24 @@ internal val prettyPrint = Json {
 /**
  * Deserializes JSON into a TValue.
  */
-fun deserialize(str: String): TValue {
+fun deserialize(
+    str: String,
+    resolver: (Long, Long) -> Any? = { _, _ -> throw AssertionError("Resolving java objects is not supported by default") }
+): TValue {
     val x = Json.decodeFromString<JsonElement>(str)
 //    println(prettyPrint.encodeToString(x))
-    return deserialize(x)
+    return deserialize(x, resolver)
 }
 
-internal fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
+internal fun preprocessSetRule(
+    json: JsonObject,
+    jsonPath: String,
+    resolver: (Long, Long) -> Any?
+): Pair<JsonObject?, TValue?> {
     val elem = json["elem"]!!.jsonPrimitive.takeIf { it.isString }!!.content
     val id = json["id"]?.jsonPrimitive?.takeIf { it.isString }?.content
     val internalsJson = json["internals"]!!
-    val internals = deserializeAs(internalsJson, typeOf<SetRuleInternals>(), "") as SetRuleInternals
+    val internals = deserializeAs(internalsJson, typeOf<SetRuleInternals>(), "", resolver) as SetRuleInternals
     val value = json["value"]!!.jsonPrimitive.takeIf { it.isString }!!.content
     val reconstructed = json["reconstructed"]!!
     fun set(field: String, v: JsonElement) = JsonObject(
@@ -413,10 +445,81 @@ internal fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
             "width", "height" -> return set(reconstructed)
         }
 
+        "align" -> when (id) {
+            "alignment" -> return set(reconstructed)
+        }
+
+        "par" -> when (id) {
+            "justify" -> return set(reconstructed)
+        }
+
+        "block" -> when (id) {
+            "above",
+            "below",
+            "sticky",
+            "breakable" -> return set(reconstructed)
+        }
+
+        "hide" -> when (id) {
+            null -> when (internals.id) {
+                1 -> {
+                    return show("hide")
+                }
+            }
+        }
+
         "text" -> when (id) {
+            "size",
+            "lang",
+            "hyphenate",
+            "cjk-latin-spacing",
+            "overhang",
+            "font",
+            "weight" -> return set(reconstructed)
+
             null -> when (internals.id) {
                 38 -> when (val func = reconstructed.castOrNull<JsonObject>()?.get("value")?.maybeString) {
                     "lower", "upper" -> return show(func)
+                }
+
+                40 -> {
+                    val obj = reconstructed.jsonObject["value"]!!.jsonObject
+                    val kind =
+                        deserializeAs(obj["kind"]!!, typeOf<TStr>(), "$jsonPath/reconstructed/kind", resolver) as TStr
+                    val shift = deserializeAs(
+                        obj["shift"]!!,
+                        typeOf<Smart<TLength>>(),
+                        "$jsonPath/reconstructed/shift(baseline)",
+                        resolver
+                    ) as IntoValue
+                    val size = deserializeAs(
+                        obj["size"]!!,
+                        typeOf<Smart<TLength>>(),
+                        "$jsonPath/reconstructed/size",
+                        resolver
+                    ) as IntoValue
+                    val typographic = deserializeAs(
+                        obj["typographic"]!!,
+                        typeOf<TBool>(),
+                        "$jsonPath/reconstructed/typographic",
+                        resolver
+                    ) as IntoValue
+                    val func = when (kind.value) {
+                        "super" -> TSuper.ELEM
+                        "sub" -> TSub.ELEM
+                        else -> throw UnrecognizedSetRule(elem, id, internals.id, json)
+                    }
+                    return null to TShowRule(
+                        null,
+                        TFuncWith(
+                            func,
+                            TArgs.of(
+                                "typographic" eq typographic,
+                                "baseline" eq shift,
+                                "size" eq size,
+                            )
+                        )
+                    )
                 }
             }
         }
@@ -453,6 +556,10 @@ internal fun preprocessSetRule(json: JsonObject): Pair<JsonObject?, TValue?> {
             null -> when (internals.id) {
                 10 -> TODO("is_repeated")
             }
+        }
+
+        "target" -> when (id) {
+            "target" -> return null to TTarget.valueOf(reconstructed.jsonObject["value"]!!.maybeString!!.replaceFirstChar { it.uppercase() })
         }
     }
     throw UnrecognizedSetRule(elem, id, internals.id, json)
